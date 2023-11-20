@@ -6,7 +6,7 @@ const Home = () => {
   const [apiResponse, setApiResponse] = useState(null);
 
   useEffect(() => {
-    fetch('https://toyotathailand4u.com/salemaninformation/109A1')
+    fetch('https://toyotathailand4u.com/salemaninformation/109A1',{ mode: 'no-cors' })
       .then(response => response.json())
       .then(data => {
         setApiResponse(data);
