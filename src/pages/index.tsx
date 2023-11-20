@@ -3,14 +3,15 @@ import Header from '../components/Header';
 import styles from '../styles/Home.module.css';
 
 const Home = () => {
-  const [showroomData, setShowroomData] = useState(null);
+  const [salesmanData, setSalesmanData] = useState(null);
 
   useEffect(() => {
-    fetch('https://4ec2-184-82-232-37.ngrok-free.app/api/showrooms/show',{ mode: 'no-cors' })
+    fetch('http://toyotathonburi.co.th/api/salesmandata/search/109A1M/')
       .then(response => response.json())
       .then(data => {
-        setShowroomData(data);
-        // ตัวอย่าง: แสดงข้อมูล showroom ที่ได้รับ
+        if (data.status) {
+          setSalesmanData(data.data[0]);
+        }
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
@@ -18,13 +19,21 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Header />
-      {showroomData ? (
+      {salesmanData ? (
         <div>
-          {/* แสดงข้อมูล showroom ที่นี่ */}
-          <h1>Showroom Information</h1>
-          {/* ตัวอย่างการแสดงข้อมูล */}
-          <h1>test GIT AND API</h1>
-          {/* แสดงข้อมูลอื่นๆ ตามที่ต้องการ */}
+          <h1>{salesmanData.name} ({salesmanData.nickname})</h1>
+          <p>รหัสขาย: {salesmanData.sale_code}</p>
+          <p>คำขวัญส่วนตัว: {salesmanData.personal_motto}</p>
+          <p>เริ่มงาน: {salesmanData.start_date}</p>
+          <p>สโมสรขาย: {salesmanData.salesman_club}</p>
+          <p>โทรศัพท์: {salesmanData.phone}</p>
+          <p>Facebook: {salesmanData.facebook}</p>
+          <p>Line: {salesmanData.line}</p>
+          <img src={`http://toyotathonburi.co.th/images/${salesmanData.image}`} alt={salesmanData.name} />
+          <p>ประสบการณ์การทำงาน: {salesmanData.work_exp} ปี</p>
+          <p>โชว์รูม: {salesmanData.showroom}</p>
+          <p>คะแนนเฉลี่ย: {salesmanData.avg_rating}</p>
+          <img src={`http://toyotathonburi.co.th/images/${salesmanData.qrcode}`} alt="QR Code" />
         </div>
       ) : (
         <p>กำลังโหลดข้อมูล...</p>
