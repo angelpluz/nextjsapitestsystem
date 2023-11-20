@@ -3,15 +3,13 @@ import Header from '../components/Header';
 import styles from '../styles/Home.module.css';
 
 const Home = () => {
-  const [salesmanData, setSalesmanData] = useState(null);
+  const [apiResponse, setApiResponse] = useState(null);
 
   useEffect(() => {
-    fetch('http://toyotathonburi.co.th/api/salesmandata/search/109A1M/')
+    fetch('https://toyotaforu.com/testWebp')
       .then(response => response.json())
       .then(data => {
-        if (data.status) {
-          setSalesmanData(data.data[0]);
-        }
+        setApiResponse(data);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
@@ -19,9 +17,12 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Header />
-      {salesmanData ? (
+      {apiResponse ? (
         <div>
-
+          <h1>API Response</h1>
+          <p>Success: {apiResponse.success ? 'Yes' : 'No'}</p>
+          <p>Message: {apiResponse.message}</p>
+          <p>Data: {apiResponse.data}</p>
         </div>
       ) : (
         <p>กำลังโหลดข้อมูล...</p>
