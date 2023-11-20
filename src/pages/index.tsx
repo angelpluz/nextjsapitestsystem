@@ -3,13 +3,14 @@ import Header from '../components/Header';
 import styles from '../styles/Home.module.css';
 
 const Home = () => {
-  const [apiResponse, setApiResponse] = useState(null);
+  const [show, setShow] = useState(null);
 
   useEffect(() => {
-    fetch('https://toyotaforu.com/testWebp')
+    fetch('https://api.tvmaze.com/search/shows?q=golden')
       .then(response => response.json())
       .then(data => {
-        setApiResponse(data);
+        // สมมติว่าเราสนใจเฉพาะผลลัพธ์แรก
+        setShow(data[0].show);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
@@ -17,13 +18,24 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Header />
-      {apiResponse ? (
+      {show ? (
         <div>
-          <h1>API Response</h1>
-          <h1>API Response</h1>
+          <h1>{show.name}</h1>
+          <p>Type: {show.type}</p>
+          <p>Language: {show.language}</p>
+          <p>Genres: {show.genres.join(', ')}</p>
+          <p>Status: {show.status}</p>
+          <p>Runtime: {show.runtime} minutes</p>
+          <p>Premiered: {show.premiered}</p>
+          <p>Ended: {show.ended}</p>
+          <p>Network: {show.network.name}</p>
+          <p>Country: {show.network.country.name}</p>
+          <p><a href={show.url}>Official Site</a></p>
+          <img src={show.image.medium} alt={`Cover for ${show.name}`} />
+          <div dangerouslySetInnerHTML={{ __html: show.summary }}></div>
         </div>
       ) : (
-        <p>กำลังโหลดข้อมูล...</p>
+        <p>Loading...</p>
       )}
     </div>
   );
