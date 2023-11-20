@@ -3,31 +3,34 @@ import Header from '../components/Header';
 import styles from '../styles/Home.module.css';
 
 const Home = () => {
-  const [shows, setShows] = useState([]);
+  const [showroomData, setShowroomData] = useState(null);
 
   useEffect(() => {
-    const fetchShows = async () => {
-      const response = await fetch('https://api.tvmaze.com/search/shows?q=golden');
-      const data = await response.json();
-      setShows(data);
-    };
-
-    fetchShows();
+    fetch('https://4ec2-184-82-232-37.ngrok-free.app/api/showrooms/show')
+      .then(response => response.json())
+      .then(data => {
+        setShowroomData(data);
+        // ตัวอย่าง: แสดงข้อมูล showroom ที่ได้รับ
+      })
+      .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   return (
-    <>
+    <div className={styles.container}>
       <Header />
-      <div className={styles.container}>
-        <h1 className={styles.title}>TV Shows</h1>
-        {shows.map((show, index) => (
-          <div key={index}>
-            <h2>{show.show.name}</h2>
-            {/* แสดงข้อมูลอื่นๆ ของรายการทีวีที่นี่ */}
-          </div>
-        ))}
-      </div>
-    </>
+      {showroomData ? (
+        <div>
+          {/* แสดงข้อมูล showroom ที่นี่ */}
+          <h1>Showroom Information</h1>
+          {/* ตัวอย่างการแสดงข้อมูล */}
+          <p>Name: {showroomData.name}</p>
+          <p>Location: {showroomData.location}</p>
+          {/* แสดงข้อมูลอื่นๆ ตามที่ต้องการ */}
+        </div>
+      ) : (
+        <p>กำลังโหลดข้อมูล...</p>
+      )}
+    </div>
   );
 };
 
