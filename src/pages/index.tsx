@@ -2,8 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header'; // Make sure this path is correct
 import styles from '../styles/Home.module.css'; // Make sure this path is correct
 
+
+interface SalesmanData {
+  name: string;
+  nickname: string;
+  sale_code: string;
+  // ระบุคุณสมบัติอื่นๆ ตามที่อยู่ในข้อมูลของคุณ
+}
 const Home = () => {
-  const [salesmanData, setSalesmanData] = useState([]);
+  const [salesmanData, setSalesmanData] = useState<SalesmanData | null>(null);
 
   useEffect(() => {
     const fetchSalesmanData = async () => {
