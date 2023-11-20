@@ -2,9 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import styles from '../styles/Home.module.css';
 
-const Home = () => {
-  const [show, setShow] = useState(null);
 
+interface Show {
+  name: string;
+  type: string;
+  language: string;
+  genres: string[];
+  // ระบุคุณสมบัติอื่นๆ ที่มีใน API
+}
+const Home = () => {
+  const [show, setShow] = useState<Show | null>(null);
   useEffect(() => {
     fetch('https://api.tvmaze.com/search/shows?q=golden')
       .then(response => response.json())
