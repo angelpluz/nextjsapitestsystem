@@ -1,0 +1,39 @@
+/* Home.module.css */
+.container {
+    padding: 0px;
+    background-color: #f7f7f7;
+    /* Other styles as needed */
+}
+.body {
+    color: rgb(var(--foreground-rgb));
+    background: #f7f7f7;
+}
+
+.title {
+    color: blue;
+    font-size: 24px;
+    text-align: center;
+    /* Other styles as needed */
+}
+
+@media (max-width: 934px) {
+    .title {
+        font-size: 18px; /* Smaller font size on small screens */
+        /* Customize other styles as needed */
+    }
+
+    .button {
+        background-color: #007bff; /* Example color */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      
+      .button:hover {
+        background-color: #0056b3; /* Darker shade for hover effect */
+      }
+      
+}

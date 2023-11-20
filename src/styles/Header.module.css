@@ -1,0 +1,119 @@
+/* Header.module.css */
+/* .header {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  padding: 0.5rem; 
+  
+} */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  border: none;
+  box-shadow: none;
+}
+.Home_container__9OuOz {
+  padding-top: 2000; /* หรือลบเส้นนี้หากคุณไม่ต้องการ padding ที่ด้านบนเลย */
+  /* ปรับค่า padding ด้านอื่นๆ ตามความต้องการ */
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 2rem; /* ตั้งค่าความสูงของปุ่ม */
+}
+
+.menuLine {
+  display: block;
+  width: 2rem; /* ความกว้างของแต่ละขีด */
+  height: 0.25rem; /* ความหนาของแต่ละขีด */
+  background-color: black; /* สีของขีด */
+  border-radius: 10px; /* ใส่โค้งมนให้ขีดเล็กน้อย */
+  transition: all 0.3s ease;
+}
+
+/* ถ้าคุณมีเนื้อหาอื่นๆ ใน header และต้องการให้มันอยู่ทางซ้าย */
+.logo {
+  margin-right: auto; /* จะผลักโลโก้ไปทางซ้าย */
+}
+/* การตั้งค่าเริ่มต้นสำหรับเมนู nav, อาจจะซ่อนเมนูเมื่อไม่ใช้งาน */
+.nav {
+  display: none;
+}
+
+/* การจัดรูปแบบเมนูเมื่อเปิด */
+.navOpen {
+  display: flex;
+  flex-direction: column; /* ให้ลิงก์เรียงตามแนวตั้ง */
+  position: absolute; /* หรือ 'fixed' ขึ้นอยู่กับว่าคุณต้องการให้เมนูตำแหน่งตายตัวหรือเลื่อนไปกับหน้า */
+  top: 10%; /* ปรับค่านี้ตามตำแหน่งของ header ของคุณ */
+  right: 0; /* จัดให้เมนูอยู่ทางด้านขวา */
+  background: white; /* หรือสีอื่นที่คุณต้องการ */
+  width: max-content; /* หรือกำหนดขนาดเฉพาะ */
+  border: 1px solid #ccc; /* หรือสไตล์อื่นๆ ตามที่คุณต้องการ */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* เพิ่มเงาเล็กน้อย */
+}
+
+/* จัดรูปแบบสำหรับแต่ละลิงก์ในเมนู */
+.navOpen a {
+  padding: 10px 20px; /* ขนาดของพื้นที่คลิก */
+  text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+  color: black; /* สีของข้อความ */
+  display: block; /* ให้แต่ละลิงก์เป็นบล็อกตัวเอง */
+}
+
+/* เพิ่มรูปแบบสำหรับลิงก์เมื่อถูก hover */
+.navOpen a:hover {
+  background-color: #ddd; /* สีพื้นหลังเมื่อ hover */
+}
+.logo {
+  /* ... สไตล์อื่นๆ ... */
+  width: 100px; /* หรือขนาดเริ่มต้นที่คุณต้องการ */
+  height: auto; /* รักษาอัตราส่วนของโลโก้ */
+  /* สมมติว่าคุณมีขนาดเริ่มต้นของโลโก้ที่นี่ */
+}
+.locationIcon {
+  width: 30px; /* ลดขนาดเหลือ 50% */
+  height: auto; /* รักษาอัตราส่วนของโลโก้ */
+}
+.searchIcon {
+  width: 40px; /* ลดขนาดเหลือ 50% */
+  height: auto; /* รักษาอัตราส่วนของโลโก้ */
+}
+.newcarIcon {
+  width: 40px; /* ลดขนาดเหลือ 50% */
+  height: auto; /* รักษาอัตราส่วนของโลโก้ */
+}
+
+/* Media query สำหรับหน้าจอที่มีความกว้างไม่เกิน 430px */
+@media (max-width: 432px) {
+  .logo  {
+    width: 70px; /* ลดขนาดเหลือ 50% */
+    height: auto; /* รักษาอัตราส่วนของโลโก้ */
+  }
+  .locationIcon {
+    width: 20px; /* ลดขนาดเหลือ 50% */
+    height: auto; /* รักษาอัตราส่วนของโลโก้ */
+  }
+  .searchIcon {
+    width: 30px; /* ลดขนาดเหลือ 50% */
+    height: auto; /* รักษาอัตราส่วนของโลโก้ */
+  }
+  .newcarIcon {
+    width: 30px; /* ลดขนาดเหลือ 50% */
+    height: auto; /* รักษาอัตราส่วนของโลโก้ */
+  }
+  
+}
