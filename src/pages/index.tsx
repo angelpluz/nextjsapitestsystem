@@ -3,14 +3,15 @@ import Header from '../components/Header';
 import styles from '../styles/Home.module.css';
 
 const Home = () => {
-  const [showroomData, setShowroomData] = useState(null);
+  const [salesmanData, setSalesmanData] = useState(null);
 
   useEffect(() => {
-    fetch('https://4ec2-184-82-232-37.ngrok-free.app/api/showrooms/show')
+    fetch('http://toyotathonburi.co.th/api/salesmandata/search/109A1M/')
       .then(response => response.json())
       .then(data => {
-        setShowroomData(data);
-        // ตัวอย่าง: แสดงข้อมูล showroom ที่ได้รับ
+        if (data.status) {
+          setSalesmanData(data.data[0]);
+        }
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
@@ -18,14 +19,9 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Header />
-      {showroomData ? (
+      {salesmanData ? (
         <div>
-          {/* แสดงข้อมูล showroom ที่นี่ */}
-          <h1>Showroom Information</h1>
-          {/* ตัวอย่างการแสดงข้อมูล */}
-          <p>Name: {showroomData.name}</p>
-          <p>Location: {showroomData.location}</p>
-          {/* แสดงข้อมูลอื่นๆ ตามที่ต้องการ */}
+
         </div>
       ) : (
         <p>กำลังโหลดข้อมูล...</p>
