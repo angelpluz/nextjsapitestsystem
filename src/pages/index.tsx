@@ -23,7 +23,7 @@ const Home = () => {
           {/* แสดงข้อมูล showroom ที่นี่ */}
           <h1>Showroom Information</h1>
           {/* ตัวอย่างการแสดงข้อมูล */}
-      
+          <h1>test GIT AND API</h1>
           {/* แสดงข้อมูลอื่นๆ ตามที่ต้องการ */}
         </div>
       ) : (
