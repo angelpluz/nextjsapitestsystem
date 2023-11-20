@@ -20,9 +20,7 @@ const Home = () => {
       {apiResponse ? (
         <div>
           <h1>API Response</h1>
-          <p>Success: {apiResponse.success ? 'Yes' : 'No'}</p>
-          <p>Message: {apiResponse.message}</p>
-          <p>Data: {apiResponse.data}</p>
+          <h1>API Response</h1>
         </div>
       ) : (
         <p>กำลังโหลดข้อมูล...</p>
