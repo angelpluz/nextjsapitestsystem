@@ -1,0 +1,50 @@
+/* Showroom.module.css */
+
+.container {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 15px;
+  }
+  
+  .detailRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .detailLabel {
+    font-size: 18px;
+    color: #333333;
+  }
+  
+  .detailValue {
+    font-size: 18px;
+    color: #666666;
+  }
+  
+  .callButton,
+  .mapButton {
+    background-color: #E0E0E0; /* Change as per your color scheme */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .icon {
+    width: 24px; /* Example size, adjust as needed */
+    height: 24px; /* Example size, adjust as needed */
+  }
+  
+  /* Add additional styles as needed */
+  
