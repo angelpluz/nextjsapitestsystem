@@ -1,14 +1,56 @@
-// src/components/CategoryCar.tsx
-import React from 'react';
-import styles from './CategoryCar.module.css'; // Your CSS module for CategoryCar
+import React, { useState, useEffect } from 'react';
+import styles from '../styles/CarCategory.module.css';
 
 const CategoryCar = () => {
+  const [carTypes, setCarTypes] = useState([]);
+  const [selectedType, setSelectedType] = useState('all'); // 'all' หรืออาจเริ่มต้นด้วยประเภทรถที่เฉพาะเจาะจง
+  const [imageBasePath, setImageBasePath] = useState('');
+// http://toyotathonburi.co.th/api/salesmandata/search/109A1M
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const url = selectedType === 'all'
+          ? 'http://toyotathonburi.co.th/api/typescars'
+          : `hhttp://toyotathonburi.co.th/api/typescars/${selectedType}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data && data.success) {
+          setCarTypes(data.data);
+          setImageBasePath('http://toyotathonburi.co.th/webp/ismgType/');
+        }
+      } catch (error) {
+        console.error('Error fetching car types:', error);
+      }
+    };
+
+    fetchData();
+  }, [selectedType]);
+
   return (
-    <div className={styles.categoryCarContainer}>
-      {/* Content related to car categories */}
-      <h2>Car Categories</h2>
-      {/* List of categories, images, links, etc. */}
+    <div className={styles.carCategoryContainer}>
+  {carTypes.map((type) => (
+    <div key={type.id} className={styles.carCategoryItem}>
+      <img src={`${imageBasePath}${type.imgType}`} alt={type.name} className={styles.carImage} />
+      <h3>{type.name}</h3>
+      {/* Add other details as needed */}
     </div>
+  ))}
+</div>
+    // <div className={styles.categoryContainer}>
+    //   <div className={styles.selector}>
+    //     <button onClick={() => setSelectedType('sedan')}>รถเก๋ง</button>
+    //     <button onClick={() => setSelectedType('suv')}>รถ SUV & PPV</button>
+    //     <button onClick={() => setSelectedType('mpv')}>รถ MPV</button>
+    //     {/* ...other categories */}
+    //   </div>
+    //   {carTypes.map((type) => (
+    //     <div key={type.id} className={styles.categoryItem}>
+    //       <img src={`${imageBasePath}${type.imgType}`} alt={type.name} />
+    //       <h3>{type.name}</h3>
+    //       {/* ...other details */}
+    //     </div>
+    //   ))}
+    // </div>
   );
 };
 

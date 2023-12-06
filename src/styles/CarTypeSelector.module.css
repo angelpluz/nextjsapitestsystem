@@ -1,0 +1,62 @@
+/* CarTypeSelector.module.css */
+
+.carTypeSelector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 50px;
+}
+
+.navArrow {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+}
+
+.navArrow {
+  width: 20px; /* ปรับขนาดความกว้างตามที่ต้องการ */
+  height: auto; /* ความสูงจะปรับตามอัตโนมัติเพื่อรักษาอัตราส่วนของรูปภาพ */
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  z-index: 10; /* ตั้งค่า z-index ให้สูงกว่าเนื้อหาอื่น */
+}
+
+.left {
+  left: 10px; /* Adjust as needed */
+}
+
+.right {
+  right: 10px; /* Adjust as needed */
+}
+
+.carTypeSelectorInner {
+  display: flex;
+  overflow: hidden;
+  width: calc(100% - 60px); /* Adjust width based on arrow size */
+  margin: 0 auto;
+}
+
+.carTypeButton {
+  flex: 0 0 33.333%; /* Each car takes up one-third of the container */
+  max-width: 33.333%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%; 
+  display: block;
+  /* display: flex; */
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  margin: 0 0px; /* Add margin between buttons */
+  transition: transform 0.3s ease-in-out;
+  flex-direction: column; /* Add this line to stack items vertically */
+}
+
+
+
+/* Additional styles as needed */

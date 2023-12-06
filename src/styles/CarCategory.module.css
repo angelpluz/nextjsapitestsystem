@@ -1,0 +1,28 @@
+.categoryContainer {
+  display: flex; /* Use flex layout */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+  gap: 20px; /* Space between items */
+  padding: 20px; /* Padding around the container */
+}
+
+@media (min-width: 768px) {
+  .categoryContainer {
+    flex-direction: row; /* On larger screens, place items side by side */
+    flex-wrap: wrap; /* Wrap items to next line if not enough space */
+    justify-content: center; /* Center items horizontally */
+  }
+}
+
+.categoryItem {
+  display: flex; /* Use flex layout */
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.categoryImage {
+  max-width: 100px; /* Set a max-width for images */
+  margin-bottom: 10px; /* Space between image and text */
+}
+
+/* Additional styles for other elements... */

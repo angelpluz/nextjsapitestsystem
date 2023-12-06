@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
+import ShowRoom from '../components/ShowRoom'; // Import ShowRoom component
 import styles from '../styles/Home.module.css';
+
 
 const Home = () => {
   const [salesmanData, setSalesmanData] = useState(null);
 
   useEffect(() => {
-    fetch('http://6943-184-82-228-232.ngrok-free.app/api/salesmandata/search/109AKY')
+    fetch('http://toyotathonburi.co.th/api/salesmandata/search/109A1M')
       .then(response => response.json())
       .then(data => {
         if (data && data.status) {
@@ -16,11 +18,11 @@ const Home = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  const imageURL = salesmanData ? `http://6943-184-82-228-232.ngrok-free.app/storage/profile/${salesmanData.data[0].image}` : '';
+  const imageURL = salesmanData ? `http://toyotathonburi.co.th/storage/profile/${salesmanData.data[0].image}` : '';
 
   return (
     <div className={styles.container}>
-      <Header />
+    
       {salesmanData ? (
         <div>
           <h1>Salesman Information</h1>
@@ -36,14 +38,15 @@ const Home = () => {
           <p>Line: {salesmanData.data[0].line}</p>
           <p>Awards: {salesmanData.data[0].awards}</p>
           <p>Date Now: {salesmanData.dateNow}</p>
-          {/* Display other data as needed */}
+          {/* Add additional details as needed */}
         </div>
       ) : (
         <p>Loading salesman data...</p>
       )}
+      <ShowRoom /> {/* ShowRoom component is now below the salesman data */}
+
     </div>
   );
 };
 
 export default Home;
-

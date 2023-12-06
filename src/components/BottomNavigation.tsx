@@ -7,7 +7,7 @@ import styles from '../styles/BottomNavigation.module.css';
 const BottomNavigation = () => {
   return (
     <nav className={styles.bottomNav}>
-      <Link href="/buy" passHref>
+      <Link href="/CarCategory" passHref>
         <div className={styles.navItem}>
           <Image src="/images/buy_1.png" alt="สินเชื่อ" width={84} height={24} />
           
