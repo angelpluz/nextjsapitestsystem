@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from '../styles//LocationList.module.css';
 
 const LocationList = () => {
   const [locations, setLocations] = useState([]);
@@ -13,16 +14,36 @@ const LocationList = () => {
   }, []);
 
   return (
-    <div>
-      <h2>รายการสถานที่</h2>
+    <div className={styles.container}>
+      <h2 className={styles.header}>รายการสถานที่</h2>
       <ul>
         {locations.map((location) => (
-          <li key={location.website_seq}>
-            <h3>{location.website_name}</h3>
-            <p>ที่อยู่: {location.address}</p>
-            <p>ประเภท: {location.type}</p>
-            <p>เบอร์โทร: {location.tel}</p>
-            <p>ตำแหน่ง: {location.location}</p>
+          <li key={location.website_seq} className={styles.listItem}>
+            <div className={styles.locationInfo}>
+              <h3 className={styles.locationTitle}>{location.website_name}</h3>
+              <p className={styles.locationDetails}>ที่อยู่: {location.address}</p>
+                    <div className={styles.typeContainer}>
+                {location.type.split(',').map((type, index) => (
+                  <span key={index} className={styles.locationTypes}>
+                    {type.trim()}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className={styles.buttonContainer}>
+              <a href={`tel:${location.tel}`} className={styles.callButton}>
+                <span className={styles.icon}>📞</span>
+                <span className={styles.phoneNumber}>{location.tel}</span>
+              </a>
+              <a 
+                href={`https://www.google.com/maps/search/?api=1&query=${location.location}`} 
+                className={styles.mapButton} 
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Map
+              </a>
+            </div>
           </li>
         ))}
       </ul>

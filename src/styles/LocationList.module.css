@@ -1,0 +1,91 @@
+/* LocationList.module.css */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Kanit', sans-serif;
+  }
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .callButton {
+    /* สไตล์สำหรับปุ่มโทรศัพท์ */
+    margin-bottom: 8px; /* หรือระยะห่างที่ต้องการ */
+    /* ... other styles ... */
+  }
+  
+  .header {
+    color: #d54d7b; /* สีหัวข้อตามการออกแบบ */
+    margin-bottom: 20px; /* ระยะห่างข้างล่างหัวข้อ */
+    text-align: center; /* จัดหัวข้อให้อยู่ตรงกลาง */
+    border-bottom: 4px solid #d54d7b; /* เส้นใต้หัวข้อ */
+    padding-bottom: 10px; /* ระยะห่างระหว่างหัวข้อกับเส้นใต้ */
+  }
+  
+  .listItem {
+    background-color: #fff; /* พื้นหลังของแต่ละรายการ */
+    border-left: 4px solid #d54d7b; /* เส้นข้างซ้ายตามการออกแบบ */
+    margin-bottom: 16px; /* ระยะห่างระหว่างรายการ */
+    padding: 16px; /* ระยะห่างภายในรายการ */
+    display: flex;
+    align-items: center; /* จัดรายการให้อยู่ตรงกลางแนวตั้ง */
+    justify-content: space-between; /* จัดห่างระหว่างข้อมูลกับปุ่ม Google Map */
+  }
+  
+  /* locationzone */
+  .locationInfo {
+    flex: 1; /* ให้ข้อมูลเต็มพื้นที่ที่เหลือ */
+  }
+  .locationItem {
+    /* สไตล์เดิมที่คุณมี */
+    position: relative;
+    /* รหัสอื่นๆ */
+  }
+  .locationTitle {
+    color: #000; /* สีของชื่อสถานที่ */
+    font-weight: bold; /* ตัวหนา */
+    margin-bottom: 8px; /* ระยะห่างข้างล่างชื่อ */
+  }
+  
+  .locationDetails {
+    color: #666; /* สีของรายละเอียด */
+    font-size: 0.9em; /* ขนาดตัวอักษรของรายละเอียด */
+  }
+  
+  .mapButton {
+    background-color: #d54d7b; /* สีพื้นหลังปุ่ม */
+    color: #fff; /* สีของข้อความในปุ่ม */
+    padding: 8px 16px; /* ระยะห่างภายในปุ่ม */
+    text-decoration: none; /* ไม่มีเส้นใต้ข้อความ */
+    border-radius: 4px; /* มุมปุ่มโค้ง */
+    font-weight: bold; /* ตัวหนา */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาของปุ่ม */
+    margin-top: 8px; 
+  }
+  .phoneButton {
+    /* สไตล์เดิมที่คุณมี */
+    position: absolute;
+    top: 16px; /* หรือระยะที่คุณต้องการ */
+    left: 16px; /* หรือระยะที่คุณต้องการ */
+    /* รหัสอื่นๆ */
+  }
+
+  
+  /* คุณอาจจะต้องปรับแต่งเพิ่มเติมให้เข้ากับการออกแบบของคุณ */
+  
+  .locationTypes {
+    background-color: #f4f4f4; /* สีพื้นหลังของปุ่ม */
+    border-radius: 20px; /* ความโค้งของขอบ */
+    padding: 8px 16px; /* ระยะห่างภายใน */
+    display: inline-block; /* ทำให้สามารถกำหนด padding และ border-radius ได้ */
+    margin-right: 8px; /* หากต้องการให้มีระยะห่างระหว่างปุ่ม */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+    font-size: 0.9em; /* ขนาดข้อความ */
+    color: #333; /* สีข้อความ */
+    /* ปรับเพิ่มเติมตามความต้องการ */
+  }
