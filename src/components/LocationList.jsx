@@ -20,7 +20,9 @@ const LocationList = () => {
         {locations.map((location) => (
           <li key={location.website_seq} className={styles.listItem}>
             <div className={styles.locationInfo}>
-              <h3 className={styles.locationTitle}>{location.website_name}</h3>
+            <a href={`/showroom/${location.website_seq}`} className={styles.locationTitle}>
+  {location.website_name}
+</a>
               <p className={styles.locationDetails}>ที่อยู่: {location.address}</p>
                     <div className={styles.typeContainer}>
                 {location.type.split(',').map((type, index) => (

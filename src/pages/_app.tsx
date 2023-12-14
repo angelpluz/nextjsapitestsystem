@@ -4,6 +4,9 @@ import type { AppProps } from 'next/app';
 import Header from '../components/Header';
 import BottomNavigation from '../components/BottomNavigation'; // ตรวจสอบเส้นทางไฟล์ให้ถูกต้อง
 import LocationList from '../components/LocationList'; // นำเข้า LocationList component
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ShowroomPage from './ShowroomPage'; // Make sure to import your ShowroomPage component
+
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -15,8 +18,19 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
         <Header />
       <Component {...pageProps} />
-      <LocationList />
+   
       <BottomNavigation /> {/* นี่จะแสดง bottom navigation bar ในทุกหน้า */}
     </>
   );
 }
+// function App() {
+//   return (
+//     <Router>
+//       <Switch>
+//         <Route exact path="/" component={LocationList} />
+//         <Route path="/showroom/:id" component={ShowroomPage} />
+//         {/* Add other routes here */}
+//       </Switch>
+//     </Router>
+//   );
+// }

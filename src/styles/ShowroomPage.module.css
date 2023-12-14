@@ -1,0 +1,108 @@
+/* ShowroomPage.module.css */
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff; /* Or any other background color as per your theme */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Match this to the container border-radius if you want */
+  }
+  
+  .title {
+    font-size: 1.5em; /* Adjust the size as necessary */
+    color: #333; /* Adjust the color as necessary */
+    margin-top: 10px;
+  }
+  
+  .detail {
+    font-size: 1em; /* Adjust the size as necessary */
+    color: #666; /* Adjust the color as necessary */
+    line-height: 1.5; /* Adjust line height for better readability */
+  }
+  
+  .tel {
+    font-size: 1em; /* Adjust the size as necessary */
+    color: #000; /* Adjust the color as necessary */
+    font-weight: bold; /* Make the telephone number stand out */
+  }
+  .callButton {
+    display: flex; /* This will ensure the icon and text are aligned properly */
+    align-items: center; /* Center align the icon and text */
+    justify-content: center; /* Center justify the content if needed */
+    /* ... other styles ... */
+  }
+  
+  .mapButton {
+    background-color: #d54d7b; /* สีพื้นหลังปุ่ม */
+    color: #fff; /* สีของข้อความในปุ่ม */
+    padding: 8px 16px; /* ระยะห่างภายในปุ่ม */
+    text-decoration: none; /* ไม่มีเส้นใต้ข้อความ */
+    border-radius: 4px; /* มุมปุ่มโค้ง */
+    font-weight: bold; /* ตัวหนา */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาของปุ่ม */
+    margin-top: auto;
+    align-self: center;
+  }
+  
+  .icon {
+    /* สามารถเพิ่มสไตล์สำหรับไอคอนถ้าจำเป็น */
+  }
+  
+  .phoneNumber {
+    color: #c0392b; /* Replace with the desired color for the phone number */
+    font-size: 1em; /* Replace with the desired font size */
+    margin-bottom: 10px; /* Ensure there's space between the phone number and anything below it */
+    margin-top: 10px;
+  }
+  .locationTypes {
+    background-color: #f4f4f4; /* สีพื้นหลังของปุ่ม */
+    border-radius: 20px; /* ความโค้งของขอบ */
+    padding: 8px 16px; /* ระยะห่างภายใน */
+    display: inline-block; /* ทำให้สามารถกำหนด padding และ border-radius ได้ */
+    margin-right: 8px; /* หากต้องการให้มีระยะห่างระหว่างปุ่ม */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+    font-size: 0.9em; /* ขนาดข้อความ */
+    color: #333; /* สีข้อความ */
+    margin-top : 15px;
+    /* ปรับเพิ่มเติมตามความต้องการ */
+  }
+  .detailTypes {
+    background-color: #f4f4f4; /* สีพื้นหลังของปุ่ม */
+    border-radius: 20px; /* ความโค้งของขอบ */
+    padding: 18px 16px; /* ระยะห่างภายใน */
+    display: inline-block; /* ทำให้สามารถกำหนด padding และ border-radius ได้ */
+    margin-right: 8px; /* หากต้องการให้มีระยะห่างระหว่างปุ่ม */
+    margin-top : 15px;
+    margin-bottom : 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+    font-size: 0.9em; /* ขนาดข้อความ */
+    color: #333; /* สีข้อความ */
+    /* ปรับเพิ่มเติมตามความต้องการ */
+  }
+  .title {
+    /* ... existing styles ... */
+    text-align: center;
+  }
+  
+  .detail {
+    /* ... existing styles ... */
+    text-align: center;
+  }
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Align children to the end on the main axis */
+    height: 100%; /* Give it a height to take up space */
+    width: 100%; /* Full width of the container */
+  }

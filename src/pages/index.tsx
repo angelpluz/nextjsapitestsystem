@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import ShowRoom from '../components/ShowRoom'; // Import ShowRoom component
 import styles from '../styles/Home.module.css';
+import LocationList from '../components/LocationList'; // นำเข้า LocationList component
 
 
 const Home = () => {
   const [salesmanData, setSalesmanData] = useState(null);
 
   useEffect(() => {
-    fetch('http://toyotathonburi.co.th/api/salesmandata/search/109A1M')
+    fetch('http://toyotathonburi.co.th/api/salesmandata/search/')
       .then(response => response.json())
       .then(data => {
         if (data && data.status) {
@@ -43,8 +44,8 @@ const Home = () => {
       ) : (
         <p>Loading salesman data...</p>
       )}
-      <ShowRoom /> {/* ShowRoom component is now below the salesman data */}
 
+<LocationList />
     </div>
   );
 };

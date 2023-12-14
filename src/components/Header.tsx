@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../styles/Header.module.css';
+import Link from 'next/link';
 
 const Header = () => {
   // สร้าง state สำหรับการติดตามการแสดงเมนู
@@ -12,7 +13,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-  <img src="/images/logott.png" alt="Logo" className={styles.logo} /> {/* โลโก้ */}
+      <Link href="/" passHref>
+        <img src="/images/logott.png" alt="Logo" className={styles.logo} /> {/* โลโก้ */}
+      </Link>
   <img src="/images/searchlogo.png" alt="search" className={styles.searchIcon} /> {/* ไอคอน location */}
   <img src="/images/newcar.png" alt="newcar" className={styles.newcarIcon} /> {/* ไอคอน location */}
 
