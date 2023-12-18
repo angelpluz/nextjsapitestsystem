@@ -93,6 +93,32 @@
     /* ... existing styles ... */
     text-align: center;
   }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will center the flex children (the image and the text box) horizontally */
+    width: 100%; /* Set the width of the card to fill its container */
+  }
+  
+  .cardImage {
+    width: 100%; /* Adjust the width as needed */
+    margin-bottom: 15px; /* Space between image and text box */
+    /* Other styles... */
+  }
+  
+  .cardDescription {
+    width: 100%; /* Full width to allow text centering */
+    text-align: center; /* Center the text within the text box */
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    padding: 18px 16px;
+    display: inline-block; /* or 'block' if you prefer */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+    color: #333;
+    margin-bottom: 15px;
+    /* Other styles... */
+  }
   
   .detail {
     /* ... existing styles ... */

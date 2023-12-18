@@ -1,0 +1,68 @@
+/* CarSeriesSlideShow.module.css */
+
+.slideshowContainer {
+    max-width: 600px; /* You can adjust this value */
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+  }
+  .slideInfo {
+    margin-top: 10px;
+    text-align: center; /* Center align text */
+    font-size: 24px; /* Larger font size */
+  }
+  .slidePrice {
+    text-align: center; /* Center align text */
+    font-size: 20px;
+    margin-bottom: 20px; /* Slightly smaller font size than the name */
+  }
+  .slide {
+    display: none; /* Hide slides by default */
+    animation: fade 0.5s ease-in-out;
+    width: 100%; /* Full width of the container */
+  }
+  
+  .active {
+    display: block; /* Show the active slide */
+  }
+  
+  /* Optional: Fade-in animation for each slide */
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Navigation buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* Responsive */
+  @media only screen and (max-width: 600px) {
+    .prev, .next, .text {
+      font-size: 11px;
+    }
+  }
+  

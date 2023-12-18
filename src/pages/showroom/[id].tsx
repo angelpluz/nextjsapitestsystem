@@ -27,6 +27,7 @@ const ShowroomPage = () => {
     return <div>Loading...</div>;
   }
 
+
   const bannerUrl = `http://toyotathonburi.co.th/${showroomData.bannerShowroom}${showroomData.banner}`;
   
   return (
@@ -45,13 +46,13 @@ const ShowroomPage = () => {
           <span className={styles.phoneNumber}>{showroomData.tel}</span>
         </a>
         <a 
-          href={`https://www.google.com/maps/search/?api=1&query=${showroomData.location}`} 
-          className={styles.mapButton} 
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Google Map
-        </a>
+  href={showroomData.link} // Use the 'link' property directly from the API response
+  className={styles.mapButton} 
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Google Map
+</a>
         <p className={styles.detailTypes}>{showroomData.detail}</p>
       </div>
 
