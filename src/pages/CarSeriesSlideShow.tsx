@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'; // Corrected import statement
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link'; // Import Link from Next.js
 import styles from '../styles/CarSeriesSlideShow.module.css';
 
 // Add any additional imports you might need
@@ -52,16 +53,22 @@ const CarSeriesSlideShow = () => {
   }
 
   return (
-<div className={styles.slideshowContainer}>
-  {series.map((car, index) => (
-    <div
-      className={`${styles.slide} ${currentIndex === index ? styles.active : ''}`}
-      key={car.id}
-    >
-          
-          <img src={`http://toyotathonburi.co.th/webp/imgThumbnail/${car.imgThumbnail}`} alt={car.name} />
+    <div className={styles.slideshowContainer}>
+      {series.map((car, index) => (
+        <div
+          className={`${styles.slide} ${currentIndex === index ? styles.active : ''}`}
+          key={car.id}
+        >
+          {/* Use the Link component without the a tag */}
+          <Link href={`/carseries/${car.id}`}>
+            <img
+              src={`http://toyotathonburi.co.th/webp/imgThumbnail/${car.imgThumbnail}`}
+              alt={car.name}
+              style={{ cursor: 'pointer' }} // Make the image behave like a link
+            />
+          </Link>
           <h2 className={styles.slideInfo}>{car.name}</h2>
-    <p className={styles.slidePrice}>Price: {car.price.toLocaleString()} THB</p>
+          <p className={styles.slidePrice}>Price: {car.price.toLocaleString()} THB</p>
         </div>
       ))}
  <button className={styles.prev} onClick={goToPrev}>&lt;</button>

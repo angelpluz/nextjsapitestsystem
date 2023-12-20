@@ -1,0 +1,57 @@
+/* styles/ModelDetail.module.css */
+.pageContainer {
+  max-width: 412px;
+  margin: auto;
+  background: #fff;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 16px;
+  margin-top: 50px;
+}
+
+.carImageContainer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 16px auto;
+}
+
+.colorSelector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.colorOption {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.price {
+  text-align: center;
+  font-size: 24px;
+  color: red;
+  margin-bottom: 16px;
+}
+
+.performance {
+  padding: 16px;
+  background: #ececec;
+  text-align: center;
+}
+
+.specsButtons {
+  margin: 16px;
+  text-align: center;
+}
+
+/* Add more styles as necessary to match the design */
