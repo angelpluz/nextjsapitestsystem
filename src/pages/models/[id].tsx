@@ -15,14 +15,10 @@ const ModelDetailPage = () => {
     if (id) {
       setIsLoading(true);
       fetch(`http://toyotathonburi.co.th/api/model/${id}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
+        .then((response) => response.json())
         .then((data) => {
-          if (data.success && data.Color && data.Color.length > 0) {
+          setIsLoading(false);
+          if (data.success) {
             setModelDetails(data);
             setSelectedColor(data.Color[0]); // Set the default selected color
           } else {
@@ -30,11 +26,9 @@ const ModelDetailPage = () => {
           }
         })
         .catch((error) => {
+          setIsLoading(false);
           console.error('Fetch error:', error);
           setError(error.toString());
-        })
-        .finally(() => {
-          setIsLoading(false); // Set loading to false when fetch is complete or fails
         });
     }
   }, [id]);
@@ -56,12 +50,21 @@ const ModelDetailPage = () => {
   }
 
   // Now we're sure that modelDetails and modelDetails.Color are available
-  const { modelName, price, srcImgColor } = modelDetails;
+  const {
+    modelName,
+    price,
+    engine_type,
+    engine_size,
+    horsepower,
+    engine_oil,
+    Color,
+    srcImgColor
+  } = modelDetails;
 
   return (
     <div className={styles.pageContainer}>
       <div className={styles.header}>
-        <h1>{modelName}</h1>
+        {/* <h1>{modelName}</h1> */}
         {/* Add any additional header content */}
       </div>
       <div className={styles.colorSelector}>
@@ -93,9 +96,31 @@ const ModelDetailPage = () => {
           สนใจติดต่อที่ปรึกษา
         </button>
       </div>
-      {/* ... performance and specs buttons ... */}
+
+      <div className={styles.performanceprice}>
+  <h1 className={styles.performanceHeading}>PERFORMANCE</h1>
+
+  
+  <div className={styles.performanceContainer}></div>
+  <div className={styles.engineSpecs}>
+  <div className={styles.specItem}>
+    <img src="/images/car-engine_1.png" alt="Engine" className={styles.specImage} />
+    <p>เครื่องยนต์: {engine_size} L</p>
+  </div>
+  <div className={styles.specItem}>
+    <img src="/images/gauge_0.png" alt="Horsepower" className={styles.specImage} />
+    <p>แรงม้า: {horsepower} HP</p>
+  </div>
+  <div className={styles.specItem}>
+    <img src="/images/oil_0.png" alt="Oil" className={styles.specImage} />
+    <p> {engine_oil} กม.ต่อลิตร</p>
+  </div>
+</div>
+
+</div>
     </div>
   );
 };
+
 
 export default ModelDetailPage;

@@ -5,12 +5,14 @@
   background: #fff;
   color: #333;
   font-family: Arial, sans-serif;
+  /* Ensure the rest of your page content aligns with this width */
 }
 
 .header {
   text-align: center;
   padding: 16px;
   margin-top: 50px;
+  /* Add any additional styling needed for the header */
 }
 
 .carImageContainer img {
@@ -19,60 +21,113 @@
   height: auto;
   margin: 16px auto;
 }
+
 .buttonContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; /* Adjust the gap between buttons */
+  gap: 10px;
+  /* Adjust the gap between buttons as needed */
 }
+
 .button {
   padding: 10px 20px;
   color: white;
   background-color: #E60023; /* Toyota red */
   border: none;
-  border-radius: 20px; /* Rounded edges */
+  border-radius: 20px;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
+  /* Add any other button styling as needed */
 }
 
-.button-icon {
-  background: ;
-  padding-left: 30px; /* Adjust based on your icon size */
-  background-size: 20px; /* Adjust based on your icon size */
-}
 .colorSelector {
   display: flex;
   justify-content: center;
   margin-bottom: 16px;
+  /* Ensure the color selector dots are styled as needed */
 }
 
 .colorOption {
-  border: none;
+  border:#e50c0c;
   cursor: pointer;
   display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+  width: 24px; /* Size of the circle */
+  height: 24px; /* Size of the circle */
+  border-radius: 50%; /* Makes it round */
   margin: 0 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Horizontal offset, vertical offset, blur radius, color */
+  transition: box-shadow 0.3s; /* Smooth transition for the shadow effect */
 }
-
+.colorOption:hover {
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Larger shadow effect on hover */
+}
 .price {
   text-align: center;
   font-size: 24px;
   color: red;
   margin-bottom: 16px;
+  /* Ensure the price is styled as needed */
 }
 
 .performance {
   padding: 16px;
   background: #ececec;
   text-align: center;
+  /* Style for the performance section */
 }
 
 .specsButtons {
   margin: 16px;
   text-align: center;
+  /* Style for the specification buttons or links */
 }
 
-/* Add more styles as necessary to match the design */
+.performanceprice {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px; /* Adjust font size as needed */
+  font-family: fantasy;
+  margin-top: 40px;
+  flex-wrap: wrap; /* Adjust margin to position the text correctly */
+  /* Style for the performance price section, adjust as per design */
+}
+
+.performanceHeading {
+  display: block; /* Ensure it's a block-level element */
+  margin-bottom: 10px; /* Space below the heading */
+  margin-right: 50%;
+  font-size: 2.0em;
+  margin-bottom: 10%;
+  font-style: italic;
+}
+
+.engineSpecs {
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+  align-items: center; /* Align the items vertically */
+  gap: 50px; /* Space between each spec item */
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column; /* Stack the icon and text vertically */
+  align-items: center; /* Center align the items */
+}
+.specItem img {
+  width: 50px; /* Adjust the width as needed */
+  height: auto;
+  margin-bottom: 5px; /* Space between image and text */
+}
+
+.specItem p {
+  font-size: 0.9em; /* Adjust the text size as needed */
+}
+.performanceContainer {
+  text-align: center; /* Centers the heading and specs */
+  margin-top: 20px; /* Add space above the container */
+}
+
