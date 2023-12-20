@@ -19,7 +19,28 @@
   height: auto;
   margin: 16px auto;
 }
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Adjust the gap between buttons */
+}
+.button {
+  padding: 10px 20px;
+  color: white;
+  background-color: #E60023; /* Toyota red */
+  border: none;
+  border-radius: 20px; /* Rounded edges */
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
 
+.button-icon {
+  background: ;
+  padding-left: 30px; /* Adjust based on your icon size */
+  background-size: 20px; /* Adjust based on your icon size */
+}
 .colorSelector {
   display: flex;
   justify-content: center;

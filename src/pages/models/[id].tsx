@@ -83,7 +83,15 @@ const ModelDetailPage = () => {
         />
       </div>
       <div className={styles.price}>
-        <p>Price: {price.toLocaleString()} THB</p>
+        <p>ราคา: {price.toLocaleString()} THB</p>
+      </div>
+      <div className={styles.buttonContainer}>
+        <button className={`${styles.button} ${styles.buttonIcon}`}>
+          คำนวณเงินดาวน์
+        </button>
+        <button className={styles.button}>
+          สนใจติดต่อที่ปรึกษา
+        </button>
       </div>
       {/* ... performance and specs buttons ... */}
     </div>
