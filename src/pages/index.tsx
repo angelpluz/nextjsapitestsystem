@@ -3,7 +3,10 @@ import Header from '../components/Header';
 import ShowRoom from '../components/ShowRoom'; // Import ShowRoom component
 import styles from '../styles/Home.module.css';
 import LocationList from '../components/LocationList'; // นำเข้า LocationList component
+import Slideindex from '../components/SlideIndex';
 import CarSeriesSlideShow from './CarSeriesSlideShow'; // Corrected import statement
+import PromotionComponent from '../components/PromotionComponent'; // Make sure this path is correct
+
 
 
 const Home = () => {
@@ -34,8 +37,10 @@ const Home = () => {
       ) : (
         <p>Loading salesman data...</p>
       )}
+      <Slideindex/>
 <CarSeriesSlideShow /> 
 <LocationList />
+<PromotionComponent />
     </div>
   );
 };

@@ -1,0 +1,67 @@
+/* components/PromotionComponent.module.css */
+
+.promotionContainer {
+  background-color: #f9f9f9; /* Light grey background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  max-width: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #ffde17; /* Yellow background for the header */
+  text-align: center;
+  padding: 16px;
+}
+
+.title {
+  color: #000;
+  font-size: 18px;
+  margin: 0;
+}
+
+.subtitle {
+  color: #333;
+  font-size: 14px;
+}
+
+.image {
+  width: 100%;
+  display: block;
+}
+
+.description {
+  font-size: 14px;
+  padding: 8px 16px;
+  color: #333;
+  text-align: justify;
+}
+
+.footer {
+  background-color: #ffde17; /* Yellow background for the footer */
+  padding: 12px;
+  text-align: center;
+}
+
+.button {
+  background-color: #c1272d; /* สีพื้นหลังของปุ่ม */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block; /* หรือ inline-block ตามที่คุณต้องการ */
+  margin: 10px auto; /* จัดกึ่งกลางปุ่มใน container */
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.button:hover {
+  background-color: #a20d1e; /* สีที่เข้มขึ้นเมื่อ hover */
+}
+/* Additional styles as needed */
