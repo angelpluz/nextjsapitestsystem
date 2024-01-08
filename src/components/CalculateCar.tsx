@@ -44,7 +44,7 @@ const [selectedLoanTerm, setSelectedLoanTerm] = useState<number | null>(null);
 const [basePrice, setBasePrice] = useState<number>(0);
 const [downPayment, setDownPayment] = useState<number>(0);
 const [loanAmount, setLoanAmount] = useState<number>(0);
-
+const [customDownPayment, setCustomDownPayment] = useState('');
 
 
   
@@ -134,14 +134,23 @@ const [loanAmount, setLoanAmount] = useState<number>(0);
     fetchColorDetail();
   }, [selectedColor]);
 
+  useEffect(() => {
+    if (loanAmount > 0 && loanTerm > 0) {
+      // Parse the custom down payment, ensuring empty string becomes zero
+      const parsedCustomDownPayment = parseFloat(customDownPayment) || 0;
+      calculatePayment(loanAmount, loanTerm, parsedCustomDownPayment);
+    }
+  }, [loanAmount, loanTerm, customDownPayment]);
+
   const calculatePayment = (amount: number, term: number) => {
+    console.log('Calculating payment with:', { amount, term, customDownPayment });
     const monthlyInterestRate = interestRate;
   
+    const parsedCustomDownPayment = parseFloat(customDownPayment) || 0;
+    const downPaymentAmount = parsedCustomDownPayment !== 0 ?
+    parsedCustomDownPayment : (downPaymentPercentage / 100) * amount;
 
-    const downPayment = (downPaymentPercentage / 100) * amount;
-
-    const loanAmount = amount - downPayment;
-
+    const loanAmount = amount - downPaymentAmount;
     const totalPayments = term;
     
  
@@ -174,11 +183,25 @@ const [loanAmount, setLoanAmount] = useState<number>(0);
     const monthlyInterestRate = annualInterestRate / 1200; // Convert to decimal and monthly rate
     setInterestRate(monthlyInterestRate); // Save the monthly interest rate to state
   };
-
-
+  const handlePercentageSelect = (percentage) => {
+    setSelectedDownPayment(percentage);
+    setCustomDownPayment(0); // Clear custom input
+    calculatePayment(); // Call the calculate function here
+    setDownPaymentPercentage(percentage);
+    calculatePayment(basePrice, loanTerm, (percentage / 100) * basePrice);
+  };
+  const handleCustomDownPaymentChange = (event) => {
+    setCustomDownPayment(event.target.value);
+    setSelectedDownPayment(null); // Clear selected percentage
+  // Call the calculate function here
+  };
   const handleCalculateClick = () => {
     // You need to call calculatePayment with the current loan amount and term
     calculatePayment(loanAmount, loanTerm);
+  };
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    
   };
   const handleColorSelect = async (color: Color) => {
     setSelectedColor(color.id);
@@ -194,6 +217,7 @@ const [loanAmount, setLoanAmount] = useState<number>(0);
         setBasePrice(price); // Set the base price when a color is selected
         // You can now call handleDownPaymentSelect with the new base price
         handleDownPaymentSelect(downPaymentPercentage);
+       
       }
     } catch (err) {
       console.error('Error fetching color details:', err);
@@ -205,13 +229,15 @@ const [loanAmount, setLoanAmount] = useState<number>(0);
     const calculatedLoanAmount = basePrice - calculatedDownPayment;
     setLoanAmount(calculatedLoanAmount);
     // คำนวณ Monthly Payment ใหม่หากมีการเลือก % เงินดาวน์
-    calculatePayment(calculatedLoanAmount, loanTerm);
+  
+    
   };
   
   const handleLoanTermSelect = (months: number) => {
     setSelectedLoanTerm(months);
     // คำนวณ Monthly Payment ใหม่หากมีการเลือกจำนวนเดือนผ่อน
-    calculatePayment(loanAmount, months);
+    let effectiveDownPayment = customDownPayment || (downPaymentPercentage / 100) * basePrice;
+    calculatePayment(basePrice, months, effectiveDownPayment);
   };
   return (
     <div className={styles.calculateCarContainercomponent}>
@@ -288,14 +314,23 @@ const [loanAmount, setLoanAmount] = useState<number>(0);
       {
   [5, 10, 15, 20, 25, 30].map((percentage) => (
     <button
-        key={percentage}
-        className={`${selectedDownPayment === percentage ? styles.selectedButton : styles.colorOptionpercent}`}
-        onClick={() => handleDownPaymentSelect(percentage)}
-      >
-        {percentage}%
-      </button>
-  ))
-}
+    key={percentage}
+    className={selectedDownPayment === percentage ? styles.selectedButton : styles.percentageButton}
+    onClick={() => handlePercentageSelect(percentage)}
+  >
+    {percentage}%
+  </button>
+))}
+    <input
+        type="number"
+        value={customDownPayment}
+        onChange={handleCustomDownPaymentChange}
+        placeholder="Enter down payment amount"
+      />
+
+      {/* Display the selected percentage or custom amount */}
+      {selectedDownPayment && <p>Selected Percentage: {selectedDownPayment}%</p>}
+      {customDownPayment && <p>Custom Down Payment: {customDownPayment}</p>}
 </div>
       {/* Interest Rate Input */}
       
@@ -324,7 +359,7 @@ const [loanAmount, setLoanAmount] = useState<number>(0);
   ))}
 </div>
       {/* Calculate Button */}
-      {monthlyPayment !== null && <p>Monthly Payment: {monthlyPayment.toFixed(2)}</p>}
+    {monthlyPayment !== null && <p>Monthly Payment: {monthlyPayment.toFixed(2)}</p>}
       
       {/* Display the result */}
       
