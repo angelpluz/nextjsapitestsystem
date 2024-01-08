@@ -45,6 +45,10 @@ const [basePrice, setBasePrice] = useState<number>(0);
 const [downPayment, setDownPayment] = useState<number>(0);
 const [loanAmount, setLoanAmount] = useState<number>(0);
 const [customDownPayment, setCustomDownPayment] = useState('');
+const downPaymentAmountNum = parseFloat(customDownPayment) || 0;
+const downPaymentPercentageCalc = basePrice > 0
+  ? (downPaymentAmountNum / basePrice) * 100
+  : 0;
 
 
   
@@ -145,7 +149,9 @@ const [customDownPayment, setCustomDownPayment] = useState('');
   const calculatePayment = (amount: number, term: number) => {
     console.log('Calculating payment with:', { amount, term, customDownPayment });
     const monthlyInterestRate = interestRate;
-  
+    const downPaymentPercentageCalc = customDownPayment && basePrice > 0
+    ? (parseFloat(customDownPayment) / basePrice) * 100
+    : 0;
     const parsedCustomDownPayment = parseFloat(customDownPayment) || 0;
     const downPaymentAmount = parsedCustomDownPayment !== 0 ?
     parsedCustomDownPayment : (downPaymentPercentage / 100) * amount;
@@ -330,7 +336,9 @@ const [customDownPayment, setCustomDownPayment] = useState('');
 
       {/* Display the selected percentage or custom amount */}
       {selectedDownPayment && <p>Selected Percentage: {selectedDownPayment}%</p>}
-      {customDownPayment && <p>Custom Down Payment: {customDownPayment}</p>}
+      {customDownPayment && (
+      <p>Custom Down Payment: {customDownPayment} ({downPaymentPercentageCalc.toFixed(2)}%)</p>
+    )}
 </div>
       {/* Interest Rate Input */}
       
@@ -359,10 +367,12 @@ const [customDownPayment, setCustomDownPayment] = useState('');
   ))}
 </div>
       {/* Calculate Button */}
-    {monthlyPayment !== null && <p>Monthly Payment: {monthlyPayment.toFixed(2)}</p>}
+      {monthlyPayment !== null && <p>Monthly Payment: {monthlyPayment.toFixed(2)}</p>}
       
       {/* Display the result */}
-      
+      {customDownPayment && (
+  <p>Custom Down Payment: {customDownPayment} ({downPaymentPercentageCalc.toFixed(2)}%)</p>
+)}
      
     </div>
   );
