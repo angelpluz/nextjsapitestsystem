@@ -34,7 +34,20 @@ const CalculateCar = () => {
   const [selectedModel, setSelectedModel] = useState<number | null>(null);
   const [selectedColor, setSelectedColor] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [downPaymentPercentage, setDownPaymentPercentage] = useState<number>(0);
+  const [interestRate, setInterestRate] = useState<number>(0);
+  const [loanTerm, setLoanTerm] = useState<number>(0);
+  const [monthlyPayment, setMonthlyPayment] = useState<number | null>(null);
+  const [baseLoanAmount, setBaseLoanAmount] = useState<number>(0);
+  const [selectedDownPayment, setSelectedDownPayment] = useState<number | null>(null);
+const [selectedLoanTerm, setSelectedLoanTerm] = useState<number | null>(null);
+const [basePrice, setBasePrice] = useState<number>(0);
+const [downPayment, setDownPayment] = useState<number>(0);
+const [loanAmount, setLoanAmount] = useState<number>(0);
 
+
+
+  
   useEffect(() => {
     const fetchSeries = async () => {
       try {
@@ -112,14 +125,39 @@ const CalculateCar = () => {
         }
         const data = await response.json();
         setColorDetail(data);
+        setBasePrice(Number(data.colorprice)); // Set the base price here
       } catch (err) {
         setError(err.message);
       }
     };
-
+  
     fetchColorDetail();
   }, [selectedColor]);
 
+  const calculatePayment = (amount: number, term: number) => {
+    const monthlyInterestRate = interestRate;
+  
+
+    const downPayment = (downPaymentPercentage / 100) * amount;
+
+    const loanAmount = amount - downPayment;
+
+    const totalPayments = term;
+    
+ 
+    if (totalPayments === 0 || loanAmount === 0) {
+      setMonthlyPayment(0);
+      return;
+    }
+  
+    if (monthlyInterestRate === 0) {
+      setMonthlyPayment(loanAmount / totalPayments);
+    } else {
+      const payment = loanAmount * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -totalPayments));
+      setMonthlyPayment(payment);
+    }
+  };
+  
   const handleSerieSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const serieId = parseInt(event.target.value, 10);
     setSelectedSerie(serieId);
@@ -130,13 +168,53 @@ const CalculateCar = () => {
     setSelectedModel(modelId);
   };
 
-  const handleColorSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const colorId = parseInt(event.target.value, 10);
-    setSelectedColor(colorId);
+
+  const handleInterestRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const annualInterestRate = Number(e.target.value);
+    const monthlyInterestRate = annualInterestRate / 1200; // Convert to decimal and monthly rate
+    setInterestRate(monthlyInterestRate); // Save the monthly interest rate to state
   };
 
+
+  const handleCalculateClick = () => {
+    // You need to call calculatePayment with the current loan amount and term
+    calculatePayment(loanAmount, loanTerm);
+  };
+  const handleColorSelect = async (color: Color) => {
+    setSelectedColor(color.id);
+    try {
+      const response = await fetch(`http://toyotathonburi.co.th/api/colordetail/${color.id}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setColorDetail(data); // Set color details here
+      if (data && data.colorprice) {
+        const price = Number(data.colorprice);
+        setBasePrice(price); // Set the base price when a color is selected
+        // You can now call handleDownPaymentSelect with the new base price
+        handleDownPaymentSelect(downPaymentPercentage);
+      }
+    } catch (err) {
+      console.error('Error fetching color details:', err);
+    }
+  };
+  const handleDownPaymentSelect = (percentage: number) => {
+    const calculatedDownPayment = (percentage / 100) * basePrice;
+    setDownPayment(calculatedDownPayment);
+    const calculatedLoanAmount = basePrice - calculatedDownPayment;
+    setLoanAmount(calculatedLoanAmount);
+    // คำนวณ Monthly Payment ใหม่หากมีการเลือก % เงินดาวน์
+    calculatePayment(calculatedLoanAmount, loanTerm);
+  };
+  
+  const handleLoanTermSelect = (months: number) => {
+    setSelectedLoanTerm(months);
+    // คำนวณ Monthly Payment ใหม่หากมีการเลือกจำนวนเดือนผ่อน
+    calculatePayment(loanAmount, months);
+  };
   return (
-    <div className={styles.calculateCarContainer}>
+    <div className={styles.calculateCarContainercomponent}>
       <h2>Select a Series</h2>
       <select onChange={handleSerieSelect} value={selectedSerie || ""} className={styles.dropdown}>
         <option value="">Select Series</option>
@@ -156,43 +234,101 @@ const CalculateCar = () => {
               <option key={model.id} value={model.id}>
                 {model.name}
               </option>
+              
             ))}
+            
           </select>
+          
         </>
       )}
 
-      {selectedModel && colors.length > 0 && (
-        <>
-          <h2>Select a Color</h2>
-          <select onChange={handleColorSelect} value={selectedColor || ""} className={styles.dropdown}>
-            <option value="">Select Color</option>
-            {colors.map((color) => (
-              <option key={color.id} value={color.id} style={{ backgroundColor: color.colorcode }}>
-                {color.colorcode}
-              </option>
-            ))}
-          </select>
-        </>
-      )}
+{selectedModel && colors.length > 0 && (
+  <>
+    <h2>Select a Color</h2>
+    <div className={styles.colorSelector}>
+      {colors.map((color, index) => (
+        <button
+          key={index}
+          className={styles.colorOption}
+          style={{ backgroundColor: color.colorcode }}
+          onClick={() => handleColorSelect(color)}
+        >
+          {/* Color circle button */}
+        </button>
+      ))}
+    </div>
+  </>
+)}
 
       {colorDetail && (
         <div className={styles.colorDetail}>
-          <h2>Color Details</h2>
+         
           <img
            src={`http://toyotathonburi.co.th/${colorDetail.srcImg}${colorDetail.filename}`}
             alt={colorDetail.colorname}
             className={styles.colorImage}
           />
-          <p>Color Name: {colorDetail.colorname}</p>
-          <p>Color Price: {colorDetail.colorprice}</p>
+          <p>สี: {colorDetail.colorname}</p>
+          <p>ราคา: {colorDetail.colorprice}</p>
         </div>
       )}
 
       {/* {selectedSerie && <div>Selected Serie ID: {selectedSerie}</div>}
       {selectedModel && <div>Selected Model ID: {selectedModel}</div>}
       {selectedColor && <div>Selected Color ID: {selectedColor}</div>} */}
-
+ 
+      
+     
+      
+      {/* Display the result */}
+     
       {error && <div className={styles.error}>{error}</div>}
+
+      <div className={styles.percentageButtonContainer}>
+      {
+  [5, 10, 15, 20, 25, 30].map((percentage) => (
+    <button
+        key={percentage}
+        className={`${selectedDownPayment === percentage ? styles.selectedButton : styles.colorOptionpercent}`}
+        onClick={() => handleDownPaymentSelect(percentage)}
+      >
+        {percentage}%
+      </button>
+  ))
+}
+</div>
+      {/* Interest Rate Input */}
+      
+      <div className={styles.interestRateContainer}>
+  <label htmlFor="annualInterestRate">ดอกเบี้ยที่กำหนด:</label>
+  <input
+    type="number"
+    id="annualInterestRate"
+    value={interestRate * 1200}
+    onChange={handleInterestRateChange}
+    placeholder="Annual Interest Rate (%)"
+  />
+</div>
+
+      {/* Loan Term Buttons */}
+      <div className={styles.percentageButtonContainer}>
+  {[48, 60, 72, 84].map((months) => (
+    <button
+      key={months}
+      // The ternary condition should be for the selected state, similar to the first snippet
+      className={`${selectedLoanTerm === months ? styles.selectedButton : styles.colorOptionpercent}`}
+      onClick={() => handleLoanTermSelect(months)}
+    >
+      {months} 
+    </button>
+  ))}
+</div>
+      {/* Calculate Button */}
+      {monthlyPayment !== null && <p>Monthly Payment: {monthlyPayment.toFixed(2)}</p>}
+      
+      {/* Display the result */}
+      
+     
     </div>
   );
 };
