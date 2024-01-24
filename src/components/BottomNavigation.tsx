@@ -25,7 +25,7 @@ const BottomNavigation = () => {
          
         </div>
       </Link>
-      <Link href="/calculator" passHref>
+      <Link href="/CalculateCar" passHref>
         <div className={styles.navItem}>
           <Image src="/images/calinstall.png" alt="คำนวณค่างวด" width={84} height={24} />
           
