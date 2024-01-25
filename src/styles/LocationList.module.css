@@ -14,9 +14,15 @@
     align-items: flex-end;
   }
   .callButton {
-    /* สไตล์สำหรับปุ่มโทรศัพท์ */
-    margin-bottom: 8px; /* หรือระยะห่างที่ต้องการ */
-    /* ... other styles ... */
+    margin-top: 8px;
+    background-color: #d9d6d6;
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+    color: #333;
   }
   
   .header {
@@ -29,12 +35,13 @@
   
   .listItem {
     background-color: #fff; /* พื้นหลังของแต่ละรายการ */
-    border-left: 4px solid #d54d7b; /* เส้นข้างซ้ายตามการออกแบบ */
+    border-left: 10px solid #ff0000;
     margin-bottom: 16px; /* ระยะห่างระหว่างรายการ */
     padding: 16px; /* ระยะห่างภายในรายการ */
     display: flex;
     align-items: center; /* จัดรายการให้อยู่ตรงกลางแนวตั้ง */
     justify-content: space-between; /* จัดห่างระหว่างข้อมูลกับปุ่ม Google Map */
+    font-family: 'Kanit', sans-serif;
   }
   
   /* locationzone */
@@ -53,19 +60,22 @@
   }
   
   .locationDetails {
-    color: #666; /* สีของรายละเอียด */
-    font-size: 0.9em; /* ขนาดตัวอักษรของรายละเอียด */
+    color: #666;
+    font-size: 0.75em;
+    padding: 10px 0px 10px 0px;
   }
   
   .mapButton {
-    background-color: #d54d7b; /* สีพื้นหลังปุ่ม */
-    color: #fff; /* สีของข้อความในปุ่ม */
-    padding: 8px 16px; /* ระยะห่างภายในปุ่ม */
-    text-decoration: none; /* ไม่มีเส้นใต้ข้อความ */
-    border-radius: 4px; /* มุมปุ่มโค้ง */
-    font-weight: bold; /* ตัวหนา */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาของปุ่ม */
-    margin-top: 8px; 
+    font-weight: bold;
+    margin-top: 8px;
+    background-color: #d9d6d6;
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+    color: #333;
   }
   .phoneButton {
     /* สไตล์เดิมที่คุณมี */
@@ -79,13 +89,12 @@
   /* คุณอาจจะต้องปรับแต่งเพิ่มเติมให้เข้ากับการออกแบบของคุณ */
   
   .locationTypes {
-    background-color: #f4f4f4; /* สีพื้นหลังของปุ่ม */
-    border-radius: 20px; /* ความโค้งของขอบ */
-    padding: 8px 16px; /* ระยะห่างภายใน */
-    display: inline-block; /* ทำให้สามารถกำหนด padding และ border-radius ได้ */
-    margin-right: 8px; /* หากต้องการให้มีระยะห่างระหว่างปุ่ม */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
-    font-size: 0.9em; /* ขนาดข้อความ */
-    color: #333; /* สีข้อความ */
-    /* ปรับเพิ่มเติมตามความต้องการ */
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 1px 12px;
+    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 0.8em;
+    color: #000;
   }

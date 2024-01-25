@@ -47,7 +47,7 @@ const SlideComponent = () => {
       {slides.map((slide, index) => (
   <div key={index} className={`${styles.slide} ${currentIndex === index ? styles.active : ''}`}>
     <h2 className={styles.slideInfo}></h2>
-    <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.desktop}`} alt={slide.description} />
+    <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
   </div>
 ))}
     </div>

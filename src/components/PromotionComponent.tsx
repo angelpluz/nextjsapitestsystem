@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import styles from '../styles/PromotionComponent.module.css'; // Make sure this path is correct
 
 // Assuming this is the structure of your promotion data
