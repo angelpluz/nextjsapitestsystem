@@ -4,7 +4,8 @@ import styles from '../styles/CarSeriesSlideShow.module.css';
 
 const CarSeriesSlideShow = () => {
   const [series, setSeries] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0); // Start from the first item
+  const [offset, setOffset] = useState(0); // The offset for the translateX
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -20,6 +21,8 @@ const CarSeriesSlideShow = () => {
           throw new Error('API call was not successful');
         }
         setSeries(data.data);
+        // Initial offset to center the first item (assuming it's the middle of three)
+        setOffset(-33.3333); // This would be adjusted if you have different starting conditions
       })
       .catch((error) => {
         setError(error.message);
@@ -27,57 +30,54 @@ const CarSeriesSlideShow = () => {
   }, []);
 
   const getValidIndex = (index, length) => {
-    return ((index % length) + length) % length; // Correct for negative values
+    if (index < 0) {
+      return length - 1;
+    } else if (index >= length) {
+      return 0;
+    }
+    return index;
   };
 
-  const goToPrev = () => {
-    setCurrentIndex((prevIndex) => getValidIndex(prevIndex - 1, series.length));
-  };
+  const goToSlide = (index) => {
+    const newIndex = getValidIndex(index, series.length);
+    setCurrentIndex(newIndex);
 
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => getValidIndex(prevIndex + 1, series.length));
+    // Update the offset to center the new index
+    const newOffset = newIndex * 33.3333;
+    setOffset(newOffset);
   };
 
   if (error) {
     return <p>Error loading car series: {error}</p>;
   }
 
-  if (!series || series.length === 0) {
+  if (!series.length) {
     return <p>No car series available.</p>;
   }
 
-  // Determine the previous and next slide indices
-  const prevIndex = getValidIndex(currentIndex - 1, series.length);
-  const nextIndex = getValidIndex(currentIndex + 1, series.length);
-
   return (
     <div className={styles.slideshowContainer}>
-      <button className={styles.prev} onClick={goToPrev}>&lt;</button>
-      <div className={styles.slidesWindow}>
+      <button className={styles.prev} onClick={() => goToSlide(currentIndex - 1)}>&lt;</button>
+      <div className={styles.slidesWindow} style={{ transform: `translateX(-${offset}%)` }}>
         {series.map((car, index) => {
-          let slideClass = `${styles.slide} `;
+          let slideClass = styles.slide;
           if (index === currentIndex) {
-            slideClass += `${styles.active}`;
-          } else if (index === prevIndex || index === nextIndex) {
-            slideClass += `${styles.dim}`;
+            slideClass += ` ${styles.active}`;
           }
-
           return (
-            <div key={`slide-${car.id}`} className={slideClass}>
+            <div key={car.id} className={slideClass}>
               <Link href={`/carseries/${car.id}`}>
-                <img src={`http://toyotathonburi.co.th/webp/imgThumbnail/${car.imgThumbnail}`} alt={car.name} className={styles.image} />
+                <img src={`http://toyotathonburi.co.th/webp/imgThumbnail/${car.imgThumbnail}`} alt={car.name} />
               </Link>
-              {index === currentIndex && (
-                <div className={styles.slideDetails}>
-                  <h2 className={styles.slideInfo}>{car.name}</h2>
-                  <p className={styles.slidePrice}>Price: {car.price.toLocaleString()} THB</p>
-                </div>
-              )}
+              <div className={styles.slideDetails}>
+                <h2 className={styles.slideInfo}>{car.name}</h2>
+                <p className={styles.slidePrice}>Price: {car.price.toLocaleString()} THB</p>
+              </div>
             </div>
           );
         })}
       </div>
-      <button className={styles.next} onClick={goToNext}>&gt;</button>
+      <button className={styles.next} onClick={() => goToSlide(currentIndex + 1)}>&gt;</button>
     </div>
   );
 };

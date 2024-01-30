@@ -21,6 +21,17 @@
   transform: translateX(-50%); /* Ensures the pseudo-element is perfectly centered */
   bottom: 0; /* Positions the pseudo-element at the bottom of the parent */
 }
+
+.centerSlide {
+  transform: scale(1.1); /* Scale the center slide to be larger */
+  z-index: 2; /* Ensure it's above the other slides */
+  opacity: 1; /* Fully visible */
+}
+.sideSlide {
+  transform: scale(0.9); /* Scale side slides to be smaller */
+  z-index: 1; /* Below the center slide */
+  opacity: 0.5; /* Less visible */
+}
 .slideshowContainer {
   max-width: 600px;
   margin: auto;
@@ -30,9 +41,9 @@
 
 .slidesWindow {
   display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  width: 100%;
+  flex-wrap: nowrap;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform; /* Optimize the animation */
 }
 
 /* Slide default style: full width, hidden, and absolutely positioned */
@@ -43,7 +54,9 @@
   opacity: 0.5;
   position: relative; /* Keep all slides in the document flow */
 }
-
+.slideshowContainer.adjusted .slidesWindow {
+  transform: translateX(-${currentIndex * 100}%); /* Adjust based on active slide */
+}
 
 /* Active slide style: full width, visible, and relatively positioned */
 .active {
