@@ -30,26 +30,27 @@
 
 .slidesWindow {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: row;
   overflow: hidden;
-  position: relative;
   width: 100%;
 }
 
 /* Slide default style: full width, hidden, and absolutely positioned */
 .slide {
-  flex: 0 0 auto; /* Do not grow or shrink */
-  width: 33.3333%; /* Give a base width for non-active slides */
+  flex: 0 0 auto; /* Don't grow or shrink */
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  opacity: 0.5; /* Dim non-active slides */
-  outline: 1px solid red; /* For debugging purposes */
+  width: 33.3333%; /* Set width to show three slides at a time */
+  opacity: 0.5;
+  position: relative; /* Keep all slides in the document flow */
 }
 
 
 /* Active slide style: full width, visible, and relatively positioned */
 .active {
-  z-index: 2; /* Make sure it's above other slides */
-  opacity: 1; /* Fully visible */
+  flex: 0 0 auto; /* Don't grow or shrink */
+  width: 33.3333%; /* Adjust width as needed */
+  opacity: 1;
+  z-index: 2; /* Make sure the active slide is on top */
 }
 .prevSlide {
   transform: translateX(-50%);
