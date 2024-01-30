@@ -16,28 +16,44 @@
   .callButton {
     margin-top: 8px;
     background-color: #d9d6d6;
-    border-radius: 20px;
-    padding: 8px 16px;
+    border-radius: 10px;
+    padding: 4px 8px;
     display: inline-block;
     margin-right: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 0.9em;
+    font-size: 0.7em;
     color: #333;
   }
   
   .header {
-    color: #d54d7b; /* สีหัวข้อตามการออกแบบ */
-    margin-bottom: 20px; /* ระยะห่างข้างล่างหัวข้อ */
-    text-align: center; /* จัดหัวข้อให้อยู่ตรงกลาง */
-    border-bottom: 4px solid #d54d7b; /* เส้นใต้หัวข้อ */
-    padding-bottom: 10px; /* ระยะห่างระหว่างหัวข้อกับเส้นใต้ */
+    position: relative; /* Establishes a positioning context for the pseudo-element */
+    font: 2em "Kanit", sans-serif;
+    color: #000000;
+    margin-bottom: 40px;
+    text-align: center; /* Centers the text */
+    padding-bottom: 20px; /* Space between text and underline */
+    padding-top: 20px;
   }
+  
+  .header::after {
+    content: ''; /* Required for pseudo-elements */
+    display: block; /* Makes the pseudo-element behave like a block */
+    margin: 0 auto; /* Centers the block horizontally */
+    height: 4px; /* The thickness of your underline */
+    background-color: #ff0000; /* The color of your underline */
+    width: 50%; /* Adjust this to control the width of the underline */
+    position: absolute; /* Positions the pseudo-element relative to the parent */
+    left: 50%; /* Moves the pseudo-element to the center of the parent */
+    transform: translateX(-50%); /* Ensures the pseudo-element is perfectly centered */
+    bottom: 0; /* Positions the pseudo-element at the bottom of the parent */
+  }
+  
   
   .listItem {
     background-color: #fff; /* พื้นหลังของแต่ละรายการ */
-    border-left: 10px solid #ff0000;
-    margin-bottom: 16px; /* ระยะห่างระหว่างรายการ */
-    padding: 16px; /* ระยะห่างภายในรายการ */
+    border-left: 5px solid #ff0000;
+    margin-bottom: 8px; /* ระยะห่างระหว่างรายการ */
+    padding: 8px; /* ระยะห่างภายในรายการ */
     display: flex;
     align-items: center; /* จัดรายการให้อยู่ตรงกลางแนวตั้ง */
     justify-content: space-between; /* จัดห่างระหว่างข้อมูลกับปุ่ม Google Map */
@@ -70,11 +86,11 @@
     margin-top: 8px;
     background-color: #d9d6d6;
     border-radius: 20px;
-    padding: 8px 16px;
+    padding: 4px 8px;
     display: inline-block;
     margin-right: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 0.9em;
+    font-size: 0.7em;
     color: #333;
   }
   .phoneButton {

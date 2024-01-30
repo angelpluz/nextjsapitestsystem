@@ -17,7 +17,7 @@ const LocationList = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.header}>รายการสถานที่</h2>
+    <h2 className={styles.header}>โชว์รูม</h2>
       <ul>
         {locations.map((location) => (
           <li key={location.website_seq} className={styles.listItem}>
