@@ -1,12 +1,8 @@
 /* LocationList.module.css */
 .container {
-    max-width: 600px;
+  max-width: 600px;
     margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Kanit', sans-serif;
+    padding-left: 15px;
   }
   .buttonContainer {
     display: flex;
@@ -18,45 +14,49 @@
     background-color: #d9d6d6;
     border-radius: 10px;
     padding: 4px 8px;
-    display: inline-block;
+    display: flex;
     margin-right: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 0.7em;
-    color: #333;
+    color: #000;
+    align-items: center;
   }
-  
+  .icon {
+    margin-right: 1px; /* Adjust the spacing as needed */
+  }
   .header {
-    position: relative; /* Establishes a positioning context for the pseudo-element */
+    position: relative;
     font: 2em "Kanit", sans-serif;
     color: #000000;
     margin-bottom: 40px;
-    text-align: center; /* Centers the text */
-    padding-bottom: 20px; /* Space between text and underline */
+    text-align: center;
+    padding-bottom: 20px;
     padding-top: 20px;
+    font-weight: bold;
   }
   
   .header::after {
-    content: ''; /* Required for pseudo-elements */
-    display: block; /* Makes the pseudo-element behave like a block */
-    margin: 0 auto; /* Centers the block horizontally */
-    height: 4px; /* The thickness of your underline */
-    background-color: #ff0000; /* The color of your underline */
-    width: 50%; /* Adjust this to control the width of the underline */
-    position: absolute; /* Positions the pseudo-element relative to the parent */
-    left: 50%; /* Moves the pseudo-element to the center of the parent */
-    transform: translateX(-50%); /* Ensures the pseudo-element is perfectly centered */
-    bottom: 0; /* Positions the pseudo-element at the bottom of the parent */
+    content: '';
+    display: block;
+    margin: 0 auto;
+    height: 4px;
+    background-color: #ff0000;
+    width: 70px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
   }
   
   
   .listItem {
-    background-color: #fff; /* พื้นหลังของแต่ละรายการ */
-    border-left: 5px solid #ff0000;
-    margin-bottom: 8px; /* ระยะห่างระหว่างรายการ */
-    padding: 8px; /* ระยะห่างภายในรายการ */
+    background-color: #fff;
+    border-left: 7px solid #ff0000;
+    margin-bottom: 16px;
+    padding: 10px;
     display: flex;
-    align-items: center; /* จัดรายการให้อยู่ตรงกลางแนวตั้ง */
-    justify-content: space-between; /* จัดห่างระหว่างข้อมูลกับปุ่ม Google Map */
+    align-items: center;
+    justify-content: space-between;
     font-family: 'Kanit', sans-serif;
   }
   
@@ -76,13 +76,13 @@
   }
   
   .locationDetails {
-    color: #666;
+    color: #000;
     font-size: 0.75em;
     padding: 10px 0px 10px 0px;
+    font-weight: 100;
   }
   
   .mapButton {
-    font-weight: bold;
     margin-top: 8px;
     background-color: #d9d6d6;
     border-radius: 20px;
@@ -91,7 +91,7 @@
     margin-right: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 0.7em;
-    color: #333;
+    color: #000;
   }
   .phoneButton {
     /* สไตล์เดิมที่คุณมี */
@@ -113,4 +113,5 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     font-size: 0.8em;
     color: #000;
+    font-weight: 500;
   }

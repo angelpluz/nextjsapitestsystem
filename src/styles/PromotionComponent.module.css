@@ -1,15 +1,16 @@
 /* components/PromotionComponent.module.css */
 
 .promotionContainer {
-  background-color: #f9f9f9; /* Light grey background */
-  border-radius: 10px;
+  background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   font-family: 'Arial', sans-serif;
   max-width: auto;
-  margin: auto;
   display: flex;
   flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .header {

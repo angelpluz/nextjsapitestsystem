@@ -18,6 +18,7 @@
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   border: none;
   box-shadow: none;
+  padding: 12px 15px 12px 15px;
 }
 .Home_container__9OuOz {
   padding-top: 2000; /* หรือลบเส้นนี้หากคุณไม่ต้องการ padding ที่ด้านบนเลย */
@@ -26,13 +27,12 @@
 
 .menuButton {
   background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 2rem; /* ตั้งค่าความสูงของปุ่ม */
+    border: none;
+    cursor: pointer; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 2rem;
 }
 
 .menuLine {
