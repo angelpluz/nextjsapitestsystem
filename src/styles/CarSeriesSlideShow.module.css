@@ -50,7 +50,7 @@
 .slide {
   flex: 0 0 auto; /* Don't grow or shrink */
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  width: 33.3333%; /* Set width to show three slides at a time */
+  width: 27.5%; /* Set width to show three slides at a time */
   opacity: 0.5;
   position: relative; /* Keep all slides in the document flow */
 }
@@ -69,7 +69,11 @@
   transform: translateX(-50%);
   z-index: 1; /* Lower than the active slide */
 }
-
+.slide.active {
+  width: 45%; /* Active slide */
+  z-index: 2;
+  /* Center the active slide */
+}
 .nextSlide {
   transform: translateX(50%);
   z-index: 1; /* Lower than the active slide */
@@ -102,6 +106,29 @@
   background-color: rgba(0,0,0,0.5);
   z-index: 10; /* Ensure they are above all slides */
 }
+.splide__slide {
+  opacity: 0.5; /* Makes non-active slides semi-transparent */
+}
+
+.splide__slide.is-active {
+  opacity: 1 !important; /* Ensures the active slide is fully opaque */
+}
+.slideInfo,
+.slidePrice {
+  margin: 0.5rem 0;
+}
+.activeSlide {
+  opacity: 1;
+}
+.slide {
+  opacity: 0.5;
+}
+/* Ensure the Splide arrows are visible */
+.splide__arrows {
+  z-index: 10;
+}
+
+
 /* .dim {
   opacity: 0.5;
   transform: scale(0.8);

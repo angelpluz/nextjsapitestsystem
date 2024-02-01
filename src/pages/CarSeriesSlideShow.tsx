@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/splide.min.css';
 import styles from '../styles/CarSeriesSlideShow.module.css';
+import Link from 'next/link';
 
 const CarSeriesSlideShow = () => {
   const [series, setSeries] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0); // Missing definition of currentIndex
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -20,69 +22,55 @@ const CarSeriesSlideShow = () => {
           throw new Error('API call was not successful');
         }
         setSeries(data.data);
-        setCurrentIndex(Math.floor(data.data.length / 2)); // Re-center after data is fetched
       })
       .catch((error) => {
         setError(error.message);
       });
   }, []);
 
-  const goToSlide = (index) => {
-    let newCurrentIndex = index % series.length;
-    if (newCurrentIndex < 0) {
-      newCurrentIndex += series.length; // wrap to the end if index is negative
-    }
-    setCurrentIndex(newCurrentIndex);
-  };
-
   if (error) {
     return <p>Error loading car series: {error}</p>;
   }
 
   if (!series.length) {
-    return <p>No car series available.</p>;
+    return <p>Loading car series...</p>;
   }
 
-  // Calculate the offset to show the current slide in the center
-  const offset = -(currentIndex * (100 / series.length));
-
   return (
-    <div className={styles.slideshowContainer}>
-      <button className={styles.prev} onClick={() => goToSlide(currentIndex - 1)}>
-        &lt;
-      </button>
-
-      <div className={styles.slidesWindow} style={{ transform: `translateX(${offset}%)` }}>
-        {series.map((car, index) => {
-              const isActive = index === currentIndex;
-              let slideClass = isActive ? `${styles.slide} ${styles.active}` : styles.slide;
-
-          return (
-            <div key={car.id} className={slideClass}>
-              <Link href={`/carseries/${car.id}`}>
-                  <img
-                    src={`http://toyotathonburi.co.th/webp/imgThumbnail/${car.imgThumbnail}`}
-                    alt={car.name}
-                    className={isActive ? styles.activeImage : ''}
-                  />
-              </Link>
-              {isActive && (
-                <div className={styles.slideDetails}>
-                  <h2 className={styles.slideInfo}>{car.name}</h2>
-                  <p className={styles.slidePrice}>
-                    Price: {car.price.toLocaleString()} THB
-                  </p>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      <button className={styles.next} onClick={() => goToSlide(currentIndex + 1)}>
-        &gt;
-      </button>
-    </div>
+    <Splide
+    onMoved={(splide, newIndex) => {
+      setCurrentIndex(newIndex);
+    }}
+      options={{
+        type: 'loop',
+        perPage: 3,
+        width: '100%',
+        gap: '1rem',
+        focus: 'center',
+        pagination: false,
+        classes: {
+          slide: `${styles.splide__slide}`,
+          page: `${styles.splide__pagination__page}`,
+        },
+      }}
+      aria-label="Car Series"
+    >
+      {series.map((car, index) => ( // Added index parameter
+        <SplideSlide key={car.id} className={currentIndex === index ? styles.activeSlide : styles.slide}>
+          <Link href={`/carseries/${car.id}`} passHref>
+            <img
+              src={`http://toyotathonburi.co.th/webp/imgThumbnail/${car.imgThumbnail}`}
+              alt={car.name}
+              style={{ width: '100%', display: 'block' }}
+            />
+          </Link>
+          <div className={styles.slideDetails}>
+            <h2 className={styles.slideInfo}>{car.name}</h2>
+            <p className={styles.slidePrice}>Price: {car.price.toLocaleString()} THB</p>
+          </div>
+        </SplideSlide>
+      ))}
+    </Splide>
   );
 };
 
