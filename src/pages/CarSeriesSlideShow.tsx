@@ -43,7 +43,7 @@ const CarSeriesSlideShow = () => {
     }}
       options={{
         type: 'loop',
-        perPage: 3,
+        perPage: 2,
         width: '100%',
         gap: '1rem',
         focus: 'center',
@@ -58,15 +58,16 @@ const CarSeriesSlideShow = () => {
       {series.map((car, index) => ( // Added index parameter
         <SplideSlide key={car.id} className={currentIndex === index ? styles.activeSlide : styles.slide}>
           <Link href={`/carseries/${car.id}`} passHref>
-            <img
-              src={`http://toyotathonburi.co.th/webp/imgThumbnail/${car.imgThumbnail}`}
-              alt={car.name}
-              style={{ width: '100%', display: 'block' }}
-            />
+          <img
+  src={`http://toyotathonburi.co.th/webp/imgThumbnail/${car.imgThumbnail}`}
+  alt={car.name}
+  className={currentIndex === index ? `${styles.activeImage} ${styles.yourImageClass}` : styles.yourImageClass}
+  style={{ width: '100%', display: 'block' }}
+/>
           </Link>
           <div className={styles.slideDetails}>
-            <h2 className={styles.slideInfo}>{car.name}</h2>
-            <p className={styles.slidePrice}>Price: {car.price.toLocaleString()} THB</p>
+            {/* <h2 className={styles.slideInfo}>{car.name}</h2>
+            <p className={styles.slidePrice}>Price: {car.price.toLocaleString()} THB</p> */}
           </div>
         </SplideSlide>
       ))}

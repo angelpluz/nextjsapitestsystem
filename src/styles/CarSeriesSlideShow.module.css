@@ -107,11 +107,17 @@
   z-index: 10; /* Ensure they are above all slides */
 }
 .splide__slide {
+  width: 25%;
   opacity: 0.5; /* Makes non-active slides semi-transparent */
 }
 
 .splide__slide.is-active {
+  width: 50%;
   opacity: 1 !important; /* Ensures the active slide is fully opaque */
+}
+.activeImage {
+  transform: scale(1.5);
+  transition: transform 0.1s ease-in-out;
 }
 .slideInfo,
 .slidePrice {
