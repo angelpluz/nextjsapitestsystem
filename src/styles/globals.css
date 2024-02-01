@@ -1,6 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Prompt&family=Roboto&display=swap');
+/* styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
+
+body {
+  font-family: 'Kanit', sans-serif;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -17,6 +24,7 @@
 }
 
 body {
+  font-family: 'Kanit', sans-serif;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
