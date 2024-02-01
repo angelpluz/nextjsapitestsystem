@@ -9,9 +9,9 @@
     height: auto;
   }
   .slideInfo {
-    margin-top: 10px;
-    text-align: center; /* Center align text */
-    font-size: 24px; /* Larger font size */
+    margin-top: 0px;
+    text-align: center;
+    font-size: 24px;
   }
   .slidePrice {
     text-align: center; /* Center align text */
