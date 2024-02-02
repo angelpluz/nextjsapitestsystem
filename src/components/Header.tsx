@@ -14,27 +14,20 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <Link href="/" passHref>
-        <img src="/images/logott.png" alt="Logo" className={styles.logo} /> {/* โลโก้ */}
+        <img src="/images/logott.png" alt="Logo" className={styles.logo} /> {/* Logo */}
       </Link>
-  <img src="/images/searchlogo.png" alt="search" className={styles.searchIcon} /> {/* ไอคอน location */}
-  <img src="/images/newcar.png" alt="newcar" className={styles.newcarIcon} /> {/* ไอคอน location */}
-
-      <img src="/images/location.png" alt="Location" className={styles.locationIcon} /> {/* ไอคอน location */}
-
-      <button className={styles.menuButton} onClick={toggleMenu}>
-        <span className={styles.menuLine}></span>
-        <span className={styles.menuLine}></span>
-        <span className={styles.menuLine}></span>
-      </button>
-      {/* เงื่อนไขที่จะแสดงเมนูตามสถานะของ isMenuOpen */}
-      {isMenuOpen && (
-        <nav className={isMenuOpen ? styles.navOpen : styles.nav}>
-  <a href="/about">About</a>
-  <a href="/services">Services</a>
-  <a href="/contact">Contact</a>
-</nav>
-
-      )}
+      {/* Icon container to wrap icons and menu button */}
+      <div className={styles.iconContainer}>
+        <img src="/images/searchlogo.png" alt="search" className={styles.searchIcon} /> {/* Search icon */}
+        <img src="/images/newcar.png" alt="newcar" className={styles.newcarIcon} /> {/* Car icon */}
+        <img src="/images/location.png" alt="Location" className={styles.locationIcon} /> {/* Location icon */}
+        <button className={styles.menuButton} onClick={toggleMenu}>
+          <span className={styles.menuLine}></span>
+          <span className={styles.menuLine}></span>
+          <span className={styles.menuLine}></span>
+        </button>
+      </div>
+      {/* ... existing code */}
     </header>
   );
 };

@@ -18,6 +18,22 @@
   box-shadow: none;
   padding: 12px 15px 12px 15px;
 }
+.iconContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+.logoContainer {
+  position: absolute;
+  left: 0;
+  padding-left: 15px; /* or any value to adjust the space from the edge */
+}
+.header-icons {
+  display: flex;
+  justify-content: flex-end; /* Align icons to the right */
+  /* Other styles... */
+}
 .Home_container__9OuOz {
   padding-top: 2000; /* หรือลบเส้นนี้หากคุณไม่ต้องการ padding ที่ด้านบนเลย */
   /* ปรับค่า padding ด้านอื่นๆ ตามความต้องการ */

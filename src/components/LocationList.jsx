@@ -26,7 +26,7 @@ const LocationList = () => {
             <a href={`/showroom/${location.id}`} className={styles.locationTitle}>
   {location.website_name}
 </a>
-              <p className={styles.locationDetails}>ที่อยู่: {location.address}</p>
+              <p className={styles.locationDetails}> {location.address}</p>
                     <div className={styles.typeContainer}>
                 {location.type.split(',').map((type, index) => (
                   <span key={index} className={styles.locationTypes}>

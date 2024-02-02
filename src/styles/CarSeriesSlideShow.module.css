@@ -7,6 +7,7 @@
   text-align: center; /* Centers the text */
   padding-bottom: 20px; /* Space between text and underline */
   padding-top: 20px;
+  font-weight: bold;
 }
 
 .header::after {
@@ -82,12 +83,15 @@
 .slideInfo {
   text-align: center; /* Center align text */
   font-size: 24px; /* Larger font size */
+ color: black; /* สีดำสำหรับสไลด์ที่ไม่ใช่ active */
+  transition: color 0.3s ease; /* เพิ่ม transition สำหรับการเปลี่ยนสี */
 }
 
 .slidePrice {
   text-align: center; /* Center align text */
   font-size: 20px;
   margin-bottom: 20px; /* Slightly smaller font size than the name */
+
 }
 
 /* Navigation buttons are absolutely positioned within the slideshowContainer */
