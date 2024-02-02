@@ -125,12 +125,15 @@
 }
 .slideInfo,
 .slidePrice {
+  
   margin: 0.5rem 0;
 }
 .activeSlide {
+  color: #ff0000;
   opacity: 1;
 }
 .slide {
+ 
   opacity: 0.5;
 }
 /* Ensure the Splide arrows are visible */

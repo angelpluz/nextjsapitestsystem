@@ -67,7 +67,8 @@ const CarSeriesSlideShow = () => {
               />
             </Link>
             <div className={styles.slideDetails}>
-       <h2 className={styles.slideInfo}>{car.name}</h2>
+       <h2 className={styles.slidePrice}>{car.name}</h2>
+       
             <p className={styles.slidePrice}>เริ่มต้น {car.price.toLocaleString()} บาท</p>
             </div>
           </SplideSlide>
