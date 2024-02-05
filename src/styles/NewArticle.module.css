@@ -1,0 +1,96 @@
+/* components/NewArticle.module.css */
+.header {
+    position: relative; /* Establishes a positioning context for the pseudo-element */
+    font: 2em "Kanit", sans-serif;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center; /* Centers the text */
+    padding-bottom: 20px; /* Space between text and underline */
+    padding-top: 20px;
+    font-weight: bold;
+  }
+  
+  .header::after {
+    content: ''; /* Required for pseudo-elements */
+    display: block; /* Makes the pseudo-element behave like a block */
+    margin: 0 auto; /* Centers the block horizontally */
+    height: 4px; /* The thickness of your underline */
+    background-color: #ff0000; /* The color of your underline */
+    width: 50%; /* Adjust this to control the width of the underline */
+    position: absolute; /* Positions the pseudo-element relative to the parent */
+    left: 50%; /* Moves the pseudo-element to the center of the parent */
+    transform: translateX(-50%); /* Ensures the pseudo-element is perfectly centered */
+    bottom: 0; /* Positions the pseudo-element at the bottom of the parent */
+  }
+  
+  .promotionContainer {
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    max-width: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  
+  
+  .title, .subtitle {
+    color: #000; /* For title */
+    font-size: 18px; /* For title, change to 14px for subtitle */
+    margin: 0;
+    text-align: center; /* Centers the text horizontally */
+    width: 100%; /* Ensures the text blocks take up full container width */
+  }
+  
+  .subtitle {
+    color: #333; /* Darker text color for the subtitle */
+    font-size: 14px; /* Smaller font size for the subtitle */
+    text-align: center;
+    width: 100%;
+  }
+  
+  .image {
+    width: 95%; /* Reduce the width to 95% of its container */
+    display: block; /* Continue displaying as a block */
+    padding: 2.5%; /* Add padding to create the border effect */
+    margin: auto; /* This will center the image in the container if the container has a defined width */
+    box-sizing: border-box; /* Make sure the padding is included in the width calculation */
+  }
+  
+  .description {
+    font-size: 14px;
+    padding: 8px 16px;
+    color: #333;
+    text-align: justify;
+  }
+  
+  .footer {
+    /* background-color: #ffde17; Yellow background for the footer */
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .button {
+    background-color: #c1272d; /* สีพื้นหลังของปุ่ม */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* หรือ inline-block ตามที่คุณต้องการ */
+    margin: 10px auto; /* จัดกึ่งกลางปุ่มใน container */
+    margin-bottom: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+  
+  .button:hover {
+    background-color: #a20d1e; /* สีที่เข้มขึ้นเมื่อ hover */
+  }
+  /* Additional styles as needed */
+  

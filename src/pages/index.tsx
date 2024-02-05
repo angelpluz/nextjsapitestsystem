@@ -6,6 +6,7 @@ import LocationList from '../components/LocationList';
 import Slideindex from '../components/SlideIndex';
 import CarSeriesSlideShow from './CarSeriesSlideShow';
 import PromotionComponent from '../components/PromotionComponent';
+import NewArticle from '../components/NewsArticle';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <CarSeriesSlideShow />
       <LocationList />
       <PromotionComponent />
+      <NewArticle />
     </div>
   );
 };

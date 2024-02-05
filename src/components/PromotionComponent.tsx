@@ -57,7 +57,9 @@ const PromotionComponent = () => {
   const shortDescription = truncateText(promotion.description, 100); // Truncate to 100 characters
 
   return (
+    
     <div className={styles.promotionContainer}>
+       <h2 className={styles.header}>ข้อเสนอพิเศษ</h2> 
       {promotion.srcImg && promotion.thumbnail && (
         <img
           className={styles.image}
