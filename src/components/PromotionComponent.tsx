@@ -67,7 +67,8 @@ const PromotionComponent = () => {
           alt={promotion.title || 'Promotion image'}
         />
       )}
-      
+               <h2 className={styles.title}>{promotion.title}</h2>
+      <h3 className={styles.subtitle}>{promotion.subtitle}</h3>
       <p>{shortDescription}</p>
       
       {/* Implement the button functionality */}
