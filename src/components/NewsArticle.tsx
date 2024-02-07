@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'; // import faPhone
 import styles from '../styles/NewArticle.module.css'; // Update the import path if necessary
 
 const NewsArticle = () => {
@@ -56,7 +58,7 @@ const NewsArticle = () => {
       <h3 className={styles.subtitle}>{news.subtitle}</h3>
       {/* Additional content can be added here */}
       <div className={styles.footer}>
-        <button className={styles.button}>อ่านเพิ่มเติม</button>
+        <span className={styles.button}>ดูรายละเอียด <FontAwesomeIcon icon={faChevronRight} /> </span>
       </div>
     </article>
   );

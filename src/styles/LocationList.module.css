@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
   }
   .callButton {
     margin-top: 8px;
@@ -20,6 +21,7 @@
     font-size: 0.7em;
     color: #000;
     align-items: center;
+    width: 100%; 
     
   }
   .icon {
@@ -43,7 +45,7 @@
     margin: 0 auto;
     height: 4px;
     background-color: #ff0000;
-    width: 70px;
+    width: 120px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -83,7 +85,7 @@
     color: #000;
     font: 0.75em  'Prompt', sans-serif;
     /* font-size: 0.75em ; */
-    padding: 10px 0px 10px 0px;
+    padding: 10px 20px 10px 0px;
     font-weight: 100;
   }
   
@@ -97,6 +99,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 0.7em;
     color: #000;
+    width: 100%;
+    text-align: center;
   }
   .phoneButton {
     /* สไตล์เดิมที่คุณมี */
