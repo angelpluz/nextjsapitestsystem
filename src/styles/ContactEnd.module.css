@@ -1,7 +1,14 @@
 .contactContainer {
-    background-color: #ff000a; /* Sample color based on your image */
+    background-color: #ff000a;
     color: white;
     text-align: center; 
+    max-width: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
   }
   
   .callCenter_ {
