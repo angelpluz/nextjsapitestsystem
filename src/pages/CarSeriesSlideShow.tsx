@@ -45,6 +45,7 @@ const CarSeriesSlideShow = () => {
         }}
         options={{
           type: 'loop',
+          perMove: 1,
           perPage: 2,
           height: '15rem',
           focus: 'center',
@@ -67,9 +68,9 @@ const CarSeriesSlideShow = () => {
               />
             </Link>
             <div className={styles.slideDetails}>
-       <h2 className={styles.slidePrice}>{car.name}</h2>
+            <h2 className={styles.slidePrice}><b>{car.name}</b></h2>
        
-            <p className={styles.slidePrice}>เริ่มต้น {car.price.toLocaleString()} บาท</p>
+            <h3 className={styles.slideDetail}>เริ่มต้น {car.price.toLocaleString()} บาท</h3>
             </div>
           </SplideSlide>
         ))}

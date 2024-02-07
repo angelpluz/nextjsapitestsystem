@@ -5,7 +5,7 @@
     color: #000000;
     margin-bottom: 20px;
     text-align: center; /* Centers the text */
-    padding-bottom: 20px; /* Space between text and underline */
+    padding-bottom: 10px; /* Space between text and underline */
     padding-top: 20px;
     font-weight: bold;
   }
@@ -23,9 +23,8 @@
     bottom: 0; /* Positions the pseudo-element at the bottom of the parent */
   }
   
-  .promotionContainer {
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .article {
+    background-color: #ffffff;
     font-family: 'Arial', sans-serif;
     max-width: auto;
     display: flex;
@@ -75,7 +74,6 @@
     padding: 10px 25px 10px 25px;
     text-align: left;
     font-family:"Kanit", sans-serif;
-    margin-bottom: 88px;
   }
   
   .button {
