@@ -38,13 +38,13 @@ const LocationList = () => {
             <div className={styles.buttonContainer}>
             <a href={`tel:${location.tel}`} className={styles.callButton}>
             <FontAwesomeIcon icon={faPhone} color="black" /> {/* Use FontAwesomeIcon here */}
-        <span className={styles.phoneNumber}>{location.tel}</span>
+        &nbsp;&nbsp; <span className={styles.phoneNumber}>{location.tel}</span>
 </a>
               <a href={location.website_link} // Use the 'link' property directly from the API response
    className={styles.mapButton} 
    target="_blank"
    rel="noopener noreferrer">
-   <FontAwesomeIcon icon={faLocationArrow} /> Google Map
+   <FontAwesomeIcon icon={faLocationArrow} />&nbsp;&nbsp; Google Map
 </a>
             </div>
           </li>

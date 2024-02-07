@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from 'react'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'; // import faPhone
+ 
 import styles from '../styles/PromotionComponent.module.css'; // Make sure this path is correct
 
 // Assuming this is the structure of your promotion data
@@ -60,20 +62,21 @@ const PromotionComponent = () => {
     
     <div className={styles.promotionContainer}>
        <h2 className={styles.header}>ข้อเสนอพิเศษ</h2> 
-      {promotion.srcImg && promotion.thumbnail && (
-        <img
-          className={styles.image}
-          src={`http://toyotathonburi.co.th/${promotion.srcImg}${promotion.thumbnail}`}
-          alt={promotion.title || 'Promotion image'}
-        />
-      )}
-               <h2 className={styles.title}>{promotion.title}</h2>
+        {promotion.srcImg && promotion.thumbnail && (
+          <img
+            className={styles.image}
+            src={`http://toyotathonburi.co.th/${promotion.srcImg}${promotion.thumbnail}`}
+            alt={promotion.title || 'Promotion image'}
+          />
+        )}
+      <h2 className={styles.title}>{promotion.title}</h2>
       <h3 className={styles.subtitle}>{promotion.subtitle}</h3>
       <p>{shortDescription}</p>
       
       {/* Implement the button functionality */}
+          
       <div className={styles.footer}>
-        <button className={styles.button}>อ่านเพิ่มเติม</button>
+        <span className={styles.button}>ดูรายละเอียด <FontAwesomeIcon icon={faChevronRight} /> </span>
       </div>
     </div>
   );
