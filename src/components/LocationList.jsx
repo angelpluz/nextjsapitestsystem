@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faLocationArrow } from '@fortawesome/free-solid-svg-icons'; // import faPhone
 import styles from '../styles//LocationList.module.css';
-import { FaPhone } from 'react-icons/fa';
+
 
 const LocationList = () => {
   const [locations, setLocations] = useState([]);
@@ -37,8 +37,8 @@ const LocationList = () => {
             </div>
             <div className={styles.buttonContainer}>
             <a href={`tel:${location.tel}`} className={styles.callButton}>
-  <span className={styles.icon}><FaPhone color="black" /></span>
-  <span className={styles.phoneNumber}>{location.tel}</span>
+            <FontAwesomeIcon icon={faPhone} color="black" /> {/* Use FontAwesomeIcon here */}
+        <span className={styles.phoneNumber}>{location.tel}</span>
 </a>
               <a href={location.website_link} // Use the 'link' property directly from the API response
    className={styles.mapButton} 
