@@ -1,17 +1,20 @@
 .bottomNav {
-  position: fixed; /* ให้ navigation bar อยู่ที่ล่างสุดของหน้าจอตลอดเวลา */
+  position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%; /* ให้กว้างทั่วทั้งหน้าจอ */
-  background-color: #fff; /* สีขาว */
+  width: 100%;
+  background-color: #fff;
   display: flex;
-  justify-content: space-around; /* กระจายไอคอนให้เท่ากันทั่วทั้งแถบ */
+  justify-content: space-around;
   align-items: center;
-  padding: 10px 0; /* ระยะห่างด้านบนและล่างสำหรับแถบ */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* เงาเล็กน้อยด้านบนของแถบ */
-  z-index: 1000; /* ให้แถบอยู่ด้านบนขององค์ประกอบอื่นๆ */
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background-color 0.3s;
 }
-
+.transparent {
+  background-color: transparent;
+}
 .navItem {
   display: flex;
   flex-direction: column;
@@ -23,4 +26,7 @@
 .navItem p {
   font-size: 12px; /* ขนาดข้อความ */
   margin-top: 4px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
+}
+.bottomNavScrolled {
+  background-color: #fff; /* Change to white when scrolled to the bottom */
 }
