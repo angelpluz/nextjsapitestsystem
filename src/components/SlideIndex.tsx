@@ -30,6 +30,7 @@ const SlideComponent = () => {
   }
 
   return (
+    <div className={styles.slideshowContainer_}>
     <Splide
       options={{
         type: 'loop',
@@ -46,6 +47,8 @@ const SlideComponent = () => {
         </SplideSlide>
       ))}
     </Splide>
+
+    </div>
   );
 };
 
