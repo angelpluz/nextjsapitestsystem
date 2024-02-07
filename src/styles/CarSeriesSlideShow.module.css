@@ -5,7 +5,7 @@
   color: #000000;
   margin-bottom: 20px;
   text-align: center; /* Centers the text */
-  padding-bottom: 20px; /* Space between text and underline */
+  padding-bottom:  10px; /* Space between text and underline */
   padding-top: 20px;
   font-weight: bold;
 }
@@ -89,9 +89,14 @@
 
 .slidePrice {
   text-align: center; /* Center align text */
-  font-size: 20px;
+  font-size: 1.1em;
   margin-bottom: 20px; /* Slightly smaller font size than the name */
 
+}
+.slideDetail{
+  text-align: center; /* Center align text */
+  font-size: 1.2em;
+  margin-bottom: 20px; /* Slightly smaller font size than the name */
 }
 
 /* Navigation buttons are absolutely positioned within the slideshowContainer */

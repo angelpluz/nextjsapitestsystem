@@ -5,7 +5,7 @@
   color: #000000;
   margin-bottom: 20px;
   text-align: center; /* Centers the text */
-  padding-bottom: 20px; /* Space between text and underline */
+  padding-bottom:  10px; /* Space between text and underline */
   padding-top: 20px;
   font-weight: bold;
 }
@@ -24,8 +24,7 @@
 }
 
 .promotionContainer {
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; 
   font-family: 'Arial', sans-serif;
   max-width: auto;
   display: flex;
