@@ -7,6 +7,7 @@ import Slideindex from '../components/SlideIndex';
 import CarSeriesSlideShow from './CarSeriesSlideShow';
 import PromotionComponent from '../components/PromotionComponent';
 import NewArticle from '../components/NewsArticle';
+import ContactEnd from '../components/ContactEnd';
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <LocationList />
       <PromotionComponent />
       <NewArticle />
+      <ContactEnd />
     </div>
   );
 };

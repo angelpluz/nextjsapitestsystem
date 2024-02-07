@@ -1,0 +1,40 @@
+.contactContainer {
+    background-color: #c1272d; /* Sample color based on your image */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .callCenter {
+    /* Add specific styles for call center section */
+  }
+  
+  .number {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .socialMedia {
+    /* Example style */
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adjust the space between icons */
+  }
+
+  .socialMedia a {
+    color: white; /* Example color */
+    font-size: 34px; /* Adjust size as needed */
+  }
+  
+  .socialMedia a:hover {
+    color: #ccc; /* Example hover color */
+  }
+  .contactInfo {
+    /* Add specific styles for contact info */
+    font-size: 1rem;
+  }
+  
+  .copyRight {
+    font-size: 0.75rem;
+    margin-top: 1rem;
+  }
+  
