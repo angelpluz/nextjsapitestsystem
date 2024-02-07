@@ -10,9 +10,9 @@
   font-weight: bold; 
 }.header_ {
   position: relative; /* Establishes a positioning context for the pseudo-element */
-  font-size: 36px;
-  font-family: 'Sarabun';
-  color: #000000;
+  font-size: 36px; 
+  font-family: 'Mitr', sans-serif;
+  color: #ff00f2;
   margin-bottom: 20px;
   text-align: center; /* Centers the text */
   padding-bottom: 10px; /* Space between text and underline */
