@@ -44,7 +44,7 @@
     display: block;
     margin: 0 auto;
     height: 4px;
-    background-color: #ff0000;
+    background-color: #B30000;
     width: 120px;
     position: absolute;
     left: 50%;
@@ -55,7 +55,7 @@
   
   .listItem {
     background-color: #fff;
-    border-left: 7px solid #ff0000;
+    border-left: 7px solid #B30000;
     margin-bottom: 16px;
     padding: 10px;
     display: flex;

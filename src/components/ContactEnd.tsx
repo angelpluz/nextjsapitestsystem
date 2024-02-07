@@ -33,7 +33,7 @@ const ContactEnd = () => {
       <h2 className={styles.contact_}>CONTACT</h2>
 
       <div className={styles.contactInfo}>
-        <p className={styles.contactInfo_}><b>ที่อยู่ : </b> 313/1 ถนนเศรษฐกิจ แขวงบางนา เขตบางนา กรุงเทพมหานคร 10600</p>
+        <p className={styles.contactInfo_}><b>ที่อยู่ : </b> 313/1 ถนนรัชดาภิเษก แขวงบุคคโล เขตธนบุรี กรุงเทพมหานคร 10600</p>
         <p className={styles.contactInfo_}><b>เบอร์ : </b><a href="tel:024799009"> 02-479-9009</a></p>
         <p className={styles.contactInfo_}><b>อีเมล : </b> info@toyotathonburi.com</p>
       </div>

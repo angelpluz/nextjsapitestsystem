@@ -1,21 +1,41 @@
 /* components/NewArticle.module.css */
+.header__ {
+  position: relative; /* Establishes a positioning context for the pseudo-element */
+  font-size: 36px;
+  color: #000000;
+  margin-bottom: 20px;
+  text-align: center; /* Centers the text */
+  padding-bottom: 10px; /* Space between text and underline */
+  padding-top: 20px;
+  font-weight: bold; 
+}.header_ {
+  position: relative; /* Establishes a positioning context for the pseudo-element */
+  font-size: 36px;
+  font-family: 'Sarabun';
+  color: #000000;
+  margin-bottom: 20px;
+  text-align: center; /* Centers the text */
+  padding-bottom: 10px; /* Space between text and underline */
+  padding-top: 20px;
+  font-weight: bold; 
+}
 .header {
-    position: relative; /* Establishes a positioning context for the pseudo-element */
-    font: 2em "Kanit", sans-serif;
-    color: #000000;
-    margin-bottom: 20px;
-    text-align: center; /* Centers the text */
-    padding-bottom: 10px; /* Space between text and underline */
-    padding-top: 20px;
-    font-weight: bold;
-  }
+  position: relative; /* Establishes a positioning context for the pseudo-element */
+  font: 36px "Kanit", sans-serif;
+  color: #000000;
+  margin-bottom: 20px;
+  text-align: center; /* Centers the text */
+  padding-bottom: 10px; /* Space between text and underline */
+  padding-top: 20px;
+  font-weight: bold;
+}
   
   .header::after {
     content: ''; /* Required for pseudo-elements */
     display: block; /* Makes the pseudo-element behave like a block */
     margin: 0 auto; /* Centers the block horizontally */
     height: 4px; /* The thickness of your underline */
-    background-color: #ff0000; /* The color of your underline */
+    background-color: #B30000; /* The color of your underline */
     width: 120px; /* Adjust this to control the width of the underline */
     position: absolute; /* Positions the pseudo-element relative to the parent */
     left: 50%; /* Moves the pseudo-element to the center of the parent */
@@ -77,7 +97,7 @@
   }
   
   .button {
-    color: rgb(255, 0, 0); 
+    color: #B30000; 
     cursor: pointer;
     display: block; /* หรือ inline-block ตามที่คุณต้องการ */ 
     font-weight: bold;

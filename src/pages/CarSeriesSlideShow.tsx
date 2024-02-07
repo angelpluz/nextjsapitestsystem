@@ -37,7 +37,7 @@ const CarSeriesSlideShow = () => {
   }
 
   return (
-    <>
+    <div className={styles.header_}>
       <h2 className={styles.header}>รุ่นรถยนต์โตโยต้า</h2> {/* Header added here */}
       <Splide
         onMoved={(splide, newIndex) => {
@@ -75,7 +75,7 @@ const CarSeriesSlideShow = () => {
           </SplideSlide>
         ))}
       </Splide>
-    </>
+    </div>
   );
 };
 

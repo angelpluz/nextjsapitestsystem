@@ -1,13 +1,22 @@
 /* SlideIndex.module.css */
 
+.slideshowContainer_ {
+  background-color: #ffffff; 
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
 .slideshowContainer {
-    max-width: 600px; /* You can adjust this value */
-    position: relative;
-    margin: auto;
-    overflow: hidden;
-    margin-top: 0px;
-    height: auto;
-  }
+  max-width: 600px; /* You can adjust this value */
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 0px;
+  height: auto;
+}
   .slideInfo {
     margin-top: 0px;
     text-align: center;

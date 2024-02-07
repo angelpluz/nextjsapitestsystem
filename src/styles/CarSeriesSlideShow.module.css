@@ -1,4 +1,12 @@
-
+.header_ {
+  background-color: #ffffff; 
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
 .header {
   position: relative; /* Establishes a positioning context for the pseudo-element */
   font: 2em "Kanit", sans-serif;
@@ -15,7 +23,7 @@
   display: block; /* Makes the pseudo-element behave like a block */
   margin: 0 auto; /* Centers the block horizontally */
   height: 4px; /* The thickness of your underline */
-  background-color: #ff0000; /* The color of your underline */
+  background-color: #B30000; /* The color of your underline */
   width: 120px; /* Adjust this to control the width of the underline */
   position: absolute; /* Positions the pseudo-element relative to the parent */
   left: 50%; /* Moves the pseudo-element to the center of the parent */
@@ -134,7 +142,7 @@
   margin: 0.5rem 0;
 }
 .activeSlide {
-  color: #ff0000;
+  color: #B30000;
   opacity: 1;
 }
 .slide {
