@@ -5,8 +5,14 @@
 /* styles/globals.css */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap');
 body {
   font-family: 'Kanit', sans-serif;
+}
+
+body {
+  font-family: 'Sarabun', sans-serif;
 }
 
 :root {
