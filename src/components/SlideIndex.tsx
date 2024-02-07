@@ -1,9 +1,11 @@
 // components/SlideComponent.tsx
 import React, { useEffect, useState } from 'react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/splide.min.css';
 import styles from '../styles/SlideIndex.module.css';
+
 const SlideComponent = () => {
   const [slides, setSlides] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -19,19 +21,6 @@ const SlideComponent = () => {
       });
   }, []);
 
-  const goToPrev = () => {
-    setCurrentIndex((oldIndex) => {
-      if (oldIndex === 0) {
-        return slides.length - 1;
-      }
-      return oldIndex - 1;
-    });
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((oldIndex) => (oldIndex + 1) % slides.length);
-  };
-
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -41,16 +30,22 @@ const SlideComponent = () => {
   }
 
   return (
-    <div className={styles.slideshowContainer}>
-      <button className={styles.prev} onClick={goToPrev}>&lt;</button>
-      <button className={styles.next} onClick={goToNext}>&gt;</button>
+    <Splide
+      options={{
+        type: 'loop',
+        perPage: 1,
+        autoplay: true,
+        pauseOnHover: false,
+        resetProgress: false,
+        arrows: true,
+      }}
+    >
       {slides.map((slide, index) => (
-  <div key={index} className={`${styles.slide} ${currentIndex === index ? styles.active : ''}`}>
-    <h2 className={styles.slideInfo}></h2>
-    <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
-  </div>
-))}
-    </div>
+        <SplideSlide key={index}>
+          <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
+        </SplideSlide>
+      ))}
+    </Splide>
   );
 };
 
