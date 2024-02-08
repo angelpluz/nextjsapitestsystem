@@ -39,6 +39,7 @@ const SlideComponent = () => {
         pauseOnHover: false,
         resetProgress: false,
         arrows: true,
+        pagination: false,
       }}
     >
       {slides.map((slide, index) => (
