@@ -6,8 +6,7 @@
   margin-bottom: 20px;
   text-align: center; /* Centers the text */
   padding-bottom:  10px; /* Space between text and underline */
-  padding-top: 20px;
-  font-weight: bold;
+  padding-top: 20px; 
 }
 
 .header::after {

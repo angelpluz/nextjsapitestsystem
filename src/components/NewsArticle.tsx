@@ -45,9 +45,7 @@ const NewsArticle = () => {
   }
 
   return (
-    <article className={styles.article}>
-    <h2 className={styles.header__}>ข่าวสารและกิจกรรม</h2> 
-    <h2 className={styles.header_}>ข่าวสารกิจกรรมprompt</h2> 
+    <article className={styles.article}> 
      <h2 className={styles.header}>ข่าวสารและกิจกรรม</h2> 
       {news.thumbnail && (
         <img

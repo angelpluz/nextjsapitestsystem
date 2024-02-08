@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="th">
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=Prompt&family=Roboto&display=swap"
@@ -12,12 +12,7 @@ class MyDocument extends Document {
             <link
             href="https://fonts.googleapis.com/css2?family=Kanit&family=Roboto&display=swap"
             rel="stylesheet"
-          />
-
-<link
-            href="https://fonts.googleapis.com/css2?family=Sarabun&family=Roboto&display=swap"
-            rel="stylesheet"
-          />
+          /> 
         </Head>
         <body>
           <Main />

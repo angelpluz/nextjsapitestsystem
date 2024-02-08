@@ -1,24 +1,5 @@
 /* components/NewArticle.module.css */
-.header__ {
-  position: relative; /* Establishes a positioning context for the pseudo-element */
-  font-size: 36px;
-  color: #000000;
-  margin-bottom: 20px;
-  text-align: center; /* Centers the text */
-  padding-bottom: 10px; /* Space between text and underline */
-  padding-top: 20px;
-  font-weight: bold; 
-}.header_ {
-  position: relative; /* Establishes a positioning context for the pseudo-element */
-  font-size: 36px; 
-  font-family: 'Mitr', sans-serif;
-  color: #ff00f2;
-  margin-bottom: 20px;
-  text-align: center; /* Centers the text */
-  padding-bottom: 10px; /* Space between text and underline */
-  padding-top: 20px;
-  font-weight: bold; 
-}
+
 .header {
   position: relative; /* Establishes a positioning context for the pseudo-element */
   font: 36px "Kanit", sans-serif;
@@ -27,7 +8,6 @@
   text-align: center; /* Centers the text */
   padding-bottom: 10px; /* Space between text and underline */
   padding-top: 20px;
-  font-weight: bold;
 }
   
   .header::after {

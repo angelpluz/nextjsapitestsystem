@@ -1,13 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=google&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt&family=Roboto&display=swap');
 /* styles/globals.css */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
-
-@import url('https://fonts.googleapis.com/css?family=Sarabun&display=swap'); 
-
-@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap');
+ 
+ 
 body {
   font-family: 'Kanit', sans-serif;
 }
