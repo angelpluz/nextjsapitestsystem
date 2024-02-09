@@ -27,28 +27,31 @@ const BottomNavigation = () => {
 
   return (
     <nav className={`${styles.bottomNav} ${isBottom ? styles.transparent : ''}`}>
-    <Link href="/CarCategory" passHref>
+      <Link href="/CarCategory" passHref>
         <div className={styles.navItem}>
           <Image src="/images/buy_1.png" alt="สินเชื่อ" width={84} height={24} />
-          {/* Icon and label */}
+          <p className={styles.navLabel}>สินเชื่อ</p>
         </div>
       </Link>
       <Link href="/service" passHref>
         <div className={styles.navItem}>
           <Image src="/images/service_bot.png" alt="บริการ" width={84} height={24} />
           {/* Icon and label */}
+          <p className={styles.navLabel}>บริการ</p>
         </div>
       </Link>
       <Link href="/insurance" passHref>
         <div className={styles.navItem}>
           <Image src="/images/carinbot.png" alt="ต่อประกัน" width={84} height={24} />
           {/* Icon and label */}
+          <p className={styles.navLabel}>ต่อประกัน</p>
         </div>
       </Link>
       <Link href="/CalculateCar" passHref>
         <div className={styles.navItem}>
           <Image src="/images/calinstall.png" alt="คำนวณค่างวด" width={84} height={24} />
           {/* Icon and label */}
+          <p className={styles.navLabel}>ที่ตั้งโชว์รูม</p>
         </div>
       </Link>
   

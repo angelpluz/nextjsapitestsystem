@@ -22,6 +22,13 @@
   color: #000; /* สีข้อความดำ */
   text-decoration: none; /* ไม่มีเส้นใต้ข้อความ */
 }
+.navLabel {
+  position: absolute; /* Position the label over the image */
+   /* Adjust as needed */
+  color: #fff; /* Change the text color as needed */
+  font-weight: bold;
+  /* You may need additional styling here */
+}
 
 .navItem p {
   font-size: 12px; /* ขนาดข้อความ */
