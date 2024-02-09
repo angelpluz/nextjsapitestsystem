@@ -12,19 +12,20 @@ const ContactEnd = () => {
       </div>
       
       <div className={styles.socialMedia}>
-        <a href="https://www.facebook.com/toyotathonburiofficial/" target="_blank" rel="noreferrer">
+
+        <a href="https://www.facebook.com/toyotathonburiofficial/" aria-label="toyotathonburiofficial facebook" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faFacebookF} />
         </a>
-        <a href="https://www.tiktok.com/@toyota_thonburi" target="_blank" rel="noreferrer">
+        <a href="https://www.tiktok.com/@toyota_thonburi" aria-label="toyota_thonburi tiktok" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faTiktok} />
         </a>
-        <a href="https://line.me/R/ti/p/%40plh9039k" target="_blank" rel="noreferrer">
+        <a href="https://line.me/R/ti/p/%40plh9039k" aria-label="toyotathonburiofficial line" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faLine} />
         </a>
-        <a href="https://www.youtube.com/channel/UC_zSX5q_plVy8Kjvo_tCREA/featured" target="_blank" rel="noreferrer">
+        <a href="https://www.youtube.com/channel/UC_zSX5q_plVy8Kjvo_tCREA/featured" aria-label="toyotathonburi youtube channel" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faYoutube} />
         </a>
-        <a href="https://www.instagram.com/toyotathonburi_official/" target="_blank" rel="noreferrer">
+        <a href="https://www.instagram.com/toyotathonburi_official/" aria-label="toyotathonburi_official instagram" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faInstagram} />
         </a>
       </div>
