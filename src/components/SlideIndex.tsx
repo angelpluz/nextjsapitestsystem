@@ -1,4 +1,3 @@
-// components/SlideComponent.tsx
 import React, { useEffect, useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
@@ -31,23 +30,25 @@ const SlideComponent = () => {
 
   return (
     <div className={styles.slideshowContainer_}>
-    <Splide
-      options={{
-        type: 'loop',
-        perPage: 1,
-        autoplay: true,
-        pauseOnHover: false,
-        resetProgress: false,
-        arrows: true,
-      }}
-    >
-      {slides.map((slide, index) => (
-        <SplideSlide key={index}>
-          <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
-        </SplideSlide>
-      ))}
-    </Splide>
-
+      <Splide
+        options={{
+          type: 'loop',
+          perPage: 1,
+          autoplay: true,
+          pauseOnHover: false,
+          resetProgress: false,
+          arrows: true,
+        }}
+      >
+        {slides.map((slide, index) => (
+          <SplideSlide key={index}>
+            <div className={styles.slideContent}>
+              <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
+              <button className={styles.detailButton}>ดูรายละเอียด</button>
+            </div>
+          </SplideSlide>
+        ))}
+      </Splide>
     </div>
   );
 };
