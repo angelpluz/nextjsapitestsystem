@@ -72,7 +72,33 @@
 .nav {
   display: none;
 }
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: -250px; /* Hide menu off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  transition: right 0.3s ease;
+  z-index: 2000; /* Make sure it's above other content */
+}
+.menuOpen {
+  right: 0; /* Slide in */
+}
 
+.menuItem {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  /* Add hover styles if desired */
+}
+
+.menuItem:hover {
+  background-color: #ddd;
+}
 /* การจัดรูปแบบเมนูเมื่อเปิด */
 .navOpen {
   display: flex;
@@ -135,5 +161,46 @@
     width: 25px; /* ลดขนาดเหลือ 50% */
     height: auto; /* รักษาอัตราส่วนของโลโก้ */
   }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -250px; /* Hide menu off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    transition: right 0.3s ease;
+    z-index: 2000; /* Make sure it's above other content */
+  }
   
+  .menuOpen {
+    right: 0; /* Slide in */
+  }
+  
+  .menuItem {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    /* Add hover styles if desired */
+  }
+  
+  .menuItem:hover {
+    background-color: #ddd;
+  }
+  .closeButton {
+    font-size: 24px; /* Or any size you want */
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .menuOpen .menu {
+    transform: translateX(0);
+  }
 }
