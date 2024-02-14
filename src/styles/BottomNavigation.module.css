@@ -44,7 +44,7 @@
 }
 
 .navItem p {
-  font-size: 16px; /* ขนาดข้อความ */
+  font-size: 14px; /* ขนาดข้อความ */
   margin-top: 4px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
 }
 .bottomNavScrolled {
