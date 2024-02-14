@@ -31,23 +31,25 @@ const SlideComponent = () => {
 
   return (
     <div className={styles.slideshowContainer_}>
-    <Splide
-      options={{
-        type: 'loop',
-        perPage: 1,
-        autoplay: true,
-        pauseOnHover: false,
-        resetProgress: false,
-        arrows: true,
-        pagination: false,
-      }}
-    >
-      {slides.map((slide, index) => (
-        <SplideSlide key={index}>
-          <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
-        </SplideSlide>
-      ))}
-    </Splide>
+      <Splide
+        options={{
+          type: 'loop',
+          perPage: 1,
+          autoplay: true,
+          pauseOnHover: false,
+          resetProgress: false,
+          arrows: true,
+          pagination: false,
+          accessibility: true, // เพิ่ม option สำหรับการเข้าถึง
+          keyboard: true, // เพิ่ม option สำหรับการใช้งานคีย์บอร์ด
+        }}
+      >
+        {slides.map((slide, index) => (
+          <SplideSlide key={index} role="tabpanel">
+            <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
+          </SplideSlide>
+        ))}
+      </Splide>
 
     </div>
   );
