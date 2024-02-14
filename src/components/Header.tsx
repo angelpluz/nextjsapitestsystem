@@ -42,16 +42,19 @@ const Header = () => {
             X
           </button>
         <Link href="/home" passHref>
-          <span className={styles.menuItem}>Home</span>
+          <span className={styles.menuItem}>โปรโมชั่น</span>
         </Link>
         <Link href="/about" passHref>
-          <span className={styles.menuItem}>About</span>
+          <span className={styles.menuItem}>บริการ</span>
         </Link>
         <Link href="/services" passHref>
-          <span className={styles.menuItem}>Services</span>
+          <span className={styles.menuItem}>ร่วมงานกับเรา</span>
         </Link>
         <Link href="/contact" passHref>
-          <span className={styles.menuItem}>Contact</span>
+          <span className={styles.menuItem}>ข่าวสารและกิจกรรม</span>
+        </Link>
+        <Link href="/contact" passHref>
+          <span className={styles.menuItem}>ติดต่อ</span>
         </Link>
         
         {/* Add more menu items here */}

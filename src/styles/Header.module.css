@@ -89,11 +89,14 @@
 }
 
 .menuItem {
-  padding: 10px 20px;
+
+  display: block;
+  width: calc(100% - 20px); /* Adjust 20px to the sum of left and right padding */
+  margin: 0 20px; /* This should be half of the subtracted value in the width calculation */
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
   text-decoration: none;
-  color: black;
-  cursor: pointer;
-  /* Add hover styles if desired */
+  box-sizing: border-box;
 }
 
 .menuItem:hover {
@@ -161,17 +164,22 @@
     width: 25px; /* ลดขนาดเหลือ 50% */
     height: auto; /* รักษาอัตราส่วนของโลโก้ */
   }
+  .menuItem:first-child {
+    margin-top: 20px; /* Adjust the value as needed */
+  }
   .menu {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0;
+
     right: -250px; /* Hide menu off-screen */
     width: 250px;
     height: 100%;
     background-color: #fff;
     transition: right 0.3s ease;
     z-index: 2000; /* Make sure it's above other content */
+    padding-top: 80px; /* Adjust the value as needed */
+    
   }
   
   .menuOpen {
@@ -179,15 +187,17 @@
   }
   
   .menuItem {
-    padding: 10px 20px;
+  
     text-decoration: none;
     color: black;
     cursor: pointer;
+    border-bottom: 1px solid #ccc; /* Adjust color as needed */
     /* Add hover styles if desired */
   }
   
   .menuItem:hover {
-    background-color: #ddd;
+    background-color: transparent; /* Removes the background color */
+    
   }
   .closeButton {
     font-size: 24px; /* Or any size you want */
