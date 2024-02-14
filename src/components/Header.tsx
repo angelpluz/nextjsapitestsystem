@@ -54,19 +54,37 @@ const Header = () => {
         <button className={styles.closeButton} onClick={toggleMenu} aria-label="Close menu">
           X
         </button>
-        <Link href="/home" passHref>
+        <Link href="/#" passHref>
           <span className={styles.menuItem}>โปรโมชั่น</span>
         </Link>
-        <Link href="/about" passHref>
+        <Link href="/#" passHref>
+          <span className={styles.menuItem}>ราคารถ</span>
+        </Link>
+        <Link href="/#" passHref>
           <span className={styles.menuItem}>บริการ</span>
         </Link>
-        <Link href="/services" passHref>
+        <Link href="/#" passHref>
+          <span className={styles.menuItem}>ต่อประกัน</span>
+        </Link>
+        <Link href="/#" passHref>
+          <span className={styles.menuItem}>องค์กร</span>
+        </Link>
+        <Link href="/#" passHref>
+          <span className={styles.menuItem}>ที่ตั้งโชว์รูม</span>
+        </Link>
+        <Link href="/#" passHref>
+          <span className={styles.menuItem}>ทดลองขับ</span>
+        </Link>
+        <Link href="/#" passHref>
+          <span className={styles.menuItem}>เทิร์นรถ</span>
+        </Link>
+        <Link href="/#" passHref>
           <span className={styles.menuItem}>ร่วมงานกับเรา</span>
         </Link>
-        <Link href="/contact" passHref>
+        <Link href="/#" passHref>
           <span className={styles.menuItem}>ข่าวสารและกิจกรรม</span>
         </Link>
-        <Link href="/contact" passHref>
+        <Link href="/#" passHref>
           <span className={styles.menuItem}>ติดต่อ</span>
         </Link>
         {/* Add more menu items here */}

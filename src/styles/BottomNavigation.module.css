@@ -18,10 +18,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #000; /* สีข้อความดำ */
-  text-decoration: none; /* ไม่มีเส้นใต้ข้อความ */
+  color: #000; /* Black text color */
+  text-decoration: none; /* No underline */
+  position: relative; /* Required for positioning pseudo-elements */
+  padding: 0 10px; /* Add padding to create space for the lines */
+  border-right: 2px solid white;
+}
 
-
+.navItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%; /* Adjust the height as needed */
+  width: 2px; /* Width of the line */
+  background-color: #fff; /* White color for the line */
 }
 .navLabel {
 
