@@ -30,7 +30,7 @@ const BottomNavigation = () => {
       <Link href="/CarCategory" passHref>
         <div className={styles.navItem}>
         <p className={styles.navLabel}>สินเชื่อ</p>
-          <Image src="/images/buy_2.png" alt="สินเชื่อ" width={75} height={19} />
+          <Image src="/images/buy_2.png" alt="สินเชื่อ" width={84} height={24} />
      
         </div>
       </Link>
