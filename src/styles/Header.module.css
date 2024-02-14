@@ -83,9 +83,12 @@
   background-color: #fff;
   transition: right 0.3s ease;
   z-index: 2000; /* Make sure it's above other content */
+  transform: translateX(100%); /* initially off-screen */
+  transition: transform 0.3s ease-out;
 }
 .menuOpen {
   right: 0; /* Slide in */
+  transform: translateX(0); /* slide in */
 }
 
 .menuItem {
@@ -179,11 +182,13 @@
     transition: right 0.3s ease;
     z-index: 2000; /* Make sure it's above other content */
     padding-top: 80px; /* Adjust the value as needed */
-    
+    transform: translateX(100%); /* initially off-screen */
+    transition: transform 0.3s ease-out;
   }
   
   .menuOpen {
     right: 0; /* Slide in */
+    transform: translateX(0); /* slide in */
   }
   
   .menuItem {

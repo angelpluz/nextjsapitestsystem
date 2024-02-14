@@ -1,25 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../styles/Header.module.css'; // Ensure the path to your CSS module is correct
+import React, { useState, useEffect, useRef } from 'react';
+import styles from '../styles/Header.module.css';
 import Link from 'next/link';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const menuRef = useRef(); // Reference to the menu for detecting outside clicks
 
   useEffect(() => {
     const handleScroll = () => {
-      if (typeof window !== 'undefined') {
-        const threshold = 50;
-        setIsScrolled(window.scrollY > threshold);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false); // Close the menu when clicking outside
+      }
+    };
+
+    // Listen for clicks outside the menu
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      // Clean up the listener when the component unmounts
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen); // Toggle the menu open state
   };
 
   return (
@@ -37,10 +50,10 @@ const Header = () => {
           <span className={styles.menuLine}></span>
         </button>
       </div>
-      <nav className={`${styles.menu} ${isMenuOpen ? styles.menuOpen : ''}`}>
-      <button className={styles.closeButton} onClick={toggleMenu} aria-label="Close menu">
-            X
-          </button>
+      <nav ref={menuRef} className={`${styles.menu} ${isMenuOpen ? styles.menuOpen : ''}`}>
+        <button className={styles.closeButton} onClick={toggleMenu} aria-label="Close menu">
+          X
+        </button>
         <Link href="/home" passHref>
           <span className={styles.menuItem}>โปรโมชั่น</span>
         </Link>
@@ -56,7 +69,6 @@ const Header = () => {
         <Link href="/contact" passHref>
           <span className={styles.menuItem}>ติดต่อ</span>
         </Link>
-        
         {/* Add more menu items here */}
       </nav>
     </header>
