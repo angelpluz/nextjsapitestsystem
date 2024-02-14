@@ -45,7 +45,10 @@ const SlideComponent = () => {
       >
         {slides.map((slide, index) => (
           <SplideSlide key={index} role="tabpanel">
-            <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
+             <div className={styles.slideContent}>
+              <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
+              <button className={styles.detailButton}>รายละเอียด</button>
+            </div>
           </SplideSlide>
         ))}
       </Splide>
