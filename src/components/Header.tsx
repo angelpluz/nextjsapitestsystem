@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from '../styles/Header.module.css';
+import styles from '../styles/Header.module.css'; // Ensure the path to your CSS module is correct
 import Link from 'next/link';
 
 const Header = () => {
@@ -38,7 +38,9 @@ const Header = () => {
   return (
     <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
       <Link href="/" passHref>
-        <img src="/images/logott.png" alt="Logo" className={styles.logo} />
+
+          <img src="/images/logott.png" alt="Logo" className={styles.logo} />
+
       </Link>
       <div className={styles.iconContainer}>
         <img src="/images/searchlogo.png" alt="Search" className={styles.searchIcon} />
@@ -55,39 +57,39 @@ const Header = () => {
           X
         </button>
         <Link href="/#" passHref>
-          <span className={styles.menuItem}>โปรโมชั่น</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>ราคารถ</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>บริการ</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>ต่อประกัน</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>องค์กร</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>ที่ตั้งโชว์รูม</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>ทดลองขับ</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>เทิร์นรถ</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>ร่วมงานกับเรา</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>ข่าวสารและกิจกรรม</span>
-        </Link>
-        <Link href="/#" passHref>
-          <span className={styles.menuItem}>ติดต่อ</span>
-        </Link>
-        {/* Add more menu items here */}
+        <span className={styles.menuItem}>โปรโมชั่น</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>ราคารถ</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>บริการ</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>ต่อประกัน</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>องค์กร</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>ที่ตั้งโชว์รูม</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>ทดลองขับ</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>เทิร์นรถ</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>ร่วมงานกับเรา</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>ข่าวสารและกิจกรรม</span>
+      </Link>
+      <Link href="/#" passHref>
+        <span className={styles.menuItem}>ติดต่อ</span>
+      </Link>
+      {/* Add more menu items here */}
       </nav>
     </header>
   );
