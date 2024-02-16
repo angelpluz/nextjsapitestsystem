@@ -5,7 +5,9 @@ import Link from 'next/link';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // Correctly named state variable and setter
   const menuRef = useRef(); // Reference to the menu for detecting outside clicks
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +17,12 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen); // Use the correct setter function
+  };
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -31,11 +38,10 @@ const Header = () => {
     };
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); // Toggle the menu open state
-  };
+
 
   return (
+    
     <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
       <Link href="/" passHref>
 
@@ -56,9 +62,19 @@ const Header = () => {
         <button className={styles.closeButton} onClick={toggleMenu} aria-label="Close menu">
           X
         </button>
-        <Link href="/#" passHref>
-        <span className={styles.menuItem}>โปรโมชั่น</span>
-      </Link>
+        <div className={styles.menuItem} onClick={toggleDropdown} >
+      โปรโมชั่น
+      <span className={`${styles.dropdownToggle} ${dropdownOpen ? styles.dropdownToggle : ''}`}></span>
+      {isDropdownOpen &&  ( // Use the correct state variable
+      
+      <div className={`${styles.dropdown} ${isDropdownOpen ? styles.dropdownOpen : ''}`}>
+          <Link href="/promo1" passHref><span>Menu One</span></Link>
+          <Link href="/promo2" passHref><span>Menu Two</span></Link>
+          <Link href="/promo3" passHref><span>Menu Three</span></Link>
+          {/* ... more dropdown items */}
+        </div>
+      )}
+    </div>
       <Link href="/#" passHref>
         <span className={styles.menuItem}>ราคารถ</span>
       </Link>

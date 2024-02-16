@@ -83,6 +83,7 @@
   flex-direction: column;
   position: fixed;
   top: 0;
+  padding-top: 20px;
   right: -250px; /* Hide menu off-screen */
   width: 250px;
   height: 100%;
@@ -99,7 +100,7 @@
 }
 
 .menuItem {
-
+  position: relative;
   display: block;
   width: calc(100% - 20px); /* Adjust 20px to the sum of left and right padding */
   margin: 0 20px; /* This should be half of the subtracted value in the width calculation */
@@ -155,7 +156,53 @@
   width: 20px; /* ลดขนาดเหลือ 50% */
   height: auto; /* รักษาอัตราส่วนของโลโก้ */
 }
+.dropdown {
+  flex-direction: column;
+  position: absolute;
+  top: 100%; /* Below the menu item */
+  left: 0;
+  background-color: #fff; /* Your preferred background color */
+  width: 100%; /* Match the width of the parent */
+  border-top: 1px solid #ccc; /* Optional border */
+  z-index: 10; /* Above the other content but below fixed elements */
+  opacity: 0; /* Fully transparent */
+  visibility: hidden; /* Not visible */
+  transform: translateY(-10px); /* Start above the actual position */
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s, transform 0.3s ease; /* Fade effect for opacity and transform */
+}
+.dropdownOpen {
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Visible */
+  transform: translateY(0); /* Actual position */
+  transition: opacity 0.3s ease, visibility 0s linear 0s, transform 0.3s ease; /* Fade effect for opacity and transform */
+}
+.dropdownItem {
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* Your preferred color */
+}
 
+/* Toggle display for dropdown */
+.menuItem:hover > .dropdown {
+  display: flex;
+}
+.arrowDown::after,
+.arrowUp::after {
+  content: '';
+  display: inline-block;
+  margin-left: 5px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.arrowDown::after {
+  border-top: 5px solid black; /* Adjust color as needed */
+}
+
+.arrowUp::after {
+  border-bottom: 5px solid black; /* Adjust color as needed */
+}
 /* Media query สำหรับหน้าจอที่มีความกว้างไม่เกิน 430px */
 @media (max-width: 432px) {
   .logo  {
@@ -182,6 +229,7 @@
     flex-direction: column;
     position: fixed;
     top: 0;
+    padding-top: 60px;
     right: 0;
     transform: translateX(100%);
     width: 250px;
@@ -192,7 +240,64 @@
     pointer-events: none; /* This will ensure the menu doesn't interfere with other elements when closed */
     z-index: 1050;
   }
+  .dropdown {
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Below the menu item */
+    left: 0;
+    background-color: #fff; /* Your preferred background color */
+    width: 100%; /* Match the width of the parent */
+    border-top: 1px solid #ccc; /* Optional border */
+    z-index: 0; /* Above the other content but below fixed elements */
+    opacity: 0; /* Fully transparent */
+    visibility: hidden; /* Not visible */
+    transform: translateY(-10px); /* Start above the actual position */
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s, transform 0.3s ease; /* Fade effect for opacity and transform */
+
+    
+  }
+  .dropdownOpen {
+    display: flex; /* Show the dropdown */
+    opacity: 1; /* Fade to fully visible */
+    visibility: visible; /* Make it visible */
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .dropdownItem {
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Your preferred color */
+    transition: transform 0.3s ease; /* If you want to rotate the sign on toggle */
+  }
+  .dropdownToggle {
+    float: right; /* Positions the toggle to the right */
+    padding-right: 10px;
+    font-size: 20px !important;/* Increase the font size as needed */
+    line-height: 20px !important; /* Adjust line height to vertically center the plus sign */
+    transition: transform 0.3s ease; /* If you want to rotate the sign on toggle */
+  }
+
+ 
+  .dropdownToggle::after {
+    content: '+';
+    float: right;
+    padding-right: 10px;
+    font-size: 24px; /* Adjust as needed */
+    line-height: 1; /* Center the sign vertically */
+    transition: transform 0.3s ease; /* If you want to rotate the sign on toggle */
+  }
+  .dropdownToggle::after {
+    /* Rotate the sign to an "x" or upwards arrow when dropdown is open */
+    transform: rotate(45deg);
+  }
   
+  /* Toggle display for dropdown */
+  .menuItem:hover > .dropdown {
+    display: flex;
+  }
+  .menuItem:hover > .dropdownToggle::after {
+    /* Rotate back to a "+" sign when not hovered */
+    transform: rotate(0deg);
+  }
   .menuOpen {
     transform: translateX(0);
     opacity: 1;
@@ -204,7 +309,7 @@
     visibility: hidden;
   }
   .menuItem {
-  
+    position: relative;
     text-decoration: none;
     color: black;
     cursor: pointer;
@@ -230,4 +335,22 @@
   .menuOpen .menu {
     transform: translateX(0);
   }
+  .arrowDown::after,
+.arrowUp::after {
+  content: '';
+  display: inline-block;
+  margin-left: 5px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.arrowDown::after {
+  border-top: 5px solid black; /* Adjust color as needed */
+}
+
+.arrowUp::after {
+  border-bottom: 5px solid black; /* Adjust color as needed */
+}
 }
