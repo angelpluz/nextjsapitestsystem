@@ -248,55 +248,40 @@
     background-color: #fff; /* Your preferred background color */
     width: 100%; /* Match the width of the parent */
     border-top: 1px solid #ccc; /* Optional border */
-    z-index: 0; /* Above the other content but below fixed elements */
+    z-index: 10; /* Above the other content but below fixed elements */
     opacity: 0; /* Fully transparent */
     visibility: hidden; /* Not visible */
     transform: translateY(-10px); /* Start above the actual position */
     transition: opacity 0.3s ease, visibility 0s linear 0.3s, transform 0.3s ease; /* Fade effect for opacity and transform */
-
-    
-  }
-  .dropdownOpen {
-    display: flex; /* Show the dropdown */
-    opacity: 1; /* Fade to fully visible */
-    visibility: visible; /* Make it visible */
-    transform: translateY(0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   .dropdownItem {
     padding: 10px;
     border-bottom: 1px solid #ccc; /* Your preferred color */
-    transition: transform 0.3s ease; /* If you want to rotate the sign on toggle */
   }
   .dropdownToggle {
     float: right; /* Positions the toggle to the right */
     padding-right: 10px;
     font-size: 20px !important;/* Increase the font size as needed */
     line-height: 20px !important; /* Adjust line height to vertically center the plus sign */
-    transition: transform 0.3s ease; /* If you want to rotate the sign on toggle */
   }
 
- 
-  .dropdownToggle::after {
-    content: '+';
-    float: right;
-    padding-right: 10px;
-    font-size: 24px; /* Adjust as needed */
-    line-height: 1; /* Center the sign vertically */
-    transition: transform 0.3s ease; /* If you want to rotate the sign on toggle */
+  .dropdownOpen {
+    display: flex; /* Show the dropdown */
+    opacity: 1; /* Fade to fully visible */
+    visibility: visible; /* Make it visible */
+    transition: opacity 0.3s ease, visibility 0s linear 0s, transform 0.3s ease; /* Fade effect for opacity and transform */
   }
   .dropdownToggle::after {
-    /* Rotate the sign to an "x" or upwards arrow when dropdown is open */
-    transform: rotate(45deg);
+    
+    content: '+'; /* This is the plus sign */
+    /* Additional styling for the plus sign */
+    padding-left: 8px; /* Spacing from the label */
+    line-height: 20px !important;  /* Increase the font size as needed */
+    font-size: 20px !important; /* Adjust line height to vertically center the plus sign */
   }
-  
   /* Toggle display for dropdown */
   .menuItem:hover > .dropdown {
     display: flex;
-  }
-  .menuItem:hover > .dropdownToggle::after {
-    /* Rotate back to a "+" sign when not hovered */
-    transform: rotate(0deg);
   }
   .menuOpen {
     transform: translateX(0);
