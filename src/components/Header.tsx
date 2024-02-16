@@ -68,9 +68,9 @@ const Header = () => {
       {isDropdownOpen &&  ( // Use the correct state variable
       
       <div className={`${styles.dropdown} ${isDropdownOpen ? styles.dropdownOpen : ''}`}>
-          <Link href="/promo1" passHref><span>Menu One</span></Link>
-          <Link href="/promo2" passHref><span>Menu Two</span></Link>
-          <Link href="/promo3" passHref><span>Menu Three</span></Link>
+          <Link href="/#" passHref><span>ประจำเดือน</span></Link>
+          <Link href="/ฟฟฟฟ" passHref><span>ฝ่ายขาย</span></Link>
+          <Link href="/#" passHref><span>ศูนย์บริการ</span></Link>
           {/* ... more dropdown items */}
         </div>
       )}
