@@ -40,6 +40,30 @@ const CarSeriesDetailPage = () => {
         setIsLoading(false);
       });
   }, [id]);
+
+  useEffect(() => {
+    if (!selectedModelId) return;
+
+    setIsLoading(true);
+    fetch(`http://toyotathonburi.co.th/api/model/${selectedModelId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.success) {
+          setModelDetails({
+            modelName: data.modelName,
+            price: data.price
+          });
+        } else {
+          setError('Model data not found');
+        }
+      })
+      .catch((error) => {
+        setError(`Error fetching model data: ${error.message}`);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [selectedModelId]);
   const renderGallery = (gallery) => {
     return Object.entries(gallery).map(([sectionTitle, images]) => (
       <div key={sectionTitle}>
