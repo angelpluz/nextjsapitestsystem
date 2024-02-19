@@ -1,83 +1,110 @@
 // pages/carseries/[id].tsx
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import styles from '../../styles/CarSeriesPage.module.css'; // Make sure you have this CSS module
+import { useRouter } from 'next/router';
+import styles from '../../styles/CarSeriesPage.module.css'; // ตรวจสอบ path ให้ถูกต้อง
 
 const CarSeriesDetailPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const [carSeries, setCarSeries] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [selectedModelId, setSelectedModelId] = useState(null);
+  const [modelDetails, setModelDetails] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   useEffect(() => {
-    if (id) {
-      fetch(`http://toyotathonburi.co.th/api/series/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data && data.success) {
-            setCarSeries(data);
-          } else {
-            setError('Data not found');
-          }
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.error('Error fetching car series data:', error);
-          setError(error.message);
-          setIsLoading(false);
-        });
-    }
+    if (!id) return;
+
+    setIsLoading(true);
+    fetch(`http://toyotathonburi.co.th/api/series/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.success) {
+          setCarSeries(data);
+          // ตั้งค่า selectedModelId ด้วย ID ของรุ่นรถแรกที่ได้รับ
+          setSelectedModelId(data.model[0].id);
+          // ดึงข้อมูลรุ่นรถแรกมาแสดง
+          setModelDetails({
+            modelName: data.model[0].name,
+            price: data.model[0].price
+          });
+        } else {
+          setError('Car series data not found');
+        }
+      })
+      .catch((error) => {
+        setError(`Error fetching car series data: ${error.message}`);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [id]);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error loading car series: {error}</div>;
-  }
-
-  if (!carSeries) {
-    return <div>No car series data available.</div>;
-  }
-
-  // Function to render gallery images
   const renderGallery = (gallery) => {
     return Object.entries(gallery).map(([sectionTitle, images]) => (
       <div key={sectionTitle}>
         <h3>{sectionTitle}</h3>
         {images.map((image, index) => (
-          <div key={index}>
-            <img
-              src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
-              alt={`${sectionTitle} ${index}`}
-              className={styles.galleryImage}
-            />
-            <p>{`${sectionTitle} image ${index + 1}`}</p>
-          </div>
+          <img
+            key={index}
+            src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+            alt={`${sectionTitle} ${index}`}
+            className={styles.galleryImage}
+          />
         ))}
       </div>
     ));
   };
+  const handleSelectModel = (modelId) => {
+    setSelectedModelId(modelId);
+    setDropdownOpen(false);
+  };
+  // โค้ดสำหรับ renderGallery และ handleSelectModel ที่คุณมีอยู่แล้ว
 
-  // Render car series data
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{carSeries.series}</h1>
-      <img src={`http://toyotathonburi.co.th/${carSeries.srcLogo}${carSeries.logo}`} alt="Logo" className={styles.logo} />
-      <div className={styles.modelList}>
-        {carSeries.model.map((model) => (
-          <p key={model.id} className={styles.model}>{model.name}</p>
-        ))}
+      <h1 className={styles.title}>{carSeries?.series}</h1>
+
+      <div className={styles.dropdown}>
+        <button className={styles.dropdownButton} onClick={() => setDropdownOpen(!dropdownOpen)}>
+          {modelDetails ? modelDetails.modelName : 'Select Model'}
+          <span className={styles.dropdownArrow}>{dropdownOpen ? '▲' : '▼'}</span>
+        </button>
+        {dropdownOpen && (
+          <div className={styles.dropdownContent}>
+            {carSeries?.model.map((model) => (
+              <div
+                key={model.id}
+                onClick={() => handleSelectModel(model.id)}
+                className={styles.dropdownItem}
+              >
+                {model.name}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-      {carSeries.philosophy ? <p>{carSeries.philosophy}</p> : null}
-      <div className={styles.galleryContainer}>
-        {carSeries.gallery ? renderGallery(carSeries.gallery) : null}
-      </div>
+
+      {modelDetails && (
+        <>
+          <h2>Model: {modelDetails.modelName}</h2>
+          <p>Price: {modelDetails.price}</p>
+        </>
+      )}
+
+      {/* ส่วนของ renderGallery ที่คุณจะใช้เพื่อแสดงภาพถ่ายของรถ */}
+      {carSeries?.gallery && (
+        <div className={styles.galleryContainer}>
+          {renderGallery(carSeries.gallery)}
+        </div>
+      )}
+
+      {/* ตรวจสอบการโหลดข้อมูลและการแสดงข้อผิดพลาด */}
+      {isLoading && <div>Loading...</div>}
+      {error && <div>Error: {error}</div>}
+
     </div>
   );
-
 };
 
 export default CarSeriesDetailPage;

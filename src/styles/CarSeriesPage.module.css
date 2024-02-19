@@ -1,7 +1,7 @@
 /* CarSeriesPage.module.css */
 
 .container {
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
   }
@@ -84,5 +84,47 @@
     height: auto;
     margin: 10px;
   }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdownButton {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .dropdownArrow::after {
+    content: '▼';
+    /* Style for the arrow */
+  }
+  
+  .dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdownContent .dropdownItem {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdownContent .dropdownItem:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdownContent {
+    display: block;
+  }
+  
   /* Add any additional styles you need for the page */
   
