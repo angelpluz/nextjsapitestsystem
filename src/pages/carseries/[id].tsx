@@ -164,5 +164,6 @@ const CarSeriesDetailPage = () => {
       </div>
     );
   };
+  // Adjust the export statement according to your project structure
   
   export default CarSeriesDetailPage;
