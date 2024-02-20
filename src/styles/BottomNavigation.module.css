@@ -24,8 +24,17 @@
   padding: 0 10px; /* Add padding to create space for the lines */
   border-right: 2px solid white;
 }
+.navItem_ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000; /* Black text color */
+  text-decoration: none; /* No underline */
+  position: relative; /* Required for positioning pseudo-elements */
+  padding: 0 10px; /* Add padding to create space for the lines */
+}
 
-.navItem:not(:last-child)::after {
+.navItem_:not(:last-child)::after,.navItem:not(:last-child)::after {
   content: '';
   position: absolute;
   right: 0;
@@ -43,7 +52,7 @@
   /* You may need additional styling here */
 }
 
-.navItem p {
+.navItem_ p,.navItem p {
   font-size: 12px; /* ขนาดข้อความ */
   margin-top: 4px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
 }
