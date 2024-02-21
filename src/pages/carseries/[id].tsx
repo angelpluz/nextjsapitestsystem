@@ -12,7 +12,9 @@ const CarSeriesDetailPage = () => {
     modelName: '',
     price: 0,
     colors: [],
+
     srcImgColor: ''
+    
   });
   
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -22,6 +24,7 @@ const CarSeriesDetailPage = () => {
   const handleColorSelect = (color) => {
     console.log(color); // Log the selected color to debug
     setSelectedColor(color);
+    
   };
 
   useEffect(() => {
@@ -34,13 +37,19 @@ const CarSeriesDetailPage = () => {
         if (data && data.success) {
           setCarSeries(data);
           setSelectedModelId(data.model[0].id);
+
           // Assuming the first model's data is available and includes a price
           setModelDetails({
             ...modelDetails,
             modelName: data.model[0].name,
             price: data.model[0].price,
-            colors: data.model[0].colors || [], // Provide an empty array as a fallback
+            colors: data.model[0].colors || [],
+            engine_type: data.engine_type,
+            engine_size: data.engine_size,
+            horsepower: data.horsepower,
+            engine_oil: data.engine_oil, // Provide an empty array as a fallback
             srcImgColor: data.model[0].srcImgColor
+            
           });
         } else {
           setError('Car series data not found');
@@ -66,6 +75,10 @@ const CarSeriesDetailPage = () => {
             modelName: data.modelName,
             price: data.price,
             colors: data.Color || [], // Provide an empty array as a fallback
+            engine_type: data.engine_type,
+            engine_size: data.engine_size,
+            horsepower: data.horsepower,
+            engine_oil: data.engine_oil,
             srcImgColor: data.srcImgColor
           });
           setSelectedColor(data.Color && data.Color.length > 0 ? data.Color[0] : null);
@@ -101,7 +114,16 @@ const CarSeriesDetailPage = () => {
       </div>
     ));
   };
-
+  const {
+    modelName,
+    price,
+    engine_type,
+    engine_size,
+    horsepower,
+    engine_oil,
+    Color,
+    srcImgColor
+  } = modelDetails;
   return (
     
     <div className={styles.container}>
@@ -150,11 +172,39 @@ const CarSeriesDetailPage = () => {
     ))}
   </div>
 )}
+ <div className={styles.price}>
+   <p>ราคา {modelDetails.price?.toLocaleString('en-US')} บาท</p>
+   </div>
+   <div className={styles.buttonContainer}>
+        <button className={`${styles.button} ${styles.buttonIcon}`}>
+          คำนวณเงินดาวน์
+        </button>
+        <button className={styles.button}>
+          สนใจติดต่อที่ปรึกษา
+        </button>
+      </div>
+      <div className={styles.performanceprice}>
+  <h1 className={styles.performanceHeading}>PERFORMANCE</h1>
+  </div>
+<div className={styles.engineSpecs}>
+  <div className={styles.specItem}>
+    <img src="/images/car-engine_1.png" alt="Engine" className={styles.specImage} />
+    <p>เครื่องยนต์: {modelDetails.engine_size} L</p>
+  </div>
+  <div className={styles.specItem}>
+    <img src="/images/gauge_0.png" alt="Horsepower" className={styles.specImage} />
+    <p>แรงม้า: {modelDetails.horsepower} HP</p>
+  </div>
+  <div className={styles.specItem}>
+    <img src="/images/oil_0.png" alt="Oil" className={styles.specImage} />
+    <p> {modelDetails.engine_oil} กม.ต่อลิตร</p>
+  </div>
+</div>
   {modelDetails && (
   <div className={styles.modelDetails}>
     <h2>{modelDetails.modelName}</h2>
     {/* Use optional chaining to safely access modelDetails.price */}
-    <p>Price: {modelDetails.price?.toLocaleString('en-US')} THB</p>
+ 
     {/* Include other details you want to display about the model here */}
   </div>
 )}
