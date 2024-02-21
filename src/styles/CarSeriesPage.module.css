@@ -125,6 +125,92 @@
   .dropdown:hover .dropdownContent {
     display: block;
   }
-  
+  /* styles/CarSeriesPage.module.css */
+/* ... existing styles ... */
+
+/* Car image styles */
+.carImageContainer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+/* Color selection styles */
+.colorSelector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.colorOption {
+  border: none; /* Assuming you don't need a border here */
+  cursor: pointer;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 0 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.colorOption:hover {
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Price styles */
+.price {
+  text-align: center;
+  font-size: 24px;
+  color: red;
+  margin-bottom: 16px;
+  /* Ensure the price is styled as needed */
+}
+.engineSpecs {
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+  align-items: center; /* Align the items vertically */
+  gap: 50px; /* Space between each spec item */
+}
+.performanceHeading {
+  display: block; /* Ensure it's a block-level element */
+  margin-bottom: 10px; /* Space below the heading */
+  margin-right: 50%;
+  font-size: 2.0em;
+  margin-bottom: 10%;
+  font-style: italic;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* Adjust the gap between buttons as needed */
+}
+
+.button {
+  padding: 10px 20px;
+  color: white;
+  background-color: #E60023; /* Toyota red */
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  /* Add any other button styling as needed */
+}
+/* ... rest of your styles ... */
+
   /* Add any additional styles you need for the page */
-  
+  .specItem {
+    display: flex;
+    flex-direction: column; /* Stack the icon and text vertically */
+    align-items: center; /* Center align the items */
+  }
+  .specItem img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto;
+    margin-bottom: 5px; /* Space between image and text */
+  }
