@@ -18,10 +18,11 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen); 
+    
   };
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen); // Use the correct setter function
+    setIsDropdownOpen(!isDropdownOpen); // Use the correct setter function 
   };
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -57,7 +58,7 @@ const Header = () => {
           <span className={styles.menuLine}></span>
           <span className={styles.menuLine}></span>
         </button>
-      </div>
+      </div>  
       <nav ref={menuRef} className={`${styles.menu} ${isMenuOpen ? styles.menuOpen : ''}`}>
         <button className={styles.closeButton} onClick={toggleMenu} aria-label="Close menu">
           X
