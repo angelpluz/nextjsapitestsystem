@@ -61,7 +61,7 @@
 
   .logo {
     display: block;
-    max-width: 100px; /* Adjust as needed */
+    max-width: 50%; /* Adjust as needed */
     margin: 10px auto;
   }
   

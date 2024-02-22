@@ -12,14 +12,21 @@ const CarSeriesDetailPage = () => {
     modelName: '',
     price: 0,
     colors: [],
-
-    srcImgColor: ''
+    engine_type: '',
+    engine_size: '',
+    horsepower: '',
+    engine_oil: '',
+    srcImgColor: '',
     
   });
+  const [logoUrl, setLogoUrl] = useState(''); // Add state for the logo URL
+
+
   const [activeTab, setActiveTab] = useState('Exterior');
   const changeTab = (tabName) => {
     setActiveTab(tabName);
   };
+  const [logo, setLogo] = useState('');
   const renderContent = () => {
     switch (activeTab) {
       case 'Exterior':
@@ -67,6 +74,7 @@ const CarSeriesDetailPage = () => {
             srcImgColor: data.model[0].srcImgColor
             
           });
+          setLogoUrl(`http://toyotathonburi.co.th/${data.srcLogo}${data.logo}`); // Construct the logo URL
         } else {
           setError('Car series data not found');
         }
@@ -124,21 +132,7 @@ const CarSeriesDetailPage = () => {
       />
     ));
   };
-  // const renderGallery = (gallery) => {
-  //   return Object.entries(gallery).map(([sectionTitle, images]) => (
-  //     <div key={sectionTitle}>
-  //       <h3>{sectionTitle}</h3>
-  //       {images.map((image, index) => (
-  //         <img
-  //           key={index}
-  //           src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
-  //           alt={`${sectionTitle} ${index}`}
-  //           className={styles.galleryImage}
-  //         />
-  //       ))}
-  //     </div>
-  //   ));
-  // };
+
   const {
     modelName,
     price,
@@ -171,8 +165,15 @@ const CarSeriesDetailPage = () => {
             ))}
           </div>
         )}
+     {carSeries && (
+        <img
+          src={`http://toyotathonburi.co.th/${carSeries.srcLogo}${carSeries.logo}`}
+          alt="Car Series Logo"
+          className={styles.logo}
+        />
+      )}
+      
       </div>
- 
       
       {selectedColor && (
     <div className={styles.carImageContainer}>
