@@ -244,8 +244,22 @@
   font-weight: bold;
 }
 /* สำหรับแท็บที่เลือก */
-
-
+.galleryContainer {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column for the full-width image */
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+.fullWidthImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.gridImages {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for the rest of the images */
+  grid-gap: 10px;
+}
 /* สำหรับแกลเลอรี่ */
 .gallery {
   display: flex;
@@ -253,12 +267,15 @@
   justify-content: center; /* หรือ space-around หรือ flex-start ตามที่ต้องการ */
   gap: 10px; /* ใช้เพื่อเพิ่มระยะห่างระหว่างรูปภาพ */
 }
-
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* This will create two columns */
+  grid-gap: 10px; /* Adjust the gap between images */
+  margin-top: 20px; /* Adjust the top margin as needed */
+}
 /* สำหรับรูปภาพในแกลเลอรี่ */
 .galleryImage {
-  width: 100%; /* หรือตามขนาดที่ต้องการ */
-  max-width: 300px; /* หรือตามขนาดที่ต้องการ */
-  height: auto; /* ทำให้รูปภาพมีความสูงตามอัตราส่วน */
-  border-radius: 5px; /* หรือตามที่ต้องการ */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* This will make sure your images cover the area properly */
 }

@@ -239,18 +239,32 @@ const CarSeriesDetailPage = () => {
         {carSeries?.gallery && (
   <div className={styles.galleryContainer}>
     <div className={styles.tabs}>
-  {['Exterior', 'Interior', 'Performance', 'Safety', 'Utility'].map((tab) => (
-    <button
-      key={tab}
-      className={activeTab === tab ? styles.activeTab : styles.tab}
-      onClick={() => setActiveTab(tab)}
-    >
-      {tab}
-    </button>
-  ))}
-</div>
-    <div className={styles.gallery}>
-      {renderGallery(carSeries.gallery)}
+      {['Exterior', 'Interior', 'Performance', 'Safety', 'Utility'].map((tab) => (
+        <button
+          key={tab}
+          className={activeTab === tab ? styles.activeTab : styles.tab}
+          onClick={() => setActiveTab(tab)}
+        >
+          {tab}
+        </button>
+      ))}
+    </div>
+    {carSeries.gallery[activeTab] && carSeries.gallery[activeTab].length > 0 && (
+      <img
+        src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${carSeries.gallery[activeTab][0].filename}`}
+        alt={`${activeTab} image 1`}
+        className={styles.fullWidthImage} // Ensure this class is defined in your CSS
+      />
+    )}
+    <div className={styles.galleryGrid}>
+      {carSeries.gallery[activeTab]?.slice(1).map((image, index) => ( // Use slice to skip the first image
+        <img
+          key={index}
+          src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+          alt={`${activeTab} image ${index + 2}`} // Start from image 2
+          className={styles.galleryImage}
+        />
+      ))}
     </div>
   </div>
 )}
