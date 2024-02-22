@@ -239,7 +239,7 @@
     opacity: 0;
     pointer-events: none; /* This will ensure the menu doesn't interfere with other elements when closed */
     z-index: 1050;
-  }
+  } 
   .dropdown {
     flex-direction: column;
     position: absolute;
@@ -300,8 +300,7 @@
     cursor: pointer;
     border-bottom: 1px solid #ccc; /* Adjust color as needed */
     /* Add hover styles if desired */
-  }
-  
+  } 
   .menuItem:hover {
     background-color: transparent; /* Removes the background color */
     
@@ -338,4 +337,5 @@
 .arrowUp::after {
   border-bottom: 5px solid black; /* Adjust color as needed */
 }
+
 }
