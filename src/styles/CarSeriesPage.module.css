@@ -214,3 +214,51 @@
     height: auto;
     margin-bottom: 5px; /* Space between image and text */
   }
+  /* สำหรับแท็บคอนเทนเนอร์ */
+  .tabs {
+    display: flex;
+  
+    padding: 0;
+    margin: 0;
+  }
+
+/* สำหรับแท็บปกติ */
+.tab {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  margin-right: 10px; /* Space between tabs */
+  cursor: pointer;
+  font-weight: bold; /* Make the text bold */
+  color: #333; /* Default color for tab text */
+  outline: none; /* Remove focus outline */
+ 
+  border-bottom: 2px solid transparent; /* Invisible border by default */
+}
+.tab:hover {
+  color: #E60023; /* Change color on hover */
+}
+.activeTab {
+  color: #E60023; /* Toyota red or any color you prefer for active tab */
+  border-bottom: 2px solid #E60023; /* Red underline for active tab */
+  font-weight: bold;
+}
+/* สำหรับแท็บที่เลือก */
+
+
+/* สำหรับแกลเลอรี่ */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* หรือ space-around หรือ flex-start ตามที่ต้องการ */
+  gap: 10px; /* ใช้เพื่อเพิ่มระยะห่างระหว่างรูปภาพ */
+}
+
+/* สำหรับรูปภาพในแกลเลอรี่ */
+.galleryImage {
+  width: 100%; /* หรือตามขนาดที่ต้องการ */
+  max-width: 300px; /* หรือตามขนาดที่ต้องการ */
+  height: auto; /* ทำให้รูปภาพมีความสูงตามอัตราส่วน */
+  border-radius: 5px; /* หรือตามที่ต้องการ */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
+}

@@ -16,7 +16,23 @@ const CarSeriesDetailPage = () => {
     srcImgColor: ''
     
   });
-  
+  const [activeTab, setActiveTab] = useState('Exterior');
+  const changeTab = (tabName) => {
+    setActiveTab(tabName);
+  };
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'Exterior':
+        return <div>{/* Content for Exterior */}</div>;
+      case 'Interior':
+        return <div>{/* Content for Interior */}</div>;
+      case 'Performance':
+        return <div>{/* Content for Performance */}</div>;
+      // Add cases for other tabs...
+      default:
+        return <div>{/* Default content if needed */}</div>;
+    }
+  };
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -98,22 +114,31 @@ const CarSeriesDetailPage = () => {
     setSelectedModelId(modelId);
     setDropdownOpen(false);
   };
-
   const renderGallery = (gallery) => {
-    return Object.entries(gallery).map(([sectionTitle, images]) => (
-      <div key={sectionTitle}>
-        <h3>{sectionTitle}</h3>
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
-            alt={`${sectionTitle} ${index}`}
-            className={styles.galleryImage}
-          />
-        ))}
-      </div>
+    return gallery[activeTab].map((image, index) => (
+      <img
+        key={index}
+        src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+        alt={`${activeTab} image ${index + 1}`}
+        className={styles.galleryImage}
+      />
     ));
   };
+  // const renderGallery = (gallery) => {
+  //   return Object.entries(gallery).map(([sectionTitle, images]) => (
+  //     <div key={sectionTitle}>
+  //       <h3>{sectionTitle}</h3>
+  //       {images.map((image, index) => (
+  //         <img
+  //           key={index}
+  //           src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+  //           alt={`${sectionTitle} ${index}`}
+  //           className={styles.galleryImage}
+  //         />
+  //       ))}
+  //     </div>
+  //   ));
+  // };
   const {
     modelName,
     price,
@@ -212,13 +237,27 @@ const CarSeriesDetailPage = () => {
         {/* ... rest of the component ... */}
   
         {carSeries?.gallery && (
-          <div className={styles.galleryContainer}>
-            {renderGallery(carSeries.gallery)}
-          </div>
-        )}
+  <div className={styles.galleryContainer}>
+    <div className={styles.tabs}>
+  {['Exterior', 'Interior', 'Performance', 'Safety', 'Utility'].map((tab) => (
+    <button
+      key={tab}
+      className={activeTab === tab ? styles.activeTab : styles.tab}
+      onClick={() => setActiveTab(tab)}
+    >
+      {tab}
+    </button>
+  ))}
+</div>
+    <div className={styles.gallery}>
+      {renderGallery(carSeries.gallery)}
+    </div>
+  </div>
+)}
         {isLoading && <div>Loading...</div>}
         {error && <div>Error: {error}</div>}
       </div>
+      
     );
   };
   // Adjust the export statement according to your project structure
