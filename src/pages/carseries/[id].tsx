@@ -153,7 +153,7 @@ const CarSeriesDetailPage = () => {
   <span className={styles.centerAlignText}>
   {modelDetails?.modelName || 'Select Model'}
 </span>
-  <span className={styles.dropdownArrow}>{dropdownOpen ? '▲' : '▼'}</span>
+<span className={styles.dropdownArrow}>{dropdownOpen ? '▲' : '▼'}</span>
 </button>
         {dropdownOpen && (
           <div className={styles.dropdownContent}>

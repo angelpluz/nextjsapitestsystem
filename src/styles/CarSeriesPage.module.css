@@ -106,10 +106,11 @@
     display: flex;
     justify-content: space-between;
   }
-  
+  .dropdownArrow {
+    color: red; /* Change the arrow color to red */
+  }
   .dropdownArrow::after {
-    content: '▼';
-    /* Style for the arrow */
+    content: ''; /* Remove the pseudo-element content */
   }
   
   .dropdownContent {
