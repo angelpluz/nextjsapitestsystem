@@ -2,7 +2,30 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../../styles/CarSeriesPage.module.css'; // Verify this path is correct
+function decodeUnicodeEscapeSequence(str: string) {
+  return str.replace(/\\u[\dA-Fa-f]{4}/g, 
+      function (match) {
+          return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
+      }
+  );
+}
+const decodePhilosophy = (encodedStr) => {
+  if (!encodedStr) return '';
+  let decodedStr = decodeUnicodeEscapeSequence(encodedStr);
+  decodedStr = decodedStr.replace(/(\\r\\n|\\n|\\r)/gm, ' ');
+  decodedStr = decodedStr.replace(/\\'/g, "'");
+  decodedStr = decodedStr.replace(/\\"/g, '"');
+  decodedStr = decodedStr.replace(/[\\]|[\r]|\n/g, '');
 
+  decodedStr = decodedStr.replace(/\\'/g, "'");
+  decodedStr = decodedStr.replace(/\\"/g, '"');
+  return decodedStr;
+};
+const philosophy = "\"\ม\ิ\ต\ิ\ใ\ห\ม\่\แ\ห\่\ง\ก\า\ร\เ\ป\็\น\เ\จ\้\า\ข\อ\ง..\เ\อ\ก\ล\ั\ก\ษ\ณ\์\ก\า\ร\อ\อ\ก\แ\บ\บ\r\nFastback Design \ส\ุ\ด\ป\ร\า\ด\เ\ป\ร\ี\ย\ว\r\n\ผ\ส\า\น\ค\ว\า\ม\ส\ป\อ\ร\์\ต\ท\ร\ง\พ\ล\ั\ง\\r\\n\ท\ี\่\ม\า\พ\ร\้\อ\ม\ช\ุ\ด\แ\ต\่\ง\ห\ล\า\ก\ห\ล\า\ย\ส\ไ\ต\ล\์\ใ\ห\้\ค\ุ\ณ\เ\ล\ื\อ\ก\ไ\ด\้\\r\\n\\r\\nALL NEW TOYOTA YARIS ATIV \ถ\ู\ก\พ\ั\ฒ\น\า\ใ\ห\้\เ\พ\ี\ย\บ\พ\ร\้\อ\ม\ไ\ป\ด\้\ว\ย\ฟ\ั\ง\ก\์\ช\ั\น\ก\า\ร\ใ\ช\้\ง\า\น\ท\ี\่\ห\ล\า\ก\ห\ล\า\ย \พ\ร\้\อ\ม\ร\ะ\บ\บ\ค\ว\า\ม\ป\ล\อ\ด\ภ\ั\ย\ท\ี\่\ค\ร\บ\ค\ร\ั\น";
+const decodedPhilosophy = decodeUnicodeEscapeSequence(philosophy);
+console.log(decodedPhilosophy);
+
+<p></p>
 const CarSeriesDetailPage = () => {
   const router = useRouter();
   const { id } = router.query;
