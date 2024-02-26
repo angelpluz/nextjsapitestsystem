@@ -148,10 +148,13 @@ const CarSeriesDetailPage = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>{carSeries?.series}</h1>
       <div className={styles.dropdown}>
-        <button className={styles.dropdownButton} onClick={() => setDropdownOpen(!dropdownOpen)}>
-          {modelDetails?.modelName || 'Select Model'}
-          <span className={styles.dropdownArrow}>{dropdownOpen ? '▲' : '▼'}</span>
-        </button>
+      <button className={styles.dropdownButton} onClick={() => setDropdownOpen(!dropdownOpen)}>
+  <span className={styles.leftAlignText}>เลือกรุ่นย่อย :</span>
+  <span className={styles.centerAlignText}>
+  {modelDetails?.modelName || 'Select Model'}
+</span>
+  <span className={styles.dropdownArrow}>{dropdownOpen ? '▲' : '▼'}</span>
+</button>
         {dropdownOpen && (
           <div className={styles.dropdownContent}>
             {carSeries?.model.map((model) => (
@@ -215,25 +218,18 @@ const CarSeriesDetailPage = () => {
 <div className={styles.engineSpecs}>
   <div className={styles.specItem}>
     <img src="/images/car-engine_1.png" alt="Engine" className={styles.specImage} />
-    <p>เครื่องยนต์: {modelDetails.engine_size} L</p>
+    <p>เครื่องยนต์: {modelDetails.engine_size} CC</p>
   </div>
   <div className={styles.specItem}>
     <img src="/images/gauge_0.png" alt="Horsepower" className={styles.specImage} />
-    <p>แรงม้า: {modelDetails.horsepower} HP</p>
+    <p>แรงม้า: {modelDetails.horsepower} แรงม้า</p>
   </div>
   <div className={styles.specItem}>
     <img src="/images/oil_0.png" alt="Oil" className={styles.specImage} />
-    <p> {modelDetails.engine_oil} กม.ต่อลิตร</p>
+    <p> {modelDetails.engine_oil} KM</p>
   </div>
 </div>
-  {modelDetails && (
-  <div className={styles.modelDetails}>
-    <h2>{modelDetails.modelName}</h2>
-    {/* Use optional chaining to safely access modelDetails.price */}
- 
-    {/* Include other details you want to display about the model here */}
-  </div>
-)}
+
   
         {/* ... rest of the component ... */}
   

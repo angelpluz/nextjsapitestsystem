@@ -1,15 +1,20 @@
 /* CarSeriesPage.module.css */
 
 .container {
-    max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  
+    max-width: auto;
     margin: 0 auto;
     padding: 20px;
   }
   
   .title {
-    text-align: center;
-    font-size: 2em;
-    margin: 20px 0;
+    text-align: left; /* Align the text to the left */
+    font-size: 2em; /* Adjust the font size as needed */
+    margin: 20px 0; /* Adjust the top and bottom margin as needed */
+    padding-top: 20px; /* Add some padding on the top if needed */
+    padding-left: 20px; /* Add some padding on the left if needed */
   }
   
   .detail {
@@ -62,7 +67,9 @@
   .logo {
     display: block;
     max-width: 50%; /* Adjust as needed */
-    margin: 10px auto;
+    margin: 10px;
+    text-align: left;
+    padding-left: 10px;
   }
   
   .modelList {
@@ -95,6 +102,9 @@
     cursor: pointer;
     padding: 10px;
     width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
   }
   
   .dropdownArrow::after {
@@ -171,7 +181,7 @@
   display: flex;
   justify-content: center; /* Center the items horizontally */
   align-items: center; /* Align the items vertically */
-  gap: 50px; /* Space between each spec item */
+  gap: 20px; /* Space between each spec item */
 }
 .performanceHeading {
   display: block; /* Ensure it's a block-level element */
@@ -216,32 +226,42 @@
   }
   /* สำหรับแท็บคอนเทนเนอร์ */
   .tabs {
-    display: flex;
-  
-    padding: 0;
-    margin: 0;
-  }
+    /* display: flex; */
+    justify-content: center; /* Center the tabs horizontally */
+    align-items: center; /* Center the tabs vertically */
+    flex-wrap: wrap; /* Wrap tabs to new line on small screens */
+    padding: 10px;
+    gap: 10px; /* Space between tabs */
+    margin: 0 auto; /* Center the container */
+    max-width: fit-content; /* Adjust the width to fit the content */
+    border-radius: 5px; /* Rounded corners for the container */
 
+  }
+  
 /* สำหรับแท็บปกติ */
 .tab {
   background: none;
   border: none;
-  padding: 10px 15px;
+ 
   margin-right: 10px; /* Space between tabs */
   cursor: pointer;
-  font-weight: bold; /* Make the text bold */
+  font-weight: normal; /* Normal text weight */
   color: #333; /* Default color for tab text */
   outline: none; /* Remove focus outline */
- 
   border-bottom: 2px solid transparent; /* Invisible border by default */
+  transition: color 0.3s, border-color 0.3s; /* Smooth transition for color and border */
 }
+
 .tab:hover {
   color: #E60023; /* Change color on hover */
+  border-color: #E60023; /* Show underline on hover */
 }
+
 .activeTab {
-  color: #E60023; /* Toyota red or any color you prefer for active tab */
+  color: #E60023; /* Red color for active tab */
   border-bottom: 2px solid #E60023; /* Red underline for active tab */
-  font-weight: bold;
+  font-weight: bold; /* Bold text for active tab */
+  margin-right: 10px; /* Keep the same margin for consistency */
 }
 /* สำหรับแท็บที่เลือก */
 .galleryContainer {
@@ -260,6 +280,11 @@
   grid-template-columns: repeat(2, 1fr); /* Two columns for the rest of the images */
   grid-gap: 10px;
 }
+.largeImageContainer img {
+  width: 100%; /* Full width of the container */
+  display: block; /* Remove any inline spacing */
+  margin: auto; /* Center the image if necessary */
+}
 /* สำหรับแกลเลอรี่ */
 .gallery {
   display: flex;
@@ -269,9 +294,32 @@
 }
 .galleryGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* This will create two columns */
-  grid-gap: 10px; /* Adjust the gap between images */
-  margin-top: 20px; /* Adjust the top margin as needed */
+  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+  gap: 10px; /* Gap between the images */
+  justify-items: center;
+  /* If there is padding on the sides of the grid, ensure it matches with the large image container */
+}
+.leftAlignText {
+  text-align: left;
+  display: block;
+  width: 30%;
+}
+.centerAlignText {
+  text-align: center; /* Aligns text to the center */
+  /* or use flexbox properties if it's within a flex container */
+  /* Centers the element within a flex container */
+  margin-right: 10%;
+  max-width: 100%; 
+  display: block;
+  margin-left: 5%;
+  text-overflow: ellipsis; 
+  overflow: hidden;
+  white-space: nowrap;
+}
+.modelNameStyle {
+  font-weight: bold;
+  color: blue;
+  /* Add more styles as needed */
 }
 /* สำหรับรูปภาพในแกลเลอรี่ */
 .galleryImage {
