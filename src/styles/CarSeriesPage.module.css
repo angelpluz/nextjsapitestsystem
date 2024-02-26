@@ -180,9 +180,23 @@
 }
 .engineSpecs {
   display: flex;
-  justify-content: center; /* Center the items horizontally */
+  justify-content: space-around; /* Distributes space evenly between elements */
   align-items: center; /* Align the items vertically */
-  gap: 20px; /* Space between each spec item */
+}
+
+.specItem {
+  width: calc(100% / 3); /* Divide the width evenly by the number of items */
+  display: flex;
+  flex-direction: column; /* Stack the image and text on top of each other */
+  align-items: center; /* Center-align the items within each specItem */
+  gap: 10px; /* Space between the image and text */
+  font-size: 12px;
+}
+
+.engineSpecItem {
+  flex: 1; /* Ensures each child takes up equal space */
+  text-align: center; /* Centers the content of each spec item */
+  /* Add padding or margins as necessary for spacing around the items */
 }
 .performanceHeading {
   display: block; /* Ensure it's a block-level element */
@@ -231,7 +245,7 @@
     justify-content: center; /* Center the tabs horizontally */
     align-items: center; /* Center the tabs vertically */
     flex-wrap: wrap; /* Wrap tabs to new line on small screens */
-    padding: 10px;
+
     gap: 10px; /* Space between tabs */
     margin: 0 auto; /* Center the container */
     max-width: fit-content; /* Adjust the width to fit the content */
