@@ -66,7 +66,7 @@ const CarSeriesDetailPage = () => {
          
             try {
               // Parse JSON string
-              decodedPhilosophy = JSON.parse(data.philosophy);
+              decodedPhilosophy = JSON.parse(data.philosophy.replace(/\\r\\n/g, '<br>').replace(/\\r/g, '<br>').replace(/\\n/g, '<br>').replace(/\\"/g, '"').replace(/\\'/g, "'"));
               console.log('อันที่ได้:', decodedPhilosophy);
             } catch (error) {
               // If JSON parsing fails, log the error and attempt manual replacement
@@ -82,6 +82,7 @@ const CarSeriesDetailPage = () => {
               }
             }
           }
+          
           setPhilosophy(decodedPhilosophy);
           // Set the model details with the latest state
           setModelDetails({
@@ -242,20 +243,30 @@ const CarSeriesDetailPage = () => {
   <div className={styles.specItem}>
     <img src="/images/car-engine_1.png" alt="Engine" className={styles.specImage} />
     <p>เครื่องยนต์: {modelDetails.engine_size} CC</p>
+    <p> 4 สูบ แถวเรียง DOHC 16 วาล์ว แบบ Dual VVT-iE</p>
   </div>
   <div className={styles.specItem}>
     <img src="/images/gauge_0.png" alt="Horsepower" className={styles.specImage} />
     <p>แรงม้า: {modelDetails.horsepower} แรงม้า</p>
+    <p> แรงบิดสูงสุด 110 นิวตัน-เมตร</p>
   </div>
   <div className={styles.specItem}>
     <img src="/images/oil_0.png" alt="Oil" className={styles.specImage} />
     <p> {modelDetails.engine_oil} KM</p>
+    <p> อัตราประหยัดน้ำมัน</p>
   </div>
 
 </div>
-<div dangerouslySetInnerHTML={{ __html: philosophy }} />
 
-  
+<div>
+<div className={styles['stylish-text']} dangerouslySetInnerHTML={{ __html: philosophy }} />
+  </div>
+
+  <div className={styles.performanceprice}>
+  <h1 className={styles.performanceHeading}>GALLERY</h1>
+  </div>
+
+  <h1 className={styles.title}>{carSeries?.series}</h1>
         {carSeries?.gallery && (
   <div className={styles.galleryContainer}>
     <div className={styles.tabs}>
