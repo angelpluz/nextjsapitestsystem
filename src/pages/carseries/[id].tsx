@@ -2,12 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../../styles/CarSeriesPage.module.css'; // Verify this path is correct
-
-
-
-
-
-
 const CarSeriesDetailPage = () => {
   const router = useRouter();
   const { id } = router.query;    
@@ -46,6 +40,7 @@ const CarSeriesDetailPage = () => {
   };
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [philosophy, setPhilosophy] = useState('');
   const [error, setError] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const handleColorSelect = (color) => {
@@ -53,18 +48,10 @@ const CarSeriesDetailPage = () => {
     setSelectedColor(color);
     
   };
-  const decodePhilosophy = (encodedStr) => {
-    if (!encodedStr) return '';
-    let decodedStr = decodeURIComponent(unescape(encodedStr));
-    decodedStr = decodedStr.replace(/\\r\\n/g, '\n');
-    decodedStr = decodedStr.replace(/\\'/g, "'");
-    decodedStr = decodedStr.replace(/\\"/g, '"');
-    // Add more replacements if necessary
-    return decodedStr;
-  };
+ 
   useEffect(() => {
     if (!id) return;
-  
+
     setIsLoading(true);
     fetch(`http://toyotathonburi.co.th/api/series/${id}`)
       .then((response) => response.json())
@@ -72,13 +59,32 @@ const CarSeriesDetailPage = () => {
         if (data && data.success && data.model && data.model.length > 0) {
           setCarSeries(data);
           setSelectedModelId(data.model[0].id);
-  
-          // Decode the philosophy text
-          const philosophyText = data.philosophy ? decodePhilosophy(data.philosophy) : '';
-  
+          
+          // Decode philosophy if it exists
+          let decodedPhilosophy = '';
+          if (data.philosophy) {
+         
+            try {
+              // Parse JSON string
+              decodedPhilosophy = JSON.parse(data.philosophy);
+              console.log('อันที่ได้:', decodedPhilosophy);
+            } catch (error) {
+              // If JSON parsing fails, log the error and attempt manual replacement
+              console.error('JSON parsing error:', error);
+              // Attempt manual replacement on the original data
+              try {
+                decodedPhilosophy = JSON.parse(data.philosophy.replace(/\\r\\n/g, '<br>').replace(/\\r/g, '<br>').replace(/\\n/g, '<br>').replace(/\\"/g, '"').replace(/\\'/g, "'"));
+
+                console.log('Decoded Philosophy after replacement:', decodedPhilosophy);
+              } catch (error) {
+                // If the second parsing attempt fails, log the error
+                console.error('JSON parsing error after replacement:', error);
+              }
+            }
+          }
+          setPhilosophy(decodedPhilosophy);
           // Set the model details with the latest state
-          setModelDetails(prevDetails => ({
-            ...prevDetails,
+          setModelDetails({
             modelName: data.model[0].name,
             price: data.model[0].price,
             colors: data.model[0].colors || [],
@@ -87,9 +93,9 @@ const CarSeriesDetailPage = () => {
             horsepower: data.horsepower,
             engine_oil: data.engine_oil,
             srcImgColor: data.model[0].srcImgColor,
-            philosophy: philosophyText,
-          }));
-  
+            philosophy: decodedPhilosophy
+          });
+
           setLogoUrl(`http://toyotathonburi.co.th/${data.srcLogo}${data.logo}`);
         } else {
           setError('Car series data not found');
@@ -102,6 +108,7 @@ const CarSeriesDetailPage = () => {
         setIsLoading(false);
       });
   }, [id]);
+
   useEffect(() => {
     if (!selectedModelId) return;
     setIsLoading(true);
@@ -159,6 +166,9 @@ const CarSeriesDetailPage = () => {
   return (
     
     <div className={styles.container}>
+
+
+
       <h1 className={styles.title}>{carSeries?.series}</h1>
       <div className={styles.dropdown}>
       <button className={styles.dropdownButton} onClick={() => setDropdownOpen(!dropdownOpen)}>
@@ -243,8 +253,8 @@ const CarSeriesDetailPage = () => {
   </div>
 
 </div>
-  
-        {/* ... rest of the component ... */}
+<div dangerouslySetInnerHTML={{ __html: philosophy }} />
+
   
         {carSeries?.gallery && (
   <div className={styles.galleryContainer}>
