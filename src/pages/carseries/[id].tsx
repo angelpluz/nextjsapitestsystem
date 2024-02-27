@@ -2,37 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../../styles/CarSeriesPage.module.css'; // Verify this path is correct
-function decodeUnicodeEscapeSequence(str: string) {
-  return str.replace(/\\u[\dA-Fa-f]{4}/g, 
-      function (match) {
-          return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
-      }
-  );
-}
-const decodePhilosophy = (encodedStr) => {
-  if (!encodedStr) return '';
-  let decodedStr = decodeUnicodeEscapeSequence(encodedStr);
-  decodedStr = decodedStr.replace(/(\\r\\n|\\n|\\r)/gm, ' ');
-  decodedStr = decodedStr.replace(/\\'/g, "'");
-  decodedStr = decodedStr.replace(/\\"/g, '"');
-  decodedStr = decodedStr.replace(/[\\]|[\r]|\n/g, '');
 
-  decodedStr = decodedStr.replace(/\\'/g, "'");
-  decodedStr = decodedStr.replace(/\\"/g, '"');
-  return decodedStr;
-};
-const philosophy = "\"\ม\ิ\ต\ิ\ใ\ห\ม\่\แ\ห\่\ง\ก\า\ร\เ\ป\็\น\เ\จ\้\า\ข\อ\ง..\เ\อ\ก\ล\ั\ก\ษ\ณ\์\ก\า\ร\อ\อ\ก\แ\บ\บ\r\nFastback Design \ส\ุ\ด\ป\ร\า\ด\เ\ป\ร\ี\ย\ว\r\n\ผ\ส\า\น\ค\ว\า\ม\ส\ป\อ\ร\์\ต\ท\ร\ง\พ\ล\ั\ง\\r\\n\ท\ี\่\ม\า\พ\ร\้\อ\ม\ช\ุ\ด\แ\ต\่\ง\ห\ล\า\ก\ห\ล\า\ย\ส\ไ\ต\ล\์\ใ\ห\้\ค\ุ\ณ\เ\ล\ื\อ\ก\ไ\ด\้\\r\\n\\r\\nALL NEW TOYOTA YARIS ATIV \ถ\ู\ก\พ\ั\ฒ\น\า\ใ\ห\้\เ\พ\ี\ย\บ\พ\ร\้\อ\ม\ไ\ป\ด\้\ว\ย\ฟ\ั\ง\ก\์\ช\ั\น\ก\า\ร\ใ\ช\้\ง\า\น\ท\ี\่\ห\ล\า\ก\ห\ล\า\ย \พ\ร\้\อ\ม\ร\ะ\บ\บ\ค\ว\า\ม\ป\ล\อ\ด\ภ\ั\ย\ท\ี\่\ค\ร\บ\ค\ร\ั\น";
-const decodedPhilosophy = decodeUnicodeEscapeSequence(philosophy);
-console.log(decodedPhilosophy);
-
-<p></p>
 const CarSeriesDetailPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const [carSeries, setCarSeries] = useState(null);
   const [selectedModelId, setSelectedModelId] = useState(null);
-
-  
   const [modelDetails, setModelDetails] = useState({
     modelName: '',
     price: 0,
@@ -42,7 +17,7 @@ const CarSeriesDetailPage = () => {
     horsepower: '',
     engine_oil: '',
     srcImgColor: '',
-    philosophy: '',
+    
   });
   const [logoUrl, setLogoUrl] = useState(''); // Add state for the logo URL
 
@@ -65,6 +40,7 @@ const CarSeriesDetailPage = () => {
         return <div>{/* Default content if needed */}</div>;
     }
   };
+  const [philosophy, setPhilosophy] = useState('');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -74,32 +50,23 @@ const CarSeriesDetailPage = () => {
     setSelectedColor(color);
     
   };
-  const decodePhilosophy = (encodedStr) => {
-    if (!encodedStr) return '';
-    let decodedStr = decodeURIComponent(unescape(encodedStr));
-    decodedStr = decodedStr.replace(/\\r\\n/g, '\n');
-    decodedStr = decodedStr.replace(/\\'/g, "'");
-    decodedStr = decodedStr.replace(/\\"/g, '"');
-    // Add more replacements if necessary
-    return decodedStr;
-  };
+
   useEffect(() => {
     if (!id) return;
-  
+ 
     setIsLoading(true);
     fetch(`http://toyotathonburi.co.th/api/series/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        if (data && data.success && data.model && data.model.length > 0) {
+        if (data && data.success) {
           setCarSeries(data);
           setSelectedModelId(data.model[0].id);
-  
-          // Decode the philosophy text
-          const philosophyText = data.philosophy ? decodePhilosophy(data.philosophy) : '';
-  
-          // Set the model details with the latest state
-          setModelDetails(prevDetails => ({
-            ...prevDetails,
+          const decodedPhilosophy = decodeURIComponent(data.philosophy); // Use decodeUnicode if necessary
+        
+          setModelDetails(prevDetails => ({ ...prevDetails, philosophy: decodedPhilosophy }));
+          // Assuming the first model's data is available and includes a price
+          setModelDetails({
+            ...modelDetails,
             modelName: data.model[0].name,
             price: data.model[0].price,
             colors: data.model[0].colors || [],
@@ -108,10 +75,19 @@ const CarSeriesDetailPage = () => {
             horsepower: data.horsepower,
             engine_oil: data.engine_oil,
             srcImgColor: data.model[0].srcImgColor,
-            philosophy: philosophyText,
-          }));
-  
-          setLogoUrl(`http://toyotathonburi.co.th/${data.srcLogo}${data.logo}`);
+            philosophy: decodedPhilosophy
+            
+          });
+          
+          function decodeUnicode(str) {
+            return str.replace(/\\u[\dA-F]{4}/gi, function (match) {
+              return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
+            });
+          }
+
+          // If you have a decoding function for philosophy, use it here
+    
+          setLogoUrl(`http://toyotathonburi.co.th/${data.srcLogo}${data.logo}`); // Construct the logo URL
         } else {
           setError('Car series data not found');
         }
@@ -125,35 +101,39 @@ const CarSeriesDetailPage = () => {
   }, [id]);
 
   useEffect(() => {
-    if (!selectedModelId) return;
+    if (!id) return;
 
     setIsLoading(true);
-    fetch(`http://toyotathonburi.co.th/api/model/${selectedModelId}`)
+    fetch(`http://toyotathonburi.co.th/api/series/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.success) {
+          // Set car series data
+          setCarSeries(data);
+
+          // Set model details including decoded philosophy
           setModelDetails({
-            modelName: data.modelName,
-            price: data.price,
-            colors: data.Color || [], // Provide an empty array as a fallback
+            modelName: data.model[0].name,
+            price: data.model[0].price,
+            colors: data.model[0].colors || [],
             engine_type: data.engine_type,
             engine_size: data.engine_size,
             horsepower: data.horsepower,
             engine_oil: data.engine_oil,
-            srcImgColor: data.srcImgColor
+            srcImgColor: data.model[0].srcImgColor,
+            philosophy: decodeHtmlEntity(data.philosophy) // Decode philosophy
           });
-          setSelectedColor(data.Color && data.Color.length > 0 ? data.Color[0] : null);
         } else {
-          setError('Model data not found');
+          setError('Car series data not found');
         }
       })
       .catch((error) => {
-        setError(`Error fetching model details: ${error.message}`);
+        setError(`Error fetching car series data: ${error.message}`);
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [selectedModelId]);
+  }, [id]);
 
   const handleSelectModel = (modelId) => {
     setSelectedModelId(modelId);
@@ -170,21 +150,10 @@ const CarSeriesDetailPage = () => {
     ));
   };
 
-  const {
-    modelName,
-    price,
-    engine_type,
-    engine_size,
-    horsepower,
-    engine_oil,
-    Color,
-    srcImgColor
-    
-  } = modelDetails;
+
   return (
     
     <div className={styles.container}>
-
       <h1 className={styles.title}>{carSeries?.series}</h1>
       <div className={styles.dropdown}>
       <button className={styles.dropdownButton} onClick={() => setDropdownOpen(!dropdownOpen)}>
@@ -267,12 +236,8 @@ const CarSeriesDetailPage = () => {
     <img src="/images/oil_0.png" alt="Oil" className={styles.specImage} />
     <p> {modelDetails.engine_oil} KM</p>
   </div>
-
-<div className={styles.philosophyText} dangerouslySetInnerHTML={{ __html: modelDetails.philosophy }} />
-
-
 </div>
-
+<div dangerouslySetInnerHTML={{ __html: modelDetails.philosophy }} />
   
         {/* ... rest of the component ... */}
   
