@@ -199,6 +199,7 @@
   /* Ensure the price is styled as needed */
 }
 .engineSpecs {
+  margin-left: 20px;
   display: flex;
   justify-content: space-around; /* Distributes space evenly between elements */
   align-items: flex-start; /* Aligns items to the start of the cross axis (top in this case) */
@@ -383,7 +384,7 @@
   object-fit: cover; /* This will make sure your images cover the area properly */
 }
 .stylish-text {
-  font-family: 'Arial', sans-serif;
+  font-family: 'kanit', sans-serif;
   color: #000000;
   font-size: 14px;
 
@@ -422,7 +423,7 @@
   -webkit-box-orient: vertical;
   max-height: 3em; /* Maximum height (ensure this is enough for two lines of text) */
   text-align: center;
-  padding-left: 10px;
+
 
 }
 .torqueSpec {
@@ -436,7 +437,7 @@
   -webkit-box-orient: vertical;
   max-height: 3em; /* Maximum height (ensure this is enough for two lines of text) */
   text-align: center;
-  padding-left: 10px;
+  
 }
 
 .cardDescriptionz {
