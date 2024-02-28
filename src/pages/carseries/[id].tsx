@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../../styles/CarSeriesPage.module.css'; // Verify this path is correct
+import ContactEnd from '../../components/ContactEnd';
 const CarSeriesDetailPage = () => {
   const router = useRouter();
   const { id } = router.query;    
@@ -299,7 +300,7 @@ const CarSeriesDetailPage = () => {
     </div>
   </div>
 )}
-  
+      <ContactEnd />
       </div>
       
     );

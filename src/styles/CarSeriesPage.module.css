@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  
+  background-color: #ffffff;
     max-width: auto;
     margin: 0 auto;
     padding: 20px;
