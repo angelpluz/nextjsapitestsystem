@@ -241,9 +241,15 @@ const CarSeriesDetailPage = () => {
     ))}
   </div>
 )}
- <div className={styles.price}>
- <p>ราคา {modelDetails.price?.toLocaleString('en-US')} บาท</p>
-   </div>
+<div className={styles.price}>
+  <p>
+    <span className={styles.priceText}>ราคา </span>
+    <span className={styles.priceValue}>
+      {Number(modelDetails.price)?.toLocaleString('en-US')}
+    </span>
+    <span className={styles.priceText}> บาท</span>
+  </p>
+</div>
    <div className={styles.buttonContainer}>
         <button className={`${styles.button} ${styles.buttonIcon}`}>
           คำนวณเงินดาวน์
