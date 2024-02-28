@@ -48,9 +48,13 @@ const CarSeriesDetailPage = () => {
   const [error, setError] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const handleColorSelect = (color) => {
+   
     console.log(color); // Log the selected color to debug
-    setSelectedColor(color);
-    
+  setSelectedColor(color);
+  setModelDetails(prevDetails => ({
+    ...prevDetails,
+    price: color.colorprice // Update the price based on the selected color
+  }));
   };
  
   useEffect(() => {
@@ -124,9 +128,10 @@ const CarSeriesDetailPage = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data && data.success) {
+          const firstColor = data.Color && data.Color.length > 0 ? data.Color[0] : null;
           setModelDetails({
             modelName: data.modelName,
-            price: data.price,
+            price: firstColor ? firstColor.colorprice : data.price, // Use colorprice if available
             colors: data.Color || [], // Provide an empty array as a fallback
             engine_type: data.engine_type,
             engine_size: data.engine_size,
@@ -136,8 +141,9 @@ const CarSeriesDetailPage = () => {
             horsepower2: data.horsepower2,
             engine_oil2: data.engine_oil2,  
             srcImgColor: data.srcImgColor
+          
           });
-          setSelectedColor(data.Color && data.Color.length > 0 ? data.Color[0] : null);
+          setSelectedColor(firstColor);
         } else {
           setError('Model data not found');
         }
@@ -236,7 +242,7 @@ const CarSeriesDetailPage = () => {
   </div>
 )}
  <div className={styles.price}>
-   <p>ราคา {modelDetails.price?.toLocaleString('en-US')} บาท</p>
+ <p>ราคา {modelDetails.price?.toLocaleString('en-US')} บาท</p>
    </div>
    <div className={styles.buttonContainer}>
         <button className={`${styles.button} ${styles.buttonIcon}`}>
