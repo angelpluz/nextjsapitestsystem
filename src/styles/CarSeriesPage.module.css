@@ -6,7 +6,7 @@
   background-color: #ffffff;
     max-width: auto;
     margin: 0 auto;
-    padding: 20px;
+   
   }
   
   .title {
@@ -321,6 +321,7 @@
   width: 30%;
 }
 .centerAlignText {
+  color: #000000;
   text-align: center; /* Aligns text to the center */
   /* or use flexbox properties if it's within a flex container */
   /* Centers the element within a flex container */
