@@ -99,8 +99,8 @@
   
   .galleryContainer {
     margin: 20px 0;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
   
   .galleryImage {
@@ -235,7 +235,7 @@
 
   margin-right: 50%;
   font-size: 2.0em;
-  margin-bottom: -5%;
+  /* margin-bottom: -5%; */
   font-weight: bold;
   margin-left: 20px;
 }
