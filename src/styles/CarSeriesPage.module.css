@@ -201,17 +201,22 @@
 .engineSpecs {
   display: flex;
   justify-content: space-around; /* Distributes space evenly between elements */
-  align-items: center; /* Align the items vertically */
+  align-items: flex-start; /* Aligns items to the start of the cross axis (top in this case) */
+  flex-wrap: wrap; /* Allows items to wrap to the next line if necessary */
 }
 
 .specItem {
-  width: calc(100% / 3); /* Divide the width evenly by the number of items */
   display: flex;
   flex-direction: column; /* Stack the image and text on top of each other */
+  justify-content: start; /* Align content to the start */
   align-items: center; /* Center-align the items within each specItem */
-  
-  font-size: 12px;
-  color: #000000;
+  flex-basis: calc(33.333% - 10px); /* Adjust the width and subtract any margin/gutter */
+  margin: 5px; /* Half of your gutter */
+  min-height: 150px; /* Adjust as necessary so all items have at least this height */
+  box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+}
+.specItem {
+  min-height: 150px; /* Adjust as necessary */
 }
 
 .engineSpecItem {
@@ -227,7 +232,7 @@
   margin-bottom: 10%;
   font-style: italic;
   margin-left: 20px;
-  font-weight: bold;
+
 }
 
 .galleryHeading {
@@ -236,7 +241,7 @@
   margin-right: 50%;
   font-size: 2.0em;
   /* margin-bottom: -5%; */
-  font-weight: bold;
+
   margin-left: 20px;
 }
 
@@ -254,7 +259,7 @@
   background-color: #E60023; /* Toyota red */
   border: none;
   border-radius: 20px;
-  font-weight: bold;
+
   cursor: pointer;
   text-align: center;
   /* Add any other button styling as needed */
@@ -308,7 +313,7 @@
 .activeTab {
   color: #E60023; /* Red color for active tab */
   border-bottom: 2px solid #E60023; /* Red underline for active tab */
-  font-weight: bold; /* Bold text for active tab */
+/* Bold text for active tab */
   margin-right: 10px; /* Keep the same margin for consistency */
 }
 /* สำหรับแท็บที่เลือก */
@@ -367,7 +372,7 @@
   white-space: nowrap;
 }
 .modelNameStyle {
-  font-weight: bold;
+
   color: blue;
   /* Add more styles as needed */
 }
@@ -404,12 +409,19 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   /* Other styles... */
 }
+
+
 .torqueSpec {
-  /* Add your CSS properties here */
-  font-size: 0.4em; /* Example property */
-  color: #666; /* Example property */
-  margin-top: 4px; /* Example property */
-  /* More properties as needed */
+  font-size: 0.6em;
+  color: #666;
+  margin-top: 4px;
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add an ellipsis at the end of the text */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show max 2 lines */
+  -webkit-box-orient: vertical;
+  max-height: 3em; /* Maximum height (ensure this is enough for two lines of text) */
+  text-align: center;
 }
 
 .cardDescriptionz {

@@ -19,6 +19,9 @@ const CarSeriesDetailPage = () => {
     engine_oil: '',
     srcImgColor: '',
     philosophy: '',
+    engine_size2: '',
+    horsepower2: '',
+    engine_oil2: '',
   });
   const [logoUrl, setLogoUrl] = useState(''); // Add state for the logo URL
   const [activeTab, setActiveTab] = useState('Exterior');
@@ -95,6 +98,9 @@ const CarSeriesDetailPage = () => {
             horsepower: data.horsepower,
             engine_oil: data.engine_oil,
             srcImgColor: data.model[0].srcImgColor,
+            engine_size2: data.engine_size2,
+            horsepower2: data.horsepower2,
+            engine_oil2: data.engine_oil2,  
             philosophy: decodedPhilosophy
           });
 
@@ -126,6 +132,9 @@ const CarSeriesDetailPage = () => {
             engine_size: data.engine_size,
             horsepower: data.horsepower,
             engine_oil: data.engine_oil,
+            engine_size2: data.engine_size2,
+            horsepower2: data.horsepower2,
+            engine_oil2: data.engine_oil2,  
             srcImgColor: data.srcImgColor
           });
           setSelectedColor(data.Color && data.Color.length > 0 ? data.Color[0] : null);
@@ -218,7 +227,7 @@ const CarSeriesDetailPage = () => {
       <button
         key={index}
         className={styles.colorOption}
-        style={{ backgroundColor: color.colorcode }}
+        style={{ background: color.colorcode }}
         onClick={() => handleColorSelect(color)}
       >
         {/* Color circle button */}
@@ -244,18 +253,18 @@ const CarSeriesDetailPage = () => {
   <div className={styles.specItem}>
     <img src="/images/car-engine_1.png" alt="Engine" className={styles.specImage} />
     <p>เครื่องยนต์: {modelDetails.engine_size} CC</p>
-    <p className={styles.torqueSpec}>4สูบแถวเรียง DOHC 16 วาล์ว แบบ Dual VVT-iE</p> {/* Apply the new style here */}
+    <p className={styles.torqueSpec}>{modelDetails.engine_size2}</p> {/* Apply the new style here */}
   
   </div>
   <div className={styles.specItem}>
     <img src="/images/gauge_0.png" alt="Horsepower" className={styles.specImage} />
     <p>แรงม้า: {modelDetails.horsepower} แรงม้า</p>
-    <p className={styles.torqueSpec}>แรงบิดสูงสุด 110 นิวตัน-เมตร</p> {/* Apply the new style here */}
+    <p className={styles.torqueSpec}>{modelDetails.horsepower2}</p> {/* Apply the new style here */}
   </div>
   <div className={styles.specItem}>
     <img src="/images/oil_0.png" alt="Oil" className={styles.specImage} />
     <p> {modelDetails.engine_oil} KM</p>
-    <p className={styles.torqueSpec}>อัตราประหยัดน้ำมัน</p> {/* Apply the new style here */}
+    <p className={styles.torqueSpec}>{modelDetails.engine_oil2}</p> {/* Apply the new style here */}
    
   </div>
 
