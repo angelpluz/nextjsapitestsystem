@@ -71,7 +71,7 @@ const CarSeriesDetailPage = () => {
             try {
               // Parse JSON string
               decodedPhilosophy = JSON.parse(data.philosophy.replace(/\\r\\n/g, '<br>').replace(/\\r/g, '<br>').replace(/\\n/g, '<br>').replace(/\\"/g, '"').replace(/\\'/g, "'"));
-              console.log('อันที่ได้:', decodedPhilosophy);
+          
             } catch (error) {
               // If JSON parsing fails, log the error and attempt manual replacement
               console.error('JSON parsing error:', error);
@@ -79,7 +79,7 @@ const CarSeriesDetailPage = () => {
               try {
                 decodedPhilosophy = JSON.parse(data.philosophy.replace(/\\r\\n/g, '<br>').replace(/\\r/g, '<br>').replace(/\\n/g, '<br>').replace(/\\"/g, '"').replace(/\\'/g, "'"));
 
-                console.log('Decoded Philosophy after replacement:', decodedPhilosophy);
+             
               } catch (error) {
                 // If the second parsing attempt fails, log the error
                 console.error('JSON parsing error after replacement:', error);
