@@ -11,12 +11,25 @@
   }
   
   .title {
-    text-align: left; /* Align the text to the left */
-    font-size: 2em; /* Adjust the font size as needed */
-    margin: 20px 0; /* Adjust the top and bottom margin as needed */
-    padding-top: 20px; /* Add some padding on the top if needed */
-    padding-left: 20px; /* Add some padding on the left if needed */
+    text-align: left;
+    font-size: 2em;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
     color: #000000;
+    position: relative; /* Needed to position the pseudo-element */
+  }
+  
+  .title::before {
+    content: '';
+    display: block;
+    width: 100%; /* Full width of the element */
+    height: 5px; /* Thickness of the line */
+    background-color: red; /* Color of the line */
+    position: absolute;
+    top: 0; /* Position at the top of the parent element */
+    left: 0; /* Align with the left edge of the parent element */
   }
   
   .detail {
