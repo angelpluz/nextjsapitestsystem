@@ -244,17 +244,19 @@ const CarSeriesDetailPage = () => {
   <div className={styles.specItem}>
     <img src="/images/car-engine_1.png" alt="Engine" className={styles.specImage} />
     <p>เครื่องยนต์: {modelDetails.engine_size} CC</p>
-    <p> 4 สูบ แถวเรียง DOHC 16 วาล์ว แบบ Dual VVT-iE</p>
+    <p className={styles.torqueSpec}>4สูบแถวเรียง DOHC 16 วาล์ว แบบ Dual VVT-iE</p> {/* Apply the new style here */}
+  
   </div>
   <div className={styles.specItem}>
     <img src="/images/gauge_0.png" alt="Horsepower" className={styles.specImage} />
     <p>แรงม้า: {modelDetails.horsepower} แรงม้า</p>
-    <p> แรงบิดสูงสุด 110 นิวตัน-เมตร</p>
+    <p className={styles.torqueSpec}>แรงบิดสูงสุด 110 นิวตัน-เมตร</p> {/* Apply the new style here */}
   </div>
   <div className={styles.specItem}>
     <img src="/images/oil_0.png" alt="Oil" className={styles.specImage} />
     <p> {modelDetails.engine_oil} KM</p>
-    <p> อัตราประหยัดน้ำมัน</p>
+    <p className={styles.torqueSpec}>อัตราประหยัดน้ำมัน</p> {/* Apply the new style here */}
+   
   </div>
 
 </div>
@@ -264,10 +266,10 @@ const CarSeriesDetailPage = () => {
   </div>
 
   <div className={styles.performanceprice}>
-  <h1 className={styles.performanceHeading}>GALLERY</h1>
+  <h1 className={styles.galleryHeading}>GALLERY</h1>
   </div>
 
-  <h1 className={styles.title}>{carSeries?.series}</h1>
+  <h1 className={styles.cardDescriptionz}>{carSeries?.series}</h1>
         {carSeries?.gallery && (
   <div className={styles.galleryContainer}>
     <div className={styles.tabs}>
