@@ -6,6 +6,7 @@
   background-color: #ffffff;
     max-width: auto;
     margin: 0 auto;
+    color: #000000;
    
   }
   
@@ -15,12 +16,14 @@
     margin: 20px 0; /* Adjust the top and bottom margin as needed */
     padding-top: 20px; /* Add some padding on the top if needed */
     padding-left: 20px; /* Add some padding on the left if needed */
+    color: #000000;
   }
   
   .detail {
     text-align: center;
     font-size: 1.2em;
     margin-bottom: 20px;
+    color: #000000;
   }
   
   .image {
