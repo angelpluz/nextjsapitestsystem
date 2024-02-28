@@ -407,6 +407,7 @@
   border-radius: 10px;
   margin: 20px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
   /* Other styles... */
 }
 
@@ -421,6 +422,8 @@
   -webkit-box-orient: vertical;
   max-height: 3em; /* Maximum height (ensure this is enough for two lines of text) */
   text-align: center;
+  padding-left: 10px;
+
 }
 .torqueSpec {
   font-size: 0.5em;
@@ -433,6 +436,7 @@
   -webkit-box-orient: vertical;
   max-height: 3em; /* Maximum height (ensure this is enough for two lines of text) */
   text-align: center;
+  padding-left: 10px;
 }
 
 .cardDescriptionz {
