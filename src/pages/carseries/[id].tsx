@@ -258,19 +258,29 @@ const CarSeriesDetailPage = () => {
 <div className={styles.engineSpecs}>
   <div className={styles.specItem}>
     <img src="/images/car-engine_1.png" alt="Engine" className={styles.specImage} />
-    <p className={styles.torqueSpec1}>เครื่องยนต์: {modelDetails.engine_size} CC</p>
-    <p className={styles.torqueSpec}>{modelDetails.engine_size2}</p> {/* Apply the new style here */}
+    <p className={styles.torqueSpec}>
+    <span className={styles.horsepowerUnit}> เครื่องยนต์ : </span>
+  <span className={styles.horsepowerValue}>{modelDetails.engine_size}</span>
+  <span className={styles.horsepowerUnit}> CC </span>
+</p>
+    <p className={styles.torqueSpec1}>{modelDetails.engine_size2}</p> {/* Apply the new style here */}
   
   </div>
   <div className={styles.specItem}>
     <img src="/images/gauge_0.png" alt="Horsepower" className={styles.specImage} />
-    <p className={styles.torqueSpec1}>แรงม้า: {modelDetails.horsepower} แรงม้า</p>
-    <p className={styles.torqueSpec}>{modelDetails.horsepower2}</p> {/* Apply the new style here */}
+    <p className={styles.torqueSpec}>
+  <span className={styles.horsepowerValue}>{modelDetails.horsepower}</span>
+  <span className={styles.horsepowerUnit}> แรงม้า</span>
+</p>
+    <p className={styles.torqueSpec1}>{modelDetails.horsepower2}</p> {/* Apply the new style here */}
   </div>
   <div className={styles.specItem}>
     <img src="/images/oil_0.png" alt="Oil" className={styles.specImage} />
-    <p className={styles.torqueSpec1}> {modelDetails.engine_oil} KM</p>
-    <p className={styles.torqueSpec}>{modelDetails.engine_oil2}</p> {/* Apply the new style here */}
+    <p className={styles.torqueSpec}>
+  <span className={styles.horsepowerValue}>{modelDetails.engine_oil}</span>
+  <span className={styles.horsepowerUnit}> KM</span>
+</p>
+     <p className={styles.torqueSpec1}>{modelDetails.engine_oil2}</p> {/* Apply the new style here */}
    
   </div>
 

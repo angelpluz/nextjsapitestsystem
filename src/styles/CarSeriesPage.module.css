@@ -413,20 +413,6 @@
 }
 
 .torqueSpec1 {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 4px;
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Add an ellipsis at the end of the text */
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Show max 2 lines */
-  -webkit-box-orient: vertical;
-  max-height: 3em; /* Maximum height (ensure this is enough for two lines of text) */
-  text-align: center;
-
-
-}
-.torqueSpec {
   font-size: 0.5em;
   color: #666;
   margin-top: 4px;
@@ -437,9 +423,42 @@
   -webkit-box-orient: vertical;
   max-height: 3em; /* Maximum height (ensure this is enough for two lines of text) */
   text-align: center;
-  
+}
+.torqueSpec2 {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 4px;
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add an ellipsis at the end of the text */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show max 2 lines */
+  -webkit-box-orient: vertical;
+  max-height: 3em; /* Maximum height (ensure this is enough for two lines of text) */
+  text-align: center;
+}
+.torqueSpec {
+  font-size: 1.0em;
+  color: #666;
+  margin-top: 4px;
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add an ellipsis at the end of the text */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show max 2 lines */
+  -webkit-box-orient: vertical;
+  max-height: 3em; /* Maximum height (ensure this is enough for two lines of text) */
+  text-align: center;
+}
+.horsepowerValue {
+  font-size: 1.2em; /* or the size you prefer */
+  color: #666; /* Example color */
+  font-weight: bold; /* if you want it to be bold */
 }
 
+.horsepowerUnit {
+  font-size: 0.72em; /* Keep this the same as other text */
+  color: #666; /* Same color for consistency */
+   /* Adjust spacing between the value and the unit */
+}
 .cardDescriptionz {
   font-family: 'Kanit', sans-serif;
   font-size: 2.0em;
