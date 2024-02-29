@@ -49,7 +49,7 @@ const CarSeriesDetailPage = () => {
   const [selectedColor, setSelectedColor] = useState(null);
   const handleColorSelect = (color) => {
    
-    console.log(color); // Log the selected color to debug
+    // console.log(color); // Log the selected color to debug
   setSelectedColor(color);
   setModelDetails(prevDetails => ({
     ...prevDetails,
