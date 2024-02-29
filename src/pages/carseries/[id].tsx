@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../../styles/CarSeriesPage.module.css'; // Verify this path is correct
 import ContactEnd from '../../components/ContactEnd';
+import GalleryModal from '../../components/GalleryModal';
 const CarSeriesDetailPage = () => {
   const router = useRouter();
   const { id } = router.query;    
   const [carSeries, setCarSeries] = useState(null);
   const [selectedModelId, setSelectedModelId] = useState(null);
-  
+
   const [modelDetails, setModelDetails] = useState({
     modelName: '',
     price: 0,
@@ -47,8 +48,32 @@ const CarSeriesDetailPage = () => {
   const [philosophy, setPhilosophy] = useState('');
   const [error, setError] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleImageClick = (src) => {
+    setSelectedImageSrc(src);
+    setIsModalOpen(true);
+  };
+    
+  const handleCloseModal = () => {
+    setSelectedImageSrc(null);
+    // You would also need to set some state to hide the modal
+  };
+const [selectedImageSrc, setSelectedImageSrc] = useState('');
   const handleColorSelect = (color) => {
-   
+    const GalleryModal = ({ src, alt, onClose }) => {
+      if (!src) return null;
+    
+      return (
+        <div className={styles.modalOverlay} onClick={onClose}>
+          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+            <img src={src} alt={alt} className={styles.modalImage} />
+            <button className={styles.modalCloseButton} onClick={onClose}>Close</button>
+          </div>
+        </div>
+      );
+    };
+
+
     // console.log(color); // Log the selected color to debug
   setSelectedColor(color);
   setModelDetails(prevDetails => ({
@@ -153,12 +178,13 @@ const CarSeriesDetailPage = () => {
  
   const renderGallery = (gallery) => {
     return gallery[activeTab].map((image, index) => (
-      <img
-        key={index}
-        src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
-        alt={`${activeTab} image ${index + 1}`}
-        className={styles.galleryImage}
-      />
+<img
+  key={index}
+  src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+  alt={`${activeTab} image ${index + 1}`}
+  className={styles.galleryImage}
+  onClick={() => handleImageClick(`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`)}
+/>
     ));
   };
 
@@ -297,24 +323,29 @@ const CarSeriesDetailPage = () => {
       ))}
     </div>
     {carSeries.gallery[activeTab] && carSeries.gallery[activeTab].length > 0 && (
-      <img
-        src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${carSeries.gallery[activeTab][0].filename}`}
-        alt={`${activeTab} image 1`}
-        className={styles.fullWidthImage} // Ensure this class is defined in your CSS
-      />
-    )}
+            <img
+              src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${carSeries.gallery[activeTab][0].filename}`}
+              alt={`${activeTab} image 1`}
+              className={styles.fullWidthImage} // Ensure this class is defined in your CSS
+              onClick={() => handleImageClick(`http://toyotathonburi.co.th/${carSeries.srcGallery}${carSeries.gallery[activeTab][0].filename}`)}
+            />
+          )}
     <div className={styles.galleryGrid}>
-      {carSeries.gallery[activeTab]?.slice(1).map((image, index) => ( // Use slice to skip the first image
-        <img
-          key={index}
-          src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
-          alt={`${activeTab} image ${index + 2}`} // Start from image 2
-          className={styles.galleryImage}
-        />
-      ))}
-    </div>
-  </div>
-)}
+            {carSeries.gallery[activeTab]?.slice(1).map((image, index) => ( // Use slice to skip the first image
+              <img
+                key={index}
+                src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+                alt={`${activeTab} image ${index + 2}`} // Start from image 2
+                className={styles.galleryImage}
+                onClick={() => handleImageClick(`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+ {selectedImageSrc && (
+        <GalleryModal src={selectedImageSrc} alt="Selected Image" onClose={handleCloseModal} />
+      )}
       <ContactEnd />
       </div>
       
