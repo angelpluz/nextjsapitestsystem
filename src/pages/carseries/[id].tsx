@@ -73,7 +73,7 @@ const CarSeriesDetailPage = () => {
   
           let decodedPhilosophy = '';
           if (data.philosophy) {
-            console.log('Original string:', data.philosophy);
+          
             // Log the string after unescaping common escape sequences
             const unescapedString = data.philosophy
             .replace(/\\r\\n/g, '<br>')
@@ -81,14 +81,14 @@ const CarSeriesDetailPage = () => {
             .replace(/\\n/g, '<br>')
             .replace(/\\"/g, '"')
             .replace(/\\'/g, "'");
-            console.log('Unescaped string:', unescapedString);
+        
   
             try {
               // Try to parse the unescaped string as JSON
               decodedPhilosophy = JSON.parse(unescapedString);
-              console.log('Decoded Philosophy:', decodedPhilosophy);
+           
             } catch (error) {
-              console.error('Error parsing philosophy:', error);
+         
             }
           }
   
