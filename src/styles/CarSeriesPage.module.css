@@ -189,11 +189,11 @@
 }
 
 .colorOption:hover {
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15), 0 0 8px red;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15), 0 0 8px rgb(179, 166, 166);
 }
 .selectedColor {
-  border: 2px solid red; /* Red border for the selected item */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0 0 6px red; /* Box shadow with red glow for the selected item */
+  border: 3px solid rgb(88, 79, 79); /* Red border for the selected item */
+  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.1), 0 0 6px rgb(114, 108, 108); /* Box shadow with red glow for the selected item */
 }
 .price {
   text-align: center;
