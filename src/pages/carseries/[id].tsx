@@ -58,68 +58,57 @@ const CarSeriesDetailPage = () => {
   };
  
   useEffect(() => {
-    if (!id) return;
-
-    setIsLoading(true);
-    fetch(`http://toyotathonburi.co.th/api/series/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchData = async () => {
+      if (!id) return;
+  
+      setIsLoading(true);
+  
+      try {
+        const response = await fetch(`http://toyotathonburi.co.th/api/series/${id}`);
+        const data = await response.json();
+  
         if (data && data.success && data.model && data.model.length > 0) {
           setCarSeries(data);
           setSelectedModelId(data.model[0].id);
-          
-          // Decode philosophy if it exists
+  
           let decodedPhilosophy = '';
           if (data.philosophy) {
-         
+            console.log('Original string:', data.philosophy);
+            // Log the string after unescaping common escape sequences
+            const unescapedString = data.philosophy
+            .replace(/\\r\\n/g, '<br>')
+            .replace(/\\r/g, '<br>')
+            .replace(/\\n/g, '<br>')
+            .replace(/\\"/g, '"')
+            .replace(/\\'/g, "'");
+            console.log('Unescaped string:', unescapedString);
+  
             try {
-              // Parse JSON string
-              decodedPhilosophy = JSON.parse(data.philosophy.replace(/\\r\\n/g, '<br>').replace(/\\r/g, '<br>').replace(/\\n/g, '<br>').replace(/\\"/g, '"').replace(/\\'/g, "'"));
-          
+              // Try to parse the unescaped string as JSON
+              decodedPhilosophy = JSON.parse(unescapedString);
+              console.log('Decoded Philosophy:', decodedPhilosophy);
             } catch (error) {
-              // If JSON parsing fails, log the error and attempt manual replacement
-              console.error('JSON parsing error:', error);
-              // Attempt manual replacement on the original data
-              try {
-                decodedPhilosophy = JSON.parse(data.philosophy.replace(/\\r\\n/g, '<br>').replace(/\\r/g, '<br>').replace(/\\n/g, '<br>').replace(/\\"/g, '"').replace(/\\'/g, "'"));
-
-             
-              } catch (error) {
-                // If the second parsing attempt fails, log the error
-                console.error('JSON parsing error after replacement:', error);
-              }
+              console.error('Error parsing philosophy:', error);
             }
           }
-          
+  
           setPhilosophy(decodedPhilosophy);
           // Set the model details with the latest state
-          setModelDetails({
-            modelName: data.model[0].name,
-            price: data.model[0].price,
-            colors: data.model[0].colors || [],
-            engine_type: data.engine_type,
-            engine_size: data.engine_size,
-            horsepower: data.horsepower,
-            engine_oil: data.engine_oil,
-            srcImgColor: data.model[0].srcImgColor,
-            engine_size2: data.engine_size2,
-            horsepower2: data.horsepower2,
-            engine_oil2: data.engine_oil2,  
-            philosophy: decodedPhilosophy
-          });
-
-          setLogoUrl(`http://toyotathonburi.co.th/${data.srcLogo}${data.logo}`);
+          // ...
         } else {
           setError('Car series data not found');
         }
-      })
-      .catch((error) => {
-        setError(`Error fetching car series data: ${error.message}`);
-      })
-      .finally(() => {
+      } catch (error) {
+        setError(`Error fetching data: ${error.message}`);
+      } finally {
         setIsLoading(false);
-      });
+      }
+    };
+  
+    fetchData();
   }, [id]);
+  
+
 
   useEffect(() => {
     if (!selectedModelId) return;
@@ -169,17 +158,7 @@ const CarSeriesDetailPage = () => {
       />
     ));
   };
-  const {
-    modelName,
-    price,
-    engine_type,
-    engine_size,
-    horsepower,
-    engine_oil,
-    Color,
-    srcImgColor
-    
-  } = modelDetails;
+
   return (
     
     <div className={styles.container}>
