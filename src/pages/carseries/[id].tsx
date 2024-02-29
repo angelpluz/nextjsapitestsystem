@@ -1,9 +1,11 @@
 // pages/carseries/[id].tsx
 import React, { useEffect, useState } from 'react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { useRouter } from 'next/router';
 import styles from '../../styles/CarSeriesPage.module.css'; // Verify this path is correct
 import ContactEnd from '../../components/ContactEnd';
 import GalleryModal from '../../components/GalleryModal';
+
 const CarSeriesDetailPage = () => {
   const router = useRouter();
   const { id } = router.query;    
@@ -58,20 +60,44 @@ const CarSeriesDetailPage = () => {
     setSelectedImageSrc(null);
     // You would also need to set some state to hide the modal
   };
+  
 const [selectedImageSrc, setSelectedImageSrc] = useState('');
   const handleColorSelect = (color) => {
-    const GalleryModal = ({ src, alt, onClose }) => {
-      if (!src) return null;
+    const GalleryModal = ({ src, alt, onClose, carSeries, activeTab }) => {
+      if (!src || !carSeries.gallery) return null;
     
       return (
         <div className={styles.modalOverlay} onClick={onClose}>
-          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-            <img src={src} alt={alt} className={styles.modalImage} />
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <Splide
+               options={{
+                type: 'loop',
+                perPage: 1,
+                autoplay: true,
+                pauseOnHover: false,
+                resetProgress: false,
+                arrows: true,
+                pagination: false,
+                accessibility: true,
+                keyboard: true,
+              }}
+            >
+              {carSeries.gallery[activeTab].map((image, index) => (
+                <SplideSlide key={index}>
+                  <img
+                    src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+                    alt={`${activeTab} image ${index + 1}`}
+                    className={styles.fullWidthImage}
+                  />
+                </SplideSlide>
+              ))}
+            </Splide>
             <button className={styles.modalCloseButton} onClick={onClose}>Close</button>
           </div>
         </div>
       );
     };
+    
 
 
     // console.log(color); // Log the selected color to debug
