@@ -294,12 +294,12 @@
   }
   /* สำหรับแท็บคอนเทนเนอร์ */
   .tabs {
-    /* display: flex; */
+    display: flex;
     justify-content: center; /* Center the tabs horizontally */
     align-items: center; /* Center the tabs vertically */
     flex-wrap: wrap; /* Wrap tabs to new line on small screens */
 
-    gap: 10px; /* Space between tabs */
+    /* gap: 10px;  */
     margin: 0 auto; /* Center the container */
     max-width: fit-content; /* Adjust the width to fit the content */
     border-radius: 5px; /* Rounded corners for the container */

@@ -148,6 +148,9 @@ const CarSeriesDetailPage = () => {
     setSelectedModelId(modelId);
     setDropdownOpen(false);
   };
+  const availableTabs = carSeries?.gallery ? Object.keys(carSeries.gallery).filter(key => carSeries.gallery[key].length > 0) : [];
+ 
+ 
   const renderGallery = (gallery) => {
     return gallery[activeTab].map((image, index) => (
       <img
@@ -280,10 +283,10 @@ const CarSeriesDetailPage = () => {
   </div>
 
   <h1 className={styles.cardDescriptionz}>{carSeries?.series}</h1>
-        {carSeries?.gallery && (
+  {availableTabs.length > 0 && (
   <div className={styles.galleryContainer}>
     <div className={styles.tabs}>
-      {['Exterior', 'Interior', 'Performance', 'Safety', 'Utility'].map((tab) => (
+      {availableTabs.map((tab) => (
         <button
           key={tab}
           className={activeTab === tab ? styles.activeTab : styles.tab}
