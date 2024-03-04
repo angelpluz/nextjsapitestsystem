@@ -1,0 +1,34 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+  
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #FFFFFF;
+    margin-bottom: 20px;
+    margin-top: 100px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .promotionImage {
+    padding: 20px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Center the image and add some margin below */
+  }
+  
+  .description {
+    padding: 20px;
+    padding-left: -2rem;
+    /* Additional styles for your description if needed */
+  }
+  
+  /* Add additional styling as needed */
+  

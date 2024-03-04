@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import styles from '../../styles/ShowroomPage.module.css';
-
+import ContactEnd from '../../components/ContactEnd';
 const ShowroomPage = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -67,7 +67,7 @@ const ShowroomPage = () => {
       ))}
       
  
- 
+      <ContactEnd />
     </div>
     
   );

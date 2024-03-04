@@ -2,7 +2,7 @@
 .container {
     max-width: 600px;
     margin: auto;
-    padding: 20px;
+ 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background: #fff; /* Or any other background color as per your theme */
@@ -43,7 +43,7 @@
   }
   
   .mapButton {
-    background-color: #d54d7b; /* สีพื้นหลังปุ่ม */
+    background-color: #a72828; /* สีพื้นหลังปุ่ม */
     color: #fff; /* สีของข้อความในปุ่ม */
     padding: 8px 16px; /* ระยะห่างภายในปุ่ม */
     text-decoration: none; /* ไม่มีเส้นใต้ข้อความ */
@@ -55,11 +55,12 @@
   }
   
   .icon {
+    color: #000000
     /* สามารถเพิ่มสไตล์สำหรับไอคอนถ้าจำเป็น */
   }
   
   .phoneNumber {
-    color: #c0392b; /* Replace with the desired color for the phone number */
+    color: #000000; /* Replace with the desired color for the phone number */
     font-size: 1em; /* Replace with the desired font size */
     margin-bottom: 10px; /* Ensure there's space between the phone number and anything below it */
     margin-top: 10px;

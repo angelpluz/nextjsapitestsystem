@@ -1,0 +1,62 @@
+/* PromotionSale.module.css */
+.container {
+    background: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    flex-direction: column;
+   
+    margin-top: 100px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .promotionSaleTitle {
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 20px; /* Add some bottom margin to create space */
+    text-align: center; /* Center the text horizontally */
+    /* Add more styles as needed */
+  }
+.promotionContainer {
+   
+    grid-template-columns: repeat(2, 1fr); /* Creates a 2-column grid */
+    gap: 20px; /* Space between items */
+    padding: 20px; /* Padding around the entire container */
+}
+
+.promotionItem {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    aspect-ratio: 2 / 1; /* This will make each item twice as wide as it is tall */
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically */
+}
+
+.promotionImage {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio of the image */
+    object-fit: cover; /* Cover the area of the element without stretching */
+    gap: 30px;
+
+}
+
+.promotionDetails {
+    padding: 15px;
+    flex-grow: 1; /* Allows the details section to fill the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push the title up and subtitle down */
+}
+
+.promotionTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.promotionSubtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-top: auto; /* Pushes the subtitle to the bottom */
+}

@@ -37,20 +37,23 @@ const NewsPage = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className={styles['news-container']}>
-{news.map(item => (
-  <Link href={`/news/${item.id}`} key={item.id}>
-    <div className={styles['news-item']}>
-      <img src={`http://toyotathonburi.co.th/${item.srcImg}${item.thumbnail}`} alt={item.title} className={styles['news-image']}/>
-      <h2 className={styles['news-title']}>{item.title}</h2>
-      <p className={styles['news-subtitle']}>{item.subtitle}</p>
-      {/* Add more content as needed */}
+    <div className={styles.container}>
+      <div className={styles['news-container']}>
+        {news.map(item => (
+          <Link href={`/news/${item.id}`} key={item.id}>
+            <div className={styles['news-item']}>
+              <img src={`http://toyotathonburi.co.th/${item.srcImg}${item.thumbnail}`} alt={item.title} className={styles['news-image']}/>
+              <h2 className={styles['news-title']}>{item.title}</h2>
+              <p className={styles['news-subtitle']}>{item.subtitle}</p>
+              {/* Add more content as needed */}
+            </div>
+          </Link>
+        ))}
+      </div>
+      <ContactEnd />
     </div>
-  </Link>
-))}
-    <ContactEnd />
-  </div>
-);
+  );
+  
 }
 
 export default NewsPage;

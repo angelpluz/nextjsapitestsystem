@@ -1,5 +1,12 @@
 /* components/NewArticle.module.css */
+.container {
+  background: #FFFFFF;
+  border-radius: 8px;
 
+  margin-bottom: 20px;
+  margin-top: 100px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
 .header {
   position: relative; /* Establishes a positioning context for the pseudo-element */
   font: 36px "Kanit", sans-serif;

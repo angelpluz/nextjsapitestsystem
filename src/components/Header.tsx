@@ -70,13 +70,13 @@ const Header = () => {
       
       <div className={`${styles.dropdown} ${isDropdownOpen ? styles.dropdownOpen : ''}`}>
           <Link href="/#" passHref><span>ประจำเดือน</span></Link>
-          <Link href="/ฟฟฟฟ" passHref><span>ฝ่ายขาย</span></Link>
+          <Link href="/PromotionSale" passHref><span>ฝ่ายขาย</span></Link>
           <Link href="/#" passHref><span>ศูนย์บริการ</span></Link>
           {/* ... more dropdown items */}
         </div>
       )}
     </div>
-      <Link href="/#" passHref>
+      <Link href="/carseries/2" passHref>
         <span className={styles.menuItem}>ราคารถ</span>
       </Link>
       <Link href="/#" passHref>
