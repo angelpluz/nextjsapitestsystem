@@ -288,6 +288,18 @@
   text-align: center;
   /* Add any other button styling as needed */
 }
+
+.button1 {
+  padding: 10px 20px;
+  color: white;
+  background-color: #E60023; /* Toyota red */
+  border: none;
+  border-radius: 20px;
+
+  cursor: pointer;
+  text-align: center;
+  /* Add any other button styling as needed */
+}
 /* ... rest of your styles ... */
 
   /* Add any additional styles you need for the page */
@@ -538,14 +550,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff; /* or any color you prefer */
-  color: #333; /* text color */
-  padding: 10px 20px;
+  background-color: #E60023; /* or any color you prefer */
+  color: #ffffff; /* text color */
+  padding: 10px 45px;
   border: 1px solid #ddd; /* or any style you prefer */
   cursor: pointer;
   font-size: 1rem;
   margin-left: 10px; /* Adjust as needed */
-  border-radius: 5px; /* Adjust as needed */
+  border-radius: 25px; /* Adjust as needed */
 }
 
 .dropdown1Content {
@@ -598,4 +610,9 @@
 
 .pdfButton:hover {
   background: #c9302c;
+}
+.dualButtonContainer {
+  display: flex;
+  justify-content: center; /* Aligns buttons to the center horizontally */
+  gap: 10px; /* Adds space between buttons */
 }

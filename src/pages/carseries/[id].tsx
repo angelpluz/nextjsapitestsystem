@@ -394,8 +394,25 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
   </div>
 
 </div>
+
 <div>
-<div className={styles.dropdown1}>
+
+
+<div className={styles['stylish-text']} dangerouslySetInnerHTML={{ __html: philosophy }} />
+  </div>
+
+<div>
+
+
+<div className={styles.buttonContainer}>
+        <button className={`${styles.button} ${styles.buttonIcon}`}>
+        {pdfUrl && (
+  <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="pdfButton">
+    <FontAwesomeIcon icon={faFilePdf} /> Download PDF
+  </a>
+)}
+        </button>
+        <div className={styles.dropdown1}>
   <button className={styles.dropdown1Button} onClick={toggleAdditionalDropdown}>
     Seriesอื่นๆ
   </button>
@@ -408,16 +425,8 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
   )}
 </div>
 </div>
-<div>
-<div className={styles['stylish-text']} dangerouslySetInnerHTML={{ __html: philosophy }} />
-  </div>
-  {
-  pdfUrl && (
-    <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className={styles.pdfButton}>
-      <FontAwesomeIcon icon={faFilePdf} /> ดาวโหลดรายละเอียดเพิ่มเติม
-    </a>
-  )
-}
+      </div>
+
   <div className={styles.performanceprice}>
   <h1 className={styles.galleryHeading}>GALLERY</h1>
   </div>
