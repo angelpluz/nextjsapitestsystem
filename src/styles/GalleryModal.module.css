@@ -13,8 +13,8 @@
   }
   
   .modalContent {
-    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
-    padding: 20px;
+    background: rgba(146, 146, 146, 0.5); /* Semi-transparent white */
+    padding: 40px;
     border-radius: 5px;
     position: relative;
     display: flex;
@@ -23,7 +23,9 @@
     flex-direction: column;
     max-width: 100%;
   }
-  
+  .modalContent .modalImage:first-child {
+    max-width: 100%; /* Makes the first image use the maximum width */
+}
   .modalImage {
     max-width: 80%; /* Width of the image */
     max-height: auto; /* Height can scale */
@@ -36,4 +38,5 @@
     border: none;
     background: none;
     cursor: pointer;
+    color: white;
   }
