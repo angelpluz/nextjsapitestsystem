@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .featuredCard {
+    /* CSS สำหรับรถยนต์รุ่นเด่น */
+  }
+  
+  .card {
+    /* CSS สำหรับรถยนต์รุ่นอื่นๆ */
+  }
+  
+  .otherCarsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .carSeriesContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .featuredCarCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Add styles specific to the featured card */
+  }
+  
+  .carCard {
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* for a two-column layout */
+    /* Add styles specific to the regular cards */
+  }
+  
+  .carInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Responsive styling for larger screens */
+  @media (min-width: 768px) {
+    .carSeriesContainer {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  
+    .carCard {
+      /* Adjust width for a two-column layout */
+      width: calc(50% - 10px); /* adjust the 10px based on your actual gap */
+    }
+  
+    .featuredCarCard {
+      width: 100%; /* Full width for the featured card */
+    }
+  }
+  .carShowroom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust as needed for your design */
+    gap: 20px; /* Space between cards */
+  }
+  
+  .carCard {
+    width: calc(50% - 10px); /* Adjust width for two columns, subtract gap/2 */
+    margin-bottom: 20px; /* Space below each card */
+  }
+  
+  .carImage {
+    width: 100%;
+    height: auto;
+  }
+  
+  .carInfo {
+    padding: 10px;
+  }
+  
+  .detailsButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Adjust styles as needed */
+  

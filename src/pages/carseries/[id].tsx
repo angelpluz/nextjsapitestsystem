@@ -5,6 +5,9 @@ import { useRouter } from 'next/router';
 import styles from '../../styles/CarSeriesPage.module.css'; // Verify this path is correct
 import ContactEnd from '../../components/ContactEnd';
 import GalleryModal from '../../components/GalleryModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
+
 
 const CarSeriesDetailPage = () => {
   const router = useRouter();
@@ -165,8 +168,40 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
   
     fetchData();
   }, [id]);
-
-
+  const [pdfUrl, setPdfUrl] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!id) return;
+  
+      setIsLoading(true);
+  
+      try {
+        const response = await fetch(`http://toyotathonburi.co.th/api/series/${id}`);
+        const data = await response.json();
+  
+        if (data && data.success && data.model && data.model.length > 0) {
+          setCarSeries(data);
+          setSelectedModelId(data.model[0].id);
+  
+          // ... other code to handle the fetched data
+  
+          // Set the PDF URL
+          if (data.pdf) {
+            setPdfUrl(data.pdf);
+          }
+  
+        } else {
+          setError('Car series data not found');
+        }
+      } catch (error) {
+        setError(`Error fetching data: ${error.message}`);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
+    fetchData();
+  }, [id]);
   const [allSeries, setAllSeries] = useState([]);
   
   useEffect(() => {
@@ -376,7 +411,13 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
 <div>
 <div className={styles['stylish-text']} dangerouslySetInnerHTML={{ __html: philosophy }} />
   </div>
-
+  {
+  pdfUrl && (
+    <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className={styles.pdfButton}>
+      <FontAwesomeIcon icon={faFilePdf} /> ดาวโหลดรายละเอียดเพิ่มเติม
+    </a>
+  )
+}
   <div className={styles.performanceprice}>
   <h1 className={styles.galleryHeading}>GALLERY</h1>
   </div>

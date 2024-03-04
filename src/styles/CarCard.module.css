@@ -1,0 +1,31 @@
+.carShowroom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust as needed for your design */
+    gap: 20px; /* Space between cards */
+  }
+  
+  .carCard {
+    width: calc(50% - 10px); /* Adjust width for two columns, subtract gap/2 */
+    margin-bottom: 20px; /* Space below each card */
+  }
+  
+  .carImage {
+    width: 100%;
+    height: auto;
+  }
+  
+  .carInfo {
+    padding: 10px;
+  }
+  
+  .detailsButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Adjust styles as needed */
+  
