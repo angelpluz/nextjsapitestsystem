@@ -100,7 +100,7 @@ const Header = () => {
       <Link href="/careers" passHref>
         <span className={styles.menuItem}>ร่วมงานกับเรา</span>
       </Link>
-      <Link href="/#" passHref>
+      <Link href="/NewsandArticle" passHref>
         <span className={styles.menuItem}>ข่าวสารและกิจกรรม</span>
       </Link>
       <Link href="/#" passHref>

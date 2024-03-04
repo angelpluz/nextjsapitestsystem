@@ -1,0 +1,47 @@
+.container {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* This will create a responsive grid with minimum column width of 300px */
+    gap: 20px; /* Space between grid items */
+    padding: 20px; /* Padding around the grid container */
+  }
+  
+  .news-item {
+    border: 1px solid #ddd; /* Border for each item */
+    border-radius: 10px; /* Rounded corners for each item */
+    overflow: hidden; /* Ensures the content does not spill outside the border-radius */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Simple shadow for depth */
+    transition: transform 0.3s ease-in-out; /* Smooth transformation upon hover */
+  }
+  
+  .news-item:hover {
+    transform: scale(1.03); /* Slightly increase size on hover for interactive feedback */
+  }
+  
+  .news-image {
+    width: 100%; /* Ensure image covers the full width of the item */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove bottom space under the image */
+  }
+  
+  .news-title {
+    font-size: 1.2rem; /* Title font size */
+    margin: 0.5rem; /* Margin around the title */
+    font-weight: bold; /* Bold font for the title */
+  }
+  
+  .news-subtitle {
+    font-size: 1rem; /* Subtitle font size */
+    margin: 0.5rem; /* Margin around the subtitle */
+    color: #666; /* Subtitle text color */
+  }
+  
+  /* Add other styles as needed */
+  
