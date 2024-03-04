@@ -1,0 +1,58 @@
+.jobDetailContainer {
+    margin-top: 100px;
+
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .jobDetailContainer p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* สร้างการเน้นสีข้อความเฉพาะบางส่วน เช่น ชื่อตำแหน่งงาน */
+  .jobDetailContainer h1 {
+    padding: 20px;
+    font-size: 24px;
+    color: #000000; /* สีน้ำเงินสดใส */
+  }
+  .jobDetailContainer .jobDescriptionContainer {
+    margin-top: 20px;
+    padding: 20px;
+  }
+  /* การเน้นข้อความที่มีหมายเลขหรือจุดที่ขึ้นต้น */
+  .jobDetailContainer ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .jobDetailContainer .bigFont {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 20px;
+  }
+  
+  .jobDetailContainer .bigFont .redText {
+    color: red;
+  }
+  
+  .jobDetailContainer .bigFont .blackText {
+    color: black;
+  }
+  .applyButton {
+    background-color: #d9534f; /* Red color */
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    width: auto; /* Only as wide as its content */
+    margin-bottom: 20px; /* Adjust margin-bottom as needed */
+  }

@@ -1,0 +1,56 @@
+.container {
+    margin-top: 100px;
+    background-color: #f9f9f9;
+  }
+  
+  .careerList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .careerItem {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .jobListing {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the space between the job cards */
+  }
+  
+  .jobCard {
+    flex-basis: calc(50% - 10px); /* Adjust width, 10px accounts for gap */
+    border: 1px solid #ccc; /* Light grey border */
+    padding: 20px;
+    margin-bottom: 20px; /* Space between rows */
+    background-color: #f9f9f9; /* Light grey background */
+  }
+  
+  .jobTitle {
+    font-size: 1.2rem; /* Larger font size for job title */
+    color: #333; /* Dark grey color */
+    margin-bottom: 10px;
+  }
+  
+  .jobDescription {
+    font-size: 1rem;
+    color: #666; /* Medium grey color */
+    margin-bottom: 20px;
+  }
+  
+  .applyButton {
+    background-color: #d9534f; /* Red color */
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block; /* Allows us to set width */
+    width: auto; /* Only as wide as its content */
+  }
+  /* Add more styling as needed */
+  
