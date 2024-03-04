@@ -45,6 +45,10 @@ const CarSeriesDetailPage = () => {
         return <div>{/* Default content if needed */}</div>;
     }
   };
+
+
+  const [slidesData, setSlidesData] = useState([]);
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [philosophy, setPhilosophy] = useState('');
@@ -55,12 +59,15 @@ const CarSeriesDetailPage = () => {
     setSelectedImageSrc(src);
     setIsModalOpen(true);
   };
-    
+  const [isAdditionalDropdownOpen, setIsAdditionalDropdownOpen] = useState(false);   
+  const toggleAdditionalDropdown = () => {
+    setIsAdditionalDropdownOpen(!isAdditionalDropdownOpen);
+  };
   const handleCloseModal = () => {
     setSelectedImageSrc(null);
     // You would also need to set some state to hide the modal
   };
-  
+  const [carSeriesData, setCarSeriesData] = useState([]);
 const [selectedImageSrc, setSelectedImageSrc] = useState('');
   const handleColorSelect = (color) => {
     const GalleryModal = ({ src, alt, onClose, carSeries, activeTab }) => {
@@ -92,7 +99,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
                 </SplideSlide>
               ))}
             </Splide>
-            <button className={styles.modalCloseButton} onClick={onClose}>Close</button>
+            <button className={styles.modalCloseButton} onClick={onClose}>X</button>
           </div>
         </div>
       );
@@ -158,8 +165,32 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
   
     fetchData();
   }, [id]);
-  
 
+
+  const [allSeries, setAllSeries] = useState([]);
+  
+  useEffect(() => {
+    const fetchAllSeries = async () => {
+      try {
+        const response = await fetch('http://toyotathonburi.co.th/api/series'); // Use the correct endpoint to fetch all series
+        const data = await response.json();
+        if (data && Array.isArray(data.data)) {
+          setAllSeries(data.data); // Assuming 'data.data' is the array with your series
+          console.log(data.data);
+        } else {
+          // Handle the case where data.data is not in the expected format
+          setError('Unexpected format for series data');
+        }
+      } catch (error) {
+        console.error("Failed to fetch series:", error);
+        setError(error.toString()); // Set error state
+      }
+    };
+      const toggleAdditionalDropdown = () => {
+      setIsAdditionalDropdownOpen(!isAdditionalDropdownOpen);
+    };
+    fetchAllSeries();
+  }, []);
 
   useEffect(() => {
     if (!selectedModelId) return;
@@ -219,8 +250,8 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
     <div className={styles.container}>
 
 
+  <h1 className={styles.title}>{carSeries?.series}</h1>
 
-      <h1 className={styles.title}>{carSeries?.series}</h1>
       <div className={styles.dropdown}>
       <button className={styles.dropdownButton} onClick={() => setDropdownOpen(!dropdownOpen)}>
   <span className={styles.leftAlignText}>เลือกรุ่นย่อย :</span>
@@ -242,6 +273,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
             ))}
           </div>
         )}
+
      {carSeries && (
         <img
           src={`http://toyotathonburi.co.th/${carSeries.srcLogo}${carSeries.logo}`}
@@ -249,6 +281,8 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
           className={styles.logo}
         />
       )}
+      
+      
       
       </div>
       
@@ -325,7 +359,20 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
   </div>
 
 </div>
-
+<div>
+<div className={styles.dropdown1}>
+  <button className={styles.dropdown1Button} onClick={toggleAdditionalDropdown}>
+    Seriesอื่นๆ
+  </button>
+  {isAdditionalDropdownOpen && (
+    <div className={styles.dropdown1Content}>
+      {allSeries.map((series) => (
+        <a key={series.id} href={`/carseries/${series.id}`}>{series.name}</a>
+      ))}
+    </div>
+  )}
+</div>
+</div>
 <div>
 <div className={styles['stylish-text']} dangerouslySetInnerHTML={{ __html: philosophy }} />
   </div>

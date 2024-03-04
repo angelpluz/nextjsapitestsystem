@@ -13,15 +13,20 @@
   }
   
   .modalContent {
-    background: white;
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
     padding: 20px;
     border-radius: 5px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 100%;
   }
   
   .modalImage {
-    max-width: 500px;
-    max-height: 80vh;
+    max-width: 80%; /* Width of the image */
+    max-height: auto; /* Height can scale */
   }
   
   .closeButton {
@@ -32,4 +37,3 @@
     background: none;
     cursor: pointer;
   }
-  

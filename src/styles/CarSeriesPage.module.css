@@ -9,7 +9,15 @@
     color: #000000;
    
   }
-  
+  .flexContainer {
+    display: flex; /* Use flexbox to layout children */
+    align-items: center; /* Center children vertically */
+    justify-content: start; /* Align children to the start of the container */
+    margin-top: 70px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+  }
   .title {
     font-family: 'Kanit', sans-serif;
     text-align: left;
@@ -20,6 +28,7 @@
     padding-left: 20px;
     color: #000000;
     position: relative; /* Needed to position the pseudo-element */
+    margin-right: 20px;
   }
   
   .title::before {
@@ -213,7 +222,7 @@
 }
 
 .engineSpecs {
-  margin-left: 20px;
+  /* margin-left: 20px; */
   display: flex;
   justify-content: space-around; /* Distributes space evenly between elements */
   align-items: flex-start; /* Aligns items to the start of the cross axis (top in this case) */
@@ -515,4 +524,58 @@
   top: 10px;
   right: 10px;
   /* Style your close button */
+}
+
+/* dropdown class */
+/* Assuming styles is your CSS module, add these rules to your CSS file */
+
+/* Dropdown container */
+.dropdown1 {
+  display: flex;
+  justify-content: center;
+}
+.dropdown1Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* or any color you prefer */
+  color: #333; /* text color */
+  padding: 10px 20px;
+  border: 1px solid #ddd; /* or any style you prefer */
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px; /* Adjust as needed */
+  border-radius: 5px; /* Adjust as needed */
+}
+
+.dropdown1Content {
+  display: none; /* Hide dropdown content initially */
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown1Content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown1Content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown1Content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown content when the parent is hovered */
+.dropdown1:hover .dropdown1Content {
+  display: block;
 }
