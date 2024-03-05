@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../../styles/PromotionDetail.module.css'; // Ensure the path is correct
 import ContactEnd from '../../components/ContactEnd';
-
+import Header from '../../components/Header';
 const PromotionDetail = () => {
   const [promotion, setPromotion] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +32,7 @@ const PromotionDetail = () => {
 
   return (
     <div className={styles.container}>
+       <Header />
       {promotion && (
         <div>
           <h1 className={styles.title}>{promotion.title}</h1>

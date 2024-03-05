@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from '../styles/InsurancePage.module.css'; // Make sure the path to your CSS file is correct
 import ContactEnd from '../components/ContactEnd';
-
+import Header from '../components/Header';
 const InsurancePage = () => {
     return (
+        
         <div className={styles.insuranceContainer}>
+              <Header />
           <img src="/images/bsp.jpg" alt="BSP Insurance" className={styles.insuranceImage} />
           <div className={styles.insuranceContent}>
             <h3 className={styles.insuranceTitle}>บริษัท บีเอสพี อินชัวร์ โบรคเกอร์ จำกัด</h3>

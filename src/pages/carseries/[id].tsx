@@ -7,7 +7,7 @@ import ContactEnd from '../../components/ContactEnd';
 import GalleryModal from '../../components/GalleryModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
-
+import Header from '../../components/Header';
 
 const CarSeriesDetailPage = () => {
   const router = useRouter();
@@ -283,8 +283,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
   return (
     
     <div className={styles.container}>
-
-
+  <Header />
   <h1 className={styles.title}>{carSeries?.series}</h1>
 
       <div className={styles.dropdown}>

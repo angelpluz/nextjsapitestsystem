@@ -1,0 +1,78 @@
+.organizationContainer {
+    /* Container styles */
+  }
+  
+
+  .affiliatesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .affiliateItem {
+    display: flex;
+    align-items: center; /* This will vertically align items in the middle */
+    justify-content: start; /* This will align items to the start of the container */
+    width: 100%; /* Set to 100% of the parent container */
+    margin-bottom: 20px; /* Add some margin to the bottom */
+    margin-right: ;
+  }
+  
+  .affiliateItem h2,
+  .affiliateItem p {
+    margin-left: 20px; /* Add some space between the image and the text */
+  }
+  .redHeading {
+    color: red; /* Set the text color to red */
+    font-size: 18px; /* Resize the text to 18 pixels */
+    /* Add any additional styling you need here */
+  }
+  /* Add media queries for responsive adjustments if needed */
+
+  
+  .header {
+    /* Header styles */
+  }
+  
+  .mainContent {
+    /* Main content styles */
+  }
+  
+  .title {
+    /* Title styles */
+  }
+  
+  .featuredImage {
+    /* Featured image styles */
+  }
+  
+  .description {
+    /* Description text styles */
+  }
+  
+  .readMoreButton {
+    /* Read more button styles */
+  }
+  
+  .historySection {
+    /* History section styles */
+  }
+  
+  .historyTitle {
+    /* History title styles */
+  }
+  
+  .servicesSection {
+    /* Services section styles */
+  }
+  
+  .servicesTitle {
+    /* Services title styles */
+  }
+  
+  .footer {
+    /* Footer styles */
+  }
+
+  

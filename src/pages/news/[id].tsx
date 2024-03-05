@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import ContactEnd from '../../components/ContactEnd';
 import styles from '../../styles/takeaticale.module.css';
-
+import Header from '../../components/Header';
 const NewsArticle = ({ article }) => {
   const router = useRouter();
   const { id } = router.query;
@@ -15,6 +15,7 @@ const NewsArticle = ({ article }) => {
 
   return (
     <div className={styles.container}>
+        <Header />
  <div className={styles.articleContainer}>
       <h1 className={styles.articleTitle}>{article.title}</h1>
       <h1 className={styles.subtitle}>{article.subtitle}</h1>

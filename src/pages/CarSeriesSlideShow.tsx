@@ -3,7 +3,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import styles from '../styles/CarSeriesSlideShow.module.css';
 import Link from 'next/link';
-
+import Header from '../components/Header';
 const CarSeriesSlideShow = () => {
   const [series, setSeries] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,6 +38,7 @@ const CarSeriesSlideShow = () => {
 
   return (
     <div className={styles.header_}>
+       <Header />
       <h2 className={styles.header}>รุ่นรถยนต์โตโยต้า</h2> {/* Header added here */}
       <Splide
         onMoved={(splide, newIndex) => {

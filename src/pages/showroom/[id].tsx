@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import styles from '../../styles/ShowroomPage.module.css';
 import ContactEnd from '../../components/ContactEnd';
+import Header from '../../components/Header';
 const ShowroomPage = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -32,6 +33,7 @@ const ShowroomPage = () => {
   
   return (
     <div className={styles.container}>
+       <Header />
       {bannerUrl && <img src={bannerUrl} alt={`Showroom at ${showroomData.address}`} className={styles.image} />}
       <h1 className={styles.title}>{showroomData.name}</h1>
       <p className={styles.detail}>{showroomData.address}</p>

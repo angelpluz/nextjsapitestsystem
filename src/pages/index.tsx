@@ -12,6 +12,7 @@ import ContactEnd from '../components/ContactEnd';
 const Home = () => {
   return (
     <div className={styles.container}>
+        <Header />
       <Slideindex />
       <CarSeriesSlideShow />
       <LocationList />

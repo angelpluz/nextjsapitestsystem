@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/CarOverview.module.css'; // Replace with your actual CSS module path
-
+import Header from '../components/Header';
 const CarShowroom = () => {
   // Placeholder for where you'll eventually set your fetched data
   // const [carSeries, setCarSeries] = useState([]);
@@ -14,6 +14,7 @@ const CarShowroom = () => {
 
   return (
     <div className={styles.carShowroom}>
+         <Header />
       {carSeriesPlaceholder.map((car, index) => (
         <div key={car.id} className={styles.carCard}>
           {/* Assuming car has an imageUrl property */}

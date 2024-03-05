@@ -14,12 +14,14 @@
   .callCenter_ {
     font-size: 1.78rem;
     font-weight: 100;
+    color: white;
   }
   .contact_ {
     font-size: 1.2rem;
     font-weight: bold;
     padding-bottom: 5px;
     padding-top: 10px;
+    color: white;
   }
   
   
@@ -28,12 +30,14 @@
   .number {
     font-size: 3rem;
     font-weight: bold;
+    color: white;
   }
   .socialMedia {
     /* Example style */
     display: flex;
     justify-content: center;
     gap: 10px; /* Adjust the space between icons */
+    color: white;
   }
 
   .socialMedia a {
@@ -55,9 +59,11 @@
     text-align: left;
     font-weight: 100;
     padding: 10px 20px 15px 20px;
+    color: white;
   }
   .contactInfo_ {
     padding-bottom: 5px;
+    color: white;
   }
   
   .copyRight {
@@ -65,5 +71,6 @@
     margin-top: 1rem;
     margin-bottom: 88px;
     padding-bottom: 10px;
+    color: white;
   }
   

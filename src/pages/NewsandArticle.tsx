@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../styles/Newaaa.module.css'; // The path to your CSS module.
 import ContactEnd from '../components/ContactEnd';
 import Link from 'next/link';
-
+import Header from '../components/Header';
 
 const NewsPage = () => {
   const [news, setNews] = useState([]);
@@ -38,6 +38,7 @@ const NewsPage = () => {
 
   return (
     <div className={styles.container}>
+       <Header />
       <div className={styles['news-container']}>
         {news.map(item => (
           <Link href={`/news/${item.id}`} key={item.id}>

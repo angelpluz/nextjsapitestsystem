@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from '../styles/Header.module.css'; // Ensure the path to your CSS module is correct
+import styles from '../styles/Header.module.css';
 import Link from 'next/link';
 
 const Header = () => {
@@ -13,33 +13,46 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); 
-    
+    setIsMenuOpen(!isMenuOpen);
   };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen); // Use the correct setter function 
+    setIsDropdownOpen(!isDropdownOpen);
   };
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMenuOpen(false); // Close the menu when clicking outside
+        closeMenu();
       }
     };
 
-    // Listen for clicks outside the menu
     document.addEventListener('mousedown', handleOutsideClick);
     return () => {
-      // Clean up the listener when the component unmounts
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
 
-
+  const MenuItem = ({ children, href }) => {
+    return (
+      <Link href={href} passHref>
+        <span className={styles.menuItem} onClick={closeMenu}>
+          {children}
+        </span>
+      </Link>
+    );
+  };
 
   return (
     
@@ -85,7 +98,7 @@ const Header = () => {
       <Link href="/insurancepage" passHref>
         <span className={styles.menuItem}>ต่อประกัน</span>
       </Link>
-      <Link href="/#" passHref>
+      <Link href="/" passHref>
         <span className={styles.menuItem}>องค์กร</span>
       </Link>
       <Link href="/#" passHref>

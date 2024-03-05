@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/PromotionSale.module.css'; // Path to your CSS module
 import ContactEnd from '../components/ContactEnd';
+import Header from '../components/Header';
 
 const PromotionSale = () => {
   const [promotions, setPromotions] = useState([]);
@@ -34,6 +35,7 @@ const PromotionSale = () => {
 
   return (
     <div className={styles.container}>
+        <Header />
       <h1 className={styles.promotionSaleTitle}>โปรโมชั่นการขาย</h1>
       <div className={styles.promotionContainer}>
         {promotions.map(promo => (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../../styles/CareerDetailPage.module.css'; // Adjust the path to your actual CSS file
 import ContactEnd from '../../components/ContactEnd';
+import Header from '../../components/Header';
 const CareerDetailPage = () => {
   const [jobDetail, setJobDetail] = useState(null);
   const [error, setError] = useState(null);
@@ -41,6 +42,9 @@ const CareerDetailPage = () => {
 
   // Render job details using jobDetail data
   return (
+    
+    <div className={styles.container}>
+        <Header />
     <div className={styles.jobDetailContainer}>
       <h1>{jobDetail.position}</h1>
       <div className={styles.jobDescriptionContainer}>
@@ -52,7 +56,9 @@ const CareerDetailPage = () => {
         <span className={styles.blackText}>Thonburi.fin@gmail.com</span>
       </p>
       <a href={`/#`} className={styles.applyButton}>สมัครเลย</a>
-      <ContactEnd />
+ 
+    </div>
+    <ContactEnd />
     </div>
   );
 };

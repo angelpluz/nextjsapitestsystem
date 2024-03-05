@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Careers.module.css'; // The path to your CSS module.
 import ContactEnd from '../components/ContactEnd';
+import Header from '../components/Header';
 const CareersPage = () => {
   const [careers, setCareers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,6 +30,7 @@ const CareersPage = () => {
 
   return (
     <div className={styles.container}>
+      <Header />
           <h1>ร่วมงานกับเรา</h1>
       <div className={styles.jobListing}>
         {jobs.map((job) => (
