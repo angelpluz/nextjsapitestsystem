@@ -2,7 +2,7 @@
 .insuranceContainer {
     margin-top: 100px;
     max-width: 600px; /* or the max-width you prefer */
-    margin: 20px auto; /* Centers the container with margin on top and bottom */
+   
     background: #fff; /* Background color */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
     border-radius: 8px; /* Rounds the corners */

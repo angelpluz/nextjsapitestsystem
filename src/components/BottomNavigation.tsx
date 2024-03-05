@@ -42,7 +42,7 @@ const BottomNavigation = () => {
           <p className={styles.navLabel}>บริการ</p>
         </div>
       </Link>
-      <Link href="/insurance" passHref>
+      <Link href="/insurancepage" passHref>
         <div className={styles.navItem}>
    
           <Image src="/images/carinbot_2.png" alt="ต่อประกัน" width={84} height={24} />

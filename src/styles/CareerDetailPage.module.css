@@ -1,7 +1,7 @@
 .jobDetailContainer {
     margin-top: 100px;
 
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 5px;
     display: flex;
@@ -19,7 +19,7 @@
   /* สร้างการเน้นสีข้อความเฉพาะบางส่วน เช่น ชื่อตำแหน่งงาน */
   .jobDetailContainer h1 {
     padding: 20px;
-    font-size: 24px;
+    font-size: 20px;
     color: #000000; /* สีน้ำเงินสดใส */
   }
   .jobDetailContainer .jobDescriptionContainer {
@@ -33,7 +33,7 @@
   }
   
   .jobDetailContainer .bigFont {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
     padding: 20px;

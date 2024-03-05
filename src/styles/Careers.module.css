@@ -16,18 +16,22 @@
   }
   .jobListing {
     padding: 20px;
-    display: flex;
+   
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px; /* Adjust the space between the job cards */
   }
   
+  
   .jobCard {
-    flex-basis: calc(50% - 10px); /* Adjust width, 10px accounts for gap */
+    flex-basis: calc(33.333% - 20px); /* Adjust width, 20px accounts for gap */
     border: 1px solid #ccc; /* Light grey border */
     padding: 20px;
     margin-bottom: 20px; /* Space between rows */
-    background-color: #f9f9f9; /* Light grey background */
+    background-color: #fff; /* White background */
+    display: flex; /* Makes it a flex container */
+    flex-direction: column; /* Stacks child elements vertically */
+    justify-content: space-between; /* Spreads out the child elements */
   }
   
   .jobTitle {
@@ -53,4 +57,8 @@
     width: auto; /* Only as wide as its content */
   }
   /* Add more styling as needed */
-  
+  @media (max-width: 768px) {
+    .jobCard {
+      flex-basis: 100%; /* Takes full width on smaller screens */
+    }
+  }
