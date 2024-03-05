@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'; // import faPhone
 import styles from '../styles/NewArticle.module.css'; // Update the import path if necessary
-
+import Link from 'next/link';
 const NewsArticle = () => {
   const [news, setNews] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +18,9 @@ const NewsArticle = () => {
         }
         const data = await response.json();
         if (data && data.success) {
+       
           setNews(data);
+          
         } else {
           throw new Error('Failed to load the news data');
         }
@@ -30,6 +32,7 @@ const NewsArticle = () => {
     };
 
     fetchNews();
+  
   }, []);
 
   if (isLoading) {
@@ -55,10 +58,15 @@ const NewsArticle = () => {
         />
       )}
          <h2 className={styles.title}>{news.title}</h2>
+      
       <h3 className={styles.subtitle}>{news.subtitle}</h3>
       {/* Additional content can be added here */}
       <div className={styles.footer}>
-        <span className={styles.button}>ดูรายละเอียด <FontAwesomeIcon icon={faChevronRight} /> </span>
+      <Link href={`/news/${news.id}`} key={news.id}>
+  <span className={styles.button}>
+    ดูรายละเอียด <FontAwesomeIcon icon={faChevronRight} />
+  </span>
+</Link>
       </div>
     </article>
   );

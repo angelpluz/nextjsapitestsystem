@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'; // import faPhone
- 
+import Link from 'next/link';
 import styles from '../styles/PromotionComponent.module.css'; // Make sure this path is correct
 
 // Assuming this is the structure of your promotion data
@@ -76,7 +76,11 @@ const PromotionComponent = () => {
       {/* Implement the button functionality */}
           
       <div className={styles.footer}>
-        <span className={styles.button}>ดูรายละเอียด <FontAwesomeIcon icon={faChevronRight} /> </span>
+      <Link href={`/promotiondetail/${promotion.id}`} key={promotion.id}>
+  <span className={styles.button}>
+    ดูรายละเอียด <FontAwesomeIcon icon={faChevronRight} />
+  </span>
+</Link>
       </div>
     </div>
   );
