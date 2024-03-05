@@ -1,0 +1,164 @@
+/* ContactUs.module.css */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+  
+    background: #fff;
+    border-radius: 8px;
+
+  }
+  .container1 {
+    max-width: 600px;
+    margin: 50px auto;
+   padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+  
+  }
+  
+  .title {
+    font-size: 2em; /* Large font size for primary title */
+    color: #333; /* Dark color for text */
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
+  .secondaryTitle {
+    font-size: 1.5em; /* Slightly smaller than the main title */
+    color: #555; /* Slightly lighter color than the main title */
+    margin-bottom: 0.25em;
+    text-align: center;
+  }
+  .address, .phone {
+    font-size: 1em;
+    color: #666; /* Standard text color */
+    text-align: center;
+    margin-bottom: 0.25em;
+  }
+  .address:first-of-type {
+    margin-top: 1em;
+  }
+  
+  /* Styles for the phone number to differentiate it */
+  .phone {
+    font-weight: bold;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form label {
+    margin-bottom: 5px;
+  }
+  
+  .form input,
+  .form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .form textarea {
+    height: 100px;
+  }
+  
+  .submitButton {
+    background-color: #4f545a; /* Bootstrap primary color */
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .submitButton:hover {
+    background-color: #0056b3; /* Bootstrap primary color darken */
+  }
+  .form input[type='checkbox'] {
+    margin-bottom: 0; /* Align with other form elements */
+  }
+  .subTitle {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  /* Additional styles for the confirmation checkbox */
+  .confirmation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .confirmation input[type='checkbox'] {
+    margin-right: 10px;
+  }
+  
+  .confirmation label {
+    margin-right: auto;
+  }
+  
+  /* Required note styling next to the checkbox */
+  .required {
+    color: red;
+    font-size: 0.8em;
+    margin-left: 10px;
+  }
+  
+  /* Style for the second checkbox container */
+  .checkboxContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .checkboxContainer input[type='checkbox'] {
+    margin-right: 10px;
+  }
+  
+  .checkboxContainer label {
+    margin-right: 10px;
+  }
+  #branch {
+    border: 1px solid #000; /* เพิ่มขอบด้วยสีดำและความหนา 1px */
+    border-radius: 5px; /* ขอบโค้งเล็กน้อย */
+    padding: 10px; /* พื้นที่ภายในรอบขอบเพื่อให้ข้อความไม่ติดกับขอบ */
+    font-size: 16px; /* ขนาดของตัวอักษรภายในเมนูแบบเลือก */
+    color: #333; /* สีของตัวอักษร */
+    background-color: #fff; /* สีพื้นหลังของเมนูแบบเลือก */
+    -webkit-appearance: none; /* ลบสไตล์เริ่มต้นของเมนูแบบเลือกในเบราว์เซอร์ Chrome และ Safari */
+    -moz-appearance: none; /* ลบสไตล์เริ่มต้นของเมนูแบบเลือกในเบราว์เซอร์ Firefox */
+    appearance: none; /* ลบสไตล์เริ่มต้นของเมนูแบบเลือกในเบราว์เซอร์ทั่วไป */
+  }
+  
+  /* เพิ่มไอคอน dropdown โดยใช้ pseudo-element */
+  #branch {
+    position: relative;
+   
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+  }
+  
+  #branch:after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    /* นี่คือตัวอย่างของการใช้ CSS สร้างรูปสามเหลี่ยมขนาดเล็ก */
+    border: 5px solid transparent;
+    border-top-color: #333; /* สีของสามเหลี่ยม */
+  }
+  .select-style select 
+    {
+      padding: 3px 5px;
+      width: 115%;
+      border: none;
+      box-shadow: none;
+      background: transparent;
+      background-image: none;
+      -webkit-appearance: none;
+  }

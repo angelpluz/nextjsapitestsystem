@@ -1,0 +1,57 @@
+.car-container {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.type-header {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.series-item {
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.series-item:hover {
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.series-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.series-name {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.series-price {
+    font-size: 18px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* Add media query for responsive layout */
+@media (max-width: 768px) {
+    .car-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .series-item {
+        margin-bottom: 20px;
+    }
+}

@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import ContactEnd from '../components/ContactEnd';
 const Organization = () => {
   return (
+    <div className={styles.container}>
     <div className={styles.organizationContainer}>
             <Header />
       <img src="/images/company1.jpg" alt="Company History" className={styles.companyImage} />
@@ -153,7 +154,8 @@ const Organization = () => {
     <li>Excellent Salesman</li>
   </ul>
 </div>
-    <ContactEnd />
+ 
+    </div>
     </div>
   );
 };

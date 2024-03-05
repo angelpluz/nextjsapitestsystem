@@ -98,7 +98,7 @@ const Header = () => {
       <Link href="/insurancepage" passHref>
         <span className={styles.menuItem}>ต่อประกัน</span>
       </Link>
-      <Link href="/" passHref>
+      <Link href="/organization" passHref>
         <span className={styles.menuItem}>องค์กร</span>
       </Link>
       <Link href="/#" passHref>
@@ -116,7 +116,7 @@ const Header = () => {
       <Link href="/NewsandArticle" passHref>
         <span className={styles.menuItem}>ข่าวสารและกิจกรรม</span>
       </Link>
-      <Link href="/#" passHref>
+      <Link href="/contactus" passHref>
         <span className={styles.menuItem}>ติดต่อ</span>
       </Link>
       {/* Add more menu items here */}
