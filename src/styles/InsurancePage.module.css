@@ -1,0 +1,59 @@
+/* InsurancePage.module.css */
+.insuranceContainer {
+    margin-top: 100px;
+    max-width: 600px; /* or the max-width you prefer */
+    margin: 20px auto; /* Centers the container with margin on top and bottom */
+    background: #fff; /* Background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    border-radius: 8px; /* Rounds the corners */
+    overflow: hidden; /* Ensures the content conforms to the border radius */
+  }
+  
+  .insuranceImage {
+    margin-top: 50px;
+    width: 100%; /* Ensure image takes full width of the container */
+    display: block; /* Remove any extra space below the image */
+    padding: 20px;
+  }
+  
+  .insuranceContent {
+    padding: 20px; /* Padding inside the container */
+  }
+  
+  .insuranceTitle {
+    font-size: 20px; /* Adjust the font-size as needed */
+    font-weight: bold; /* Makes the title bold */
+    margin-top: 0;
+    margin-bottom: 12px; /* Spacing after the title */
+    color: #333; /* Title text color */
+  }
+  
+  .insuranceText {
+    font-size: 16px; /* Adjust the font-size as needed */
+    line-height: 1.5; /* Adjust line height for readability */
+    color: #333; /* Regular text color */
+    margin-bottom: 20px; /* Spacing after the paragraph */
+  }
+  
+  .contactLink {
+    display: block; /* Makes the link a block to fill the width of the container */
+    margin-top: 10px; /* Spacing before the link */
+    background-color: #dc3545; /* Bootstrap 'danger' button red */
+    color: #ffffff; /* White text */
+    text-align: center; /* Center the text inside the link */
+    padding: 10px 15px; /* Padding inside the link, making it look like a button */
+    border-radius: 4px; /* Rounded corners for the button */
+    text-decoration: none; /* Removes underline from links */
+    font-weight: bold; /* Makes the link bold */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+    transition: background-color 0.2s; /* Transition for a hover effect */
+  }
+  
+  .contactLink:hover, .contactLink:focus {
+    background-color: #c82333; /* A slightly darker red for hover/focus states */
+    color: #ffffff; /* Ensuring text remains white */
+    text-decoration: none; /* Ensuring no underline appears */
+  }
+  
+  /* Add additional styles as needed */
+  

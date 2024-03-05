@@ -31,7 +31,7 @@ const BottomNavigation = () => {
         <div className={styles.navItem}>
      
           <Image src="/images/buy_2.png" alt="สินเชื่อ" width={84} height={24} />
-          <p className={styles.navLabel}>สินเชื่อ</p>
+          <p className={styles.navLabel}>สนใจซื้อรถ</p>
         </div>
       </Link>
       <Link href="/service" passHref>

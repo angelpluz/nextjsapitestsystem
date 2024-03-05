@@ -82,7 +82,7 @@ const Header = () => {
       <Link href="/#" passHref>
         <span className={styles.menuItem}>บริการ</span>
       </Link>
-      <Link href="/#" passHref>
+      <Link href="/insurancepage" passHref>
         <span className={styles.menuItem}>ต่อประกัน</span>
       </Link>
       <Link href="/#" passHref>
