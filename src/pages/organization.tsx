@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../styles/Organization.module.css'; // Make sure to create this CSS module
 import Image from 'next/image';
 import Header from '../components/Header';
+import ContactEnd from '../components/ContactEnd';
 const Organization = () => {
   return (
     <div className={styles.organizationContainer}>
@@ -10,14 +11,12 @@ const Organization = () => {
       <div className={styles.historyContainer}>
       <h1>ประวัติบริษัท</h1>
                     <h2>Toyota Thonburi Co., Ltd.</h2>
-                    <p > สำนักงานใหญ่แห่งแรกที่ สาขาปิ่นเกล้าตั้งอยู่บริเวณ ถนนอรุณอัมรินทร์ 
-                        และมีศูนย์บริการแห่งแรกที่ สาขาเพชรบุรีตัดใหม่ <span> โตโยต้าธนบุรี
+                    <p className={styles.historyDescription}> สำนักงานใหญ่แห่งแรกที่ สาขาปิ่นเกล้าตั้งอยู่บริเวณ ถนนอรุณอัมรินทร์ 
+                        และมีศูนย์บริการแห่งแรกที่ สาขาเพชรบุรีตัดใหม่  โตโยต้าธนบุรี
                             เป็นที่ยอมรับโดยทั่วกันว่าเป็นดีลเลอร์ 1 ใน 3 อันดับแรกของ ผู้แทน
-                            จำหน่ายโตโยต้าชั้นแนวหน้าของประเทศไทย</span> 
+                            จำหน่ายโตโยต้าชั้นแนวหน้าของประเทศไทย
                             ตั้งแต่ปี 2522 จนถึงปัจจุบัน                            
                     </p>
-                   
-                  
                   
       </div>
       
@@ -134,8 +133,27 @@ const Organization = () => {
           <p>บริการสินเชื่อรถยนต์ทั่วไปและรถยนต์รับจ้าง สาธารณะ ให้บริการอย่างคุณภาพ ราคาเป็นธรรม</p>
         </div>
       </div> 
+      
     </div>
-
+        <img src="/images/toyotathon2.jpg" alt="Company History" className={styles.companyImage} />
+        <div className={styles.historyContainer}>
+  <h1>รางวัลและเกียรติยศ</h1>
+  <h2>Toyota Thonburi Co., Ltd.</h2>
+  <ul>
+    <li>Champion Skill Contest</li>
+    <li>Saleman Award</li>
+    <li>Trainer Award</li>
+    <li>TOYOTA President's Award</li>
+    <li>Best Sale Award</li>
+    <li>Best Sale & Service CS Dealer Award</li>
+    <li>KAIZEN Award</li>
+    <li>Sales Growth Rate</li>
+    <li>Continuous Achievement</li>
+    <li>TOYOTA Honor Club 5000</li>
+    <li>Excellent Salesman</li>
+  </ul>
+</div>
+    <ContactEnd />
     </div>
   );
 };

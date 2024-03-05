@@ -8,6 +8,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: white;
+    padding-left: 10px;
   }
   
   .affiliateItem {
@@ -28,9 +30,34 @@
     font-size: 18px; /* Resize the text to 18 pixels */
     /* Add any additional styling you need here */
   }
+  .historyContainer {
+    /* Existing styles... */
+  }
+  
+  .historyContainer ul {
+    list-style-type: disc; /* This will add the bullet points */
+    padding-left: 40px; /* This will add some indentation to your list */
+  }
+  
+  .historyContainer li {
+    line-height: 1.6; /* This will add some space between the list items */
+    font-size: 16px; /* This will set the font size, adjust as needed */
+  }
   /* Add media queries for responsive adjustments if needed */
 
-  
+  .historyDescription {
+    text-align: center; /* Center aligns the text */
+    border: 1px solid #ddd; /* Adds a light grey border */
+    padding: 15px; /* Adds padding inside the border */
+    margin: 20px auto; /* Centers the block and adds margin to the top and bottom */
+    max-width: 800px; /* Maximum width of the paragraph */
+    line-height: 1.6; /* Line height for better readability */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1.2rem;
+    /* Additional styles as needed */
+  }
   .header {
     /* Header styles */
   }
@@ -43,10 +70,24 @@
     /* Title styles */
   }
   
-  .featuredImage {
-    /* Featured image styles */
+  .historyContainer h1 {
+    font-size: 2.5rem; /* Adjust the size as needed */
+   
+    color: #333; /* A dark grey color, adjust the hex value as needed */
+    /* Adds some space below the heading */
+    text-align: center; /* Centers the text */
+    text-transform: uppercase; /* Optional: Uppercases all letters */
+    padding: 10px 0; /* Adds padding to the top and bottom */
   }
-  
+  .historyContainer h2 {
+    font-size: 1.0rem; /* Adjust the size as needed */
+    font-weight: normal; /* You can set this to bold if needed */
+    color: #555; /* Adjust the color as needed */
+    margin-bottom: 15px; /* Adds some space below the subheading */
+    text-align: center; /* Aligns the text to the left */
+    padding: 5px 0; /* Adds padding to the top and bottom */
+    /* Additional styles can be added here as needed */
+  }
   .description {
     /* Description text styles */
   }
