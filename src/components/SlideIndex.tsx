@@ -12,7 +12,9 @@ const SlideComponent = () => {
     fetch(`http://toyotathonburi.co.th/api/slides`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setSlides(data.data); // set the data array to the slides state
+     
       })
       .catch((error) => {
         console.error('Fetch error:', error);
