@@ -225,7 +225,7 @@
     flex-direction: column;
     position: fixed;
     top: 0;
-    padding-top: 20px;
+    padding-top: 50px;
     right: -250px; /* Initially off-screen */
     width: 250px;
     height: 100%;
