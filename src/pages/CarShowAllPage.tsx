@@ -50,4 +50,3 @@ const CarShowAllPage = () => {
 };
 
 export default CarShowAllPage;
-div>
