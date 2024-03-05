@@ -1,6 +1,8 @@
 // CarShowAllPage.tsx
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/CarShowAllPage.module.css';
+import Header from '../components/Header';
+import ContactEnd from  '../components/ContactEnd';
 
 const CarShowAllPage = () => {
     const [carData, setCarData] = useState(null);
@@ -17,6 +19,8 @@ const CarShowAllPage = () => {
     }
 
     return (
+        <div className={styles.container}>
+            <Header />
         <div className={styles.carContainer}>
             {carData.success && (
                 <div>
@@ -45,6 +49,8 @@ const CarShowAllPage = () => {
                     ))}
                 </div>
             )}
+        </div>
+        <ContactEnd />
         </div>
     );
 };

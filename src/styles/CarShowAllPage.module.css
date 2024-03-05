@@ -1,4 +1,16 @@
 /* CarShowAllPage.module.css */
+.container {
+    max-width: 800px;
+    margin: auto;
+    color: #000;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #FFFFFF;
+   
+    margin-top: 60px;
+  }
+
 .carContainer {
     padding: 20px;
     margin: 20px auto; /* centered the container */
