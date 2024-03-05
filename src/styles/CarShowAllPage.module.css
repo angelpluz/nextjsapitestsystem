@@ -1,19 +1,28 @@
-.car-container {
+/* CarShowAllPage.module.css */
+.carContainer {
     padding: 20px;
-    margin: 20px;
+    margin: 20px auto; /* centered the container */
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
+    max-width: 1200px; /* max width for large screens */
 }
 
-.type-header {
+.typeHeader {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-.series-item {
-    margin-bottom: 30px;
+.seriesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* จัดเรียงระหว่างรายการให้อยู่ด้านขวาและซ้าย */
+}
+
+.seriesItem {
+    width: calc(50% - 20px); /* 50% ความกว้างพร้อมกับขอบระหว่าง */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
     padding: 10px;
     border: 1px solid #eee;
     border-radius: 4px;
@@ -21,24 +30,24 @@
     transition: box-shadow 0.3s ease;
 }
 
-.series-item:hover {
+.seriesItem:hover {
     box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
 }
 
-.series-image {
+.seriesImage {
     width: 100%;
     height: auto;
     border-radius: 4px;
     margin-bottom: 10px;
 }
 
-.series-name {
+.seriesName {
     font-size: 20px;
     color: #333;
     margin: 10px 0;
 }
 
-.series-price {
+.seriesPrice {
     font-size: 18px;
     color: #666;
     font-weight: bold;
@@ -46,12 +55,12 @@
 
 /* Add media query for responsive layout */
 @media (max-width: 768px) {
-    .car-container {
+    .carContainer {
         margin: 10px;
         padding: 10px;
     }
 
-    .series-item {
+    .seriesItem {
         margin-bottom: 20px;
     }
 }
