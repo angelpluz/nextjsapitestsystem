@@ -23,6 +23,7 @@
   
   .affiliateItem h2,
   .affiliateItem p {
+    color: #333;
     margin-left: 20px; /* Add some space between the image and the text */
   }
   .redHeading {
@@ -31,6 +32,8 @@
     /* Add any additional styling you need here */
   }
   .historyContainer {
+    background-color: #ffffff;
+    margin-bottom: 30px;
     /* Existing styles... */
   }
   
@@ -56,6 +59,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
     border-radius: 4px; /* Slightly rounded corners */
     font-size: 1.2rem;
+    color: #333;
     /* Additional styles as needed */
   }
   .header {

@@ -1,18 +1,19 @@
 /* ContactUs.module.css */
-.container {
+/* .container {
     max-width: 600px;
     margin: 50px auto;
   
     background: #fff;
     border-radius: 8px;
 
-  }
+  } */
   .container1 {
     max-width: 600px;
-    margin: 50px auto;
+   
    padding: 20px;
     background: #fff;
     border-radius: 8px;
+    color: #000;
   
   }
   
