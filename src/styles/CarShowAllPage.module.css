@@ -1,78 +1,79 @@
 /* CarShowAllPage.module.css */
 .container {
-    max-width: 800px;
+    max-width: 600px; /* Adjusted from 800px to allow for a full-width image */
     margin: auto;
     color: #000;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background: #FFFFFF;
-   
     margin-top: 60px;
   }
-
-.carContainer {
+  
+  .carContainer {
     padding: 20px;
     margin: 20px auto; /* centered the container */
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
-    max-width: 1200px; /* max width for large screens */
-}
-
-.typeHeader {
+  }
+  
+  .typeHeader {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
     margin-bottom: 20px;
-}
-
-.seriesContainer {
+  }
+  
+  .seriesContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* จัดเรียงระหว่างรายการให้อยู่ด้านขวาและซ้าย */
-}
-
-.seriesItem {
-    width: calc(50% - 20px); /* 50% ความกว้างพร้อมกับขอบระหว่าง */
-    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+    justify-content: space-between; /* This will ensure spacing between items */
+    gap: 20px; /* This is a more modern way of creating space between flex items */
+  }
+  
+  .seriesItem {
+    flex: 1; /* Allows the item to grow */
+    margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #eee;
     border-radius: 4px;
     background-color: #fff;
     transition: box-shadow 0.3s ease;
-}
-
-.seriesItem:hover {
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-}
-
-.seriesImage {
+  }
+  
+  .seriesItem:first-child {
+    width: 100%; /* First item is full-width */
+    flex: none; /* Prevents the item from growing */
+  }
+  
+  .seriesItem:not(:first-child) {
+    width: calc(50% - 20px); /* Width for two columns, adjust the 20px if needed for gap */
+  }
+  
+  .seriesImage {
     width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.seriesName {
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .seriesName {
     font-size: 20px;
     color: #333;
     margin: 10px 0;
-}
-
-.seriesPrice {
+  }
+  
+  .seriesPrice {
     font-size: 18px;
     color: #666;
     font-weight: bold;
-}
-
-/* Add media query for responsive layout */
-@media (max-width: 768px) {
-    .carContainer {
-        margin: 10px;
-        padding: 10px;
+  }
+  
+  .seriesItem:hover {
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Responsive layout for smaller screens */
+  @media (max-width: 768px) {
+    .seriesItem:not(:first-child) {
+      width: 50%; /* Each item is full-width on small screens */
     }
-
-    .seriesItem {
-        margin-bottom: 20px;
-    }
-}
+  }
+  

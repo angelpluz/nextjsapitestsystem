@@ -33,7 +33,7 @@ const CareersPage = () => {
       <Header />
         
       <div className={styles.jobListing}>
-      <h1>ร่วมงานกับเรา</h1>
+      <h1 className={styles.jobHeader}>ร่วมงานกับเรา</h1>
         {jobs.map((job) => (
           <div key={job.id} className={styles.jobCard}>
             <div className={styles.jobTitle}>{job.position}</div>

@@ -56,6 +56,22 @@
     display: inline-block; /* Allows us to set width */
     width: auto; /* Only as wide as its content */
   }
+  /* Assuming you have a CSS module named styles.module.css */
+.jobHeader {
+  color: #333; /* Dark grey color */
+  font-size: 2rem; /* 32px */
+  text-align: center; /* Center align text */
+  margin-top: 1rem; /* 16px top margin */
+  margin-bottom: 1rem; /* 16px bottom margin */
+  font-weight: bold; /* Bold font weight */
+  padding: 0.5rem; /* 8px padding */
+  background-color: #f8f8f8; /* Light grey background */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-transform: uppercase; /* UPPERCASE LETTERS */
+  letter-spacing: 1px; /* Spacing between letters for better readability */
+}
+
   /* Add more styling as needed */
   @media (max-width: 768px) {
     .jobCard {

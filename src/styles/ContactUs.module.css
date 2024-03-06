@@ -8,6 +8,7 @@
 
   } */
   .container1 {
+    margin-top: 50px;
     max-width: 600px;
    
    padding: 20px;
@@ -121,6 +122,44 @@
   .checkboxContainer label {
     margin-right: 10px;
   }
+  .selectBranch {
+    width: 100%; /* Full width */
+    padding: 8px 16px; /* Padding inside the select, adjust as needed */
+    margin: 8px 0; /* Space above and below the select, adjust as needed */
+    border: 1px solid #cccccc; /* Light grey border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #ffffff; /* White background */
+    font-size: 16px; /* Readable font size */
+    -webkit-appearance: none; /* Removes default styling in WebKit browsers */
+    -moz-appearance: none; /* Removes default styling in Firefox */
+    appearance: none; /* Removes default arrow */
+      /* Path to your custom arrow image */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Arrow position */
+    background-size: 12px; /* Size of the custom arrow image */
+  }
+  .selectBranch::-ms-expand {
+    display: none; /* Hide the default arrow in IE */
+  }
+  .selectBranch:after {
+    content: '▼'; /* Custom arrow */
+    position: absolute;
+    right: 0.75rem; /* Positioning right inside the select box */
+    top: 50%; /* Aligning vertically */
+    pointer-events: none; /* Clicks will pass through */
+    color: #aaa; /* Arrow color, choose what fits your design */
+  }
+  
+  /* Focus state for when the select is active */
+  .selectBranch:focus {
+    outline: none;
+  }
+  .formLabel {
+    display: block; /* Makes the label a block to sit above the dropdown */
+    margin-bottom: 8px; /* Space below the label */
+    font-weight: bold; /* Makes the label bold */
+  }
+
   #branch {
     border: 1px solid #000; /* เพิ่มขอบด้วยสีดำและความหนา 1px */
     border-radius: 5px; /* ขอบโค้งเล็กน้อย */

@@ -75,13 +75,14 @@ const ContactUs = () => {
           onChange={handleChange} 
         />
       
-                <label htmlFor="branch">สาขาที่ต้องการติดต่อ </label>
+      <label htmlFor="branch" className={styles.formLabel}>สาขาที่ต้องการติดต่อ</label>
                
-<select 
+      <select 
   id="branch" 
   name="branch" 
   value={formData.branch}
   onChange={handleChange}
+  className={styles.selectBranch}
 >
 <option value="สำนักงานใหญ่">สำนักงานใหญ่</option>
 <option value="สำนักงานขายออนไลน์">สาขา สำนักงานขายออนไลน์</option>
