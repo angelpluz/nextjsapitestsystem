@@ -1,0 +1,99 @@
+/* TurnCar.module.css */
+.container {
+    margin-top: 50px;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+.turnCarFormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  .topImage {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  .timeInput {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#preferredTime {
+    border: 1px solid #ccc;
+    height: 48px;
+    padding: 0 15px;
+    font-size: 16px;
+    width: calc(100% - 30px); /* Adjust width if needed */
+    margin-bottom: 20px; /* Space between the elements */
+}
+  .turnCarForm {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .turnCarForm label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .turnCarForm input[type="text"],
+  .turnCarForm input[type="email"],
+  .turnCarForm input[type="tel"],
+  .turnCarForm select,
+  .turnCarForm input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .turnCarForm button.submitButton {
+    width: 50%; /* You can adjust the width as needed */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5a5b5b; /* Button color */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* Centering the button */
+    margin: 0 auto; /* Auto margins on the sides */
+  }
+  
+  .turnCarForm button.submitButton:hover {
+    background-color:  #5a5b5b;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .turnCarFormContainer {
+      padding: 10px;
+    }
+  
+    .topImage {
+      max-width: 100%;
+    }
+  
+    .turnCarForm {
+      padding: 10px;
+    }
+  }
+  

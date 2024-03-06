@@ -1,0 +1,76 @@
+/* TestDrive.module.css */
+.container {
+    margin-top: 50px;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+.testDriveFormContainer {
+    width: 100%; /* Adjust the width as needed */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+}
+
+.topImage {
+    max-width: 100%;
+    height: auto; /* Adjust if you have a fixed height for your image */
+    margin-bottom: 20px; /* Space between image and form */
+}
+
+.testDriveForm {
+    width: 100%; /* Form width */
+    max-width: 500px; /* Max form width */
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     color: #333;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.testDriveForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.testDriveForm input,
+.testDriveForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px; /* Space between form items */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.testDriveForm button.submitButton {
+    width: 50%; /* You can adjust the width as needed */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5a5b5b; /* Button color */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* Centering the button */
+    margin: 0 auto; /* Auto margins on the sides */
+}
+.testDriveForm button.submitButton:hover {
+    background-color: #5b5a5b; /* Button hover state */
+}
+
+/* Add responsive design as needed */
+@media (max-width: 768px) {
+    .testDriveFormContainer {
+        padding: 10px;
+    }
+}
+
+/* Add any additional styles for other form elements if needed */

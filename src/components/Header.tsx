@@ -104,10 +104,10 @@ const Header = () => {
       <Link href="/#" passHref>
         <span className={styles.menuItem}>ที่ตั้งโชว์รูม</span>
       </Link>
-      <Link href="/#" passHref>
+      <Link href="/testdrive" passHref>
         <span className={styles.menuItem}>ทดลองขับ</span>
       </Link>
-      <Link href="/#" passHref>
+      <Link href="/Turncar" passHref>
         <span className={styles.menuItem}>เทิร์นรถ</span>
       </Link>
       <Link href="/careers" passHref>
