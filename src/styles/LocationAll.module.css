@@ -1,0 +1,92 @@
+/* LocationAll.module.css */
+
+.container {
+   
+    max-width: auto;
+   background-color: white;
+    margin-top: 100px;
+  }
+  .title{
+    text-align: center; /* Centers the text horizontally */
+    text-decoration: underline; /* Adds underline */
+    text-decoration-color: red; /* Sets underline color to red */
+    font-size: 24px; /* Larger font size */
+    font-weight: normal; /* Normal text, no bold */
+  }
+  .locationsGrid {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* This centers the cards horizontally */
+    gap: 20px; /* This adds space between the cards */
+  }
+  
+  .locationCard {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; 
+    width: calc(50% - 10px); 
+  }
+  .mapButton {
+    display: inline-flex; /* Aligns icon and text inline and centers them */
+    align-items: center; /* Vertically centers the content */
+    justify-content: center; /* Horizontally centers the content */
+    padding: 5px 10px; /* Adjust padding as needed */
+    background-color: rgb(255, 103, 103); /* Button background color */
+    color: white; /* Text color */
+    border: none; /* Removes border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Changes cursor to pointer to indicate it's clickable */
+    text-decoration: none; /* Removes underline from the link */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    margin-left: 15px;
+    margin-top: 5px;
+  
+  }
+  
+  .mapButton:hover,
+  .mapButton:focus {
+    
+    background-color: rgb(255, 103, 103);  /* Darker red on hover/focus for visual feedback */
+  }
+  
+  .mapButtonIcon {
+    margin-right: 5px; /* Space between icon and text */
+    
+    /* If using font icons, you might want to set the font-size here */
+  }
+  /* Responsive layout for smaller screens */
+
+  .websiteNameContainer {
+    text-align: center; /* Centers the text horizontally */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center flex items on the main axis (horizontal) */
+  align-items: center; /* Center flex items on the cross axis (vertical) */
+  margin: 0; /* Removes any default margin */
+  padding: 0; /* Removes any default padding */
+  }
+  
+  .websiteName {
+    /* Add your styles for the website name */
+    cursor: pointer;
+  }
+  
+  .telephoneContainer {
+    text-align: center; /* Centers the text horizontally */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center flex items on the main axis (horizontal) */
+  align-items: center; /* Center flex items on the cross axis (vertical) */
+  margin: 0; /* Removes any default margin */
+  padding: 0; /* Removes any default padding */
+  }
+  
+  .telephoneNumber {
+    /* Add your styles for the telephone number */
+    cursor: pointer;
+  }
+  
+  .mapButton {
+    /* Your existing styles */
+  }
