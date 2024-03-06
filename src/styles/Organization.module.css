@@ -1,4 +1,5 @@
 .organizationContainer {
+  background-color: #333;
     /* Container styles */
   }
   
@@ -40,11 +41,13 @@
   .historyContainer ul {
     list-style-type: disc; /* This will add the bullet points */
     padding-left: 40px; /* This will add some indentation to your list */
+    color: #333;
   }
   
   .historyContainer li {
     line-height: 1.6; /* This will add some space between the list items */
     font-size: 16px; /* This will set the font size, adjust as needed */
+    color: #333;
   }
   /* Add media queries for responsive adjustments if needed */
 
