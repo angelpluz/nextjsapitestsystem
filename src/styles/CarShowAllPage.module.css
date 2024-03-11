@@ -1,6 +1,6 @@
 /* CarShowAllPage.module.css */
 .container {
-    max-width: 600px; /* Adjusted from 800px to allow for a full-width image */
+    max-width: 600px; /* Adjusted to allow for more space if needed */
     margin: auto;
     color: #000;
     background: #fff;
@@ -11,42 +11,42 @@
   
   .carContainer {
     padding: 20px;
-    margin: 20px auto; /* centered the container */
+    margin: 20px auto; /* Centered the container */
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
   }
   
   .typeHeader {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #f55a5a;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    font-size: 24px;
+    color: #000;
   }
   
   .seriesContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* This will ensure spacing between items */
-    gap: 20px; /* This is a more modern way of creating space between flex items */
+    gap: 20px; /* Creates space between items */
   }
   
   .seriesItem {
-    flex: 1; /* Allows the item to grow */
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Space between rows */
     padding: 10px;
     border: 1px solid #eee;
     border-radius: 4px;
     background-color: #fff;
     transition: box-shadow 0.3s ease;
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
   }
   
   .seriesItem:first-child {
-    width: 100%; /* First item is full-width */
-    flex: none; /* Prevents the item from growing */
+    width: 100%; /* First item takes full width */
   }
   
   .seriesItem:not(:first-child) {
-    width: calc(50% - 20px); /* Width for two columns, adjust the 20px if needed for gap */
+    width: calc(50% - 10px); /* Adjust the 10px if needed based on the gap */
   }
   
   .seriesImage {
@@ -55,7 +55,7 @@
   }
   
   .seriesName {
-    font-size: 20px;
+    font-size: 14px;
     color: #333;
     margin: 10px 0;
   }
@@ -69,11 +69,25 @@
   .seriesItem:hover {
     box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
   }
+  .detailButton {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #d73c3c; /* Bootstrap primary button color */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+  }
   
+  .detailButton:hover {
+    background-color: #d73c3c; /* Darken button color on hover */
+  }
   /* Responsive layout for smaller screens */
-  @media (max-width: 768px) {
+  @media (max-width: 390px) {
     .seriesItem:not(:first-child) {
-      width: 50%; /* Each item is full-width on small screens */
+      width: 100%; /* Each item takes full width on small screens */
     }
   }
   
