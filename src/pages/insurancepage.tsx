@@ -31,7 +31,7 @@ const handleSubmit = (e) => {
               <Header />
           <img src="/images/bsp.jpg" alt="BSP Insurance" className={styles.insuranceImage} />
           <div className={styles.insuranceContent}>
-            <h3 className={styles.insuranceTitle}>บริษัท บีเอสพี อินชัวร์ โบรคเกอร์ จำกัด</h3>
+          <h1 className={styles.heading1}>ต่ออายุประกันภัยรถยนต์</h1>
 
             <form className={styles.form} onSubmit={handleSubmit}>
                 {/* Form fields */}
@@ -88,7 +88,7 @@ const handleSubmit = (e) => {
 
                 <button type="submit" className={styles.submitButton}>Submit</button>
             </form>
-
+            <h3 className={styles.insuranceTitle}>บริษัท บีเอสพี อินชัวร์ โบรคเกอร์ จำกัด</h3>
             <p className={styles.description}>
               เป็นบริการนายหน้าประกันภัยวินาศภัยผู้ให้บริการ แนะนำ ประสานงานด้านประกันภัยไม่ว่าจะเป็นการแจ้งเตือนและอำนวยความสะดวกในการทำประกันภัยรถยนต์ ต่ออายุประกันภัยรถยนต์ ประสานงานให้บริการด้านสินไหมทดแทนนอกจากนี้ยังมีบริการอื่นๆ ที่พร้อมช่วยอำนวยความสะดวกให้แก่คุณ
             </p>

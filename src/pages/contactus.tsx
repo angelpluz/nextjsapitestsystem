@@ -99,17 +99,25 @@ const ContactUs = () => {
 <option value="ร่มเกล้า">สาขา ร่มเกล้า</option>
 </select>
 
-        <div className={styles.confirmation}>
-        <input 
-          type="checkbox" 
-          id="confirm" 
-          name="confirm" 
-          checked={formData.confirm}
-          onChange={handleChange} 
-        />
-        <label htmlFor="confirm">ต้องการนัดหมายล่วงหน้า</label>
-        <span className={styles.required}>(กรุณานัดล่วงหน้าอย่างน้อย 1 วัน)</span>
-      </div>
+<div className={styles.confirmation}>
+  <div className={styles['checkbox-and-label']}>
+    <input 
+      type="checkbox" 
+      id="confirm" 
+      name="confirm" 
+      checked={formData.confirm}
+      onChange={handleChange} 
+    />
+    <label htmlFor="confirm">ต้องการนัดหมายล่วงหน้า</label>
+  </div>
+  <span className={styles.required}>
+    (กรุณานัดล่วงหน้าอย่างน้อย 1 วัน)
+  </span>
+</div>
+
+
+
+
         <label htmlFor="message">ข้อความ</label>
         <textarea 
           id="message" 
@@ -118,17 +126,22 @@ const ContactUs = () => {
           onChange={handleChange}
         ></textarea>
 
-<div className={styles.checkboxContainer}>
-        <input 
-          type="checkbox" 
-          id="additionalConfirmation" 
-          name="additionalConfirmation" 
-          checked={formData.additionalConfirmation || false} // You will need to add this field to your state
-          onChange={handleChange} 
-        />
-        <label htmlFor="additionalConfirmation">ยอมรับ </label>
-        <span className={styles.required}>นโยบายความเป็นส่วนตัว</span>
-      </div>
+<div className={styles.confirmation}>
+  <div className={styles.checkboxAndLabel}>
+    <input 
+      type="checkbox" 
+      id="additionalConfirmation" 
+      name="additionalConfirmation" 
+      checked={formData.additionalConfirmation || false} 
+      onChange={handleChange} 
+    />
+    <label htmlFor="additionalConfirmation">ยอมรับ</label>
+  </div>
+  <div className={styles.required}>
+    นโยบายความเป็นส่วนตัว
+  </div>
+</div>
+
 
         <button type="submit" className={styles.submitButton}>ส่งข้อความ</button>
       </form>

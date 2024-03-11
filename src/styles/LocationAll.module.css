@@ -34,7 +34,7 @@
     align-items: center; /* Vertically centers the content */
     justify-content: center; /* Horizontally centers the content */
     padding: 5px 10px; /* Adjust padding as needed */
-    background-color: rgb(255, 103, 103); /* Button background color */
+    background-color:#B30000; /* Button background color */
     color: white; /* Text color */
     border: none; /* Removes border */
     border-radius: 4px; /* Rounded corners */
@@ -49,7 +49,7 @@
   .mapButton:hover,
   .mapButton:focus {
     
-    background-color: rgb(255, 103, 103);  /* Darker red on hover/focus for visual feedback */
+    background-color: #B30000;  /* Darker red on hover/focus for visual feedback */
   }
   
   .mapButtonIcon {

@@ -1,30 +1,81 @@
-// Turncar.tsx
-import React, { useState } from 'react';
+// TurnCarPage.tsx
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import styles from '../styles/TurnCar.module.css'; // Update with your actual path
 import Header from '../components/Header';
 import ContactEnd from '../components/ContactEnd';
+
 const TurnCarPage = () => {
-    const [formData, setFormData] = useState({
-        model: '',
-        fullName: '',
-        email: '',
-        phoneNumber: '',
-        // Add any additional fields specific to turning in a car
+  const [formData, setFormData] = useState({
+    model: '',
+    fullName: '',
+    email: '',
+    phoneNumber: '',
+    // Add any additional fields specific to turning in a car
+  });
+
+  const [fileSets, setFileSets] = useState<File[][]>([[]]);
+  const [fileNames, setFileNames] = useState<string[][]>([[]]);
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleFileChange = (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files ? Array.from(e.target.files) : [];
+    setFileSets(prevFileSets => {
+      const newFileSets = [...prevFileSets];
+      newFileSets[index] = files;
+      return newFileSets;
+    });
+    setFileNames(prevFileNames => {
+      const newFileNames = [...prevFileNames];
+      newFileNames[index] = files.map(file => file.name);
+      return newFileNames;
+    });
+  };
+
+  const addImageSet = () => {
+    setFileSets(prevFileSets => [...prevFileSets, []]);
+    setFileNames(prevFileNames => [...prevFileNames, []]);
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const data = new FormData();
+    // Append text fields to FormData
+    Object.entries(formData).forEach(([key, value]) => {
+      data.append(key, value);
     });
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
+    // Append files to FormData
+    fileSets.forEach((fileSet) => {
+      fileSet.forEach((file) => {
+        data.append('images', file); // Ensure your backend expects 'images' as the key
+      });
+    });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission specific to turning in a car
-        console.log(formData);
-    };
+    try {
+      // Send the form data with the POST request
+      const response = await fetch('http://toyotathonburi.co.th/api/turn-car', { // Update the URL to your endpoint
+        method: 'POST',
+        body: data,
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      } else {
+        // Handle the response if needed
+        console.log('Success:', response);
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+    }
+  };
 
     return (
         <div className={styles.container}>
@@ -82,25 +133,29 @@ const TurnCarPage = () => {
   required 
   className={styles.timeInput} // Add this line
 />
-
+<label htmlFor="preferredDate">รูปรถที่จะนำมา เทิร์น</label>
                 {/* Showroom Dropdown */}
-                <label htmlFor="showroom">สาขาที่ต้องการทดลองขับ</label>
-                <select id="showroom" name="showroom" value={formData.showroom} onChange={handleInputChange} required>
-                <option value="">เลือกสาขา</option>
-                                    <option value="สำนักงานใหญ่ ท่าพระ">สำนักงานใหญ่ ท่าพระ</option>
-                                    <option value="จรัญสนิทวงศ์">สาขา จรัญสนิทวงศ์</option>
-                                    <option value="พระราม 2">สาขา พระราม 2</option>
-                                    <option value="เดอะมอลล์บางแค">สาขา เดอะมอลล์บางแค</option>
-                                    <option value="เจริญนคร">สาขา เจริญนคร</option>
-                                    <option value="วงศ์สว่าง">สาขา วงศ์สว่าง</option>
-                                    <option value="เพชรบุรีตัดใหม่">สาขา เพชรบุรีตัดใหม่</option>
-                                    <option value="ลาดพร้าว">สาขา ลาดพร้าว</option>
-                                    <option value="รามคำแหง">สาขา รามคำแหง</option>
-                                    <option value="อ่อนนุช">สาขา อ่อนนุช</option>
-                                    <option value="ประดิษฐ์มนูธรรม">สาขา ประดิษฐ์มนูธรรม</option>
-                                    <option value="สุขาภิบาล 3">สาขา สุขาภิบาล 3</option>
-                                    <option value="ร่มเกล้า">สาขา ร่มเกล้า</option>
-                </select>
+              {fileSets.map((fileSet, index) => (
+        <div key={index} className={styles.fileInputContainer}>
+          <input
+            type="file"
+            name={`images[]`}
+            onChange={handleFileChange(index)}
+            accept="image/*"
+            multiple
+            className={styles.formField}
+          />
+          <div className={styles.fileNameDisplay}>
+            {fileNames[index] && fileNames[index].map((name, fileIndex) => (
+              <span key={fileIndex} className={styles.fileName}>{name}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <button type="button" onClick={addImageSet} className={styles.addButton}>
+        เพิ่มรูปภาพ
+      </button>
 
                 {/* Submit Button */}
                 <button type="submit" className={styles.submitButton}>ส่งข้อมูล</button>

@@ -3,6 +3,7 @@
     margin-top: 50px;
     background-color: #f9f9f9;
     color: #333;
+    border-top: 5px solid red; /* Adds a red border to the top */
   }
 .turnCarFormContainer {
     display: flex;
@@ -39,11 +40,11 @@
     max-width: 400px;
     background: #fff;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+
   }
   
   .turnCarForm label {
@@ -81,11 +82,60 @@
   .turnCarForm button.submitButton:hover {
     background-color:  #B30000;
   }
+
+  .fileInputContainer {
+    margin-bottom: 1rem; /* Adds space below each file input container */
+  }
+  
+  .formField {
+    width: 100%; /* Full width */
+    padding: 0.5rem; /* Padding for better touch */
+    margin-bottom: 0.5rem; /* Space below the field */
+    border: 1px solid #ccc; /* A subtle border */
+    border-radius: 4px; /* Rounded borders */
+  }
+  
+  .fileNameDisplay {
+    padding: 0.5rem; /* Padding to match input field */
+    background-color: #f7f7f7; /* A light grey background to distinguish the area */
+    border: 1px solid #eaeaea; /* A lighter border for the filename display */
+    border-radius: 4px; /* Consistent rounded borders */
+    margin-bottom: 1rem; /* Space below the filenames */
+  }
+  
+  .fileName {
+    display: inline-block; /* Allows files to flow like text */
+    margin-right: 0.5rem; /* Space between filenames */
+    padding: 2px 5px; /* A bit of padding around the text */
+    background-color: #e1e1e1; /* Slightly darker to stand out */
+    border-radius: 2px; /* Slightly rounded edges on tags */
+    font-size: 0.85rem; /* Smaller text */
+  }
+  
+  .addButton {
+    background-color: #B30000; /* Bootstrap primary color */
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 10%; /* Adjusted padding; 20px top and bottom, 10% left and right */
+    margin-bottom: 20px;
+    width: auto; /* Ensure the width is automatic */
+    display: block; /* To enable margin auto to work */
+    margin-left: 25%; /* Auto margin on left */
+    margin-right: 25%; /* Auto margin on right */
+  }
+  
+  .addButton:hover {
+    background-color: #B30000; /* Darker blue on hover */
+  }
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .turnCarFormContainer {
-      padding: 10px;
+      background-color: #ffffff;
+      
     }
   
     .topImage {
@@ -94,6 +144,8 @@
   
     .turnCarForm {
       padding: 10px;
+      
+      background-color: #ffffff;
     }
   }
   
