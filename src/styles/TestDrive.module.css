@@ -54,7 +54,7 @@
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #5a5b5b; /* Button color */
+    background-color: #B30000; /* Button color */
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -63,7 +63,7 @@
     margin: 0 auto; /* Auto margins on the sides */
 }
 .testDriveForm button.submitButton:hover {
-    background-color: #5b5a5b; /* Button hover state */
+    background-color: #B30000; /* Button hover state */
 }
 
 /* Add responsive design as needed */

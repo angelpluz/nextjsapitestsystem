@@ -3,7 +3,17 @@
     background-color: #f9f9f9;
     color: #000;
   }
-
+  .heading1 {
+    font-size: 2rem; /* Sets a larger font size */
+    color: #333; /* Standard dark grey text */
+    text-align: center; /* Centers the text */
+    margin-top: 1rem; /* Spacing at the top */
+    margin-bottom: 1rem; /* Spacing at the bottom */
+    font-weight: normal; /* Default weight - change as needed */
+    border-bottom: 2px solid red; /* Adds a red underline */
+    display: inline-block; /* Required for border to fit content width */
+    padding-bottom: 0.25rem; /* Spacing between text and underline */
+  }
 .serviceContainer {
     padding: 20px;
     /* Add more styling as needed */
@@ -19,12 +29,12 @@
   }
 
   .submitButton {
-    background-color: #d9534f; /* Bootstrap 'btn-danger' red color */
+    background-color: #B30000; /* Bootstrap 'btn-danger' red color */
     color: #fff; /* White text */
     border: none; /* No border */
     margin-top: 20px; /* Space at the top */
     margin-bottom: 20px;
-    padding: 10px 20px; /* Padding inside the button */
+    padding: 10px 40px; /* Padding inside the button */
     border-radius: 20px; /* Rounded corners with a radius of 20px */
     font-size: 16px; /* Font size */
     font-weight: bold; /* Bold text */
@@ -33,7 +43,11 @@
     outline: none; /* Remove outline */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle 3D effect */
     transition: background-color 0.3s ease; /* Transition effect for background color */
+    display: block; /* Will take the full width of the container */
+    margin-left: auto; /* Centers the button */
+    margin-right: auto; /* Centers the button */
   }
+  
   
   .submitButton:hover {
     background-color: #c9302c; /* A slightly darker red for hover state */
@@ -93,17 +107,27 @@
     color: #333333;
     position: relative;
     cursor: pointer;
+    margin-bottom: 10px;
   }
   
   .serviceCenterSelect:focus {
     outline: none; /* Remove the focus outline */
     border-color: #666666; /* Change border color when the select box is focused */
   }
-  .dateInput, .timeInput {
+  .dateInput {
     padding: 8px;
     border: 1px solid #cccccc;
     border-radius: 4px;
     margin-bottom: 10px; /* Space between inputs */
+    margin-left: 5%;
+  }
+
+ .timeInput {
+    padding: 8px 30px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Space between inputs */
+    margin-left: 10%;
   }
   
   /* You might need to adjust the appearance of the caret or dropdown arrow */
@@ -169,6 +193,7 @@
     display: block; /* Make label a block element */
     margin-bottom: 5px; /* Add some space below the label */
     color: #000; /* Label text color */
+    margin-top: 15px;
   }
   
   /* Adjust input placeholder color and style if needed */
@@ -192,6 +217,7 @@
   
   /* Style the label for better alignment */
   .telLabel {
+    margin-top: 15px;
     display: block; /* Make label a block element */
     margin-bottom: 5px; /* Add some space below the label */
     color: #000; /* Label text color */
@@ -220,8 +246,9 @@
     display: block; /* Make label a block element */
     margin-bottom: 5px; /* Add some space below the label */
     color: #000; /* Label text color */
+    margin-top: 15px;
   }
-  
+
   /* Adjust input placeholder color and style if needed */
   .emailInput::placeholder {
     color: #aaa; /* Placeholder text color */
@@ -240,6 +267,7 @@
     outline: none; /* Removes the focus outline */
     padding: 8px 0; /* Adds some padding */
     width: 100%; /* Sets the input to full width */
+
   }
   
   /* Style the label for better alignment */
@@ -247,6 +275,7 @@
     display: block; /* Makes label a block element */
     margin-bottom: 5px; /* Adds some space below the label */
     color: #000; /* Sets the label text color */
+    margin-top: 15px;
   }
   
   /* Adjust input placeholder color and style if needed */
@@ -273,6 +302,7 @@
     display: block; /* Makes label a block element */
     margin-bottom: 5px; /* Adds some space below the label */
     color: #000; /* Sets the label text color */
+    margin-top: 15px;
   }
   
   /* Adjust input placeholder color and style if needed */
@@ -286,6 +316,7 @@
     border-bottom: 2px solid #555; /* Makes bottom border thicker when focused */
   }
   .licensePlateInput {
+    margin-top: 15px;
     border: none; /* Removes the standard border */
     border-bottom: 1px solid #000; /* Adds a bottom border */
     outline: none; /* Removes the focus outline */
@@ -295,6 +326,7 @@
   
   /* Style the label for better alignment */
   .licensePlateLabel {
+    margin-top: 15px;
     display: block; /* Makes label a block element */
     margin-bottom: 5px; /* Adds some space below the label */
     color: #000; /* Sets the label text color */
@@ -317,4 +349,17 @@
     display: block; /* Makes the element a block element to allow for text-align to work */
     margin: auto; /* If this is for an element that can have a width, this will center it within its container */
     width: fit-content; /* Makes the width of the element as wide as its content and allows margin auto to work */
+  }
+  .label {
+    margin-top: 15px;
+    display: block; /* Ensures the label takes up the full width available */
+    margin-bottom: 0.5rem; /* Adds some space below the label */
+    color: #333; /* Dark grey text for better readability */
+    font-size: 1.125rem; /* Larger font size for labels */
+    line-height: 1.5; /* Adjust line height for better readability */
+  }
+  
+  /* You can also target specific label by id or class if needed */
+  #serviceCenterLabel {
+    font-weight: bold; /* Makes specific label text bold */
   }

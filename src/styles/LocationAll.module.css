@@ -66,11 +66,23 @@
   align-items: center; /* Center flex items on the cross axis (vertical) */
   margin: 0; /* Removes any default margin */
   padding: 0; /* Removes any default padding */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  
   }
   
   .websiteName {
-    /* Add your styles for the website name */
-    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 3em; /* Adjust based on line height to fit exactly two lines */
+    line-height: 1.5em; /* Adjust line height as needed */
   }
   
   .telephoneContainer {

@@ -55,15 +55,29 @@
   }
   
   .seriesName {
-    font-size: 14px;
+    font-size: 18px;
     color: #333;
     margin: 10px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 3em; /* Adjust based on line height to fit exactly two lines */
+    line-height: 1.5em; /* Adjust line height as needed */
   }
   
   .seriesPrice {
-    font-size: 18px;
+    font-size: 16px;
     color: #666;
     font-weight: bold;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 3em; /* Adjust based on line height to fit exactly two lines */
+    line-height: 1.5em; /* Adjust line height as needed */
   }
   
   .seriesItem:hover {
