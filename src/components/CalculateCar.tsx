@@ -382,8 +382,9 @@ const downPaymentPercentageCalc = basePrice > 0
       
      
       
-      {/* Display the result */}
-  <div>
+      {/*พรุ่งนี้ใส่ tag CSS ให้สวยงาม */}
+      
+  <div> 
     {!selectedDownPayment && (
       <input
         type={isFocused ? "number" : "text"}
@@ -397,7 +398,7 @@ const downPaymentPercentageCalc = basePrice > 0
     )}
   </div>
   <h1>จำนวนเงินดาว</h1>
-      <div className={styles.percentageSelectContainer}>
+    
   <label htmlFor="downPaymentSelection"></label>
   <select
     id="downPaymentSelection"
@@ -422,7 +423,7 @@ const downPaymentPercentageCalc = basePrice > 0
     ))}
    
   </select>
-</div>
+
 
 {/* Display the custom input field only if "Custom" option is selected (indicated by selectedDownPayment being null) */}
 
@@ -446,6 +447,7 @@ const downPaymentPercentageCalc = basePrice > 0
       {/* Loan Term Buttons */}
       <div className={styles.loanTermSelectContainer}>
   <label htmlFor="loanTermSelection">จำนวนงวด</label>
+  </div>
   <select
     id="loanTermSelection"
     value={selectedLoanTerm || ''}
@@ -459,7 +461,7 @@ const downPaymentPercentageCalc = basePrice > 0
       <option key={months} value={months}>{months} เดือน</option>
     ))}
   </select>
-</div>
+
       {/* Calculate Button */}
       {monthlyPayment !== null && (
     <p>ชำระต่อเดือนที่: {monthlyPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท</p>

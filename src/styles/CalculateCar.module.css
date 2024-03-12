@@ -76,10 +76,21 @@
     font-size: 24px;
     color: #000;
   }
+  .percentageSelectContainer {
+    width: 100%; /* This will make sure each select box fills the parent container */
+    max-width: 300px; /* You can set a max-width if needed */
+
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+  }
   .customInput {
     display: block; /* Makes the input a block element to fill the width of its container */
     width: 100%; /* Sets the width to occupy the full width of its parent */
-    padding: 0.5rem; /* Adds some padding inside the input for better text visibility */
+    padding-top: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 10px;
     margin-top: 0.5rem; /* Adds a bit of margin above the input for spacing */
     border: 1px solid #ced4da; /* Gives the input a solid border with a light grey color */
     border-radius: 4px; /* Rounds the corners of the input field */
@@ -102,11 +113,12 @@
   }
   
   .dropdown {
+    width: 100%; /* This will make sure each select box fills the parent container */
+    max-width: 300px; /* You can set a max-width if needed */
     margin: 10px 0;
     padding: 10px 15px;
     border-radius: 5px;
     border: 1px solid #ced4da;
-  
     box-sizing: border-box;
   }
   
