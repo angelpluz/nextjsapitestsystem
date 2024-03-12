@@ -7,8 +7,41 @@
   align-items: center; /* Centers the content vertically */
   flex-direction: column;
   color: #000;
-  margin-top: 100px;
+  margin-top: 70px;
 }
+
+.loanTermSelectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.colorName {
+  font-size: 1em; /* Example size, adjust as needed */
+  font-weight: bold; /* If you want the name to be bold */
+  margin-bottom: 0.5rem; /* Spacing below the color name */
+  text-align: center; /* Center align */
+  /* Add more styles as needed */
+}
+.priceLabel {
+  color: #000000; /* Black color for the label */
+  font-size: 1.2em; /* Adjust the size as needed */
+  margin-bottom: 0.5rem; /* Spacing below the label */
+  text-align: center; /* Center align */
+}
+.carPrice {
+  font-size: 1.2em; /* Larger text for the price */
+  color: #D32F2F; /* Example color, change as needed */
+  margin-bottom: 0.5rem; /* Spacing below the label */
+  text-align: center; /* Center align */
+  /* Add more styles as needed */
+}
+.priceContainer {
+  display: flex; /* Use flexbox for layout */
+  /* flex-direction: column; Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
+}
+
 .calculateCarContainer {
     display: flex;
     flex-direction: column;
@@ -36,7 +69,13 @@
     margin: auto;
     
   }
-
+  .typeHeader {
+    border-bottom: 1px solid #f55a5a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000;
+  }
   .customInput {
     display: block; /* Makes the input a block element to fill the width of its container */
     width: 100%; /* Sets the width to occupy the full width of its parent */

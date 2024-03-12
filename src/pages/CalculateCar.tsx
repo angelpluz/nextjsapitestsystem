@@ -7,7 +7,8 @@ const CalculatePage = () => {
   return (
     <div className={styles.container}>
        <Header />
-      <h1>Calculate Your Car</h1>
+       <h2 className={styles.typeHeader}>คำนวนค่างวด</h2>
+     
       <CalculateCar />
       <ContactEnd />
     </div>

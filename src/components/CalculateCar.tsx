@@ -295,7 +295,7 @@ const downPaymentPercentageCalc = basePrice > 0
 
   return (
 <div className={styles.calculateCarContainercomponent}>
-  <h2>คำนวน ค่างวดรถ</h2>
+
   {colorDetail && (
         <div className={styles.colorDetail}>
          
@@ -304,8 +304,15 @@ const downPaymentPercentageCalc = basePrice > 0
             alt={colorDetail.colorname}
             className={styles.colorImage}
           />
-          <p>สี: {colorDetail.colorname}</p>
-          <p>ราคา: {colorDetail.colorprice}</p>
+          
+<p className={styles.colorName}>สี: {colorDetail.colorname}</p>
+<div className={styles.priceContainer}>
+  <p className={styles.priceLabel}>ราคา:</p>
+  <p className={styles.carPrice}>
+    {new Intl.NumberFormat('en-US').format(Number(colorDetail.colorprice.replace(/,/g, '')))}
+  </p>
+</div>
+
         </div>
       )}
   <select onChange={handleSerieSelect} value={selectedSerie || ""} className={styles.dropdown}>
@@ -356,7 +363,7 @@ const downPaymentPercentageCalc = basePrice > 0
         <button
           key={index}
           className={styles.colorOption}
-          style={{ backgroundColor: color.colorcode }}
+          style={{ background : color.colorcode }}
           onClick={() => handleColorSelect(color)}
         >
           {/* Color circle button */}
@@ -389,6 +396,7 @@ const downPaymentPercentageCalc = basePrice > 0
       />
     )}
   </div>
+  <h1>จำนวนเงินดาว</h1>
       <div className={styles.percentageSelectContainer}>
   <label htmlFor="downPaymentSelection"></label>
   <select
@@ -408,7 +416,7 @@ const downPaymentPercentageCalc = basePrice > 0
     }}
     className={styles.dropdown}
   >
-    <option value="">ใส่จำนวนเงิน หรือ เลือก</option>
+    <option value="">หรือ เลือก</option>
     {[5, 10, 15, 20, 25, 30].map((percentage) => (
       <option key={percentage} value={percentage}>{percentage}%</option>
     ))}
