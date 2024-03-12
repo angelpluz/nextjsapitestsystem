@@ -29,6 +29,7 @@ const CalculateCar = () => {
   const [series, setSeries] = useState<Serie[]>([]);
   const [models, setModels] = useState<Model[]>([]);
   const [colors, setColors] = useState<Color[]>([]);
+  const [showMockupSelects, setShowMockupSelects] = useState(true);
   const [colorDetail, setColorDetail] = useState<ColorDetail | null>(null);
   const [selectedSerie, setSelectedSerie] = useState<number | null>(null);
   const [selectedModel, setSelectedModel] = useState<number | null>(null);
@@ -44,6 +45,9 @@ const [selectedLoanTerm, setSelectedLoanTerm] = useState<number | null>(null);
 const [basePrice, setBasePrice] = useState<number>(0);
 const [downPayment, setDownPayment] = useState<number>(0);
 const [loanAmount, setLoanAmount] = useState<number>(0);
+const [showCustomInput, setShowCustomInput] = useState(false);
+
+const [isCustomInputEnabled, setIsCustomInputEnabled] = useState(false);
 const [customDownPayment, setCustomDownPayment] = useState('');
 const downPaymentAmountNum = parseFloat(customDownPayment) || 0;
 const downPaymentPercentageCalc = basePrice > 0
@@ -137,7 +141,25 @@ const downPaymentPercentageCalc = basePrice > 0
   
     fetchColorDetail();
   }, [selectedColor]);
-
+  useEffect(() => {
+    // Simultaneously fetch all series, models, and colors data
+    // Assume fetchAllData is a function that fetches everything and returns an object
+    // with series, models, and colors arrays
+    const fetchAllData = async () => {
+      try {
+        const seriesResponse = await fetch('http://toyotathonburi.co.th/api/serieall');
+        const seriesData = await seriesResponse.json();
+        // Similar fetches for models and colors, then set state with all data
+        setSeries(seriesData.series);
+        // Assume setAllModels and setAllColors set state with all models and colors respectively
+      } catch (error) {
+        console.error('Fetching error:', error);
+        setError(error.toString());
+      }
+    };
+  
+    fetchAllData();
+  }, []);
   useEffect(() => {
     if (loanAmount > 0 && loanTerm > 0) {
       // Parse the custom down payment, ensuring empty string becomes zero
@@ -147,35 +169,38 @@ const downPaymentPercentageCalc = basePrice > 0
   }, [loanAmount, loanTerm, customDownPayment]);
 
   const calculatePayment = (amount: number, term: number) => {
+    // Fixed annual interest rate at 2.00%
+    const annualInterestRate = 2.00;
+    // Convert the annual interest rate to a monthly rate and decimal form for calculation
+    const monthlyInterestRate = annualInterestRate / 1200;
+  
     console.log('Calculating payment with:', { amount, term, customDownPayment });
-    const monthlyInterestRate = interestRate;
+  
     const downPaymentPercentageCalc = customDownPayment && basePrice > 0
-    ? (parseFloat(customDownPayment) / basePrice) * 100
-    : 0;
+      ? (parseFloat(customDownPayment) / basePrice) * 100
+      : 0;
     const parsedCustomDownPayment = parseFloat(customDownPayment) || 0;
-    const downPaymentAmount = parsedCustomDownPayment !== 0 ?
-    parsedCustomDownPayment : (downPaymentPercentage / 100) * amount;
-
+    const downPaymentAmount = parsedCustomDownPayment !== 0
+      ? parsedCustomDownPayment
+      : (downPaymentPercentage / 100) * amount;
+  
     const loanAmount = amount - downPaymentAmount;
     const totalPayments = term;
-    
- 
+  
     if (totalPayments === 0 || loanAmount === 0) {
       setMonthlyPayment(0);
       return;
     }
   
-    if (monthlyInterestRate === 0) {
-      setMonthlyPayment(loanAmount / totalPayments);
-    } else {
-      const payment = loanAmount * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -totalPayments));
-      setMonthlyPayment(payment);
-    }
+    // Calculate the monthly payment
+    const payment = loanAmount * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -totalPayments));
+    setMonthlyPayment(payment);
   };
   
   const handleSerieSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const serieId = parseInt(event.target.value, 10);
     setSelectedSerie(serieId);
+    setShowMockupSelects(false);
   };
 
   const handleModelSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -183,7 +208,14 @@ const downPaymentPercentageCalc = basePrice > 0
     setSelectedModel(modelId);
   };
 
+  const formatNumberWithCommas = (value) => {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+  const [isFocused, setIsFocused] = useState(false);
 
+  const displayValue = isFocused 
+  ? customDownPayment 
+  : formatNumberWithCommas(customDownPayment);
   const handleInterestRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const annualInterestRate = Number(e.target.value);
     const monthlyInterestRate = annualInterestRate / 1200; // Convert to decimal and monthly rate
@@ -235,7 +267,7 @@ const downPaymentPercentageCalc = basePrice > 0
     const calculatedLoanAmount = basePrice - calculatedDownPayment;
     setLoanAmount(calculatedLoanAmount);
     // คำนวณ Monthly Payment ใหม่หากมีการเลือก % เงินดาวน์
-  
+
     
   };
   
@@ -245,38 +277,80 @@ const downPaymentPercentageCalc = basePrice > 0
     let effectiveDownPayment = customDownPayment || (downPaymentPercentage / 100) * basePrice;
     calculatePayment(basePrice, months, effectiveDownPayment);
   };
+  const handleDownPaymentSelection = (e) => {
+    const value = e.target.value;
+    if (value === 'Custom') {
+      setSelectedDownPayment(null); // Indicate that a custom down payment will be entered
+      setShowCustomInput(true); // Show the custom input field
+    } else {
+      const percentage = Number(value);
+      setSelectedDownPayment(percentage); // Set the selected down payment percentage
+      setCustomDownPayment(''); // Clear any custom down payment value
+      setShowCustomInput(false); // Hide the custom input field
+    }
+  };
+
+
+
+
   return (
-    <div className={styles.calculateCarContainercomponent}>
-      <h2>Select a Series</h2>
-      <select onChange={handleSerieSelect} value={selectedSerie || ""} className={styles.dropdown}>
-        <option value="">Select Series</option>
-        {series.map((serie) => (
-          <option key={serie.serie_id} value={serie.serie_id}>
-            {serie.name}
-          </option>
-        ))}
-      </select>
+<div className={styles.calculateCarContainercomponent}>
+  <h2>คำนวน ค่างวดรถ</h2>
+  {colorDetail && (
+        <div className={styles.colorDetail}>
+         
+          <img
+           src={`http://toyotathonburi.co.th/${colorDetail.srcImg}${colorDetail.filename}`}
+            alt={colorDetail.colorname}
+            className={styles.colorImage}
+          />
+          <p>สี: {colorDetail.colorname}</p>
+          <p>ราคา: {colorDetail.colorprice}</p>
+        </div>
+      )}
+  <select onChange={handleSerieSelect} value={selectedSerie || ""} className={styles.dropdown}>
+    <option value="">เลือก รุ่นรถยนต์</option>
+    {series.map((serie) => (
+      <option key={serie.serie_id} value={serie.serie_id}>
+        {serie.name}
+      </option>
+    ))}
+  </select>
+
+
+  {showMockupSelects && (
+  <>
+    <select disabled className={styles.dropdown}>
+      <option>เลือก โมเดล</option>
+    </select>
+
+  </>
+)}
+
 
       {selectedSerie && models.length > 0 && (
         <>
-          <h2>Select a Model</h2>
-          <select onChange={handleModelSelect} value={selectedModel || ""} className={styles.dropdown}>
-            <option value="">Select Model</option>
-            {models.map((model) => (
-              <option key={model.id} value={model.id}>
-                {model.name}
-              </option>
-              
-            ))}
-            
-          </select>
+          <h2>เลือก โมเดล</h2>
+  <select 
+    onChange={handleModelSelect} 
+    value={selectedModel || ""} 
+    className={styles.dropdown} 
+    disabled={!selectedSerie}
+  >
+    <option value="">เลือกรุ่น</option>
+    {models.map((model) => (
+      <option key={model.id} value={model.id}>
+        {model.name}
+      </option>
+    ))}
+  </select>
           
         </>
       )}
 
 {selectedModel && colors.length > 0 && (
   <>
-    <h2>Select a Color</h2>
+    <h2>เลือกสี</h2>
     <div className={styles.colorSelector}>
       {colors.map((color, index) => (
         <button
@@ -292,18 +366,7 @@ const downPaymentPercentageCalc = basePrice > 0
   </>
 )}
 
-      {colorDetail && (
-        <div className={styles.colorDetail}>
-         
-          <img
-           src={`http://toyotathonburi.co.th/${colorDetail.srcImg}${colorDetail.filename}`}
-            alt={colorDetail.colorname}
-            className={styles.colorImage}
-          />
-          <p>สี: {colorDetail.colorname}</p>
-          <p>ราคา: {colorDetail.colorprice}</p>
-        </div>
-      )}
+  
 
       {/* {selectedSerie && <div>Selected Serie ID: {selectedSerie}</div>}
       {selectedModel && <div>Selected Model ID: {selectedModel}</div>}
@@ -313,36 +376,55 @@ const downPaymentPercentageCalc = basePrice > 0
      
       
       {/* Display the result */}
-     
-      {error && <div className={styles.error}>{error}</div>}
-
-      <div className={styles.percentageButtonContainer}>
-      {
-  [5, 10, 15, 20, 25, 30].map((percentage) => (
-    <button
-    key={percentage}
-    className={selectedDownPayment === percentage ? styles.selectedButton : styles.percentageButton}
-    onClick={() => handlePercentageSelect(percentage)}
-  >
-    {percentage}%
-  </button>
-))}
-    <input
-        type="number"
-        value={customDownPayment}
+  <div>
+    {!selectedDownPayment && (
+      <input
+        type={isFocused ? "number" : "text"}
+        value={displayValue}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         onChange={handleCustomDownPaymentChange}
-        placeholder="Enter down payment amount"
+        placeholder="จำนวนเงินดาว"
+        className={styles.customInput}
       />
-
-      {/* Display the selected percentage or custom amount */}
-      {selectedDownPayment && <p>Selected Percentage: {selectedDownPayment}%</p>}
-      {customDownPayment && (
-      <p>Custom Down Payment: {customDownPayment} ({downPaymentPercentageCalc.toFixed(2)}%)</p>
     )}
+  </div>
+      <div className={styles.percentageSelectContainer}>
+  <label htmlFor="downPaymentSelection"></label>
+  <select
+    id="downPaymentSelection"
+    value={selectedDownPayment ? selectedDownPayment.toString() : customDownPayment ? 'Custom' : ''}
+    onChange={(e) => {
+      const value = e.target.value;
+      if (value === 'Custom') {
+        // Handle selection of "Custom" option
+        setSelectedDownPayment(null); // This indicates a custom down payment is being entered
+      } else {
+        // Parse and set the selected down payment percentage
+        const percentage = Number(value);
+        handlePercentageSelect(percentage); // Assuming this function correctly updates the state
+        setCustomDownPayment(''); // Clear any custom down payment value
+      }
+    }}
+    className={styles.dropdown}
+  >
+    <option value="">ใส่จำนวนเงิน หรือ เลือก</option>
+    {[5, 10, 15, 20, 25, 30].map((percentage) => (
+      <option key={percentage} value={percentage}>{percentage}%</option>
+    ))}
+   
+  </select>
 </div>
+
+{/* Display the custom input field only if "Custom" option is selected (indicated by selectedDownPayment being null) */}
+
+
+{/* Display the selected percentage or custom amount */}
+
+
       {/* Interest Rate Input */}
       
-      <div className={styles.interestRateContainer}>
+      {/* <div className={styles.interestRateContainer}>
   <label htmlFor="annualInterestRate">ดอกเบี้ยที่กำหนด:</label>
   <input
     type="number"
@@ -351,28 +433,34 @@ const downPaymentPercentageCalc = basePrice > 0
     onChange={handleInterestRateChange}
     placeholder="Annual Interest Rate (%)"
   />
-</div>
+</div> */}
 
       {/* Loan Term Buttons */}
-      <div className={styles.percentageButtonContainer}>
-  {[48, 60, 72, 84].map((months) => (
-    <button
-      key={months}
-      // The ternary condition should be for the selected state, similar to the first snippet
-      className={`${selectedLoanTerm === months ? styles.selectedButton : styles.colorOptionpercent}`}
-      onClick={() => handleLoanTermSelect(months)}
-    >
-      {months} 
-    </button>
-  ))}
+      <div className={styles.loanTermSelectContainer}>
+  <label htmlFor="loanTermSelection">จำนวนงวด</label>
+  <select
+    id="loanTermSelection"
+    value={selectedLoanTerm || ''}
+    onChange={(e) => {
+      handleLoanTermSelect(Number(e.target.value));
+    }}
+    className={styles.dropdown}
+  >
+    <option value="">เลือกจำนวนงวด</option>
+    {[48, 60, 72, 84].map((months) => (
+      <option key={months} value={months}>{months} เดือน</option>
+    ))}
+  </select>
 </div>
       {/* Calculate Button */}
-      {monthlyPayment !== null && <p>Monthly Payment: {monthlyPayment.toFixed(2)}</p>}
+      {monthlyPayment !== null && (
+    <p>ชำระต่อเดือนที่: {monthlyPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท</p>
+  )}
       
       {/* Display the result */}
       {customDownPayment && (
-  <p>Custom Down Payment: {customDownPayment} ({downPaymentPercentageCalc.toFixed(2)}%)</p>
-)}
+    <p>จำนวนเงินดาว: {Number(customDownPayment).toLocaleString('en-US')} ({downPaymentPercentageCalc.toFixed(2)}%)</p>
+  )}
      
     </div>
   );
