@@ -39,6 +39,7 @@ const NewsPage = () => {
   return (
     <div className={styles.container}>
        <Header />
+       <h1 className={styles.title}>ข่าวสารและกิจกรรม</h1>
       <div className={styles['news-container']}>
         {news.map(item => (
           <Link href={`/news/${item.id}`} key={item.id}>

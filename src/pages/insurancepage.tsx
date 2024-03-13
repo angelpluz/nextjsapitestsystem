@@ -86,7 +86,7 @@ const handleSubmit = (e) => {
                 
                 {/* ...other form fields... */}
 
-                <button type="submit" className={styles.submitButton}>Submit</button>
+                <button type="submit" className={styles.submitButton}>ส่งข้อมูล</button>
             </form>
             <h3 className={styles.insuranceTitle}>บริษัท บีเอสพี อินชัวร์ โบรคเกอร์ จำกัด</h3>
             <p className={styles.description}>

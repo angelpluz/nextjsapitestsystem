@@ -5,7 +5,14 @@
    
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
-
+  .title{
+    margin-top: 70px;
+    text-align: center; /* Centers the text horizontally */
+    text-decoration: underline; /* Adds underline */
+    text-decoration-color: #B30000; /* Sets underline color to red */
+    font-size: 24px; /* Larger font size */
+    font-weight: normal; /* Normal text, no bold */
+  }
 .news-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* This will create a responsive grid with minimum column width of 300px */

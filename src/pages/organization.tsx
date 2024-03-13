@@ -10,7 +10,8 @@ const Organization = () => {
             <Header />
       <img src="/images/company1.jpg" alt="Company History" className={styles.companyImage} />
       <div className={styles.historyContainer}>
-      <h1>ประวัติบริษัท</h1>
+      <h1 className={styles.historyContainer1}>ประวัติบริษัท</h1>
+     
                     <h2>Toyota Thonburi Co., Ltd.</h2>
                     <p className={styles.historyDescription}> สำนักงานใหญ่แห่งแรกที่ สาขาปิ่นเกล้าตั้งอยู่บริเวณ ถนนอรุณอัมรินทร์ 
                         และมีศูนย์บริการแห่งแรกที่ สาขาเพชรบุรีตัดใหม่  โตโยต้าธนบุรี
@@ -136,22 +137,23 @@ const Organization = () => {
       </div> 
       
     </div>
-        <img src="/images/toyotathon2.jpg" alt="Company History" className={styles.companyImage} />
+        <img src="/images/aw_reward_0.png" alt="Company History" className={styles.companyImage} />
         <div className={styles.historyContainer}>
-  <h1>รางวัลและเกียรติยศ</h1>
+        <h1 className={styles.historyContainer2}>รางวัลและเกียรติยศ</h1>
+  
   <h2>Toyota Thonburi Co., Ltd.</h2>
   <ul>
-    <li>Champion Skill Contest</li>
-    <li>Saleman Award</li>
-    <li>Trainer Award</li>
     <li>TOYOTA President's Award</li>
     <li>Best Sale Award</li>
     <li>Best Sale & Service CS Dealer Award</li>
-    <li>KAIZEN Award</li>
-    <li>Sales Growth Rate</li>
-    <li>Continuous Achievement</li>
     <li>TOYOTA Honor Club 5000</li>
+    <li>Continuous Achievement</li>
+    <li>Sales Growth Rate</li>
     <li>Excellent Salesman</li>
+    <li>Saleman Award</li>
+    <li>Champion Skill Contest</li>
+    <li>KAIZEN Award</li>
+    
   </ul>
 </div>
  

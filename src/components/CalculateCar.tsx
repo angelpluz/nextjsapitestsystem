@@ -26,7 +26,7 @@ interface ColorDetail {
 }
 
 const CalculateCar = () => {
-  const [showImage, setShowImage] = useState(false);
+  const [showImage, setShowImage] = useState(true);
   const [series, setSeries] = useState<Serie[]>([]);
   const [models, setModels] = useState<Model[]>([]);
   const [colors, setColors] = useState<Color[]>([]);
@@ -161,6 +161,8 @@ const downPaymentPercentageCalc = basePrice > 0
   
     fetchAllData();
   }, []);
+
+
   useEffect(() => {
     if (loanAmount > 0 && loanTerm > 0) {
       // Parse the custom down payment, ensuring empty string becomes zero
@@ -168,7 +170,7 @@ const downPaymentPercentageCalc = basePrice > 0
       calculatePayment(loanAmount, loanTerm, parsedCustomDownPayment);
     }
   }, [loanAmount, loanTerm, customDownPayment]);
-
+  console.log("Initial showImage state:", showImage);
   const calculatePayment = (amount: number, term: number) => {
     // Fixed annual interest rate at 2.00%
     const annualInterestRate = 2.00;
@@ -177,9 +179,7 @@ const downPaymentPercentageCalc = basePrice > 0
   
     console.log('Calculating payment with:', { amount, term, customDownPayment });
   
-    const downPaymentPercentageCalc = customDownPayment && basePrice > 0
-      ? (parseFloat(customDownPayment) / basePrice) * 100
-      : 0;
+
     const parsedCustomDownPayment = parseFloat(customDownPayment) || 0;
     const downPaymentAmount = parsedCustomDownPayment !== 0
       ? parsedCustomDownPayment
@@ -196,17 +196,21 @@ const downPaymentPercentageCalc = basePrice > 0
     // Calculate the monthly payment
     const payment = loanAmount * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -totalPayments));
     setMonthlyPayment(payment);
+    setShowImage(false);
+    console.log("showImage after calculatePayment:", showImage);
   };
   
   const handleSerieSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const serieId = parseInt(event.target.value, 10);
     setSelectedSerie(serieId);
     setShowMockupSelects(false);
+    setShowImage(true);
   };
 
   const handleModelSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const modelId = parseInt(event.target.value, 10);
     setSelectedModel(modelId);
+    setShowImage(true);
   };
 
   const formatNumberWithCommas = (value) => {
@@ -217,11 +221,7 @@ const downPaymentPercentageCalc = basePrice > 0
   const displayValue = isFocused 
   ? customDownPayment 
   : formatNumberWithCommas(customDownPayment);
-  const handleInterestRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const annualInterestRate = Number(e.target.value);
-    const monthlyInterestRate = annualInterestRate / 1200; // Convert to decimal and monthly rate
-    setInterestRate(monthlyInterestRate); // Save the monthly interest rate to state
-  };
+
   
   const handlePercentageSelect = (percentage) => {
     setSelectedDownPayment(percentage);
@@ -235,17 +235,6 @@ const downPaymentPercentageCalc = basePrice > 0
     setSelectedDownPayment(null); // Clear selected percentage
   // Call the calculate function here
   };
-  const handleCalculateClick = () => {
-    // You need to call calculatePayment with the current loan amount and term
-    calculatePayment(loanAmount, loanTerm);
-  };
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-   
-  };
-
-
-  
   const handleColorSelect = async (color: Color) => {
     setSelectedColor(color.id);
     try {
@@ -266,6 +255,7 @@ const downPaymentPercentageCalc = basePrice > 0
       console.error('Error fetching color details:', err);
       setIsSelectionComplete(false); // Set isSelectionComplete to false as there was an error
     }
+    setShowImage(true);
   };
   
   const handleDownPaymentSelect = (percentage: number) => {
@@ -277,33 +267,15 @@ const downPaymentPercentageCalc = basePrice > 0
 
     
   };
-  const PaymentInfo = ({ monthlyPayment, customDownPayment, downPaymentPercentageCalc }) => {
-    const [showImage, setShowImage] = useState(false);
-  
-    // Imagine this function gets called when calculations are done
-    const onCalculationsComplete = () => {
-      setShowImage(true); // This will show the image and hide the square
-    };
-  }
+
   const handleLoanTermSelect = (months: number) => {
     setSelectedLoanTerm(months);
     // คำนวณ Monthly Payment ใหม่หากมีการเลือกจำนวนเดือนผ่อน
     let effectiveDownPayment = customDownPayment || (downPaymentPercentage / 100) * basePrice;
     calculatePayment(basePrice, months, effectiveDownPayment);
   };
-  const handleDownPaymentSelection = (e) => {
-    const value = e.target.value;
-    if (value === 'Custom') {
-      setSelectedDownPayment(null); // Indicate that a custom down payment will be entered
-      setShowCustomInput(true); // Show the custom input field
-    } else {
-      const percentage = Number(value);
-      setSelectedDownPayment(percentage); // Set the selected down payment percentage
-      setCustomDownPayment(''); // Clear any custom down payment value
-      setShowCustomInput(false); // Hide the custom input field
-    }
-  };
 
+  console.log("Effect running: loanAmount, loanTerm, customDownPayment", loanAmount, loanTerm, customDownPayment);
 
 
 
@@ -311,7 +283,7 @@ const downPaymentPercentageCalc = basePrice > 0
 <div className={styles.calculateCarContainercomponent}>
 {
   !isSelectionComplete && (
-    <img src="/images/mix_modelcars.png" alt="Mixed Model Cars" className={styles.insuranceImage} />
+    <img src="/images/mix_modelcars.png" alt="Mixed Model Cars" className={styles.insuranceImage1} />
   )
 }
   {colorDetail && (
@@ -393,9 +365,7 @@ const downPaymentPercentageCalc = basePrice > 0
 
   
 
-      {/* {selectedSerie && <div>Selected Serie ID: {selectedSerie}</div>}
-      {selectedModel && <div>Selected Model ID: {selectedModel}</div>}
-      {selectedColor && <div>Selected Color ID: {selectedColor}</div>} */}
+
  
       
      
@@ -443,24 +413,7 @@ const downPaymentPercentageCalc = basePrice > 0
   </select>
 
 
-{/* Display the custom input field only if "Custom" option is selected (indicated by selectedDownPayment being null) */}
 
-
-{/* Display the selected percentage or custom amount */}
-
-
-      {/* Interest Rate Input */}
-      
-      {/* <div className={styles.interestRateContainer}>
-  <label htmlFor="annualInterestRate">ดอกเบี้ยที่กำหนด:</label>
-  <input
-    type="number"
-    id="annualInterestRate"
-    value={interestRate * 1200}
-    onChange={handleInterestRateChange}
-    placeholder="Annual Interest Rate (%)"
-  />
-</div> */}
 
       {/* Loan Term Buttons */}
       <div className={styles.loanTermSelectContainer}>
@@ -481,32 +434,32 @@ const downPaymentPercentageCalc = basePrice > 0
   </select>
 
    
-  <div className={styles.paymentInfoContainer}>
-      {monthlyPayment !== null && (
-        <>
-          <p className={styles.paymentLabel}>Pay per month at:</p>
-          <p className={styles.paymentAmount}>
-            {monthlyPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} baht
-          </p>
-        </>
-      )}
-      
-      {customDownPayment && (
-        <>
-          <p className={styles.paymentLabel}>Star Amount:</p>
-          <p className={styles.paymentAmount}>
-            {Number(customDownPayment).toLocaleString('en-US')} ({downPaymentPercentageCalc.toFixed(2)}%)
-          </p>
-        </>
-      )}
-      
-      {/* Conditionally display the image based on showImage state */}
-      <img 
-        src="/images/price_com.jpg" 
-        alt="" 
-        className={`${styles.insuranceImage} ${showImage ? styles.showImage : ''}`} 
-      />
-    </div>
+  <div className={`${styles.paymentInfoContainer} relativeParent`}> {/* Add the relativeParent class here */}
+  {monthlyPayment !== null && (
+    <>
+      <p className={styles.paymentLabel}>Pay per month at:</p>
+      <p className={styles.paymentAmount}>
+        {monthlyPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} baht
+      </p>
+    </>
+  )}
+  
+  {customDownPayment && (
+    <>
+      <p className={styles.paymentLabel}>Star Amount:</p>
+      <p className={styles.paymentAmount}>
+        {Number(customDownPayment).toLocaleString('en-US')} ({downPaymentPercentageCalc.toFixed(2)}%)
+      </p>
+    </>
+  )}
+  
+  {/* Conditionally display the image based on showImage state */}
+  <img 
+    src="/images/price_com.jpg" 
+    alt="" 
+    className={`${styles.insuranceImage} ${!showImage ? 'hide' : ''}`} 
+  />
+</div>
 
 
   <div className={styles.calculateCarContainercomponent1}>

@@ -16,7 +16,14 @@
   padding-bottom: 10px; /* Space between text and underline */
   padding-top: 20px;
 }
-  
+.title{
+  margin-top: 20px;
+  text-align: center; /* Centers the text horizontally */
+  text-decoration: underline; /* Adds underline */
+  text-decoration-color: #B30000; /* Sets underline color to red */
+  font-size: 24px; /* Larger font size */
+  font-weight: normal; /* Normal text, no bold */
+}
   .header::after {
     content: ''; /* Required for pseudo-elements */
     display: block; /* Makes the pseudo-element behave like a block */

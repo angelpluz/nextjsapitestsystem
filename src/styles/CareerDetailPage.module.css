@@ -1,5 +1,5 @@
 .jobDetailContainer {
-    margin-top: 100px;
+    margin-top: 50px;
 
     background-color: #ffffff;
     border: 1px solid #ddd;
@@ -7,8 +7,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-top: 2px solid #B30000;
   }
-  
+  .title{
+  margin-top: 20px;
+    text-align: center; /* Centers the text horizontally */
+    text-decoration: underline; /* Adds underline */
+    text-decoration-color: #B30000; /* Sets underline color to red */
+    font-size: 24px; /* Larger font size */
+    font-weight: normal; /* Normal text, no bold */
+  }
   .jobDetailContainer p {
     font-size: 16px;
     line-height: 1.6;
@@ -40,14 +48,14 @@
   }
   
   .jobDetailContainer .bigFont .redText {
-    color: red;
+    color: #B30000;
   }
   
   .jobDetailContainer .bigFont .blackText {
     color: black;
   }
   .applyButton {
-    background-color: #d9534f; /* Red color */
+    background-color: #B30000; /* Red color */
     color: white;
     text-align: center;
     padding: 10px 20px;

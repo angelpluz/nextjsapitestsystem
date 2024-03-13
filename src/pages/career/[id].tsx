@@ -44,9 +44,13 @@ const CareerDetailPage = () => {
   return (
     
     <div className={styles.container}>
+
         <Header />
+      
     <div className={styles.jobDetailContainer}>
-      <h1>{jobDetail.position}</h1>
+    <img src="/images/aw_hr_0.png" alt="Company History" className={styles.companyImage} />
+    <h2 className={styles.title}>{jobDetail.position}</h2>
+
       <div className={styles.jobDescriptionContainer}>
         <div dangerouslySetInnerHTML={{ __html: jobDetail.jobdescription }} />
       </div>

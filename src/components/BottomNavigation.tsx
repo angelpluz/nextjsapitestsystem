@@ -34,7 +34,7 @@ const BottomNavigation = () => {
           <p className={styles.navLabel}>สนใจซื้อรถ</p>
         </div>
       </Link>
-      <Link href="/service" passHref>
+      <Link href="/servicepage" passHref>
         <div className={styles.navItem}>
       
           <Image src="/images/service_bot_2.png" alt="บริการ" width={84} height={24} />

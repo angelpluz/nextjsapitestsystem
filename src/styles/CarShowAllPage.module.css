@@ -18,7 +18,7 @@
   }
   
   .typeHeader {
-    border-bottom: 1px solid #f55a5a;
+    border-bottom: 1px solid #B30000;
     padding-bottom: 10px;
     margin-bottom: 20px;
     font-size: 24px;
@@ -68,7 +68,7 @@
   }
   
   .seriesPrice {
-    font-size: 16px;
+    font-size: 14px;
     color: #666;
     font-weight: bold;
     display: -webkit-box;
@@ -87,7 +87,7 @@
     display: inline-block;
     padding: 10px 15px;
     margin-top: 10px;
-    background-color: #d73c3c; /* Bootstrap primary button color */
+    background-color: #B30000; /* Bootstrap primary button color */
     color: white;
     text-align: center;
     text-decoration: none;
@@ -96,7 +96,7 @@
   }
   
   .detailButton:hover {
-    background-color: #d73c3c; /* Darken button color on hover */
+    background-color: #B30000; /* Darken button color on hover */
   }
   /* Responsive layout for smaller screens */
   @media (max-width: 390px) {

@@ -31,6 +31,7 @@ const LocationAllPage = () => {
     return (
         <div className={styles.container}>
                <Header />
+               <img src="/images/aw_map.png" alt="Company History" className={styles.companyImage} />
                <h1 className={styles.title}>โชว์รูมทั้งหมดของโตโยต้า ธนบุรี</h1>
         <div className={styles.locationsGrid}>
           {locations.map((location) => (

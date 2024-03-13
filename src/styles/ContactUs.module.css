@@ -23,8 +23,9 @@
     color: #333; /* Dark color for text */
     margin-bottom: 0.5em;
     text-align: center;
-    border-bottom: 2px solid red; /* Red line under the text */
-    display: inline-block; /* Adjust the border to the text width */
+   
+    text-decoration: underline; /* Adds underline */
+    text-decoration-color: #B30000; /* Sets underline color to red */
     padding-bottom: 0.25em; /* Space between text and underline */
   }
   

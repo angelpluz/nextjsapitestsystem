@@ -32,8 +32,9 @@ const ContactUs = () => {
   return (
     <div className={styles.container}>
          <Header />
+         
          <div className={styles.container1}>  
-    <h1 className={styles.title}>ติดต่อเรา</h1>
+         <h1 className={styles.title}>ติดต่อเรา</h1>
       <h2 className={styles.secondaryTitle}>สำนักงานใหญ่</h2>
       <p className={styles.address}>313/1 ถนนรัชดาภิเษก, แขวงบุคคโล เขตธนบุรี กรุงเทพมหานคร</p>
       <p className={styles.phone}>02 479 9000</p>

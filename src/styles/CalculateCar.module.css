@@ -264,18 +264,25 @@
 }
 
 .insuranceImage {
-  position: absolute; /* Absolute position to overlay */
   top: 0;
   left: 0;
   width: 100%; /* Set width to match the container */
   height: 100%; /* Set height to match the container */
-  display: none; /* Start with image not displayed */
+  display: block;
 }
 
-.showImage {
-  display: block; /* Display image when calculations are complete */
+.paymentInfoContainer img.insuranceImage {
+  position: absolute;
+  top: Xpx; /* Adjust X to position the image outside of the container vertically */
+  right: Ypx; /* Adjust Y to position the image outside of the container horizontally */
+  display: none; /* This will be overridden to 'block' when `showImage` is true */
 }
 
-
+.paymentInfoContainer img.insuranceImage.showImage {
+  display: block;
+}
+.relativeParent {
+  position: relative;
+}
   /* Add more styles as you need for other elements */
   

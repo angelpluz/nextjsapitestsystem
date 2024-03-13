@@ -38,9 +38,25 @@
     font-size: 18px; /* Resize the text to 18 pixels */
     /* Add any additional styling you need here */
   }
+
+  .historyContainer1 {
+    background-color: #ffffff;
+    margin-bottom: 30px;
+    text-decoration: underline; /* Adds underline */
+    text-decoration-color: #B30000; /* Sets underline color to red */
+    /* Existing styles... */
+  }
+  .historyContainer2 {
+    background-color: #ffffff;
+   
+    text-decoration: underline; /* Adds underline */
+    text-decoration-color: #B30000; /* Sets underline color to red */
+    /* Existing styles... */
+  }
   .historyContainer {
     background-color: #ffffff;
     margin-bottom: 30px;
+    
     /* Existing styles... */
   }
   
@@ -83,6 +99,15 @@
     /* Title styles */
   }
   
+  .historyContainer h1 {
+    font-size: 2.5rem; /* Adjust the size as needed */
+   
+    color: #333; /* A dark grey color, adjust the hex value as needed */
+    /* Adds some space below the heading */
+    text-align: center; /* Centers the text */
+    text-transform: uppercase; /* Optional: Uppercases all letters */
+    padding: 10px 0; /* Adds padding to the top and bottom */
+  }
   .historyContainer h1 {
     font-size: 2.5rem; /* Adjust the size as needed */
    

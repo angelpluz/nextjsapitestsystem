@@ -31,9 +31,12 @@ const CareersPage = () => {
   return (
     <div className={styles.container}>
       <Header />
-        
+      <img src="/images/aw_hr_0.png" alt="Company History" className={styles.companyImage} /> 
       <div className={styles.jobListing}>
-      <h1 className={styles.jobHeader}>ร่วมงานกับเรา</h1>
+
+      <h1 className={`${styles.jobHeader} ${styles.redBottomBorder}`}>ร่วมงานกับเรา</h1>
+
+
         {jobs.map((job) => (
           <div key={job.id} className={styles.jobCard}>
             <div className={styles.jobTitle}>{job.position}</div>
