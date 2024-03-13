@@ -26,6 +26,7 @@ interface ColorDetail {
 }
 
 const CalculateCar = () => {
+  const [showImage, setShowImage] = useState(false);
   const [series, setSeries] = useState<Serie[]>([]);
   const [models, setModels] = useState<Model[]>([]);
   const [colors, setColors] = useState<Color[]>([]);
@@ -46,7 +47,7 @@ const [basePrice, setBasePrice] = useState<number>(0);
 const [downPayment, setDownPayment] = useState<number>(0);
 const [loanAmount, setLoanAmount] = useState<number>(0);
 const [showCustomInput, setShowCustomInput] = useState(false);
-
+const [isSelectionComplete, setIsSelectionComplete] = useState(false);
 const [isCustomInputEnabled, setIsCustomInputEnabled] = useState(false);
 const [customDownPayment, setCustomDownPayment] = useState('');
 const downPaymentAmountNum = parseFloat(customDownPayment) || 0;
@@ -221,6 +222,7 @@ const downPaymentPercentageCalc = basePrice > 0
     const monthlyInterestRate = annualInterestRate / 1200; // Convert to decimal and monthly rate
     setInterestRate(monthlyInterestRate); // Save the monthly interest rate to state
   };
+  
   const handlePercentageSelect = (percentage) => {
     setSelectedDownPayment(percentage);
     setCustomDownPayment(0); // Clear custom input
@@ -239,8 +241,11 @@ const downPaymentPercentageCalc = basePrice > 0
   };
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    
+   
   };
+
+
+  
   const handleColorSelect = async (color: Color) => {
     setSelectedColor(color.id);
     try {
@@ -250,17 +255,19 @@ const downPaymentPercentageCalc = basePrice > 0
       }
       const data = await response.json();
       setColorDetail(data); // Set color details here
+  
       if (data && data.colorprice) {
         const price = Number(data.colorprice);
         setBasePrice(price); // Set the base price when a color is selected
-        // You can now call handleDownPaymentSelect with the new base price
-        handleDownPaymentSelect(downPaymentPercentage);
-       
+        handleDownPaymentSelect(downPaymentPercentage); // Call handleDownPaymentSelect with the new base price
+        setIsSelectionComplete(true); // Set isSelectionComplete to true as the selection is now complete
       }
     } catch (err) {
       console.error('Error fetching color details:', err);
+      setIsSelectionComplete(false); // Set isSelectionComplete to false as there was an error
     }
   };
+  
   const handleDownPaymentSelect = (percentage: number) => {
     const calculatedDownPayment = (percentage / 100) * basePrice;
     setDownPayment(calculatedDownPayment);
@@ -270,7 +277,14 @@ const downPaymentPercentageCalc = basePrice > 0
 
     
   };
+  const PaymentInfo = ({ monthlyPayment, customDownPayment, downPaymentPercentageCalc }) => {
+    const [showImage, setShowImage] = useState(false);
   
+    // Imagine this function gets called when calculations are done
+    const onCalculationsComplete = () => {
+      setShowImage(true); // This will show the image and hide the square
+    };
+  }
   const handleLoanTermSelect = (months: number) => {
     setSelectedLoanTerm(months);
     // คำนวณ Monthly Payment ใหม่หากมีการเลือกจำนวนเดือนผ่อน
@@ -295,7 +309,11 @@ const downPaymentPercentageCalc = basePrice > 0
 
   return (
 <div className={styles.calculateCarContainercomponent}>
-
+{
+  !isSelectionComplete && (
+    <img src="/images/mix_modelcars.png" alt="Mixed Model Cars" className={styles.insuranceImage} />
+  )
+}
   {colorDetail && (
         <div className={styles.colorDetail}>
          
@@ -462,16 +480,41 @@ const downPaymentPercentageCalc = basePrice > 0
     ))}
   </select>
 
-      {/* Calculate Button */}
+   
+  <div className={styles.paymentInfoContainer}>
       {monthlyPayment !== null && (
-    <p>ชำระต่อเดือนที่: {monthlyPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท</p>
-  )}
+        <>
+          <p className={styles.paymentLabel}>Pay per month at:</p>
+          <p className={styles.paymentAmount}>
+            {monthlyPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} baht
+          </p>
+        </>
+      )}
       
-      {/* Display the result */}
       {customDownPayment && (
-    <p>จำนวนเงินดาว: {Number(customDownPayment).toLocaleString('en-US')} ({downPaymentPercentageCalc.toFixed(2)}%)</p>
-  )}
-     
+        <>
+          <p className={styles.paymentLabel}>Star Amount:</p>
+          <p className={styles.paymentAmount}>
+            {Number(customDownPayment).toLocaleString('en-US')} ({downPaymentPercentageCalc.toFixed(2)}%)
+          </p>
+        </>
+      )}
+      
+      {/* Conditionally display the image based on showImage state */}
+      <img 
+        src="/images/price_com.jpg" 
+        alt="" 
+        className={`${styles.insuranceImage} ${showImage ? styles.showImage : ''}`} 
+      />
+    </div>
+
+
+  <div className={styles.calculateCarContainercomponent1}>
+     <h1>หมายเหตุ :</h1>
+     <h1>* อ้างอิงตามอัตราดอกเบี้ย โตโยต้า ลีสซิ่ง (ประเทศไทย)</h1>
+     <h1>• โปรแกรมคำนวณนี้ใช้เพื่อประกอบการตัดสินใจเบื้องต้นเท่านั้น ไม่ถือเป็นส่วนหนึ่งของการขอสินเชื่อ หรือเอกสารประกอบสัญญาได้</h1>
+						<h1>• ดอกเบี้ยอาจมีการเปลี่ยนแปลง เงื่อนไขดอกเบี้ยพิเศษกรุณาติดต่อพนักงาน</h1>
+    </div>
     </div>
   );
 };

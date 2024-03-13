@@ -63,9 +63,16 @@
     padding: 20px;
     background: #ffffff;
     border-radius: 8px;
-
-
+    margin: auto;
     
+  }
+  .calculateCarContainercomponent1 {
+    display: flex;
+    flex-direction: column;
+  
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
     margin: auto;
     
   }
@@ -88,8 +95,24 @@
     display: block; /* Makes the input a block element to fill the width of its container */
     width: 100%; /* Sets the width to occupy the full width of its parent */
     padding-top: 10px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 52px;
+    padding-right: 52px;
+    /* padding-left: 24px;
+    padding-right: 24px; */
+    align-items: center;
+    padding-bottom: 10px;
+    margin-top: 0.5rem; /* Adds a bit of margin above the input for spacing */
+    border: 1px solid #ced4da; /* Gives the input a solid border with a light grey color */
+    border-radius: 4px; /* Rounds the corners of the input field */
+    box-sizing: border-box; /* Ensures padding and border are included in the total width and height */
+    text-align: center; /* Centers the text inside the input */
+  }
+  .customInput1 {
+    display: block; /* Makes the input a block element to fill the width of its container */
+    width: 100%; /* Sets the width to occupy the full width of its parent */
+    padding-top: 10px;
+    padding-left: 52px;
+    padding-right: 52px;
     padding-bottom: 10px;
     margin-top: 0.5rem; /* Adds a bit of margin above the input for spacing */
     border: 1px solid #ced4da; /* Gives the input a solid border with a light grey color */
@@ -217,5 +240,42 @@
   align-items: center; /* Centers them vertically */
   gap: 10px; /* Adds some space between the label and the input */
 }
+
+/* PaymentInfo.module.css */
+.paymentInfoContainer {
+  position: relative; /* Set the position relative for absolute child positioning */
+  border: 2px solid red;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+}
+
+.paymentAmount {
+  font-size: 2em;
+  color: red;
+  margin: 5px 0;
+}
+
+.paymentLabel {
+  font-size: 1em;
+  color: black;
+}
+
+.insuranceImage {
+  position: absolute; /* Absolute position to overlay */
+  top: 0;
+  left: 0;
+  width: 100%; /* Set width to match the container */
+  height: 100%; /* Set height to match the container */
+  display: none; /* Start with image not displayed */
+}
+
+.showImage {
+  display: block; /* Display image when calculations are complete */
+}
+
+
   /* Add more styles as you need for other elements */
   
