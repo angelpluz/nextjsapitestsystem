@@ -3,7 +3,7 @@
     margin-top: 50px;
     background-color: #f9f9f9;
     color: #333;
-    border-top: 5px solid red; /* Adds a red border to the top */
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
   }
 .turnCarFormContainer {
     display: flex;
