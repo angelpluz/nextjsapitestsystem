@@ -21,11 +21,9 @@
   }
   
   .news-item {
-    border: 1px solid #ddd; /* Border for each item */
-    border-radius: 10px; /* Rounded corners for each item */
+
     overflow: hidden; /* Ensures the content does not spill outside the border-radius */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Simple shadow for depth */
-    transition: transform 0.3s ease-in-out; /* Smooth transformation upon hover */
+
   }
   
   .news-item:hover {
