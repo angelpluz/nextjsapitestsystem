@@ -1,0 +1,124 @@
+/* InsurancePage.module.css */
+.insuranceContainer {
+    margin-top: 50px;
+    max-width: 600px; /* or the max-width you prefer */
+   
+    background: #fff; /* Background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    color: #000;
+    overflow: hidden; /* Ensures the content conforms to the border radius */
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
+  }
+  
+  .insuranceImage {
+  
+    width: 100%; /* Ensure image takes full width of the container */
+    display: block; /* Remove any extra space below the image */
+   
+  }
+  
+  .insuranceContent {
+    padding: 20px; /* Padding inside the container */
+    color: #000;
+  }
+  .description{
+    font-size: 16px; /* Adjust the font-size as needed */
+
+    margin-top: 0;
+    margin-bottom: 12px; /* Spacing after the title */
+    color: #333; /* Title text color */
+    text-align: center; /* Centers the title */
+
+  }
+  .insuranceTitle {
+    font-size: 20px; /* Adjust the font-size as needed */
+   
+    margin-top: 0;
+    margin-bottom: 12px; /* Spacing after the title */
+    color: #333; /* Title text color */
+    text-align: center; /* Centers the title */
+  }
+  .insuranceText {
+    font-size: 16px; /* Adjust the font-size as needed */
+    line-height: 1.5; /* Adjust line height for readability */
+    color: #333; /* Regular text color */
+    margin-bottom: 20px; /* Spacing after the paragraph */
+    text-align: center;
+  }
+  
+  .contactLink {
+    display: block; /* Makes the link a block to fill the width of the container */
+    margin-top: 10px; /* Spacing before the link */
+    background-color: #B30000; /* Bootstrap 'danger' button red */
+    color: #ffffff; /* White text */
+    text-align: center; /* Center the text inside the link */
+    padding: 10px 15px; /* Padding inside the link, making it look like a button */
+    border-radius: 4px; /* Rounded corners for the button */
+    text-decoration: none; /* Removes underline from links */
+    margin-left: 25%;
+    margin-right: 25%;
+
+
+  }
+  
+  .contactLink:hover, .contactLink:focus {
+    background-color: #B30000; /* A slightly darker red for hover/focus states */
+    color: #ffffff; /* Ensuring text remains white */
+    text-decoration: none; /* Ensuring no underline appears */
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form label {
+    margin-bottom: 5px;
+  }
+  
+  .form input,
+  .form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .form textarea {
+    height: 100px;
+  }
+  
+  .submitButton {
+    background-color: #B30000; /* Bootstrap primary color */
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 10%; /* Adjusted padding; 20px top and bottom, 10% left and right */
+    margin-bottom: 20px;
+    width: auto; /* Ensure the width is automatic */
+    display: block; /* To enable margin auto to work */
+    margin-left: 25%; /* Auto margin on left */
+    margin-right: 25%; /* Auto margin on right */
+  }
+
+  .heading1 {
+    font-size: 1.75rem; /* Sets a larger font size */
+    color: #333; /* Standard dark grey text */
+    text-align: center; /* Centers the text */
+    margin-top: 1rem; /* Spacing at the top */
+    margin-bottom: 1rem; /* Spacing at the bottom */
+    font-weight: normal; /* Default weight - change as needed */
+    border-bottom: 2px solid #B30000; /* Adds a red underline */
+    display: inline-block; /* Required for border to fit content width */
+    padding-bottom: 0.25rem; /* Spacing between text and underline */
+  }
+
+  .submitButton:hover {
+    background-color: #B30000; /* Bootstrap primary color darken */
+  }
+  .form input[type='checkbox'] {
+    margin-bottom: 0; /* Align with other form elements */
+  }
+  /* Add additional styles as needed */
+  
