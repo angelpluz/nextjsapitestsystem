@@ -5,9 +5,9 @@
    
     background: #fff; /* Background color */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-
+    color: #000;
     overflow: hidden; /* Ensures the content conforms to the border radius */
-    border-top: 5px solid red; /* Adds a red border to the top */
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
   }
   
   .insuranceImage {
@@ -19,6 +19,7 @@
   
   .insuranceContent {
     padding: 20px; /* Padding inside the container */
+    color: #000;
   }
   .description{
     font-size: 16px; /* Adjust the font-size as needed */
@@ -54,9 +55,10 @@
     padding: 10px 15px; /* Padding inside the link, making it look like a button */
     border-radius: 4px; /* Rounded corners for the button */
     text-decoration: none; /* Removes underline from links */
-    font-weight: bold; /* Makes the link bold */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
-    transition: background-color 0.2s; /* Transition for a hover effect */
+    margin-left: 25%;
+    margin-right: 25%;
+
+
   }
   
   .contactLink:hover, .contactLink:focus {

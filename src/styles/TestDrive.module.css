@@ -70,7 +70,7 @@
 @media (max-width: 768px) {
     .testDriveFormContainer {
         padding: 10px;
-        border-top: 5px solid red; /* Adds a red border to the top */
+        border-top: 5px solid #B30000; /* Adds a red border to the top */
     }
 }
 

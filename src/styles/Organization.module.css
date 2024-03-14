@@ -75,14 +75,14 @@
 
   .historyDescription {
     text-align: center; /* Center aligns the text */
-    border: 1px solid #ddd; /* Adds a light grey border */
+
     padding: 15px; /* Adds padding inside the border */
     margin: 20px auto; /* Centers the block and adds margin to the top and bottom */
     max-width: 800px; /* Maximum width of the paragraph */
     line-height: 1.6; /* Line height for better readability */
-    background-color: #f9f9f9; /* Light background color */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    border-radius: 4px; /* Slightly rounded corners */
+    background-color: #ffff; /* Light background color */
+
+
     font-size: 1.2rem;
     color: #333;
     /* Additional styles as needed */

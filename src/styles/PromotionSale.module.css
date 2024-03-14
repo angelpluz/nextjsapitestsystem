@@ -10,6 +10,8 @@
     margin-top: 100px;
 
   }
+
+
   .promotionSaleTitle {
     font-size: 24px; /* Adjust the font size as needed */
     font-weight: bold; /* Make the text bold */
@@ -17,6 +19,8 @@
     text-align: center; /* Center the text horizontally */
     /* Add more styles as needed */
     color: #000;
+    text-decoration: underline; /* Adds underline */
+    text-decoration-color: #B30000; 
   }
 .promotionContainer {
    

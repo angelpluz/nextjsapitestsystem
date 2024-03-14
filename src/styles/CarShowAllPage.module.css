@@ -14,7 +14,7 @@
     margin: 20px auto; /* Centered the container */
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
   }
   
   .typeHeader {
@@ -34,11 +34,9 @@
   .seriesItem {
     margin-bottom: 20px; /* Space between rows */
     padding: 10px;
-    border: 1px solid #eee;
-    border-radius: 4px;
+
     background-color: #fff;
-    transition: box-shadow 0.3s ease;
-    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+
   }
   
   .seriesItem:first-child {
@@ -99,7 +97,7 @@
     background-color: #B30000; /* Darken button color on hover */
   }
   /* Responsive layout for smaller screens */
-  @media (max-width: 390px) {
+  @media (max-width: 389px) {
     .seriesItem:not(:first-child) {
       width: 100%; /* Each item takes full width on small screens */
     }
