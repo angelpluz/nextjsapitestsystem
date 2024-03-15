@@ -1,13 +1,14 @@
 /* CalculateCar.module.css */
 .container {
   background: #FFFFFF;
-  border-radius: 8px;
+
   display: flex;
   justify-content: center; /* Centers the content horizontally */
   align-items: center; /* Centers the content vertically */
   flex-direction: column;
   color: #000;
   margin-top: 70px;
+  border-top: 5px solid #B30000; /* Adds a red border to the top */
 }
 
 .loanTermSelectContainer {
@@ -30,7 +31,7 @@
 }
 .carPrice {
   font-size: 1.2em; /* Larger text for the price */
-  color: #D32F2F; /* Example color, change as needed */
+  color: #B30000; /* Example color, change as needed */
   margin-bottom: 0.5rem; /* Spacing below the label */
   text-align: center; /* Center align */
   /* Add more styles as needed */
@@ -77,11 +78,12 @@
     
   }
   .typeHeader {
-    border-bottom: 1px solid #f55a5a;
+    border-bottom: 1px solid #B30000;
     padding-bottom: 10px;
     margin-bottom: 20px;
     font-size: 24px;
     color: #000;
+    margin-top: 25px;
   }
   .percentageSelectContainer {
     width: 100%; /* This will make sure each select box fills the parent container */
@@ -221,7 +223,7 @@
   margin: 0 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Horizontal offset, vertical offset, blur radius, color */
   transition: box-shadow 0.3s; /* Smooth transition for the shadow effect */
-  /* Add additional styles here as needed */
+
 }
 .monthsButton {
   /* Existing styles */

@@ -8,7 +8,7 @@ import GalleryModal from '../../components/GalleryModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 import Header from '../../components/Header';
-
+import Link from 'next/link';
 const CarSeriesDetailPage = () => {
   const router = useRouter();
   const { id } = router.query;    
@@ -353,12 +353,17 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
   </p>
 </div>
    <div className={styles.buttonContainer}>
+   <Link href="/CalculateCar">
         <button className={`${styles.button} ${styles.buttonIcon}`}>
           คำนวณเงินดาวน์
         </button>
-        <button className={styles.button}>
+        </Link>
+        <button className={styles.button}
+          onClick={() => window.open('https://page.line.me/plh9039k?openQrModal=true', '_blank', 'noopener,noreferrer')}
+        >
           สนใจติดต่อที่ปรึกษา
         </button>
+        
       </div>
       <div className={styles.performanceprice}>
   <h1 className={styles.performanceHeading}>PERFORMANCE</h1>
