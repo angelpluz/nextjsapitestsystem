@@ -1,14 +1,14 @@
 /* PromotionSale.module.css */
 .container {
     background: #FFFFFF;
-    border-radius: 8px;
+
     display: flex;
     justify-content: center; /* Centers the content horizontally */
     align-items: center; /* Centers the content vertically */
     flex-direction: column;
     color: #000;
-    margin-top: 100px;
-
+    margin-top: 50px;
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
   }
 
 
@@ -21,6 +21,7 @@
     color: #000;
     text-decoration: underline; /* Adds underline */
     text-decoration-color: #B30000; 
+    margin-top: 25px;
   }
 .promotionContainer {
    
@@ -37,6 +38,7 @@
     aspect-ratio: 2 / 1; /* This will make each item twice as wide as it is tall */
     display: flex;
     flex-direction: column; /* Stack image and details vertically */
+    margin-bottom: 15px;
 }
 
 .promotionImage {
@@ -54,6 +56,7 @@
     flex-direction: column;
     justify-content: space-between; /* Push the title up and subtitle down */
     color: #000;
+    margin-bottom: 15px;
 }
 
 .promotionTitle {

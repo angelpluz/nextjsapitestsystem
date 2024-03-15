@@ -40,7 +40,9 @@ const PromotionDetail = () => {
   return (
     <div className={styles.container}>
          <Header />
+        
       <div className={styles.promotionDetailContainer}>
+  
         <h1 className={styles.title}>{promotion.title}</h1>
         <h2 className={styles.subtitle}>{promotion.subtitle}</h2>
         <img 

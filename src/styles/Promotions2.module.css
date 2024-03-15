@@ -1,22 +1,44 @@
 .container {
     background: #FFFFFF;
-    border-radius: 8px;
+
     display: flex;
     justify-content: center; /* Centers the content horizontally */
     align-items: center; /* Centers the content vertically */
     flex-direction: column;
-   
-    margin-top: 100px;
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
+    margin-top: 50px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
+
+  .promotionsContainer{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    margin: auto;
+
+  }
   .moreDetails {
-    color: red; /* Set the text color to red */
+    color: #B30000; /* Set the text color to red */
     cursor: pointer; /* Changes the cursor to indicate it's clickable */
     text-decoration: underline; /* Optionally, underline to emphasize it's a link */
     margin-top: 10px; /* Spacing from the above paragraph, adjust as needed */
     font-weight: bold; /* Optional: make it bold to stand out */
   }
-
+  .promotionSaleTitle {
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 20px; /* Add some bottom margin to create space */
+    text-align: center; /* Center the text horizontally */
+  
+    color: #000;
+    text-decoration: underline; /* Adds underline */
+    text-decoration-color: #B30000; 
+    margin-top: 25px;
+  }
   .moreDetails:hover {
     text-decoration: none;
   }
@@ -37,6 +59,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 0 0 auto; /* Do not grow, do not shrink, basis is auto */
     width: auto;
+    margin-bottom: 25px;
   }
   
   .promotionImage {

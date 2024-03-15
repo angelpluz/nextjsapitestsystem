@@ -41,6 +41,7 @@ const Promotions2 = () => {
   return (
     <div className={styles.container}>
           <Header />
+          <h2 className={styles.promotionSaleTitle}>โปรโมชั่น โชว์รูม</h2>
       <div className={styles.promotionsContainer}>
         {promotions.map((promo) => (
           <div key={promo.id} className={styles.promotionItem}>
