@@ -45,8 +45,8 @@
     cursor: pointer; /* Changes cursor to pointer to indicate it's clickable */
     text-decoration: none; /* Removes underline from the link */
     transition: background-color 0.3s; /* Smooth transition for background color */
-    margin-left: 25px;
-    margin-top: 5px;
+    margin-left: 25%;
+    margin-top: 20%;
   
   }
   
