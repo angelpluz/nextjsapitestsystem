@@ -314,7 +314,7 @@ const downPaymentPercentageCalc = basePrice > 0
     ))}
   </select>
 
-
+  <h2>เลือก โมเดล</h2>
   {showMockupSelects && (
   <>
     <select disabled className={styles.dropdown}>
@@ -327,7 +327,7 @@ const downPaymentPercentageCalc = basePrice > 0
 
       {selectedSerie && models.length > 0 && (
         <>
-          <h2>เลือก โมเดล</h2>
+       
   <select 
     onChange={handleModelSelect} 
     value={selectedModel || ""} 
@@ -344,10 +344,10 @@ const downPaymentPercentageCalc = basePrice > 0
           
         </>
       )}
-
+    <h2>เลือกสี</h2>
 {selectedModel && colors.length > 0 && (
   <>
-    <h2>เลือกสี</h2>
+
     <div className={styles.colorSelector}>
       {colors.map((color, index) => (
         <button
@@ -380,12 +380,12 @@ const downPaymentPercentageCalc = basePrice > 0
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         onChange={handleCustomDownPaymentChange}
-        placeholder="จำนวนเงินดาว"
+        placeholder="ใส่จำนวนเงิน"
         className={styles.customInput}
       />
     )}
   </div>
-  <h1>จำนวนเงินดาว</h1>
+  <h1>จำนวนเงินดาวน์</h1>
     
   <label htmlFor="downPaymentSelection"></label>
   <select
@@ -437,16 +437,16 @@ const downPaymentPercentageCalc = basePrice > 0
   <div className={`${styles.paymentInfoContainer} relativeParent`}> {/* Add the relativeParent class here */}
   {monthlyPayment !== null && (
     <>
-      <p className={styles.paymentLabel}>Pay per month at:</p>
+      <p className={styles.paymentLabel}>จำนวนต่อเดือน:</p>
       <p className={styles.paymentAmount}>
-        {monthlyPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} baht
+        {monthlyPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท
       </p>
     </>
   )}
   
   {customDownPayment && (
     <>
-      <p className={styles.paymentLabel}>Star Amount:</p>
+      <p className={styles.paymentLabel}>เงินดาวน์เริ่มต้น:</p>
       <p className={styles.paymentAmount}>
         {Number(customDownPayment).toLocaleString('en-US')} ({downPaymentPercentageCalc.toFixed(2)}%)
       </p>
@@ -468,6 +468,15 @@ const downPaymentPercentageCalc = basePrice > 0
      <h1>• โปรแกรมคำนวณนี้ใช้เพื่อประกอบการตัดสินใจเบื้องต้นเท่านั้น ไม่ถือเป็นส่วนหนึ่งของการขอสินเชื่อ หรือเอกสารประกอบสัญญาได้</h1>
 						<h1>• ดอกเบี้ยอาจมีการเปลี่ยนแปลง เงื่อนไขดอกเบี้ยพิเศษกรุณาติดต่อพนักงาน</h1>
     </div>
+
+    {/* <h1 className={styles.tittle1}>ติดต่อเจ้าหน้าที่หรือขอใบเสนอราคา</h1> */}
+      <button
+  className={styles.detailButton1}
+  onClick={() => window.open('https://page.line.me/plh9039k?openQrModal=true', '_blank', 'noopener,noreferrer')}
+>
+ติดต่อเจ้าหน้าที่หรือขอใบเสนอราคา
+</button>
+
     </div>
   );
 };

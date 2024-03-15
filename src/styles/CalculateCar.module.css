@@ -212,7 +212,7 @@
   /* Add additional styles here as needed */
 }
 .selectedButton {
-  border:#e50c0c;
+  border:#d3171774;
   cursor: pointer;
   display: inline-block;
   width: 24px; /* Size of the circle */
@@ -244,7 +244,7 @@
 /* PaymentInfo.module.css */
 .paymentInfoContainer {
   position: relative; /* Set the position relative for absolute child positioning */
-  border: 2px solid red;
+  /* border: 2px solid red; */
   padding: 10px;
   background-color: white;
   text-align: center;
@@ -262,7 +262,32 @@
   font-size: 1em;
   color: black;
 }
+.tittle1 {
+  font-size: 1.2rem; /* Sets a larger font size */
+  color: #333; /* Standard dark grey text */
+  text-align: center; /* Centers the text */
+  margin-top: 1rem; /* Spacing at the top */
+  margin-bottom: 1rem; /* Spacing at the bottom */
+  font-weight: normal; /* Default weight - change as needed */
+  /* border-bottom: 2px solid #B30000; Adds a red underline */
+  display: inline-block; /* Required for border to fit content width */
+  padding-bottom: 0.25rem; /* Spacing between text and underline */
+}
 
+.detailButton1{
+  background-color: #B30000; /* Bootstrap primary color */
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 10%; /* Adjusted padding; 20px top and bottom, 10% left and right */
+  margin-bottom: 20px;
+  width: auto; /* Ensure the width is automatic */
+  display: block; /* To enable margin auto to work */
+
+  
+}
 .insuranceImage {
   top: 0;
   left: 0;

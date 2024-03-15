@@ -27,7 +27,7 @@ const BottomNavigation = () => {
 
   return (
     <nav className={`${styles.bottomNav} ${isBottom ? styles.transparent : ''}`}>
-      <Link href="/CarShowAllPage" passHref>
+      <Link href="/interestcar" passHref>
         <div className={styles.navItem}>
      
           <Image src="/images/buy_2.png" alt="สินเชื่อ" width={84} height={24} />
