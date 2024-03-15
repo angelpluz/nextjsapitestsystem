@@ -45,7 +45,7 @@
     cursor: pointer; /* Changes cursor to pointer to indicate it's clickable */
     text-decoration: none; /* Removes underline from the link */
     transition: background-color 0.3s; /* Smooth transition for background color */
-    margin-left: 8px;
+    margin-left: 25px;
     margin-top: 5px;
   
   }
@@ -101,6 +101,7 @@
   .telephoneNumber {
     /* Add your styles for the telephone number */
     cursor: pointer;
+    color: #000;
   }
   
   .mapButton {
