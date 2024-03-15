@@ -56,7 +56,7 @@ const LocationAllPage = () => {
                 className={styles.mapButton}
               >
                 {/* SVG or Icon for the map button */}
-                View on Map
+                ดูแผนที่
               </button>
             </div>
           ))}
