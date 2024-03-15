@@ -16,6 +16,7 @@
     text-decoration-color: #B30000; /* Sets underline color to red */
     font-size: 24px; /* Larger font size */
     font-weight: normal; /* Normal text, no bold */
+    color: #000000;
   }
   .jobDetailContainer p {
     font-size: 16px;
