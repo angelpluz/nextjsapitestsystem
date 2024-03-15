@@ -10,6 +10,35 @@
     align-items: flex-end;
 
   }
+  /* .showMoreButton{
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 1px 12px;
+    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 0.8em;
+    color: #000;
+    font-weight: 500;
+  } */
+
+  .showMoreButton {
+    align-items: center;
+    padding: 1px 2px;
+    background-color: #B30000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 0px;
+    text-align: center;
+  }
+
+  .showMoreButton:hover {
+    background-color: #B30000;
+    align-items: center;
+  }
+
   .callButton {
     margin-top: 8px;
     background-color: #d9d6d6;

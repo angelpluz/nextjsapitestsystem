@@ -18,6 +18,7 @@
     padding: 20px;
     /* Add more styling as needed */
     color: #000;
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
   }
   .serviceImage {
     width: 100%;

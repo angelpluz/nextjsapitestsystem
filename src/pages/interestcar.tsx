@@ -10,9 +10,7 @@ const InterestCar = () => {
   const router = useRouter(); // Initialize the useRouter hook
 
   // Handler to redirect to the CarShowAllPage
-  const handleGoToCarShowAllPage = (seriesId) => {
-    router.push(`/carseries/${seriesId}`);
-  };
+
 
   // Handler to open LINE contact page
   const handleOpenLineContact = () => {
@@ -41,6 +39,14 @@ const InterestCar = () => {
 >
   ใบเสนอราคา
 </button>
+
+
+<h1 className={styles.tittle1}>ค้นหา สาขาใกล้บ้าน</h1>
+<Link href="/LocationAll">
+  <button className={styles.detailButton1}>
+    สนใจคลิ๊ก
+  </button>
+</Link>
     </div>
     <ContactEnd />
   </div>

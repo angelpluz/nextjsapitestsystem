@@ -5,7 +5,7 @@
     max-width: auto;
    background-color: white;
     margin-top: 50px;
-    border-top: 2px solid #B30000; /* ปรับขนาดและสีตามต้องการ */
+    border-top: 5px solid #B30000; /* ปรับขนาดและสีตามต้องการ */
    
   }
   .title{
@@ -45,7 +45,7 @@
     cursor: pointer; /* Changes cursor to pointer to indicate it's clickable */
     text-decoration: none; /* Removes underline from the link */
     transition: background-color 0.3s; /* Smooth transition for background color */
-    margin-left: 15px;
+    margin-left: 8px;
     margin-top: 5px;
   
   }

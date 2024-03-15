@@ -6,6 +6,7 @@
 
 .organizationContainer {
   background-color: #ffffff;
+  border-top: 5px solid #B30000; /* Adds a red border to the top */
     /* Container styles */
   }
   
@@ -36,6 +37,7 @@
   .redHeading {
     color: red; /* Set the text color to red */
     font-size: 18px; /* Resize the text to 18 pixels */
+    
     /* Add any additional styling you need here */
   }
 

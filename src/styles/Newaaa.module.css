@@ -1,9 +1,10 @@
 .container {
     background: #FFFFFF;
-    border-radius: 8px;
+   
     margin-top: 50px;
    
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
   }
   .title{
     margin-top: 70px;

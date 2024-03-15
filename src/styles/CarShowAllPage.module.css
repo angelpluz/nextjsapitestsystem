@@ -13,8 +13,9 @@
     padding: 20px;
     margin: 20px auto; /* Centered the container */
     border: 1px solid #ddd;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     background-color: #ffffff;
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
   }
   
   .typeHeader {

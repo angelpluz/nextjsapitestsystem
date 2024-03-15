@@ -13,8 +13,9 @@
    
    padding: 20px;
     background: #fff;
-    border-radius: 8px;
+
     color: #000;
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
   
   }
   
