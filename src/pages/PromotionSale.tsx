@@ -13,7 +13,7 @@ const PromotionSale = () => {
     const fetchPromotions = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('http://192.169.12.196/api/promotions/1');
+        const response = await fetch('http://110.78.166.170/api/promotions/1');
         const data = await response.json();
         if (data.success) {
           setPromotions(data.data);
@@ -42,7 +42,7 @@ const PromotionSale = () => {
           <Link href={`/promotiondetail/${promo.id}`} key={promo.id}>
             <div className={styles.promotionItem}>
               <img 
-                src={`http://192.169.12.196/webp/imgPromotion/${promo.thumbnail}`} 
+                src={`http://110.78.166.170/webp/imgPromotion/${promo.thumbnail}`} 
                 alt={promo.title}
                 className={styles.promotionImage}
               />
