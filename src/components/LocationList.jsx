@@ -18,13 +18,29 @@ const LocationList = () => {
 
   const displayedLocations = showAll ? locations : locations.slice(0, 4);
   const toggleShowAll = () => setShowAll(!showAll);
+  useEffect(() => {
+    // Reset animation
+    displayedLocations.forEach((_, index) => {
+      const element = document.getElementById(`location-item-${index}`);
+      if (element) {
+        element.style.animation = 'none';
+        setTimeout(() => {
+          element.style.animation = '';
+        }, 10); // Trigger reflow to restart animation
+      }
+    });
+  }, [displayedLocations]);
 
   return (
     <div className={styles.container}>
       <h2 className={styles.header}>โชว์รูม</h2>
       <ul>
-        {displayedLocations.map((location) => (
-          <li key={location.website_seq} className={styles.listItem}>
+        {displayedLocations.map((location, index) => (
+        <li 
+        key={location.website_seq} 
+        id={`location-item-${index}`}
+        className={styles.listItem}
+      >
             <div className={styles.locationInfo}>
               <a href={`/showroom/${location.id}`} className={styles.locationTitle}>
                 {location.website_name}
@@ -43,7 +59,7 @@ const LocationList = () => {
                 <FontAwesomeIcon icon={faPhone} color="black" />
                 &nbsp;&nbsp; <span className={styles.phoneNumber}>{location.tel}</span>
               </a>
-              <a href={location.website_link} // Use the 'link' property directly from the API response
+              <a href={location.website_link} 
                  className={styles.mapButton} 
                  target="_blank"
                  rel="noopener noreferrer">
@@ -60,6 +76,7 @@ const LocationList = () => {
       )}
     </div>
   );
+  
 };
 
 export default LocationList;
