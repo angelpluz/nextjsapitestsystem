@@ -14,7 +14,7 @@ const ModelDetailPage = () => {
   useEffect(() => {
     if (id) {
       setIsLoading(true);
-      fetch(`http://toyotathonburi.co.th/api/model/${id}`)
+      fetch(`http://110.78.166.170/api/model/${id}`)
         .then((response) => response.json())
         .then((data) => {
           setIsLoading(false);
@@ -81,7 +81,7 @@ const ModelDetailPage = () => {
       </div>
       <div className={styles.carImageContainer}>
         <img
-          src={`http://toyotathonburi.co.th/${srcImgColor}${selectedColor?.filename}`}
+          src={`http://110.78.166.170/${srcImgColor}${selectedColor?.filename}`}
           alt={selectedColor?.colorname || 'Car image'}
         />
       </div>

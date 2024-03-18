@@ -16,7 +16,7 @@ const CareerDetailPage = () => {
 
     const fetchJobDetail = async () => {
       try {
-        const response = await fetch(`http://toyotathonburi.co.th/api/career/${id}`);
+        const response = await fetch(`http://110.78.166.170/api/career/${id}`);
         const data = await response.json();
         if (data && data.success) {
           setJobDetail(data);

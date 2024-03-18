@@ -8,7 +8,7 @@ const LocationList = () => {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    fetch('http://toyotathonburi.co.th/api/locations')
+    fetch('http://110.78.166.170/api/locations')
       .then((response) => response.json())
       .then((data) => {
         setLocations(data.data);

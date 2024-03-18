@@ -9,7 +9,7 @@ const CarTypeSelector = ({ onCategoryChange }) => {
   useEffect(() => {
     const fetchCarTypes = async () => {
       try {
-        const response = await fetch('http://toyotathonburi.co.th/api/typecars');
+        const response = await fetch('http://110.78.166.170/api/typecars');
         const data = await response.json();
         if (data.success) {
           setCarTypes(data.data); // Assuming your API response has a 'data' field with the car types
@@ -44,7 +44,7 @@ const CarTypeSelector = ({ onCategoryChange }) => {
       <div className={styles.carTypeSelectorInner} style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}>
         {carTypes.map((type, index) => (
           <div key={type.id} className={styles.carTypeButton} onClick={() => onCategoryChange(type.name)}>
-            <img src={`http://toyotathonburi.co.th/webp/imgType/${type.imgType}`} alt={type.name} />
+            <img src={`http://110.78.166.170/webp/imgType/${type.imgType}`} alt={type.name} />
             <span>{type.name}</span>
           </div>
         ))}

@@ -61,7 +61,7 @@ const TurnCarPage = () => {
 
     try {
       // Send the form data with the POST request
-      const response = await fetch('http://toyotathonburi.co.th/api/turn-car', { // Update the URL to your endpoint
+      const response = await fetch('http://110.78.166.170/api/turn-car', { // Update the URL to your endpoint
         method: 'POST',
         body: data,
       });

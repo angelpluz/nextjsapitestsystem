@@ -14,7 +14,7 @@ const PromotionDetail = () => {
   useEffect(() => {
     if (!id) return; // Ensure we have an ID before fetching
 
-    fetch(`http://toyotathonburi.co.th/api/promotiondetail/${id}`)
+    fetch(`http://110.78.166.170/api/promotiondetail/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -37,7 +37,7 @@ const PromotionDetail = () => {
         <div>
           <h1 className={styles.title}>{promotion.title}</h1>
           <img 
-            src={`http://toyotathonburi.co.th/${promotion.srcImg}${promotion.thumbnail}`} 
+            src={`http://110.78.166.170/${promotion.srcImg}${promotion.thumbnail}`} 
             alt={promotion.title} 
             className={styles.promotionImage}
           />

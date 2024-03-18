@@ -9,7 +9,7 @@ const CarShowAllPage = () => {
     const [error, setError] = useState(null);
     const router = useRouter();
     useEffect(() => {
-        fetch('http://toyotathonburi.co.th/api/typecars_all')
+        fetch('http://110.78.166.170/api/typecars_all')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -51,7 +51,7 @@ const CarShowAllPage = () => {
                                             <h3 className={styles.seriesName}>{series.series_name}</h3>
                                             <img 
                                                 className={styles.seriesImage} 
-                                                src={`http://toyotathonburi.co.th/${series.imgSrc}${series.imgSeries}`} 
+                                                src={`http://110.78.166.170/${series.imgSrc}${series.imgSeries}`} 
                                                 alt={series.series_name} 
                                             />
                                             <p className={styles.seriesPrice}>ราคาเริ่มต้น {series.series_price.toLocaleString()} </p>

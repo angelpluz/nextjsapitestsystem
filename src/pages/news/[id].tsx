@@ -31,7 +31,7 @@ const NewsArticle = ({ article }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params;
-  const res = await fetch(`http://toyotathonburi.co.th/api/news/${id}`);
+  const res = await fetch(`http://110.78.166.170/api/news/${id}`);
   const article = await res.json();
 
   return {

@@ -5,18 +5,18 @@ const CategoryCar = () => {
   const [carTypes, setCarTypes] = useState([]);
   const [selectedType, setSelectedType] = useState('all'); // 'all' หรืออาจเริ่มต้นด้วยประเภทรถที่เฉพาะเจาะจง
   const [imageBasePath, setImageBasePath] = useState('');
-// http://toyotathonburi.co.th/api/salesmandata/search/109A1M
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const url = selectedType === 'all'
-          ? 'http://toyotathonburi.co.th/api/typescars'
-          : `hhttp://toyotathonburi.co.th/api/typescars/${selectedType}`;
+          ? 'http://110.78.166.170/api/typescars'
+          : `hhttp://110.78.166.170/api/typescars/${selectedType}`;
         const response = await fetch(url);
         const data = await response.json();
         if (data && data.success) {
           setCarTypes(data.data);
-          setImageBasePath('http://toyotathonburi.co.th/webp/ismgType/');
+          setImageBasePath('http://110.78.166.170/webp/ismgType/');
         }
       } catch (error) {
         console.error('Error fetching car types:', error);

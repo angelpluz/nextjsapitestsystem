@@ -9,7 +9,7 @@ const SlideComponent = () => {
 
   useEffect(() => {
     // Fetch slides data
-    fetch(`http://toyotathonburi.co.th/api/slides`)
+    fetch(`http://110.78.166.170/api/slides`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -48,7 +48,7 @@ const SlideComponent = () => {
         {slides.map((slide, index) => (
           <SplideSlide key={index} role="tabpanel">
              <div className={styles.slideContent}>
-              <img src={`http://toyotathonburi.co.th/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
+              <img src={`http://110.78.166.170/${slide.srcImgColor}${slide.mobile}`} alt={slide.description} />
               <button className={styles.detailButton}>รายละเอียด</button>
             </div>
           </SplideSlide>

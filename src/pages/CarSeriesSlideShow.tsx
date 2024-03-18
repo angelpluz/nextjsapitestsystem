@@ -10,7 +10,7 @@ const CarSeriesSlideShow = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://toyotathonburi.co.th/api/series')
+    fetch('http://110.78.166.170/api/series')
       .then(response => {
         if (!response.ok) {
           throw new Error(`API response status: ${response.status}`);
@@ -63,7 +63,7 @@ const CarSeriesSlideShow = () => {
           <SplideSlide key={car.id} className={currentIndex === index ? styles.activeSlide : styles.slide}>
             <Link href={`/carseries/${car.id}`} passHref>
               <img
-                src={`http://toyotathonburi.co.th/webp/imgThumbnail/${car.imgThumbnail}`}
+                src={`http://110.78.166.170/webp/imgThumbnail/${car.imgThumbnail}`}
                 alt={car.name}
                 className={currentIndex === index ? `${styles.activeImage} ${styles.yourImageClass}` : styles.yourImageClass}
               />

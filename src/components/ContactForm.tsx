@@ -62,7 +62,7 @@ export default function ContactForm() {
     }
 
     try {
-      const response = await fetch('http://toyotathonburi.co.th/api/contact', {
+      const response = await fetch('http://110.78.166.170/api/contact', {
         method: 'POST',
         body: data,
       });

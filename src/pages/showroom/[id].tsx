@@ -11,7 +11,7 @@ const ShowroomPage = () => {
   
   useEffect(() => {
     if (id) {
-      fetch(`http://toyotathonburi.co.th/api/locations/${id}`)
+      fetch(`http://110.78.166.170/api/locations/${id}`)
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
@@ -29,7 +29,7 @@ const ShowroomPage = () => {
   }
 
 
-  const bannerUrl = `http://toyotathonburi.co.th/${showroomData.bannerShowroom}${showroomData.banner}`;
+  const bannerUrl = `http://110.78.166.170/${showroomData.bannerShowroom}${showroomData.banner}`;
   
   return (
     <div className={styles.container}>
@@ -61,7 +61,7 @@ const ShowroomPage = () => {
       {/* Render the additional images */}
       {showroomData.cardImage && showroomData.cardImage.map((card) => (
         <div key={card.id}>
-          <img src={`http://toyotathonburi.co.th/${showroomData.cardShowroom}${card.filename}`} 
+          <img src={`http://110.78.166.170/${showroomData.cardShowroom}${card.filename}`} 
                alt={card.description} 
                className={styles.cardImage} />
           <p className={styles.cardDescription}>{card.description}</p>

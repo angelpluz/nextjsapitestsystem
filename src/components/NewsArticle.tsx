@@ -12,7 +12,7 @@ const NewsArticle = () => {
     const fetchNews = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('http://toyotathonburi.co.th/api/news');
+        const response = await fetch('http://110.78.166.170/api/news');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -53,7 +53,7 @@ const NewsArticle = () => {
       {news.thumbnail && (
         <img
           className={styles.image}
-          src={`http://toyotathonburi.co.th/${news.srcImg}${news.thumbnail}`}
+          src={`http://110.78.166.170/${news.srcImg}${news.thumbnail}`}
           alt={news.title}
         />
       )}

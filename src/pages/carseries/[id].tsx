@@ -95,7 +95,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
               {carSeries.gallery[activeTab].map((image, index) => (
                 <SplideSlide key={index}>
                   <img
-                    src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+                    src={`http://110.78.166.170/${carSeries.srcGallery}${image.filename}`}
                     alt={`${activeTab} image ${index + 1}`}
                     className={styles.fullWidthImage}
                   />
@@ -125,7 +125,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
       setIsLoading(true);
   
       try {
-        const response = await fetch(`http://toyotathonburi.co.th/api/series/${id}`);
+        const response = await fetch(`http://110.78.166.170/api/series/${id}`);
         const data = await response.json();
   
         if (data && data.success && data.model && data.model.length > 0) {
@@ -176,7 +176,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
       setIsLoading(true);
   
       try {
-        const response = await fetch(`http://toyotathonburi.co.th/api/series/${id}`);
+        const response = await fetch(`http://110.78.166.170/api/series/${id}`);
         const data = await response.json();
   
         if (data && data.success && data.model && data.model.length > 0) {
@@ -207,7 +207,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
   useEffect(() => {
     const fetchAllSeries = async () => {
       try {
-        const response = await fetch('http://toyotathonburi.co.th/api/series'); // Use the correct endpoint to fetch all series
+        const response = await fetch('http://110.78.166.170/api/series'); // Use the correct endpoint to fetch all series
         const data = await response.json();
         if (data && Array.isArray(data.data)) {
           setAllSeries(data.data); // Assuming 'data.data' is the array with your series
@@ -230,7 +230,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
   useEffect(() => {
     if (!selectedModelId) return;
     setIsLoading(true);
-    fetch(`http://toyotathonburi.co.th/api/model/${selectedModelId}`)
+    fetch(`http://110.78.166.170/api/model/${selectedModelId}`)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.success) {
@@ -272,10 +272,10 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
     return gallery[activeTab].map((image, index) => (
 <img
   key={index}
-  src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+  src={`http://110.78.166.170/${carSeries.srcGallery}${image.filename}`}
   alt={`${activeTab} image ${index + 1}`}
   className={styles.galleryImage}
-  onClick={() => handleImageClick(`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`)}
+  onClick={() => handleImageClick(`http://110.78.166.170/${carSeries.srcGallery}${image.filename}`)}
 />
     ));
   };
@@ -310,7 +310,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
 
      {carSeries && (
         <img
-          src={`http://toyotathonburi.co.th/${carSeries.srcLogo}${carSeries.logo}`}
+          src={`http://110.78.166.170/${carSeries.srcLogo}${carSeries.logo}`}
           alt="Car Series Logo"
           className={styles.logo}
         />
@@ -323,7 +323,7 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
       {selectedColor && (
     <div className={styles.carImageContainer}>
       <img
-        src={`http://toyotathonburi.co.th/${modelDetails.srcImgColor}${selectedColor.filename}`}
+        src={`http://110.78.166.170/${modelDetails.srcImgColor}${selectedColor.filename}`}
         alt={selectedColor.colorname}
         className={styles.carImage}
       />
@@ -451,20 +451,20 @@ const [selectedImageSrc, setSelectedImageSrc] = useState('');
     </div>
     {carSeries.gallery[activeTab] && carSeries.gallery[activeTab].length > 0 && (
             <img
-              src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${carSeries.gallery[activeTab][0].filename}`}
+              src={`http://110.78.166.170/${carSeries.srcGallery}${carSeries.gallery[activeTab][0].filename}`}
               alt={`${activeTab} image 1`}
               className={styles.fullWidthImage} // Ensure this class is defined in your CSS
-              onClick={() => handleImageClick(`http://toyotathonburi.co.th/${carSeries.srcGallery}${carSeries.gallery[activeTab][0].filename}`)}
+              onClick={() => handleImageClick(`http://110.78.166.170/${carSeries.srcGallery}${carSeries.gallery[activeTab][0].filename}`)}
             />
           )}
     <div className={styles.galleryGrid}>
             {carSeries.gallery[activeTab]?.slice(1).map((image, index) => ( // Use slice to skip the first image
               <img
                 key={index}
-                src={`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`}
+                src={`http://110.78.166.170/${carSeries.srcGallery}${image.filename}`}
                 alt={`${activeTab} image ${index + 2}`} // Start from image 2
                 className={styles.galleryImage}
-                onClick={() => handleImageClick(`http://toyotathonburi.co.th/${carSeries.srcGallery}${image.filename}`)}
+                onClick={() => handleImageClick(`http://110.78.166.170/${carSeries.srcGallery}${image.filename}`)}
               />
             ))}
           </div>

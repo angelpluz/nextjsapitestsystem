@@ -11,7 +11,7 @@ const NewsPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://toyotathonburi.co.th/api/newsall')
+    fetch('http://110.78.166.170/api/newsall')
       .then(response => response.json())
       .then(data => {
         if (data && data.success) {
@@ -44,7 +44,7 @@ const NewsPage = () => {
         {news.map(item => (
           <Link href={`/news/${item.id}`} key={item.id}>
             <div className={styles['news-item']}>
-              <img src={`http://toyotathonburi.co.th/${item.srcImg}${item.thumbnail}`} alt={item.title} className={styles['news-image']}/>
+              <img src={`http://110.78.166.170/${item.srcImg}${item.thumbnail}`} alt={item.title} className={styles['news-image']}/>
               <h2 className={styles['news-title']}>{item.title}</h2>
               <p className={styles['news-subtitle']}>{item.subtitle}</p>
               {/* Add more content as needed */}

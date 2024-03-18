@@ -18,7 +18,7 @@ const LocationAllPage = () => {
     const [locations, setLocations] = useState<Location[]>([]);
 
     useEffect(() => {
-        fetch('http://toyotathonburi.co.th/api/locations')
+        fetch('http://110.78.166.170/api/locations')
             .then((response) => response.json())
             .then((data) => {
                 if (data.success) {

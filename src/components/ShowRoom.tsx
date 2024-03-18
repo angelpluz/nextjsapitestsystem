@@ -7,7 +7,7 @@ const ShowRoom = () => {
   useEffect(() => {
     const fetchShowrooms = async () => {
       try {
-        const response = await fetch('http://toyotathonburi.co.th/api/showrooms/show');
+        const response = await fetch('http://110.78.166.170/api/showrooms/show');
         const data = await response.json();
         if (data && data.status) {
           // Assuming the API returns an object with a property 'zone1' that is an array of showrooms

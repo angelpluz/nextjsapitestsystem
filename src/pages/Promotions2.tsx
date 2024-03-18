@@ -13,7 +13,7 @@ const Promotions2 = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch('http://toyotathonburi.co.th/api/promotions/2')
+    fetch('http://110.78.166.170/api/promotions/2')
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
@@ -46,7 +46,7 @@ const Promotions2 = () => {
         {promotions.map((promo) => (
           <div key={promo.id} className={styles.promotionItem}>
             <img
-              src={`http://toyotathonburi.co.th/webp/imgPromotion/${promo.thumbnail}`}
+              src={`http://110.78.166.170/webp/imgPromotion/${promo.thumbnail}`}
               alt={promo.title}
               className={styles.promotionImage}
             />

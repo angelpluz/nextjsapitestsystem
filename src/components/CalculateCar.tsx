@@ -60,7 +60,7 @@ const downPaymentPercentageCalc = basePrice > 0
   useEffect(() => {
     const fetchSeries = async () => {
       try {
-        const response = await fetch('http://toyotathonburi.co.th/api/serieall');
+        const response = await fetch('http://110.78.166.170/api/serieall');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -83,7 +83,7 @@ const downPaymentPercentageCalc = basePrice > 0
 
     const fetchModels = async () => {
       try {
-        const response = await fetch(`http://toyotathonburi.co.th/api/seriemodel/${selectedSerie}`);
+        const response = await fetch(`http://110.78.166.170/api/seriemodel/${selectedSerie}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -106,7 +106,7 @@ const downPaymentPercentageCalc = basePrice > 0
 
     const fetchColors = async () => {
       try {
-        const response = await fetch(`http://toyotathonburi.co.th/api/modelcolor/${selectedModel}`);
+        const response = await fetch(`http://110.78.166.170/api/modelcolor/${selectedModel}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -128,7 +128,7 @@ const downPaymentPercentageCalc = basePrice > 0
 
     const fetchColorDetail = async () => {
       try {
-        const response = await fetch(`http://toyotathonburi.co.th/api/colordetail/${selectedColor}`);
+        const response = await fetch(`http://110.78.166.170/api/colordetail/${selectedColor}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -148,7 +148,7 @@ const downPaymentPercentageCalc = basePrice > 0
     // with series, models, and colors arrays
     const fetchAllData = async () => {
       try {
-        const seriesResponse = await fetch('http://toyotathonburi.co.th/api/serieall');
+        const seriesResponse = await fetch('http://110.78.166.170/api/serieall');
         const seriesData = await seriesResponse.json();
         // Similar fetches for models and colors, then set state with all data
         setSeries(seriesData.series);
@@ -238,7 +238,7 @@ const downPaymentPercentageCalc = basePrice > 0
   const handleColorSelect = async (color: Color) => {
     setSelectedColor(color.id);
     try {
-      const response = await fetch(`http://toyotathonburi.co.th/api/colordetail/${color.id}`);
+      const response = await fetch(`http://110.78.166.170/api/colordetail/${color.id}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -290,7 +290,7 @@ const downPaymentPercentageCalc = basePrice > 0
         <div className={styles.colorDetail}>
          
           <img
-           src={`http://toyotathonburi.co.th/${colorDetail.srcImg}${colorDetail.filename}`}
+           src={`http://110.78.166.170/${colorDetail.srcImg}${colorDetail.filename}`}
             alt={colorDetail.colorname}
             className={styles.colorImage}
           />

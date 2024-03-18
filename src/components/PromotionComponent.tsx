@@ -27,7 +27,7 @@ const PromotionComponent = () => {
     const fetchPromotion = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('http://toyotathonburi.co.th/api/promotion/1');
+        const response = await fetch('http://110.78.166.170/api/promotion/1');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -65,7 +65,7 @@ const PromotionComponent = () => {
         {promotion.srcImg && promotion.thumbnail && (
           <img
             className={styles.image}
-            src={`http://toyotathonburi.co.th/${promotion.srcImg}${promotion.thumbnail}`}
+            src={`http://110.78.166.170/${promotion.srcImg}${promotion.thumbnail}`}
             alt={promotion.title || 'Promotion image'}
           />
         )}
