@@ -31,7 +31,7 @@ const CareersPage = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <img src="/images/aw_hr_0.png" alt="Company History" className={styles.companyImage} /> 
+      <img src="/images/1aw_hr copy_0.png" alt="Company History" className={styles.companyImage} /> 
       <div className={styles.jobListing}>
 
       <h1 className={`${styles.jobHeader} ${styles.redBottomBorder}`}>ร่วมงานกับเรา</h1>

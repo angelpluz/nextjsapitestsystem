@@ -11,18 +11,24 @@ const LocationList = () => {
     fetch('http://110.78.166.170/api/locations')
       .then((response) => response.json())
       .then((data) => {
+        console.log('Fetched data:', data); // Log fetched data
         setLocations(data.data);
       })
-      .catch((error) => console.error('Error:', error));
+      .catch((error) => console.error('Error fetching locations:', error));
   }, []);
 
   const displayedLocations = showAll ? locations : locations.slice(0, 4);
-  const toggleShowAll = () => setShowAll(!showAll);
+  const toggleShowAll = () => {
+    console.log('Toggle show all. Previous state:', showAll);
+    setShowAll(!showAll);
+  };
   useEffect(() => {
+    console.log('Displayed locations updated:', displayedLocations);
     // Reset animation
     displayedLocations.forEach((_, index) => {
       const element = document.getElementById(`location-item-${index}`);
       if (element) {
+        console.log('Animating element:', element);
         element.style.animation = 'none';
         setTimeout(() => {
           element.style.animation = '';

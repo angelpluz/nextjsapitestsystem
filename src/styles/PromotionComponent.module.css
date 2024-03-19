@@ -59,6 +59,11 @@
   display: block; /* Continue displaying as a block */
   padding: 10px 15px 10px 15px; /* Add padding to create the border effect */ 
   box-sizing: border-box; /* Make sure the padding is included in the width calculation */
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05); /* Image grows to 105% of its size */
 }
 
 .description {
@@ -82,5 +87,22 @@
   font-weight: bold;
   font-size: 0.9em;
   font-weight: bold;
+  transition: border-color 0.3s ease, color 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-block; /* Allows the transform property to work properly */
 }
- 
+.button:hover {
+  color: #B30000; /* Text color changes */
+  border-color: #B30000; /* Border color matches the text */
+  animation: wiggle 0.2s ease-in-out;
+}
+
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(60deg);
+  }
+}

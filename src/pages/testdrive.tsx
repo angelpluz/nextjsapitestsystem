@@ -32,7 +32,7 @@ const TestDrivePage = () => {
         <div className={styles.container}>
                <Header />
         <div className={styles.testDriveFormContainer}>
-            <img src="/images/testdrive.jpg" alt="Test Drive" className={styles.topImage} />
+            <img src="/images/testdrive_0.png" alt="Test Drive" className={styles.topImage} />
             <form onSubmit={handleSubmit} className={styles.testDriveForm}>
                 {/* Model Dropdown */}
                 <label htmlFor="model">รุ่นรถที่สนใจ</label>

@@ -80,8 +80,9 @@
     align-items: center;
     justify-content: space-between;
     font-family: 'Kanit', sans-serif;
-    animation: slideInFromRight 0.5s ease-out forwards;
+    animation: slideInFromRight 2s ease-out forwards;
     opacity: 0; 
+  
   }
   
   /* locationzone */
@@ -143,15 +144,21 @@
     font-size: 0.8em;
     color: #000;
     font-weight: 500;
+    transition: box-shadow 0.3s ease; /* Smooth transition for the shadow */
+  }
+  .locationTypes:hover {
+    box-shadow: 0 0 10px rgba(255, 34, 34, 0.5); /* Example with orange color */
   }
 
   @keyframes slideInFromRight {
     0% {
       opacity: 0;
-      transform: translateX(100%);
+      transform: translateX(0%);
     }
     100% {
       opacity: 1;
       transform: translateX(0);
     }
   }
+
+
