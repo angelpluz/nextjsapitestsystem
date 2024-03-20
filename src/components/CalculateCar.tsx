@@ -65,6 +65,7 @@ const downPaymentPercentageCalc = basePrice > 0
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        console.log(data);
         setSeries(data.series);
       } catch (err) {
         setError(err.message);
@@ -88,6 +89,7 @@ const downPaymentPercentageCalc = basePrice > 0
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        console.log(data);
         setModels(data.series);
       } catch (err) {
         setError(err.message);
@@ -95,6 +97,7 @@ const downPaymentPercentageCalc = basePrice > 0
     };
 
     fetchModels();
+
   }, [selectedSerie]);
 
   useEffect(() => {

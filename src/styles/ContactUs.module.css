@@ -86,7 +86,18 @@
   }
   .submitButton:hover {
     background-color: #B30000; /* Bootstrap primary color darken */
+    animation: wiggle 0.2s ease-in-out;
   }
+
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+
   .form input[type='checkbox'] {
     margin-bottom: 0; /* Align with other form elements */
   }

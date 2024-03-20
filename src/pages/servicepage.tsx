@@ -32,7 +32,14 @@ const ServicePage = () => {
     console.log('Form data:', formData);
     // Send formData to your backend/API
   };
-  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const newValue = e.target.type === 'checkbox' ? e.target.checked : value;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
   return (
     <div className={styles.container}>
@@ -269,6 +276,27 @@ const ServicePage = () => {
   className={styles.licensePlateInput} // Apply the CSS module class
   required
 />
+
+{/* test accept checker  */}
+<div className={styles.confirmation}>
+  <div className={styles.checkboxAndLabel}>
+    <input 
+      type="checkbox" 
+      id="additionalConfirmation" 
+      name="additionalConfirmation" 
+      checked={formData.additionalConfirmation || false} 
+      onChange={handleChange} 
+    />
+    <label htmlFor="additionalConfirmation">ข้าพเจ้ายอมรับ</label>
+  </div>
+  <div className={styles.required}>
+  ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
+  </div>
+</div>
+{/* end tag */}
+
+
+
            <button onClick={handleButtonClick} className={styles.submitButton}>
         ส่งข้อมูล
       </button>

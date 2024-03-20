@@ -8,6 +8,7 @@ import CarSeriesSlideShow from './CarSeriesSlideShow';
 import PromotionComponent from '../components/PromotionComponent';
 import NewArticle from '../components/NewsArticle';
 import ContactEnd from '../components/ContactEnd';
+import CookiePopup from '../components/CookiePopup';
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <LocationList />
       <PromotionComponent />
       <NewArticle />
+      <CookiePopup />
       <ContactEnd />
     </div>
   );

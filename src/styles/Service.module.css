@@ -52,6 +52,7 @@
   
   .submitButton:hover {
     background-color: #c9302c; /* A slightly darker red for hover state */
+    animation: wiggle 0.2s ease-in-out;
   }
 
   .dropdownContainer {
@@ -363,4 +364,31 @@
   /* You can also target specific label by id or class if needed */
   #serviceCenterLabel {
     font-weight: bold; /* Makes specific label text bold */
+  }
+
+  .confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px
+  }
+
+   .required {
+    color: red;
+    font-size: 0.8em;
+  }
+
+    .confirmation .checkbox-and-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem; /* Adjust as necessary for space between checkbox/label and note */
+  }
+  
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-20deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
   }

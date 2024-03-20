@@ -66,8 +66,11 @@
     list-style-type: disc; /* This will add the bullet points */
     padding-left: 40px; /* This will add some indentation to your list */
     color: #333;
+    transition: text-shadow 0.3s ease; /* Smooth transition for the text shadow */
   }
-  
+  .historyContainer ul:hover {
+    text-shadow: 2px 2px 4px rgba(255, 34, 34, 0.5); /* Red text shadow for a glowing effect */
+  }
   .historyContainer li {
     line-height: 1.6; /* This will add some space between the list items */
     font-size: 16px; /* This will set the font size, adjust as needed */

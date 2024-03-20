@@ -100,6 +100,13 @@
     display: block; /* To enable margin auto to work */
     margin-left: 25%; /* Auto margin on left */
     margin-right: 25%; /* Auto margin on right */
+    transition: text-shadow 0.3s ease; /* Smooth transition for the text shadow */
+  }
+
+  .submitButton:hover {
+    background-color: #B30000; /* Darken button color on hover */
+    border-color: #B30000; /* Border color matches the text */
+    animation: wiggle 0.2s ease-in-out;
   }
 
   .heading1 {
@@ -113,12 +120,37 @@
     display: inline-block; /* Required for border to fit content width */
     padding-bottom: 0.25rem; /* Spacing between text and underline */
   }
-
-  .submitButton:hover {
-    background-color: #B30000; /* Bootstrap primary color darken */
+  .confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
   }
+
+   .required {
+    color: red;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+  }
+
+    .confirmation .checkbox-and-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem; /* Adjust as necessary for space between checkbox/label and note */
+  }
+
   .form input[type='checkbox'] {
     margin-bottom: 0; /* Align with other form elements */
   }
+
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+
   /* Add additional styles as needed */
   

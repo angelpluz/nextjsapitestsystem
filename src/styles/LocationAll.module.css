@@ -49,7 +49,12 @@
     margin-top: 20%;
   
   }
-  
+ 
+  .mapButton:hover {
+    background-color: #B30000; /* Darken button color on hover */
+    border-color: #B30000; /* Border color matches the text */
+    animation: wiggle 0.2s ease-in-out;
+  }
   .mapButton:hover,
   .mapButton:focus {
     
@@ -87,6 +92,11 @@
     text-overflow: ellipsis;
     height: 3em; /* Adjust based on line height to fit exactly two lines */
     line-height: 1.5em; /* Adjust line height as needed */
+    transition: text-shadow 0.3s ease; /* Smooth transition for the text shadow */
+  }
+
+  .websiteName:hover {
+    text-shadow: 2px 2px 4px rgba(255, 34, 34, 0.5); /* Red text shadow for a glowing effect */
   }
   
   .telephoneContainer {
@@ -96,14 +106,28 @@
   align-items: center; /* Center flex items on the cross axis (vertical) */
   margin: 0; /* Removes any default margin */
   padding: 0; /* Removes any default padding */
+  
   }
   
   .telephoneNumber {
     /* Add your styles for the telephone number */
     cursor: pointer;
     color: #000;
+    transition: text-shadow 0.3s ease; /* Smooth transition for the text shadow */
   }
   
+  .telephoneNumber:hover {
+    text-shadow: 2px 2px 4px rgba(255, 34, 34, 0.5); /* Red text shadow for a glowing effect */
+  }
   .mapButton {
     /* Your existing styles */
+  }
+
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-20deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
   }

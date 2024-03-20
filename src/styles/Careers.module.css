@@ -58,6 +58,13 @@
     border-radius: 5px;
     display: inline-block; /* Allows us to set width */
     width: auto; /* Only as wide as its content */
+
+  }
+
+  .applyButton:hover {
+    background-color: #B30000; /* Darken button color on hover */
+    border-color: #B30000; /* Border color matches the text */
+    animation: wiggle 0.2s ease-in-out;
   }
   /* Assuming you have a CSS module named styles.module.css */
   .jobHeader {
@@ -84,5 +91,15 @@
   @media (max-width: 768px) {
     .jobCard {
       flex-basis: 100%; /* Takes full width on smaller screens */
+    }
+  }
+
+  
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-1deg);
+    }
+    50% {
+      transform: rotate(5deg);
     }
   }

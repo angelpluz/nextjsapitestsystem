@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from '../styles/InsurancePage.module.css'; // Make sure the path to your CSS file is correct
 import ContactEnd from '../components/ContactEnd';
 import Header from '../components/Header';
+
 const InsurancePage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -82,7 +83,21 @@ const handleSubmit = (e) => {
           onChange={handleChange} 
         />
         
-        
+        <div className={styles.confirmation}>
+  <div className={styles.checkboxAndLabel}>
+    <input 
+      type="checkbox" 
+      id="additionalConfirmation" 
+      name="additionalConfirmation" 
+      checked={formData.additionalConfirmation || false} 
+      onChange={handleChange} 
+    />
+    <label htmlFor="additionalConfirmation">ข้าพเจ้ายอมรับ</label>
+  </div>
+  <div className={styles.required}>
+  ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
+  </div>
+</div>
                 
                 {/* ...other form fields... */}
 
@@ -102,6 +117,7 @@ const handleSubmit = (e) => {
               <i className="glyphicon glyphicon-share"></i> www.bspbroker.com
             </a>
           </div>
+        
           <ContactEnd />
         </div>
       );

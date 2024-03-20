@@ -136,10 +136,10 @@ const ContactUs = () => {
       checked={formData.additionalConfirmation || false} 
       onChange={handleChange} 
     />
-    <label htmlFor="additionalConfirmation">ยอมรับ</label>
+    <label htmlFor="additionalConfirmation">ข้าพเจ้ายอมรับตาม</label>
   </div>
   <div className={styles.required}>
-    นโยบายความเป็นส่วนตัว
+  ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
   </div>
 </div>
 
