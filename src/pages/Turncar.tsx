@@ -23,7 +23,14 @@ const TurnCarPage = () => {
       [name]: value,
     });
   };
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const newValue = e.target.type === 'checkbox' ? e.target.checked : value;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
   const handleFileChange = (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files ? Array.from(e.target.files) : [];
     setFileSets(prevFileSets => {
@@ -153,6 +160,21 @@ const TurnCarPage = () => {
         </div>
       ))}
 
+<div className={styles.confirmation}>
+  <div className={styles.checkboxAndLabel}>
+    <input 
+      type="checkbox" 
+      id="additionalConfirmation" 
+      name="additionalConfirmation" 
+      checked={formData.additionalConfirmation || false} 
+      onChange={handleChange} 
+    />
+    <label htmlFor="additionalConfirmation">ข้าพเจ้ายอมรับ</label>
+  </div>
+  <div className={styles.required}>
+  ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
+  </div>
+</div>
       <button type="button" onClick={addImageSet} className={styles.addButton}>
         เพิ่มรูปภาพ
       </button>
@@ -160,7 +182,9 @@ const TurnCarPage = () => {
                 {/* Submit Button */}
                 <button type="submit" className={styles.submitButton}>ส่งข้อมูล</button>
             </form>
-        </div>
+            
+            </div>
+            
         <ContactEnd />
         </div>
     );

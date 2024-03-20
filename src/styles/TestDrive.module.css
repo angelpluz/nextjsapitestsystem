@@ -34,15 +34,16 @@
 }
 
 .testDriveForm label {
-    display: block;
+    /* display: block; */
     margin-bottom: 5px;
     color: #333;
     font-weight: bold;
+    margin-left: 10px;
 }
 
 .testDriveForm input,
 .testDriveForm select {
-    width: 100%;
+    /* width: 100%; */
     padding: 10px;
     margin-bottom: 15px; /* Space between form items */
     border: 1px solid #ddd;
