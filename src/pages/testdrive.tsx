@@ -27,7 +27,14 @@ const TestDrivePage = () => {
         // Handle form submission here
         console.log(formData);
     };
-
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        const newValue = e.target.type === 'checkbox' ? e.target.checked : value;
+        setFormData(prevState => ({
+          ...prevState,
+          [name]: value
+        }));
+      };
     return (
         <div className={styles.container}>
                <Header />
@@ -105,7 +112,22 @@ const TestDrivePage = () => {
                                     <option value="สุขาภิบาล 3">สาขา สุขาภิบาล 3</option>
                                     <option value="ร่มเกล้า">สาขา ร่มเกล้า</option>
                 </select>
-
+                
+                <div className={styles.confirmation}>
+  <div className={styles.checkboxAndLabel}>
+    <input 
+      type="checkbox" 
+      id="additionalConfirmation" 
+      name="additionalConfirmation" 
+      checked={formData.additionalConfirmation || false} 
+      onChange={handleChange} 
+    />
+    <label htmlFor="additionalConfirmation">ข้าพเจ้ายอมรับ</label>
+  </div>
+  <div className={styles.required}>
+  ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
+  </div>
+</div>
                 {/* Submit Button */}
                 <button type="submit" className={styles.submitButton}>ส่งข้อมูล</button>
             </form>
