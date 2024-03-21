@@ -30,7 +30,7 @@ const handleSubmit = (e) => {
         
         <div className={styles.insuranceContainer}>
               <Header />
-          <img src="/images/bsp.jpg" alt="BSP Insurance" className={styles.insuranceImage} />
+          <img src="/images/bsp.png" alt="BSP Insurance" className={styles.insuranceImage} />
           <div className={styles.insuranceContent}>
           <h1 className={styles.heading1}>ต่ออายุประกันภัยรถยนต์</h1>
 
