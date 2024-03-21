@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styles from '../styles/TestDrive.module.css'; // Update with your actual path
 import Header from '../components/Header';
 import ContactEnd from '../components/ContactEnd';
+import Link from 'next/link';
 const TestDrivePage = () => {
     const [formData, setFormData] = useState({
         model: '',
@@ -124,9 +125,11 @@ const TestDrivePage = () => {
     />
     <label htmlFor="additionalConfirmation">ข้าพเจ้ายอมรับ</label>
   </div>
-  <div className={styles.required}>
-  ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
-  </div>
+  <Link href="/PolicyPage" passHref>
+            <div className={styles.required}>
+            ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
+            </div>
+            </Link>
 </div>
                 {/* Submit Button */}
                 <button type="submit" className={styles.submitButton}>ส่งข้อมูล</button>

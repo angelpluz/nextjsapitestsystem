@@ -3,6 +3,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import styles from '../styles/TurnCar.module.css'; // Update with your actual path
 import Header from '../components/Header';
 import ContactEnd from '../components/ContactEnd';
+import Link from 'next/link';
 
 const TurnCarPage = () => {
   const [formData, setFormData] = useState({
@@ -171,9 +172,11 @@ const TurnCarPage = () => {
     />
     <label htmlFor="additionalConfirmation">ข้าพเจ้ายอมรับ</label>
   </div>
-  <div className={styles.required}>
-  ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
-  </div>
+  <Link href="/PolicyPage" passHref>
+            <div className={styles.required}>
+            ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
+            </div>
+            </Link>
 </div>
       <button type="button" onClick={addImageSet} className={styles.addButton}>
         เพิ่มรูปภาพ

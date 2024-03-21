@@ -7,9 +7,10 @@ import Link from 'next/link';
 const PolicyPage = () => {
   return (
     <div className={styles.container}>
+          <Header />
     <div className={styles.policyContainer}>
-    <Header />
-      <h1 className={styles.header}>นโยบายความเป็นส่วนตัวสำหรับผู้แทนจำหน่ายรถยน์[โตโยต้าธนบุรี]</h1>
+
+      <h1 className={styles.header3}>นโยบายความเป็นส่วนตัวสำหรับผู้แทนจำหน่ายรถยน์[โตโยต้าธนบุรี]</h1>
       <div className={styles.textContent}>
       <p className={styles.header1}>บริษัท โตโยต้าธนบุรี จำกัด  เล็งเห็นถึงความสำคัญของการคุ้มครองข้อมูลส่วนบุคคลของท่าน 
       (ตามที่นิยามไว้ด้านล่างนี้) ในนโยบายความเป็นส่วนตัวนี้ ("นโยบายฯ") 

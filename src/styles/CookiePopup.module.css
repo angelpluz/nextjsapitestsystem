@@ -23,6 +23,12 @@
     border-radius: 10px;
     cursor: pointer; /* Add cursor pointer */
   }
+  .navLabel{
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: #B30000;
+  }
   .fadeOut {
     animation: fadeOutEffect 2.0s;
     animation-fill-mode: forwards; /* Keeps the element in the final state of the animation */

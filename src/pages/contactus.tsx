@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from '../styles/ContactUs.module.css'; // Ensure the path to your CSS module is correct
 import Header from '../components/Header';
 import ContactEnd from '../components/ContactEnd';
+import Link from 'next/link';
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -138,9 +139,11 @@ const ContactUs = () => {
     />
     <label htmlFor="additionalConfirmation">ข้าพเจ้ายอมรับตาม</label>
   </div>
-  <div className={styles.required}>
-  ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
-  </div>
+  <Link href="/PolicyPage" passHref>
+            <div className={styles.required}>
+            ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
+            </div>
+            </Link>
 </div>
 
 

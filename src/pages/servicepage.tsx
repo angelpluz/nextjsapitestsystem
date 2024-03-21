@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Service.module.css'; // Adjust the path to your CSS module
 import Header from '../components/Header';
 import ContactEnd from '../components/ContactEnd';
+import Link from 'next/link';
 const ServicePage = () => {
   const currentDate = new Date().toISOString().split('T')[0];
   const [formData, setFormData] = useState({
@@ -289,9 +290,11 @@ const ServicePage = () => {
     />
     <label htmlFor="additionalConfirmation">ข้าพเจ้ายอมรับ</label>
   </div>
+  <Link href="/PolicyPage" passHref>
   <div className={styles.required}>
   ข้อตกลงและนโยบายคุ้มครองข้อมูลส่วนบุคคล ของบริษัทโตโยต้าธนบุรี จำกัด
   </div>
+  </Link>
 </div>
 {/* end tag */}
 
