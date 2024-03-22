@@ -89,10 +89,10 @@ const TurnCarPage = () => {
         <div className={styles.container}>
                 <Header />
         <div className={styles.turnCarFormContainer}>
-            <img src="/images/turncar.jpg" alt="Turn Car" className={styles.topImage} />
+            <img src="/images/sure.png" alt="Turn Car" className={styles.topImage} />
             <form onSubmit={handleSubmit} className={styles.turnCarForm}>
                 {/* Model Dropdown */}
-                <label htmlFor="model">รุ่นรถที่ต้องการคืน</label>
+                <label htmlFor="model">รุ่นรถที่จะนำมา เทิร์น</label>
                 <select id="model" name="model" value={formData.model} onChange={handleInputChange} required>
                 <option value="">เลือกซีรีย์รถ</option>
                                  

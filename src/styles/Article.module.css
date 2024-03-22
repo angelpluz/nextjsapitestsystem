@@ -10,6 +10,10 @@
     margin: auto;
     overflow: hidden;
   }
+    .articleDetailContainer{
+    margin-top: 50px;
+    border-top: 5px solid #B30000;
+    }
   .typeHeader{
     margin-top: 50px;
     border-top: 5px solid #B30000;
