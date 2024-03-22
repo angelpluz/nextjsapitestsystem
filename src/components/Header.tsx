@@ -110,6 +110,9 @@ const Header = () => {
       <Link href="/Turncar" passHref>
         <span className={styles.menuItem}>เทิร์นรถ</span>
       </Link>
+      <Link href="/ArticlePage" passHref>
+        <span className={styles.menuItem}>บทความ</span>
+      </Link>
       <Link href="/careers" passHref>
         <span className={styles.menuItem}>ร่วมงานกับเรา</span>
       </Link>

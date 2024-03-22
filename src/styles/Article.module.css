@@ -1,0 +1,92 @@
+/* Updated styles for ArticlePage component */
+.article {
+    background: #FFFFFF;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 100px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Kanit', sans-serif;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .loading, .error {
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header {
+    font-size: 36px;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    position: relative;
+  }
+  
+  .header::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    height: 4px;
+    background-color: #B30000;
+    width: 120px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+  }
+  
+  .image {
+    display: block;
+    width: 100%; /* Ensure image fills the container */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease;
+  }
+  
+  .image:hover {
+    transform: scale(1.05);
+  }
+  
+  .title, .subtitle {
+    color: #000;
+    padding: 10px 25px;
+    text-align: left;
+  }
+  
+  .title {
+    font-size: 24px;
+    text-decoration: underline;
+    text-decoration-color: #B30000;
+  }
+  
+  .subtitle {
+    color: #333;
+    font-size: 16px;
+    font-weight: 100;
+  }
+  
+  .footer {
+    padding: 10px 25px;
+    text-align: left;
+  }
+  
+  .button {
+    color: #B30000;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+  }
+  
+  .button:hover {
+    color: #ff0000; /* Change to a different red shade if desired */
+  }
+  
+  /* If you have additional elements you want to animate or style differently, 
+  you can add more CSS rules here. */
+  
