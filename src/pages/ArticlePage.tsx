@@ -16,7 +16,7 @@ const ArticlePage = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <h2 className={styles.typeHeader}>{articleData.title}</h2>
+      <h2 className={styles.typeHeader}></h2>
 
       <Article article={articleData} />
       <ContactEnd />

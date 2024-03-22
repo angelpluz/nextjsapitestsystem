@@ -63,8 +63,8 @@ const Header = () => {
 
       </Link>
       <div className={styles.iconContainer}>
-        <img src="/images/searchlogo.png" alt="Search" className={styles.searchIcon} />
-        <img src="/images/newcar.png" alt="New Car" className={styles.newcarIcon} />
+        {/* <img src="/images/searchlogo.png" alt="Search" className={styles.searchIcon} />
+        <img src="/images/newcar.png" alt="New Car" className={styles.newcarIcon} /> */}
         <img src="/images/location.png" alt="Location" className={styles.locationIcon} />
         <button className={styles.menuButton} onClick={toggleMenu} aria-label="Toggle menu">
           <span className={styles.menuLine}></span>

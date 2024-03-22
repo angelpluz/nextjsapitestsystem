@@ -47,7 +47,7 @@ const ArticlePage = () => {
 
   return (
     <article className={styles.article}> 
-     <h2 className={styles.header}>ข่าวสารและกิจกรรม</h2> 
+     <h2 className={styles.header}>บทความ</h2> 
       {article.thumbnail && (
         <img
           className={styles.image}

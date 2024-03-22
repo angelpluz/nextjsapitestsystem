@@ -10,7 +10,10 @@
     margin: auto;
     overflow: hidden;
   }
-  
+  .typeHeader{
+    margin-top: 50px;
+    border-top: 5px solid #B30000;
+  }
   .loading, .error {
     font-size: 18px;
     text-align: center;

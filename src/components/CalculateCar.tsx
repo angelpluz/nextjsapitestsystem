@@ -286,7 +286,7 @@ const downPaymentPercentageCalc = basePrice > 0
 <div className={styles.calculateCarContainercomponent}>
 {
   !isSelectionComplete && (
-    <img src="/images/mix_modelcars.png" alt="Mixed Model Cars" className={styles.insuranceImage1} />
+    <img src="/images/calculate_car_0.png" alt="Mixed Model Cars" className={styles.insuranceImage1} />
   )
 }
   {colorDetail && (

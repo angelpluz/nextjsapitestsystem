@@ -8,7 +8,7 @@ const Organization = () => {
     <div className={styles.container}>
     <div className={styles.organizationContainer}>
             <Header />
-      <img src="/images/showroom_0.png" alt="Company History" className={styles.companyImage} />
+      <img src="/images/aw_ci_0.png" alt="Company History" className={styles.companyImage} />
       <div className={styles.historyContainer}>
       <h1 className={styles.historyContainer1}>ประวัติบริษัท</h1>
      
