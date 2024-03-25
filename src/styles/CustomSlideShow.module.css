@@ -1,0 +1,174 @@
+.header_ {
+    background-color: #ffffff; 
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+  }
+  .header {
+    position: relative; /* Establishes a positioning context for the pseudo-element */
+    font: 2em "Kanit", sans-serif;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center; /* Centers the text */
+    padding-bottom:  10px; /* Space between text and underline */
+    padding-top: 20px; 
+  }
+  
+  .header::after {
+    content: ''; /* Required for pseudo-elements */
+    display: block; /* Makes the pseudo-element behave like a block */
+    margin: 0 auto; /* Centers the block horizontally */
+    height: 4px; /* The thickness of your underline */
+    background-color: #B30000; /* The color of your underline */
+    width: 120px; /* Adjust this to control the width of the underline */
+    position: absolute; /* Positions the pseudo-element relative to the parent */
+    left: 50%; /* Moves the pseudo-element to the center of the parent */
+    transform: translateX(-50%); /* Ensures the pseudo-element is perfectly centered */
+    bottom: 0; /* Positions the pseudo-element at the bottom of the parent */
+  }
+  
+  .centerSlide {
+    transform: scale(1.1); /* Scale the center slide to be larger */
+    z-index: 2; /* Ensure it's above the other slides */
+    opacity: 1; /* Fully visible */
+  }
+  .sideSlide {
+    transform: scale(0.9); /* Scale side slides to be smaller */
+    z-index: 1; /* Below the center slide */
+    opacity: 0.5; /* Less visible */
+  }
+  .slideshowContainer {
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slidesWindow {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform; /* Optimize the animation */
+  }
+  
+  /* Slide default style: full width, hidden, and absolutely positioned */
+  .slide {
+    flex: 0 0 auto; /* Don't grow or shrink */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    width: 27.5%; /* Set width to show three slides at a time */
+    opacity: 0.5;
+    position: relative; /* Keep all slides in the document flow */
+  }
+  .slideshowContainer.adjusted .slidesWindow {
+    transform: translateX(-${currentIndex * 100}%); /* Adjust based on active slide */
+  }
+  
+  /* Active slide style: full width, visible, and relatively positioned */
+  .active {
+    flex: 0 0 auto; /* Don't grow or shrink */
+    width: 33.3333%; /* Adjust width as needed */
+    opacity: 1;
+    z-index: 2; /* Make sure the active slide is on top */
+  }
+  .prevSlide {
+    transform: translateX(-50%);
+    z-index: 1; /* Lower than the active slide */
+  }
+  .slide.active {
+    width: 45%; /* Active slide */
+    z-index: 2;
+    /* Center the active slide */
+  }
+  .nextSlide {
+    transform: translateX(50%);
+    z-index: 1; /* Lower than the active slide */
+  }
+  /* Slide information styling */
+  .slideInfo {
+    text-align: center; /* Center align text */
+    font-size: 24px; /* Larger font size */
+   color: black; /* สีดำสำหรับสไลด์ที่ไม่ใช่ active */
+    transition: color 0.3s ease; /* เพิ่ม transition สำหรับการเปลี่ยนสี */
+  }
+  
+  .slidePrice {
+    text-align: center; /* Center align text */
+    font-size: 1.1em;
+    margin-bottom: 20px; /* Slightly smaller font size than the name */
+  
+  }
+  .slideDetail{
+    text-align: center; /* Center align text */
+    font-size: 1.2em;
+    margin-bottom: 20px; /* Slightly smaller font size than the name */
+  }
+  
+  /* Navigation buttons are absolutely positioned within the slideshowContainer */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Align vertically to the center of the container */
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10; /* Ensure they are above all slides */
+  }
+  .splide__slide {
+    width: 25%;
+    opacity: 0.5; /* Makes non-active slides semi-transparent */
+  }
+  
+  .splide__slide.is-active {
+    width: 50%;
+    opacity: 1 !important; /* Ensures the active slide is fully opaque */
+  }
+  .activeImage {
+    transform: scale(1);
+    transition: transform 0.1s ease-in-out;
+  }
+  .slideInfo,
+  .slidePrice {
+    
+    margin: 0.5rem 0;
+  }
+  .activeSlide {
+    color: #B30000;
+    opacity: 1;
+  }
+  .slide {
+   
+    opacity: 0.5;
+  }
+  /* Ensure the Splide arrows are visible */
+  .splide__arrows {
+    z-index: 10;
+  }
+  
+  
+  /* .dim {
+    opacity: 0.5;
+    transform: scale(0.8);
+  } */
+  .prev {
+    left: 10px; /* Spacing from the left edge */
+  }
+  
+  .next {
+    right: 10px; /* Spacing from the right edge */
+  }
+  @media only screen and (max-width: 600px) {
+    .prev, .next {
+      font-size: 11px;
+      padding: 12px;
+    }
+  }
+  
