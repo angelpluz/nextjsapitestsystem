@@ -1,0 +1,110 @@
+.multiStepFormContainer {
+    /* display: flex; */
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 1rem; /* space between buttons and content */
+  }
+  
+  .stepButton {
+    padding: 10px 35px;
+    margin: 10px; /* space around buttons */
+    border: none;
+    border-radius: 5px;
+    background-color: #B30000;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 20px; /* Rounded corners with a radius of 20px */
+
+  }
+  .stepButtonb {
+    padding: 10px 25px;
+    margin: 10px; /* space around buttons */
+    border: none;
+    border-radius: 5px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 20px; /* Rounded corners with a radius of 20px */
+
+  }
+  
+  .stepButton:hover {
+    background-color: #c9302c; /* a bit lighter red for hover effect */
+  }
+  
+  /* Disable the back button on the first step and next button on the last step */
+  .disabledButton {
+    background-color: #cccccc;
+    cursor: default;
+  }
+  
+  /* Style for the current step indicator, if you want to add one */
+  .stepIndicator {
+    text-align: center;
+    margin-bottom: 1rem; /* space below the step indicator */
+  }
+  
+
+  .stepIndicatorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .step {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    border: 2px solid #B30000; /* Red border */
+    border-radius: 50%; /* Circle */
+    background: #fff; /* White background */
+    color: #B30000; /* Red text */
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0 10px; /* Space on sides */
+    position: relative;
+  }
+  
+  .step.active, .step.completed {
+    background: #B30000; /* Red background */
+    color: #fff; /* White text */
+  }
+  
+  .step::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    width: 20px; /* Line length */
+    height: 3px; /* Line thickness */
+    background-color: #B30000; /* Red */
+    z-index: -1;
+  }
+  
+  .step:first-child::before {
+    content: none; /* No line before the first step */
+  }
+  
+  .step.active::before, .step.completed::before {
+    background-color: #B30000; /* Red */
+  }
+  
+  .stepIndicatorText {
+    font-size: 1rem;
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+  .buttonContainer {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,394 @@
+.container {
+    margin-top: 50px;
+    background-color: #ffffff;
+    color: #000;
+  }
+  .heading1 {
+    font-size: 2rem; /* Sets a larger font size */
+    color: #333; /* Standard dark grey text */
+    text-align: center; /* Centers the text */
+    margin-top: 1rem; /* Spacing at the top */
+    margin-bottom: 1rem; /* Spacing at the bottom */
+    font-weight: normal; /* Default weight - change as needed */
+    border-bottom: 2px solid red; /* Adds a red underline */
+    display: inline-block; /* Required for border to fit content width */
+    padding-bottom: 0.25rem; /* Spacing between text and underline */
+  }
+.serviceContainer {
+    padding: 20px;
+    /* Add more styling as needed */
+    color: #000;
+    border-top: 5px solid #B30000; /* Adds a red border to the top */
+  }
+  .serviceImage {
+    width: 100%;
+    /* Other styling for the image */
+  }
+  
+  .serviceForm {
+    /* Styling for the form */
+  }
+
+  .submitButton {
+    background-color: #B30000; /* Bootstrap 'btn-danger' red color */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    margin-top: 20px; /* Space at the top */
+    margin-bottom: 20px;
+    padding: 10px 20px; /* Padding inside the button */
+    border-radius: 20px; /* Rounded corners with a radius of 20px */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Centered text */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove outline */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle 3D effect */
+    transition: background-color 0.3s ease; /* Transition effect for background color */
+    display: block; /* Will take the full width of the container */
+    margin-left: auto; /* Centers the button */
+    margin-right: auto; /* Centers the button */
+  }
+  
+  
+  .submitButton:hover {
+    background-color: #c9302c; /* A slightly darker red for hover state */
+    animation: wiggle 0.2s ease-in-out;
+  }
+
+  .dropdownContainer {
+    position: relative;
+    margin: 1rem 0;
+  }
+
+
+  
+
+  .customSelect {
+    width: 100%;
+    padding: 8px 12px; /* Reduced padding */
+    font-size: 16px; /* Adjust font size as needed */
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    appearance: none;
+    background-color: #f3f3f3;
+    color: #333333;
+    position: relative;
+    cursor: pointer;
+  }
+  .customSelect:focus {
+    outline: none;
+    border-color: #ffffff; /* Example focus color */
+  }
+
+  .customSelect + .icon {
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 7.5px); /* Adjust this to center the arrow vertically */
+    pointer-events: none; /* Ignore clicks on the arrow icon */
+  }
+  
+  /* Add a red arrow icon using a pseudo-element */
+  .customSelect::after {
+    content: '▼'; /* Add the down arrow icon */
+    font-size: 10px; /* Small font size for the icon */
+    color: #d9534f; /* Red color for the icon */
+    right: 15px; /* Position to the far right */
+    top: calc(50% - 0.5em); /* Center vertically */
+    position: absolute;
+    pointer-events: none; /* Ignore clicks */
+    
+  }
+  .serviceCenterSelect {
+    width: 100%;
+    padding: 8px 12px; /* Reduced padding */
+    font-size: 16px; /* Adjust font size as needed */
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    appearance: none;
+    background-color: #f3f3f3;
+    color: #333333;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .serviceCenterSelect:focus {
+    outline: none; /* Remove the focus outline */
+    border-color: #666666; /* Change border color when the select box is focused */
+  }
+  .dateInput {
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Space between inputs */
+   
+  }
+
+ .timeInput {
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Space between inputs */
+    margin-left: 10%;
+  }
+  
+  /* You might need to adjust the appearance of the caret or dropdown arrow */
+  .dateInput::-webkit-calendar-picker-indicator, .timeInput::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0); /* Transparent */
+ 
+    background-size: contain;
+    cursor: pointer;
+  }
+  
+  .dateInput::-webkit-datetime-edit, .timeInput::-webkit-datetime-edit {
+    padding: 0; /* Remove padding inside the text part */
+  }
+  
+  .dateInput::-webkit-clear-button, .timeInput::-webkit-clear-button {
+    display: none; /* Hide the clear button */
+  }
+  
+  .dateInput::-webkit-inner-spin-button, .timeInput::-webkit-inner-spin-button {
+    display: none; /* Hide the spin button */
+  }
+  
+  .dateInput:focus, .timeInput:focus {
+    outline: none;
+    border-color: #666666; /* Change border color when focused */
+  }
+  .inputField {
+    border: none; /* Remove standard border */
+    border-bottom: 1px solid #000; /* Add bottom border */
+    outline: none; /* Remove focus outline */
+    padding: 8px 0; /* Add some padding */
+    width: 100%; /* Full width */
+  }
+  
+  /* Style the label for better alignment */
+  .label {
+    display: block; /* Make label a block element */
+    margin-bottom: 5px; /* Add some space below the label */
+    color: #000; /* Label text color */
+  }
+  
+  /* Adjust input placeholder color and style if needed */
+  .inputField::placeholder {
+    color: #aaa; /* Placeholder text color */
+    opacity: 1; /* Make sure it's fully visible */
+  }
+  
+  /* Style the input when it is focused */
+  .inputField:focus {
+    border-bottom: 2px solid #555; /* Make bottom border thicker when focused */
+  }
+  /* Add this inside your CSS module */
+  .surnameInput {
+    border: none; /* Remove standard border */
+    border-bottom: 1px solid #000; /* Add bottom border */
+    outline: none; /* Remove focus outline */
+    padding: 8px 0; /* Add some padding */
+    width: 100%; /* Full width */
+  }
+  
+  /* Style the label for better alignment */
+  .surnameLabel {
+    display: block; /* Make label a block element */
+    margin-bottom: 5px; /* Add some space below the label */
+    color: #000; /* Label text color */
+    margin-top: 15px;
+  }
+  
+  /* Adjust input placeholder color and style if needed */
+  .surnameInput::placeholder {
+    color: #aaa; /* Placeholder text color */
+    opacity: 1; /* Make sure it's fully visible */
+  }
+  
+  /* Style the input when it is focused */
+  .surnameInput:focus {
+    border-bottom: 2px solid #555; /* Make bottom border thicker when focused */
+  }
+
+  .telInput {
+    border: none; /* Remove standard border */
+    border-bottom: 1px solid #000; /* Add bottom border */
+    outline: none; /* Remove focus outline */
+    padding: 8px 0; /* Add some padding */
+    width: 100%; /* Full width */
+  }
+  
+  /* Style the label for better alignment */
+  .telLabel {
+    margin-top: 15px;
+    display: block; /* Make label a block element */
+    margin-bottom: 5px; /* Add some space below the label */
+    color: #000; /* Label text color */
+  }
+  
+  /* Adjust input placeholder color and style if needed */
+  .telInput::placeholder {
+    color: #aaa; /* Placeholder text color */
+    opacity: 1; /* Make sure it's fully visible */
+  }
+  
+  /* Style the input when it is focused */
+  .telInput:focus {
+    border-bottom: 2px solid #555; /* Make bottom border thicker when focused */
+  }
+  .emailInput {
+    border: none; /* Remove standard border */
+    border-bottom: 1px solid #000; /* Add bottom border */
+    outline: none; /* Remove focus outline */
+    padding: 8px 0; /* Add some padding */
+    width: 100%; /* Full width */
+  }
+  
+  /* Style the label for better alignment */
+  .emailLabel {
+    display: block; /* Make label a block element */
+    margin-bottom: 5px; /* Add some space below the label */
+    color: #000; /* Label text color */
+    margin-top: 15px;
+  }
+
+  /* Adjust input placeholder color and style if needed */
+  .emailInput::placeholder {
+    color: #aaa; /* Placeholder text color */
+    opacity: 1; /* Make sure it's fully visible */
+  }
+  
+  /* Style the input when it is focused */
+  .emailInput:focus {
+    border-bottom: 2px solid #555; /* Make bottom border thicker when focused */
+  }
+
+  /* Model input styling */
+.modelInput {
+    border: none; /* Removes the standard border */
+    border-bottom: 1px solid #000; /* Adds a bottom border */
+    outline: none; /* Removes the focus outline */
+    padding: 8px 0; /* Adds some padding */
+    width: 100%; /* Sets the input to full width */
+
+  }
+  
+  /* Style the label for better alignment */
+  .modelLabel {
+    display: block; /* Makes label a block element */
+    margin-bottom: 5px; /* Adds some space below the label */
+    color: #000; /* Sets the label text color */
+    margin-top: 15px;
+  }
+  
+  /* Adjust input placeholder color and style if needed */
+  .modelInput::placeholder {
+    color: #aaa; /* Sets the placeholder text color */
+    opacity: 1; /* Ensures it's fully visible */
+  }
+  
+  /* Style the input when it is focused */
+  .modelInput:focus {
+    border-bottom: 2px solid #555; /* Makes bottom border thicker when focused */
+  }
+  /* Kilometres input styling */
+.kilometresInput {
+    border: none; /* Removes the standard border */
+    border-bottom: 1px solid #000; /* Adds a bottom border */
+    outline: none; /* Removes the focus outline */
+    padding: 8px 0; /* Adds some padding */
+    width: 100%; /* Sets the input to full width */
+  }
+  
+  /* Style the label for better alignment */
+  .kilometresLabel {
+    display: block; /* Makes label a block element */
+    margin-bottom: 5px; /* Adds some space below the label */
+    color: #000; /* Sets the label text color */
+    margin-top: 15px;
+  }
+  
+  /* Adjust input placeholder color and style if needed */
+  .kilometresInput::placeholder {
+    color: #aaa; /* Sets the placeholder text color */
+    opacity: 1; /* Ensures it's fully visible */
+  }
+  
+  /* Style the input when it is focused */
+  .kilometresInput:focus {
+    border-bottom: 2px solid #555; /* Makes bottom border thicker when focused */
+  }
+  .licensePlateInput {
+    margin-top: 15px;
+    border: none; /* Removes the standard border */
+    border-bottom: 1px solid #000; /* Adds a bottom border */
+    outline: none; /* Removes the focus outline */
+    padding: 8px 0; /* Adds some padding */
+    width: 100%; /* Sets the input to full width */
+  }
+  
+  /* Style the label for better alignment */
+  .licensePlateLabel {
+    margin-top: 15px;
+    display: block; /* Makes label a block element */
+    margin-bottom: 5px; /* Adds some space below the label */
+    color: #000; /* Sets the label text color */
+  }
+  
+  /* Adjust input placeholder color and style if needed */
+  .licensePlateInput::placeholder {
+    color: #aaa; /* Sets the placeholder text color */
+    opacity: 1; /* Ensures it's fully visible */
+  }
+  
+  /* Style the input when it is focused */
+  .licensePlateInput:focus {
+    border-bottom: 2px solid #555; /* Makes bottom border thicker when focused */
+  }
+  .serviceText {
+    color: #000; /* Sets the text color to black */
+    text-align: center; /* Centers the text horizontally */
+    font-size: 18px; /* Sets the font size to 18 pixels */
+    display: block; /* Makes the element a block element to allow for text-align to work */
+    margin: auto; /* If this is for an element that can have a width, this will center it within its container */
+    width: fit-content; /* Makes the width of the element as wide as its content and allows margin auto to work */
+  }
+  .label {
+    margin-top: 15px;
+    display: block; /* Ensures the label takes up the full width available */
+    margin-bottom: 0.5rem; /* Adds some space below the label */
+    color: #333; /* Dark grey text for better readability */
+    font-size: 1.125rem; /* Larger font size for labels */
+    line-height: 1.5; /* Adjust line height for better readability */
+  }
+  
+  /* You can also target specific label by id or class if needed */
+  #serviceCenterLabel {
+    font-weight: bold; /* Makes specific label text bold */
+  }
+
+  .confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px
+  }
+
+   .required {
+    color: red;
+    font-size: 0.8em;
+  }
+
+    .confirmation .checkbox-and-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem; /* Adjust as necessary for space between checkbox/label and note */
+  }
+  
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-20deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }

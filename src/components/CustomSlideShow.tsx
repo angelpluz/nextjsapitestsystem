@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
-import styles from '../styles/CarSeriesSlideShow.module.css';
+import styles from '../styles/CarsSlideShowCustom.module.css';
 import Link from 'next/link';
 import Header from '../components/Header';
 
@@ -12,6 +12,7 @@ const CarSeriesSlideShow = () => {
   const [activeSeriesId, setActiveSeriesId] = useState(null);
   const [seriesDetails, setSeriesDetails] = useState(null);
   const [selectedModelId, setSelectedModelId] = useState("");
+  const [price, setPrice] = useState(null);
 
   useEffect(() => {
     fetch('http://110.78.166.170/api/series')
@@ -26,6 +27,11 @@ const CarSeriesSlideShow = () => {
           throw new Error('API call was not successful');
         }
         setSeries(data.data);
+        // If the series data is not empty, set the active series to the first one
+        if (data.data.length > 0) {
+          setCurrentIndex(0); // Since array is 0 indexed, first element is at index 0
+          fetchSeriesDetails(data.data[0].id); // Fetch details for the first series
+        }
       })
       .catch(error => {
         setError(error.message);
@@ -35,13 +41,16 @@ const CarSeriesSlideShow = () => {
   // Function to fetch additional details for the active car series
   const fetchSeriesDetails = (activeId) => {
     fetch(`http://110.78.166.170/api/series_2/${activeId}`)
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => {
         if (data.success) {
-          setSeriesDetails(data.model); // Assuming data.model holds the series details
+          setSeriesDetails(data.model);
+          if (data.model && data.model.length > 0) {
+            // Assuming the first model is the default selected
+            setSelectedModelId(data.model[0].id.toString());
+            // If the price is at the same level as model, use the following line
+            setPrice(data.model[0].price); // Update the price for the first model
+          }
         } else {
           throw new Error('Failed to fetch series details');
         }
@@ -65,8 +74,12 @@ const CarSeriesSlideShow = () => {
     }
   };
   const handleModelChange = (event) => {
-    setSelectedModelId(event.target.value);
-    // You could also do more here, like fetch more details based on the selected model ID
+    const modelId = event.target.value;
+    setSelectedModelId(modelId);
+    const selected = seriesDetails.find(model => model.id.toString() === modelId);
+    if (selected) {
+      setPrice(selected.price); // Set the selected model's price
+    }
   };
   if (error) {
     return <p>Error loading car series: {error}</p>;
@@ -78,7 +91,8 @@ const CarSeriesSlideShow = () => {
 
   return (
     <div className={styles.header_}>
-      <Header />
+  
+   
       <h2 className={styles.header}>รุ่นรถยนต์โตโยต้า</h2> {/* Header added here */}
       <Splide
         onMoved={handleSlideChange}
@@ -109,22 +123,37 @@ const CarSeriesSlideShow = () => {
          
             <div className={styles.slideDetails}>
               <h2 className={styles.slidePrice}><b>{car.name}</b></h2>
-              <h3 className={styles.slideDetail}>เริ่มต้น {car.price.toLocaleString()} บาท</h3>
+              {/* <h3 className={styles.slideDetail}>เริ่มต้น {car.price.toLocaleString()} บาท</h3> */}
             </div>
           </SplideSlide>
         ))}
       </Splide>
-      {seriesDetails && (
-        <select value={selectedModelId} onChange={handleModelChange}>
-          <option value="">Select a model</option>
-          {seriesDetails.map((model) => (
-            <option key={model.id} value={model.id}>
-              {model.name}
-            </option>
-          ))}
-        </select>
-      )}
-    </div>
+      <div className="customDropdownWrapper">
+  {seriesDetails && (
+    <select 
+      className="customDropdown" 
+      value={selectedModelId} 
+      onChange={handleModelChange}
+    >
+      <option value="">เลือกรุ่นรถ</option>
+      {seriesDetails.map((model) => (
+        <option key={model.id} value={model.id}>
+          {model.name}
+        </option>
+      ))}
+    </select>
+  )}
+ <div>
+  {selectedModelId && seriesDetails && (
+    <>
+    
+      <p>Price: {price?.toLocaleString()}</p>
+    </>
+  )}
+</div>
+</div>
+</div>
+ 
     
   );
 };
