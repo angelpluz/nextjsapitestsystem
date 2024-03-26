@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { getDistance } from 'geolib'; // Make sure geolib is installed
+import styles from '../styles/Maplocation.module.css';
+
 
 const containerStyle = {
   width: '100%',
@@ -119,10 +121,10 @@ const MapComponent = () => {
             />
           ))}
         </GoogleMap>
-        <button onClick={() => setNearestBranch(userLocation)}>คนหาที่ใกล้ของฉัน</button>
+        <button onClick={() => setNearestBranch(userLocation)} className={styles.price1}>คนหาที่ใกล้ของฉัน</button>
       </LoadScript>
       <select onChange={handleSelectChange} value={selectedBranchId}>
-        <option value="">Select a Branch</option>
+        <option value="">เลือกศูนย์บริการ</option>
         {branches.map(branch => (
           <option key={branch.id} value={branch.id}>
             {branch.website_name}

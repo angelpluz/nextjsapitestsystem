@@ -128,10 +128,11 @@ const CarSeriesSlideShow = () => {
           </SplideSlide>
         ))}
       </Splide>
-      <div className="customDropdownWrapper">
+     
+      <div className={styles.customDropdownWrapper10}>
   {seriesDetails && (
     <select 
-      className="customDropdown" 
+      className={styles.customDropdownWrapper}
       value={selectedModelId} 
       onChange={handleModelChange}
     >
@@ -147,7 +148,7 @@ const CarSeriesSlideShow = () => {
   {selectedModelId && seriesDetails && (
     <>
     
-      <p>Price: {price?.toLocaleString()}</p>
+      <p className={styles.price1}>ราคาเริ่มต้นที่: {price?.toLocaleString()}</p>
     </>
   )}
 </div>

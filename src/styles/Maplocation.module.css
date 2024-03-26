@@ -1,0 +1,23 @@
+/* Maplocation.module.css */
+/* .containerStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  } */
+  
+  .price1 {
+    background-color: #f87f69;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 25%;
+    margin-top: 5%;
+  }
+  
+  .price1:hover {
+    background-color: #ee5454;
+  }
+  
