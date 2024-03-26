@@ -4,6 +4,8 @@ import CustomSlideShow from '../components/CustomSlideShow';
 import MapComponent from '../components/MapComponent';
 import Interestform from '../components/Interestform';
 import styles from '../styles/MultiStepFormPage.module.css'; 
+import Header from '../components/Header';
+import ContactEnd from '../components/ContactEnd';
 
 const MultiStepFormPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -25,7 +27,9 @@ const MultiStepFormPage = () => {
   };
   return (
     <div className={styles.multiStepFormContainer}>
+      <Header />
     {/* Step indicators */}
+    {/* เดียวสร้าง container ใหญ่ ครอบ ให้ใส Header กับ contarct End ได้ ตอนนี้ ถูกครอบโดย Contrainer หลัก ของ muliplyslide  */}
     <div className={styles.stepIndicatorContainer}>
       {[1, 2, 3].map((step) => (
            <div
@@ -55,7 +59,9 @@ const MultiStepFormPage = () => {
         )}
         {/* Include any additional buttons or content here */}
       </div>
+      <ContactEnd />
     </div>
+    
   );
 };
 
