@@ -93,7 +93,7 @@ const CarSeriesSlideShow = () => {
     <div className={styles.header_}>
   
    
-      <h2 className={styles.header}>รุ่นรถยนต์โตโยต้า</h2> {/* Header added here */}
+      <h2 className={styles.header}>เลือกรุ่นที่คุณสนใจ</h2> {/* Header added here */}
       <Splide
         onMoved={handleSlideChange}
         options={{
@@ -148,7 +148,7 @@ const CarSeriesSlideShow = () => {
   {selectedModelId && seriesDetails && (
     <>
     
-      <p className={styles.price1}>ราคาเริ่มต้นที่: {price?.toLocaleString()}</p>
+      <p className={styles.price2}>ราคาเริ่มต้นที่: {price?.toLocaleString()} บาท</p>
     </>
   )}
 </div>

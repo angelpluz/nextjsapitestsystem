@@ -4,15 +4,15 @@
     bottom: 1px;
 
     background: rgb(44, 44, 44);
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 3000; /* Make sure it's above other elements */
   }
   
   .message {
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 12px;
+    margin-bottom: 10px;
     color: white;
   }
   
@@ -24,8 +24,8 @@
     cursor: pointer; /* Add cursor pointer */
   }
   .navLabel{
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
     color: white;
     text-shadow: #B30000;
   }

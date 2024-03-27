@@ -1,28 +1,34 @@
 import React, { useEffect, useState } from 'react'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'; // import faPhone
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import styles from '../styles/PromotionComponent.module.css'; // Make sure this path is correct
+import styles from '../styles/PromotionComponent.module.css'; // Update this path as necessary
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
-// Assuming this is the structure of your promotion data
 interface Promotion {
+  id?: number;
   description?: string;
   srcImg?: string;
   thumbnail?: string;
   title?: string;
+  subtitle?: string;
 }
 
 const PromotionComponent = () => {
   const [promotion, setPromotion] = useState<Promotion | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
-
-  // Function to truncate the description
-  const truncateText = (text = '', length: number): string => {
-    // Provide a default value for text and check for length
-    return text.length > length ? text.slice(0, length) + '...' : text;
-  };
-
+  const controls = useAnimation();
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
   useEffect(() => {
     const fetchPromotion = async () => {
       setIsLoading(true);
@@ -43,6 +49,10 @@ const PromotionComponent = () => {
     fetchPromotion();
   }, []);
 
+  const truncateText = (text = '', length: number) => {
+    return text.length > length ? text.slice(0, length) + '...' : text;
+  };
+
   if (isLoading) {
     return <div className={styles.loading}>Loading...</div>;
   }
@@ -55,34 +65,45 @@ const PromotionComponent = () => {
     return <div className={styles.error}>No promotion data available.</div>;
   }
 
-  // Using the truncateText function with optional chaining to prevent errors
-  const shortDescription = truncateText(promotion.description, 100); // Truncate to 100 characters
+  const shortDescription = truncateText(promotion.description, 100);
+
+  // Animation variant for slide fade in
+  const containerVariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 1 } // Adjust duration for slower animation
+    },
+  };
 
   return (
-    
-    <div className={styles.promotionContainer}>
-       <h2 className={styles.header}>ข้อเสนอพิเศษ</h2> 
-        {promotion.srcImg && promotion.thumbnail && (
-          <img
-            className={styles.image}
-            src={`http://110.78.166.170/${promotion.srcImg}${promotion.thumbnail}`}
-            alt={promotion.title || 'Promotion image'}
-          />
-        )}
+    <motion.div 
+    className={styles.promotionContainer}
+      variants={containerVariants}
+      initial="hidden"
+      animate={controls} // Use the animation controls
+      ref={ref} // Attach the ref from useInVie
+    >
+      <h2 className={styles.header}>ข้อเสนอพิเศษ</h2>
+      {promotion.srcImg && promotion.thumbnail && (
+        <img
+          className={styles.image}
+          src={`http://110.78.166.170/${promotion.srcImg}${promotion.thumbnail}`}
+          alt={promotion.title || 'Promotion image'}
+        />
+      )}
       <h2 className={styles.title}>{promotion.title}</h2>
       <h3 className={styles.subtitle}>{promotion.subtitle}</h3>
       <p>{shortDescription}</p>
-      
-      {/* Implement the button functionality */}
-          
       <div className={styles.footer}>
-      <Link href={`/promotiondetail/${promotion.id}`} key={promotion.id}>
-  <span className={styles.button}>
-    ดูรายละเอียด <FontAwesomeIcon icon={faChevronRight} />
-  </span>
-</Link>
+        <Link href={`/promotiondetail/${promotion.id}`} key={promotion.id}>
+          <span className={styles.button}>
+            ดูรายละเอียด <FontAwesomeIcon icon={faChevronRight} />
+          </span>
+        </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

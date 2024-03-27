@@ -76,7 +76,7 @@ const LocationList = () => {
         ))}
       </ul>
       {locations.length > 4 && (
-        <button onClick={toggleShowAll} className={styles.showMoreButton}>
+       <button onClick={toggleShowAll} className={`${styles.showMoreButton} ${showAll ? styles.active : ''}`}>
           {showAll ? 'แสดงลดลง' : 'แสดงเพิ่มเติม'}
         </button>
       )}

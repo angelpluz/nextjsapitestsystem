@@ -26,8 +26,11 @@ const MultiStepFormPage = () => {
     return "";
   };
   return (
+    <div className={styles.container}>
+            <Header />
     <div className={styles.multiStepFormContainer}>
-      <Header />
+     <p className={styles.title}>สนใจซื้อรถ</p>
+
     {/* Step indicators */}
     {/* เดียวสร้าง container ใหญ่ ครอบ ให้ใส Header กับ contarct End ได้ ตอนนี้ ถูกครอบโดย Contrainer หลัก ของ muliplyslide  */}
     <div className={styles.stepIndicatorContainer}>
@@ -59,9 +62,10 @@ const MultiStepFormPage = () => {
         )}
         {/* Include any additional buttons or content here */}
       </div>
-      <ContactEnd />
+
     </div>
-    
+    <ContactEnd />
+    </div>
   );
 };
 

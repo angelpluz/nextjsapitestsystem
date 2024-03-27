@@ -1,7 +1,25 @@
 .container {
-    margin-top: 50px;
+    margin-top: 20px;
     background-color: #ffffff;
     color: #000;
+
+  }
+
+
+
+
+  .tittle1 {
+    display: flex;
+    font-size: 1.25rem; /* Sets a larger font size */
+    color: #333; /* Standard dark grey text */
+    text-align: center; /* Centers the text */
+    margin-top: 1rem; /* Spacing at the top */
+    margin-bottom: 1rem; /* Spacing at the bottom */
+    font-weight: normal; /* Default weight - change as needed */
+    border-bottom: 2px solid red; /* Adds a red underline */
+    display: inline-block; /* Required for border to fit content width */
+    padding-bottom: 0.25rem; /* Spacing between text and underline */
+    margin-left: 35%;
   }
   .heading1 {
     font-size: 2rem; /* Sets a larger font size */
@@ -14,6 +32,9 @@
     display: inline-block; /* Required for border to fit content width */
     padding-bottom: 0.25rem; /* Spacing between text and underline */
   }
+
+
+
 .serviceContainer {
     padding: 20px;
     /* Add more styling as needed */
@@ -122,6 +143,7 @@
     border-radius: 4px;
     margin-bottom: 10px; /* Space between inputs */
    
+    width: 100%;
   }
 
  .timeInput {

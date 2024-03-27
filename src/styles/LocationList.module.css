@@ -13,21 +13,53 @@
 
 
   .showMoreButton {
-    align-items: center;
-    padding: 1px 2px;
-    background-color: #B30000;
+    position: relative;
+    background-color: #B30000; /* The button's background color */
     color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    margin-top: 0px;
-    text-align: center;
+    overflow: hidden; /* Ensures that pseudo-elements are within the button's box */
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  
+  /* Down arrow */
+  .showMoreButton::after {
+    content: '▼'; /* Unicode for down-pointing triangle */
+    font-size: 24px; /* Size of the arrow */
+    position: absolute;
+    right: 15px; /* Spacing from the right edge of the button */
+    top: 50%;
+    transform: translateY(-50%) scale(1); /* Center vertically and scale up */
+    color: white; /* Arrow color */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Up arrow */
+  .showMoreButton::before {
+    content: '▲'; /* Unicode for up-pointing triangle */
+    font-size: 24px; /* Size of the arrow */
+    position: absolute;
+    right: 15px; /* Spacing from the right edge of the button */
+    top: 50%;
+    transform: translateY(-50%) scale(0); /* Center vertically and scale down */
+    color: white; /* Arrow color */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Rotate arrows on toggle */
+  .showMoreButton.active::after {
+    transform: translateY(-50%) scale(0); /* Scale down the down arrow */
+  }
+  
+  .showMoreButton.active::before {
+    transform: translateY(-50%) scale(1); /* Scale up the up arrow */
   }
 
-  .showMoreButton:hover {
-    background-color: #B30000;
-    align-items: center;
-  }
+
 
   .callButton {
     margin-top: 8px;

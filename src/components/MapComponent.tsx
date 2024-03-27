@@ -6,7 +6,8 @@ import styles from '../styles/Maplocation.module.css';
 
 const containerStyle = {
   width: '100%',
-  height: '400px'
+  height: '400px',
+  marginTop: '10px'
 };
 
 const defaultCenter = {
@@ -104,40 +105,52 @@ const MapComponent = () => {
         googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
         onLoad={handleLoad}
       >
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={nearestBranch}
-          zoom={10}
-        >
-          {loaded && branches.map(branch => (
-            <Marker
-              key={branch.id}
-              position={branch.location}
-              icon={{
-                url: 'images/logo_map.png', // Make sure this path is correct
-                scaledSize: new window.google.maps.Size(30, 30) // Adjust size as needed
-              }}
-              onClick={() => handleMarkerClick(branch.id)}
-            />
-          ))}
-        </GoogleMap>
-        <button onClick={() => setNearestBranch(userLocation)} className={styles.price1}>คนหาที่ใกล้ของฉัน</button>
+        <div className={styles.mapContainer}> {/* Applying container style */}
+        <h2 className={styles.header}>เลือกสาขาที่ใกล้คุณ</h2> 
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={nearestBranch}
+            zoom={10}
+            className={styles.googleMap} // Applying GoogleMap specific style
+          >
+            {loaded && branches.map(branch => (
+              <Marker
+                key={branch.id}
+                position={branch.location}
+                icon={{
+                  url: 'images/logo_map.png',
+                  scaledSize: new window.google.maps.Size(30, 30)
+                }}
+                onClick={() => handleMarkerClick(branch.id)}
+              />
+            ))}
+          </GoogleMap>
+        </div>
+        <button onClick={() => setNearestBranch(userLocation)} className={styles.price1}>
+          ค้นหาที่ใกล้ของฉัน
+        </button>
       </LoadScript>
-      <select onChange={handleSelectChange} value={selectedBranchId}>
-        <option value="">เลือกศูนย์บริการ</option>
-        {branches.map(branch => (
-          <option key={branch.id} value={branch.id}>
-            {branch.website_name}
-          </option>
-        ))}
-      </select>
+      <div className={styles.customDropdownWrapper}> {/* Applying wrapper style */}
+        <select
+          onChange={handleSelectChange}
+          value={selectedBranchId}
+          className={styles.customDropdown} // Applying select style
+        >
+          <option value="">เลือกศูนย์บริการ</option>
+          {branches.map(branch => (
+            <option key={branch.id} value={branch.id}>
+              {branch.website_name}
+            </option>
+          ))}
+        </select>
+      </div>
       {selectedBranch && (
-  <div>
-    {/* Display details from the selectedBranch object */}
-    <p>{selectedBranch.website_name}</p>
-    {/* Add more details as needed */}
-  </div>
-)}
+        <div className={styles.branchDetails}> {/* This assumes you have a branchDetails class */}
+          {/* Display details from the selectedBranch object */}
+          {/* <p>{selectedBranch.website_name}</p> */}
+          {/* Add more details as needed */}
+        </div>
+      )}
     </>
   );
 };

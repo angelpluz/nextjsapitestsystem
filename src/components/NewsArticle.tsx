@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'; // import faPhone
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/NewArticle.module.css'; // Update the import path if necessary
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
 const NewsArticle = () => {
   const [news, setNews] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const { ref, inView } = useInView({
+    threshold: 0.1, // 10% must be visible
+    triggerOnce: true, // Only trigger this animation once
+  });
   useEffect(() => {
     const fetchNews = async () => {
       setIsLoading(true);
@@ -34,7 +40,15 @@ const NewsArticle = () => {
     fetchNews();
   
   }, []);
-
+// Animation variants
+const articleVariants = {
+  hidden: { x: -300, opacity: 0 }, // Start from the left
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 1 }
+  },
+};
   if (isLoading) {
     return <div className={styles.loading}>Loading...</div>;
   }
@@ -48,6 +62,13 @@ const NewsArticle = () => {
   }
 
   return (
+    <motion.article 
+      className={styles.article}
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={articleVariants}
+    > 
     <article className={styles.article}> 
      <h2 className={styles.header}>ข่าวสารและกิจกรรม</h2> 
       {news.thumbnail && (
@@ -69,6 +90,7 @@ const NewsArticle = () => {
 </Link>
       </div>
     </article>
+    </motion.article>
   );
 };
 

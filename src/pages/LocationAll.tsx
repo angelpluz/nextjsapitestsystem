@@ -3,6 +3,7 @@ import styles from '../styles/LocationAll.module.css'; // Make sure to create an
 import Link from 'next/link';
 import Header from '../components/Header';
 import ContactEnd from '../components/ContactEnd';
+import MapComponent from '../components/MapComponent';
 interface Location {
     id: number;
     website_name: string;
@@ -33,6 +34,7 @@ const LocationAllPage = () => {
                <Header />
                <img src="/images/aw_map.png" alt="Company History" className={styles.companyImage} />
                <h1 className={styles.title}>โชว์รูมทั้งหมดของโตโยต้า ธนบุรี</h1>
+               <MapComponent  />
         <div className={styles.locationsGrid}>
           {locations.map((location) => (
             <div key={location.id} className={styles.locationCard}>

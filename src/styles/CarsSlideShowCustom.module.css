@@ -17,6 +17,7 @@
     padding-bottom:  10px; /* Space between text and underline */
 
     margin-top: 50px;
+    
   }
   .header1 {
     position: relative; /* Establishes a positioning context for the pseudo-element */
@@ -206,6 +207,7 @@
     border: 2px solid #ccc; /* เพิ่มเส้นขอบสีเทา */
     border-radius: 10px; /* ปรับขนาดของ border-radius ตามที่ต้องการ */
     margin-left: 20%;
+    text-align: center;
   }
   
 
@@ -215,6 +217,18 @@
 
     font-size: 18px; /* ปรับขนาดตัวอักษรตามที่ต้องการ */
     margin-left: 21%;
+  }
+
+
+  .price2 {
+    margin-top: 20px;
+    position: relative;
+    width: 300px;
+    color: #000000;
+    font-size: 18px; /* ปรับขนาดตัวอักษรตามที่ต้องการ */
+    margin-left: 5%;
+    align-items: center;
+    text-align: center;
   }
   .customDropdownWrapper select {
     width: 100%; /* ตั้งค่าให้ dropdown มีความกว้างเต็มพื้นที่ของ .customDropdownWrapper */
