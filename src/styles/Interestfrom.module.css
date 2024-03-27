@@ -70,11 +70,7 @@
     margin-right: auto; /* Centers the button */
   }
   
-  
-  .submitButton:hover {
-    background-color: #c9302c; /* A slightly darker red for hover state */
-    animation: wiggle 0.2s ease-in-out;
-  }
+
 
   .dropdownContainer {
     position: relative;
@@ -406,11 +402,11 @@
     margin-bottom: 0.25rem; /* Adjust as necessary for space between checkbox/label and note */
   }
   
-  @keyframes wiggle {
+  /* @keyframes wiggle {
     0%, 100% {
       transform: rotate(-20deg);
     }
     50% {
       transform: rotate(10deg);
     }
-  }
+  } */

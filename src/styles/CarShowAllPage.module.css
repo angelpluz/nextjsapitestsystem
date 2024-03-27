@@ -67,9 +67,7 @@
     transition: text-shadow 0.3s ease; /* Smooth transition for the text shadow */
   }
 
-  .seriesName:hover {
-    text-shadow: 2px 2px 4px rgba(255, 34, 34, 0.5); /* Red text shadow for a glowing effect */
-  }
+
   
   .seriesPrice {
     font-size: 14px;
@@ -84,9 +82,6 @@
 
   }
   
-  .seriesPrice:hover {
-    text-shadow: 2px 2px 4px rgba(255, 34, 34, 0.5); /* Red text shadow for a glowing effect */
-  }
 
   .seriesItem:hover {
     box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
@@ -104,11 +99,7 @@
   }
 
    
-  .detailButton:hover {
-    background-color: #B30000; /* Darken button color on hover */
-    border-color: #B30000; /* Border color matches the text */
-    animation: wiggle 0.2s ease-in-out;
-  }
+
   /* Responsive layout for smaller screens */
   @media (max-width: 389px) {
     .seriesItem:not(:first-child) {
@@ -118,11 +109,11 @@
 
   
 
-  @keyframes wiggle {
+  /* @keyframes wiggle {
     0%, 100% {
       transform: rotate(-20deg);
     }
     50% {
       transform: rotate(10deg);
     }
-  }
+  } */

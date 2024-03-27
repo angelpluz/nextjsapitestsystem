@@ -50,11 +50,7 @@
   
   }
  
-  .mapButton:hover {
-    background-color: #B30000; /* Darken button color on hover */
-    border-color: #B30000; /* Border color matches the text */
-    animation: wiggle 0.2s ease-in-out;
-  }
+
   .mapButton:hover,
   .mapButton:focus {
     
@@ -116,18 +112,16 @@
     transition: text-shadow 0.3s ease; /* Smooth transition for the text shadow */
   }
   
-  .telephoneNumber:hover {
-    text-shadow: 2px 2px 4px rgba(255, 34, 34, 0.5); /* Red text shadow for a glowing effect */
-  }
+
   .mapButton {
     /* Your existing styles */
   }
 
-  @keyframes wiggle {
+  /* @keyframes wiggle {
     0%, 100% {
       transform: rotate(-20deg);
     }
     50% {
       transform: rotate(10deg);
     }
-  }
+  } */

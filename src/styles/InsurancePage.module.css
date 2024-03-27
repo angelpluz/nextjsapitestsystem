@@ -103,11 +103,7 @@
     transition: text-shadow 0.3s ease; /* Smooth transition for the text shadow */
   }
 
-  .submitButton:hover {
-    background-color: #B30000; /* Darken button color on hover */
-    border-color: #B30000; /* Border color matches the text */
-    animation: wiggle 0.2s ease-in-out;
-  }
+
 
   .heading1 {
     font-size: 1.75rem; /* Sets a larger font size */
@@ -143,14 +139,14 @@
     margin-bottom: 0; /* Align with other form elements */
   }
 
-  @keyframes wiggle {
+  /* @keyframes wiggle {
     0%, 100% {
       transform: rotate(-5deg);
     }
     50% {
       transform: rotate(10deg);
     }
-  }
+  } */
 
   /* Add additional styles as needed */
   

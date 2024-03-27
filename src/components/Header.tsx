@@ -65,7 +65,9 @@ const Header = () => {
       <div className={styles.iconContainer}>
         {/* <img src="/images/searchlogo.png" alt="Search" className={styles.searchIcon} />
         <img src="/images/newcar.png" alt="New Car" className={styles.newcarIcon} /> */}
+        <Link href="/LocationAll" passHref>
         <img src="/images/location.png" alt="Location" className={styles.locationIcon} />
+        </Link>
         <button className={styles.menuButton} onClick={toggleMenu} aria-label="Toggle menu">
           <span className={styles.menuLine}></span>
           <span className={styles.menuLine}></span>

@@ -106,19 +106,14 @@
     border: 2px solid transparent;
     display: inline-block; /* Allows the transform property to work properly */
   }
-  .button:hover {
-    color: #B30000; /* Text color changes */
-    border-color: #B30000; /* Border color matches the text */
-    animation: wiggle 0.2s ease-in-out;
-  }
-   
-  
 
-  @keyframes wiggle {
+  
+/* 
+   {
     0%, 100% {
       transform: rotate(-30deg);
     }
     50% {
       transform: rotate(60deg);
     }
-  }
+  } */

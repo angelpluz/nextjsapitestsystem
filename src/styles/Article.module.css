@@ -90,9 +90,9 @@
     transition: color 0.3s ease;
   }
   
-  .button:hover {
-    color: #ff0000; /* Change to a different red shade if desired */
-  }
+  /* .button:hover {
+    color: #ff0000; 
+  } */
   
   /* If you have additional elements you want to animate or style differently, 
   you can add more CSS rules here. */

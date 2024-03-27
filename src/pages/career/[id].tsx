@@ -48,7 +48,7 @@ const CareerDetailPage = () => {
         <Header />
       
     <div className={styles.jobDetailContainer}>
-    <img src="/images/aw_hr_0.png" alt="Company History" className={styles.companyImage} />
+    <img src="/images/1aw_hr copy_0.png" alt="Company History" className={styles.companyImage} />
     <h2 className={styles.title}>{jobDetail.position}</h2>
 
       <div className={styles.jobDescriptionContainer}>
