@@ -28,7 +28,7 @@
   
   /* Down arrow */
   .showMoreButton::after {
-    content: '▼'; /* Unicode for down-pointing triangle */
+  
     font-size: 24px; /* Size of the arrow */
     position: absolute;
     right: 15px; /* Spacing from the right edge of the button */
@@ -40,7 +40,7 @@
   
   /* Up arrow */
   .showMoreButton::before {
-    content: '▲'; /* Unicode for up-pointing triangle */
+    
     font-size: 24px; /* Size of the arrow */
     position: absolute;
     right: 15px; /* Spacing from the right edge of the button */

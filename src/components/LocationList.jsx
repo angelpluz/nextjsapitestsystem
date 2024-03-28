@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/LocationList.module.css';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const LocationList = () => {
   const [locations, setLocations] = useState([]);
@@ -76,10 +77,23 @@ const LocationList = () => {
         ))}
       </ul>
       {locations.length > 4 && (
-       <button onClick={toggleShowAll} className={`${styles.showMoreButton} ${showAll ? styles.active : ''}`}>
-          {showAll ? 'แสดงลดลง' : 'แสดงเพิ่มเติม'}
-        </button>
-      )}
+  <button onClick={toggleShowAll} className={`${styles.showMoreButton} ${showAll ? styles.active : ''}`}>
+    {showAll ? (
+      <>
+       
+        <span className={styles.buttonText}>แสดงลดลง</span>
+        <FontAwesomeIcon icon={faChevronUp} />
+      </>
+    ) : (
+      <>
+        
+        <span className={styles.buttonText}>แสดงเพิ่มเติม</span>
+        <FontAwesomeIcon icon={faChevronDown} />
+      </>
+    )}
+  </button>
+)}
+
     </div>
   );
   
