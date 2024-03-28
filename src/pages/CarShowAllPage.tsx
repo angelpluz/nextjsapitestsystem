@@ -9,7 +9,7 @@ const CarShowAllPage = () => {
     const [error, setError] = useState(null);
     const router = useRouter();
     useEffect(() => {
-        fetch('http://110.78.166.170/api/typecars_all')
+        fetch('http://192.169.12.196/api/typecars_all')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

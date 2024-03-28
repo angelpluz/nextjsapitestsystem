@@ -3,6 +3,8 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import styles from '../styles/CarsSlideShowCustom.module.css';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Header from '../components/Header';
 
 const CarSeriesSlideShow = () => {
@@ -13,7 +15,8 @@ const CarSeriesSlideShow = () => {
   const [seriesDetails, setSeriesDetails] = useState(null);
   const [selectedModelId, setSelectedModelId] = useState("");
   const [price, setPrice] = useState(null);
-
+  const [promotion, setPromotion] = useState(null);
+  const [isPromotionSelected, setIsPromotionSelected] = useState(false);
   useEffect(() => {
     fetch('http://110.78.166.170/api/series')
       .then(response => {
@@ -50,6 +53,7 @@ const CarSeriesSlideShow = () => {
             setSelectedModelId(data.model[0].id.toString());
             // If the price is at the same level as model, use the following line
             setPrice(data.model[0].price); // Update the price for the first model
+            fetchPromotionData(activeId);
           }
         } else {
           throw new Error('Failed to fetch series details');
@@ -81,6 +85,27 @@ const CarSeriesSlideShow = () => {
       setPrice(selected.price); // Set the selected model's price
     }
   };
+
+
+  const fetchPromotionData = async (seriesId) => {
+    try {
+      const promoResponse = await fetch(`http://110.78.166.170/api/pro_series/${seriesId}`);
+      const promoData = await promoResponse.json();
+      if (promoData.success && promoData.data.length > 0) {
+        setPromotion(promoData.data[0]);
+      } else {
+        setPromotion(null); // No promotion found for this series
+      }
+    } catch (promoError) {
+      // Handle errors for promotion fetch here
+      console.error(promoError);
+    }
+  };
+
+  const handleCheckboxChange = (event) => {
+    setIsPromotionSelected(event.target.checked);
+    // Perform other actions here if necessary, such as sending data to the backend
+  };
   if (error) {
     return <p>Error loading car series: {error}</p>;
   }
@@ -100,7 +125,7 @@ const CarSeriesSlideShow = () => {
           type: 'loop',
           perMove: 1,
           perPage: 2,
-          height: '15rem',
+          height: '10rem',
           focus: 'center',
           gap: '1rem',
           pagination: false,
@@ -152,6 +177,36 @@ const CarSeriesSlideShow = () => {
     </>
   )}
 </div>
+{promotion && (
+        <div className={styles.promotionContainer}>
+          <h2 className={styles.trapezoidButton}>โปรโมชั่นประจำเดือน</h2>
+          <label className={styles.customCheckboxLabel}>
+        <input
+          type="checkbox"
+          checked={isPromotionSelected}
+          onChange={handleCheckboxChange}
+          className={styles.customCheckbox}
+        />
+        สนใจโปรโมชั่นนี้
+      </label>
+      {isPromotionSelected && <p>คุณได้เลือกโปรโมชั่นนี้</p>}
+<h2 className={styles.title}>{promotion.title}</h2>
+<p className={styles.subtitle}>{promotion.subtitle}</p>
+          <img
+            src={`http://110.78.166.170/${promotion.srcImg}${promotion.thumbnail}`}
+            alt="Promotion"
+          />
+                <div className={styles.footer}>
+        <Link href={`/promotiondetail/${promotion.id}`} key={promotion.id}>
+          <span className={styles.button}>
+            ดูรายละเอียด <FontAwesomeIcon icon={faChevronRight} />
+          </span>
+        </Link>
+      </div>
+          {/* You can add a link or button to the promotion details page if necessary */}
+        </div>
+        
+      )}
 </div>
 </div>
  

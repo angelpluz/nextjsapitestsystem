@@ -6,11 +6,13 @@ import ContactEnd from '../components/ContactEnd';
 import Link from 'next/link';
 
 const TurnCarPage = () => {
+  const currentDate = new Date().toISOString().split('T')[0];
   const [formData, setFormData] = useState({
     model: '',
     fullName: '',
     email: '',
     phoneNumber: '',
+    reservationDate: currentDate,
     // Add any additional fields specific to turning in a car
   });
 
@@ -123,24 +125,50 @@ const TurnCarPage = () => {
                 <label htmlFor="phoneNumber">เบอร์โทรศัพท์</label>
                 <input type="tel" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} required />
 
-                <label htmlFor="preferredDate">วันที่จะเข้ามา เทิร์นรถ</label>
-                  <input 
-                  type="date" 
-                  id="preferredDate" 
-                  name="preferredDate" 
-                  value={formData.preferredDate} 
-                  onChange={handleInputChange} 
-                  required 
-                />
-           <input 
-  type="time" 
-  id="preferredTime" 
-  name="preferredTime" 
-  value={formData.preferredTime} 
-  onChange={handleInputChange} 
-  required 
-  className={styles.timeInput} // Add this line
+                <label htmlFor="reservationDate"className={styles.label}>วันที่จะเข้ามาเทิร์นรถ</label>
+        <input
+  type="date"
+  id="reservationDate"
+  name="reservationDate"
+  value={formData.reservationDate}
+  onChange={handleInputChange}
+  required
+  className={styles.dateInput} // Make sure styles.dateInput matches your actual class name
 />
+
+<label htmlFor="preferredTime">เวลาที่จะเข้ามาเทิร์นรถ</label>
+<select
+  id="preferredTime"
+  name="preferredTime"
+  value={formData.preferredTime}
+  onChange={handleInputChange}
+  required
+  className={styles.timeInput}
+>
+  <option value="">เลือกเวลา</option>
+  <option value="8.30">8.30</option>
+  <option value="9.00">9.00</option>
+  <option value="9.30">9.30</option>
+  <option value="10.00">10.00</option>
+  <option value="10.30">10.30</option>
+  <option value="11.00">11.00</option>
+  <option value="11.30">11.30</option>
+  <option value="12.00">12.00</option>
+  <option value="12.30">12.30</option>
+  <option value="13.00">13.00</option>
+  <option value="13.30">13.30</option>
+  <option value="14.00">14.00</option>
+  <option value="14.30">14.30</option>
+  <option value="15.00">15.00</option>
+  <option value="15.30">15.30</option>
+  <option value="16.00">16.00</option>
+  <option value="16.30">16.30</option>
+  <option value="17.00">17.00</option>
+  <option value="17.30">17.30</option>
+  <option value="18.00">18.00</option>
+  {/* Add additional options here */}
+</select>
+
 <label htmlFor="preferredDate">รูปรถที่จะนำมา เทิร์น</label>
                 {/* Showroom Dropdown */}
               {fileSets.map((fileSet, index) => (

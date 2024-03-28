@@ -257,6 +257,108 @@
     background-color: #fff; /* White background for dropdown options */
     color: #333; /* Standard text color */
   }
+
+  .promotionContainer {
+    background-color: #ffffff; 
+    font-family: 'Kanit', sans-serif;
+    max-width: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* You've set max-width twice, consider removing one */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #d8d8d8; /* Example red border */
+    border-radius: 1px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    padding: 20px; /* Space inside the container */
+  }
+  
+  .title{
+
+    text-align: center; /* Centers the text horizontally */
+    text-decoration: underline; /* Adds underline */
+    text-decoration-color: #B30000; /* Sets underline color to red */
+    font-size: 18px; /* Larger font size */
+    font-weight: normal; /* Normal text, no bold */
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+  
+  .pbtitle {
+    background-color: #B30000; /* Red background */
+    color: white; /* White text */
+    text-align: center; /* Center the text inside */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Bold font weight */
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 4px #8C0000; /* Darker red shadow for 3D effect */
+    margin: 10px 0; /* Margin top and bottom */
+    cursor: pointer; /* Pointer cursor on hover */
+    user-select: none; /* Prevent text selection */
+    display: inline-block; /* Allows applying margin and center align */
+  }
+  
+  /* Button hover state */
+  .pbtitle:hover {
+    background-color: #A30000; /* Slightly lighter red on hover */
+  }
+  
+  /* Shadow effect on hover, simulating the button being pressed */
+  .pbtitle:active {
+    box-shadow: 0 2px #600000; /* Darker red shadow */
+    transform: translateY(2px); /* Push the button down */
+  }
+  .trapezoidButton {
+    background-color: #B30000; /* Red background */
+    color: white; /* White text */
+    padding: 10px 40px; /* Larger padding on the sides */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Bold font weight */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+   /* Trapezoid shape */
+    clip-path: polygon(15% 0%, 100% 0%, 90% 100%, 5% 100%); 
+
+
+    display: inline-block; /* Allows applying margin and centering text */
+    text-align: center; /* Center the text */
+    line-height: normal; /* Normal line height */
+    margin: 10px 0; /* Margin top and bottom */
+    user-select: none; /* Prevent text selection */
+  }
+  
+  .trapezoidButton:hover {
+    background-color: #A30000; /* Slightly lighter red on hover */
+  }
+  
+  .trapezoidButton:active {
+    background-color: #900000; /* Even lighter red when pressed */
+  }
+  .button {
+   margin-top: 10px;
+    color: #B30000; 
+    cursor: pointer;
+    display: block; /* หรือ inline-block ตามที่คุณต้องการ */ 
+    font-weight: bold;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    border: 2px solid transparent;
+    display: inline-block; /* Allows the transform property to work properly */
+  }
+  
+
+  
+  .subtitle {
+    color: #333; /* Darker text color for the subtitle */
+    font-size: 14px; /* Smaller font size for the subtitle */
+    text-align: center; /* Centers the text horizontally */
+    width: 100%; 
+    font-weight: 100;
+  }
   @media only screen and (max-width: 600px) {
     .prev, .next {
       font-size: 11px;
